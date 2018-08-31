@@ -1,0 +1,9 @@
+{
+  "name": "@co-it/ngrx-ducks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "ng-packagr": "^4.1.1"
+  }
+}
