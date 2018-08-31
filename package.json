@@ -1,6 +1,9 @@
 {
-  "name": "root",
+  "name": "co-it",
   "private": true,
+  "scripts": {
+    "build": "lerna run build"
+  },
   "devDependencies": {
     "lerna": "^3.2.1"
   },
