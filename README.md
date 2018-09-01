@@ -8,11 +8,11 @@ These packages is not meant to be used now.
 
 ## NgRx
 
-|                |                 | Description                                                                                   |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------- |
-| [ngrx-ducks]() | [npm-version]() | Easy but explicit handling for Redux actions embracing [OCP].                              |
+|                |                 | Description                                                                             |
+| -------------- | --------------- | --------------------------------------------------------------------------------------- |
+| [ngrx-ducks]() | [npm-version]() | Easy but explicit handling for Redux actions embracing [OCP].                           |
 | [ngrx-immer]() | [npm-version]() | Mutation helpers having the same API as [ngrx/entity] but using [immer] under the hood. |
 
-[OCP]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
+[ocp]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
 [ngrx/entity]: https://github.com/ngrx/platform/blob/master/docs/entity/README.md
 [immer]: https://github.com/mweststrate/immer

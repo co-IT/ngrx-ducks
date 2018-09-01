@@ -6,14 +6,13 @@
 
 ```ts
 // counter.ducks
+export const counterActions = wireUpActions(Counter, counter => {
+  '[Counter] Set to certain value': counter.set,
+  '[Counter] Increment count': counter.increment,
+  '[Counter] Decrement count': counter.decrement
+});
 
-export class Counter implements DuckActions<Counter> {
-  actions = wireUp({
-    '[Counter] Set to certain value': this.set,
-    '[Counter] Increment count': this.increment,
-    '[Counter] Decrement count': this.decrement
-  });
-
+export class Counter {
   set(state: State, payload: number): State {
     return {
       ...state,
@@ -40,28 +39,24 @@ export class Counter implements DuckActions<Counter> {
 ```ts
 // counter.reducer.ts
 
-import { Counter } from 'counter.ducks';
+import { counterActions } from './counter.ducks';
 
 export function reducer(state: State, action: Action) {
-  return createReducerFrom(Counter);
+  return createReducerFrom(counterActions);
 }
 ```
 
 ```ts
 // counter.module.ts
+import { counterActions, Counter } from './counter.ducks';
 
 @NgModule({})
 export class CounterModule {
   imports: [
-    NgrxDucks.register([Counter, Foo, Bla])
-  ],
-  // providers: [
-  //   {
-  //     provide: Counter,
-  //     useFactory(create: CreateDucks) { return create.from(Counter) },
-  //     deps: [CreateDucks]
-  //   }
-  // ]
+    NgrxDucks.register([{
+      duck: Counter, use: counterActions
+    }])
+  ]
 }
 ```
 
