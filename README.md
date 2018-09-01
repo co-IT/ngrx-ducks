@@ -1,3 +1,7 @@
+<div style="margin: auto; width: 300px;">
+  <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.svg" alt="www.co-IT.eu" style="width: 300px;"></a>
+</div>
+
 # Under Construction
 
 These packages is not meant to be used now.
