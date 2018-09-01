@@ -1,6 +1,8 @@
 describe('NgrxDucksModule', () => {
   describe('When a set of DuckActions is registered', () => {
-    it('should provide a set of Ducks', () => {});
+    it('should provide a set of Ducks', () => {
+      expect
+    });
   });
 
   describe('When two sets of DuckActions are registered', () => {

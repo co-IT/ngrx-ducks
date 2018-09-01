@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "ng-packagr"
+    "build": "ng-packagr",
+    "test": "jest"
   },
   "ngPackage": {
     "lib": {
@@ -14,16 +15,42 @@
   "whitelistedNonPeerDependencies": [
     "angular"
   ],
+  "jest": {
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "((\\.|/)(spec))\\.ts$",
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ]
+  },
   "devDependencies": {
+    "@angular/common": "^6.1.6",
     "@angular/compiler": "^6.1.6",
     "@angular/compiler-cli": "^6.1.6",
+    "@angular/core": "^6.1.6",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "jest": "^23.5.0",
     "ng-packagr": "^4.1.1",
+    "rxjs": "^6.3.1",
+    "ts-jest": "^23.1.4",
     "tsickle": "^0.32.1",
     "tslib": "^1.9.3",
-    "typescript": "~2.9.1"
+    "typescript": "~2.9.1",
+    "zone.js": "^0.8.26"
   },
   "peerDependencies": {
     "@angular/common": "^6.1.6",
     "@angular/core": "^6.1.6"
+  },
+  "dependencies": {
+    "@types/jest": "^23.3.1"
   }
 }
