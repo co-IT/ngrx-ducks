@@ -1,5 +1,5 @@
 <div style="margin: auto; width: 300px;">
-  <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.svg" alt="www.co-IT.eu" style="width: 300px;"></a>
+  <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.png" alt="www.co-IT.eu"></a>
 </div>
 
 # Under Construction
