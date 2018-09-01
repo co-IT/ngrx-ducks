@@ -1,6 +1,6 @@
-<div style="margin: auto; width: 300px;">
-  <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.png" alt="www.co-IT.eu"></a>
-</div>
+<p align="center">
+  <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.png" alt="www.co-IT.eu" width="300"></a>
+</p>
 
 # Under Construction
 
