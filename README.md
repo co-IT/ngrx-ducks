@@ -6,8 +6,6 @@
 
 These packages is not meant to be used now.
 
-# co-IT.eu
-
 ## NgRx
 
 |                |                 | Description                                                                                   |
