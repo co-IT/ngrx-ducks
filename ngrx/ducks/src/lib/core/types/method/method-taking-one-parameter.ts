@@ -1,1 +1,1 @@
-export type MethodTakingOneParameter = (a: any) => any;
+export type MethodTakingOneParameter = (slice: any) => any;

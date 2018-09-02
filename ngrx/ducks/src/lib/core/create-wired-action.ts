@@ -7,9 +7,9 @@ import { CaseReducer, WiredAction } from './types';
  * @param actionType the name of the action
  * @param caseReducer the method that is executed if the corresponding action is raised
  */
-export function createWiredAction<Fn>(
+export function createWiredAction<Fn extends CaseReducer<CR>, CR>(
   actionType: string,
-  caseReducer: CaseReducer<Fn>
+  caseReducer: CR
 ): WiredAction<Fn> {
   ensureValideParameters(actionType, caseReducer);
 
@@ -21,7 +21,7 @@ export function createWiredAction<Fn>(
   wiredAction.type = actionType;
   wiredAction.caseReducer = caseReducer;
 
-  return wiredAction as WiredAction<Fn>;
+  return wiredAction;
 }
 
 function ensureValideParameters(actionType: string, caseReducer: any) {
