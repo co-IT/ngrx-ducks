@@ -1,3 +1,4 @@
+import { createWiredAction } from './create-wired-action';
 import { wireUpActions } from './wire-up-actions';
 
 export class Counter {
@@ -26,11 +27,8 @@ describe('WireUpActions', () => {
 
   describe('When methods aka case reducers of a class are wired up', () => {
     it('should create an instance of that class first', () => {
-      const wiredActions = wireUpActions(Counter, counter => ({
-        Action: counter.set
-      }));
-
-      const action = (wiredActions[0] as any)('Hi');
+      const wiredActions = wireUpActions(Counter, { set: 'Action' });
+      const action = wiredActions.set('Hi');
 
       expect(action).toEqual({ payload: 'Hi', type: 'Action' });
     });
