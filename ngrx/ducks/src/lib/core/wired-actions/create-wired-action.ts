@@ -1,5 +1,5 @@
-import { NgrxDucksError } from './ngrx-ducks-error';
-import { CaseReducer, WiredAction } from './types';
+import { CaseReducer, WiredAction } from '../types';
+import { throwIf } from '../validation';
 
 /**
  * Connect an action the corresponding case reducer.
@@ -11,7 +11,7 @@ export function createWiredAction<Fn extends CaseReducer<CR>, CR>(
   actionType: string,
   caseReducer: CR
 ): WiredAction<Fn> {
-  ensureValideParameters(actionType, caseReducer);
+  ensureValidParameters(actionType, caseReducer);
 
   const wiredAction: any = (payload: any) => ({
     type: actionType,
@@ -24,17 +24,11 @@ export function createWiredAction<Fn extends CaseReducer<CR>, CR>(
   return wiredAction;
 }
 
-function ensureValideParameters(actionType: string, caseReducer: any) {
+function ensureValidParameters(actionType: string, caseReducer: any) {
   throwIf(!actionType, `"${actionType}" is no valid action type.`);
   throwIf(
     !caseReducer,
     `Please provide a case reducer for action "${actionType}". ` +
       `Expected a function but found "${caseReducer}".`
   );
-}
-
-function throwIf(condition: boolean, message: string) {
-  if (condition) {
-    throw new NgrxDucksError(message);
-  }
 }

@@ -11,11 +11,11 @@
     "lib": {
       "entryFile": "src/public_api.ts"
     },
-    "dest": "dist"
+    "dest": "dist",
+    "whitelistedNonPeerDependencies": [
+      "angular", "@types/jest"
+    ]
   },
-  "whitelistedNonPeerDependencies": [
-    "angular"
-  ],
   "jest": {
     "testURL": "http://localhost",
     "transform": {
