@@ -1,5 +1,5 @@
-import { SelfDispatchingAction } from './self-dispatching-action';
+import { Duck } from './self-dispatching-action';
 
-export type SelfDispatchingActions<TDucks> = {
-  [TDuck in keyof TDucks]: SelfDispatchingAction<TDucks[TDuck]>
+export type Ducks<TDucks> = {
+  [TDuck in keyof TDucks]: Duck<TDucks[TDuck]>
 };

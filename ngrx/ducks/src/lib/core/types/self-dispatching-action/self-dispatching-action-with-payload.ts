@@ -1,4 +1,4 @@
-export interface SelfDispatchingActionWithPayload<TPayload> {
+export interface DuckWithPayload<TPayload> {
   (payload: TPayload): void;
   plain(
     payload: TPayload

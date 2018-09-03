@@ -1,10 +1,10 @@
-import { SelfDispatchingAction } from '../types';
-import { Store } from '../types/__internal__/';
+import { Ducks } from '../types';
+import { ActionDispatcher } from '../types/__internal__/';
 
 export function createSelfDispatchingAction<TDuck>(
   duck: TDuck,
-  store: Store
-): SelfDispatchingAction<TDuck> {
+  store: ActionDispatcher
+): Ducks<TDuck> {
   const selfDispatchingAction: any = (payload: any) =>
     store.dispatch((duck as any)(payload));
 

@@ -1,10 +1,12 @@
-import { SelfDispatchingActionWithPayload } from './self-dispatching-action-with-payload';
-import { SelfDispatchingActionWithoutPayload } from './self-dispatching-action-without-payload';
-import { ActionCreatorWithoutPayload } from '../action-creator/action-creator-without-payload';
-import { ActionCreatorWithPayload } from '../action-creator/action-creator-with-payload';
+import { CaseReducerWithPayload } from '../case-reducer/case-reducer-with-payload';
+import { CaseReducerWithoutPayload } from '../case-reducer/case-reducer-without-payload';
+import { DuckWithPayload } from './self-dispatching-action-with-payload';
+import { DuckWithoutPayload } from './self-dispatching-action-without-payload';
 
-export type SelfDispatchingAction<T> = T extends ActionCreatorWithoutPayload
-  ? SelfDispatchingActionWithoutPayload
-  : T extends ActionCreatorWithPayload<infer TPayload>
-    ? SelfDispatchingActionWithPayload<TPayload>
-    : never;
+export type Duck<T> = T extends string
+  ? string
+  : T extends CaseReducerWithPayload<infer TSlice, infer TPayload>
+    ? DuckWithPayload<TPayload>
+    : T extends CaseReducerWithoutPayload<infer TSlice>
+      ? DuckWithoutPayload
+      : never;
