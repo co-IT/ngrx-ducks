@@ -2,7 +2,14 @@ import { WiredAction, WiredActions } from '../types';
 import { throwIf } from '../validation';
 import { createWiredAction } from './create-wired-action';
 
-export type WiredActionCandidates<T> = { [K in keyof T]: string };
+type FunctionPropertyNames<T> = {
+  [K in keyof T]: T[K] extends Function ? K : never
+}[keyof T];
+type FunctionProperties<T> = Pick<T, FunctionPropertyNames<T>>;
+
+export type WiredActionCandidates<T> = {
+  [K in keyof FunctionProperties<T>]: string
+};
 export type Constructable<T> = new () => T;
 
 export function wireUpActions<T>(
@@ -12,17 +19,9 @@ export function wireUpActions<T>(
   ensureValidParameters(token, candidates);
 
   const instance = new token();
+  const caseReducers = ducksify(instance, candidates);
 
-  return Object.entries(candidates).reduce(
-    (wiredActions: Partial<WiredAction<T>>, [caseReducerKey, actionType]) => ({
-      ...(wiredActions as object),
-      [caseReducerKey]: createWiredAction(
-        actionType as string,
-        (instance as any)[caseReducerKey]
-      )
-    }),
-    {}
-  ) as WiredActions<T>;
+  return Object.assign(instance, caseReducers) as any;
 }
 
 function ensureValidParameters<T>(
@@ -33,5 +32,18 @@ function ensureValidParameters<T>(
   throwIf(
     !configure,
     'Please configure at least one action having one case reducer.'
+  );
+}
+
+function ducksify<T>(instance: T, candidates: WiredActionCandidates<T>) {
+  return Object.entries(candidates).reduce(
+    (wiredActions: Partial<WiredAction<T>>, [caseReducerKey, actionType]) => ({
+      ...(wiredActions as object),
+      [caseReducerKey]: createWiredAction(
+        actionType as string,
+        (instance as any)[caseReducerKey]
+      )
+    }),
+    {}
   );
 }

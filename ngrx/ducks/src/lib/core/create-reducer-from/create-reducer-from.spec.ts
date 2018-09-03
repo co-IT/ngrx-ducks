@@ -13,7 +13,7 @@ describe('CreateReducerFrom', () => {
       const specActions = wireUpActions<SpecActions>(SpecActions, { set: 'A' });
       const reducer = createReducerFrom(specActions);
 
-      const nextState = reducer('', { type: 'Action', payload: 'Hi' });
+      const nextState = reducer('', { type: 'A', payload: 'Hi' });
 
       expect(nextState).toBe('Hi');
     });

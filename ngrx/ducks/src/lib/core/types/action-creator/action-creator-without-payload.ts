@@ -1,5 +1,3 @@
-export type ActionCreatorWithoutPayload<T> = (
-  state: T
-) => {
+export type ActionCreatorWithoutPayload = () => {
   type: string;
 };

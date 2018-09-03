@@ -13,6 +13,8 @@ export const counterActions = wireUpActions(Counter, counter => {
 });
 
 export class Counter {
+  readonly loadAll = '[Action] Load all';
+
   set(state: State, payload: number): State {
     return {
       ...state,
@@ -48,6 +50,7 @@ export function reducer(state: State, action: Action) {
 
 ```ts
 // counter.module.ts
+
 import { counterActions, Counter } from './counter.ducks';
 
 @NgModule({})
@@ -71,6 +74,26 @@ export class CounterComponent {
 
   initializeCount(count: number) {
     this.actions.increment(count);
+  }
+}
+```
+
+```ts
+// counter.component.ts
+
+import { Counter } from 'counter.ducks';
+
+export class CounterEffects {
+  @Effect() loadAll = actions$.
+   pipe(
+    ofType(this.actions.loadAll),
+    map(payload => this.actions.loadSuccess.plain(payload))
+  )
+
+  constructor(@Inject(Counter) private actions: Ducks<Counter>) {}
+
+  initializeCount(count: number) {
+    this.actions.increment();
   }
 }
 ```
