@@ -10,12 +10,12 @@ type FunctionProperties<T> = Pick<T, FunctionPropertyNames<T>>;
 export type WiredActionCandidates<T> = {
   [K in keyof FunctionProperties<T>]: string
 };
-export type Constructable<T> = new () => T;
+export type Constructable = new (...args: any[]) => any;
 
-export function wireUpActions<T>(
-  token: Constructable<T>,
-  candidates: WiredActionCandidates<T>
-): WiredActions<T> {
+export function wireUpActions<T extends Constructable>(
+  token: T,
+  candidates: WiredActionCandidates<InstanceType<T>>
+): WiredActions<InstanceType<T>> {
   ensureValidParameters(token, candidates);
 
   const instance = new token();

@@ -28,7 +28,7 @@ describe('WireUpActions', () => {
 
   describe('When methods aka case reducers of a class are wired up', () => {
     it('should create an instance of that class first', () => {
-      const wiredActions = wireUpActions<Counter>(Counter, { set: 'Action' });
+      const wiredActions = wireUpActions(Counter, { set: 'Action' });
 
       const action = wiredActions.set('Hi');
 
@@ -39,10 +39,9 @@ describe('WireUpActions', () => {
   describe('When a type provides action names to trigger asynchronous operations', () => {
     it('should preserve these properties', () => {
       const counter = new Counter();
-      const wiredActions = wireUpActions<Counter>(Counter, { set: 'Action' });
+      const wiredActions = wireUpActions(Counter, { set: 'Action', });
 
       expect(counter.triggerEffect).toBe(wiredActions.triggerEffect);
     });
-  })
-
+  });
 });

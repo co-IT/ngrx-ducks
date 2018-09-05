@@ -1,14 +1,20 @@
-import { Ducks } from '../types';
+import { Duck, WiredAction } from '../types';
 import { ActionDispatcher } from '../types/__internal__/';
 
-export function createSelfDispatchingAction<TDuck>(
-  duck: TDuck,
+export type ExtractTypeFromWiredAction<T> = T extends WiredAction<infer U>
+  ? U
+  : never;
+
+export function createSelfDispatchingAction<T>(
+  wiredAction: T,
   store: ActionDispatcher
-): Ducks<TDuck> {
-  const selfDispatchingAction: any = (payload: any) =>
-    store.dispatch((duck as any)(payload));
+): Duck<ExtractTypeFromWiredAction<T>> {
+  const duck: any = (payload: any) =>
+    {
+      console.log('Dispatching', payload)
+      store.dispatch((wiredAction as any)(payload));}
 
-  selfDispatchingAction.plain = duck;
+  duck.plain = wiredAction;
 
-  return selfDispatchingAction;
+  return duck;
 }

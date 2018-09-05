@@ -1,12 +1,10 @@
-import 'zone.js';
-
-import { getTestBed, TestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
 
 import { Ducks, WiredActions } from './core/types';
 import { wireUpActions } from './core/wired-actions/wire-up-actions';
 import { DucksModule } from './ducks.module';
+import { initTestEnvironment } from './test';
 
 export class Counter {
   triggerEffect = 'Async Action';
@@ -19,15 +17,10 @@ export class Counter {
 describe('NgrxDucksModule', () => {
   let wiredActions: WiredActions<Counter>;
 
-  beforeAll(() => {
-    getTestBed().initTestEnvironment(
-      BrowserDynamicTestingModule,
-      platformBrowserDynamicTesting()
-    );
-  });
+  beforeAll(() => initTestEnvironment());
 
   beforeEach(() => {
-    wiredActions = wireUpActions<Counter>(Counter, {
+    wiredActions = wireUpActions(Counter, {
       set: 'Sync Action'
     });
 
@@ -49,9 +42,9 @@ describe('NgrxDucksModule', () => {
   describe('When a set of DuckActions is registered', () => {
     it('should provide a set of Ducks', () => {
       const ducks: Ducks<Counter> = TestBed.get(Counter);
-      console.log(ducks.triggerEffect);
-      console.log(ducks.set('asdasd'));
-      console.log(ducks.set.plain('03784923749'));
+      // console.log(ducks.triggerEffect);
+      // console.log(ducks.set('asdasd'));
+      // console.log(ducks.set.plain('03784923749'));
     });
   });
 

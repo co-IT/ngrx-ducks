@@ -1,11 +1,12 @@
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
-import { Store, StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 import { createSelfDispatchingActions } from './core/self-dispatching-actions/create-self-dispatching-actions';
+import { WiredActions } from './core/types';
 
 export type DucksRegistration = {
   duck: any;
-  use: any;
+  use: WiredActions<any>;
 }[];
 
 @NgModule()
