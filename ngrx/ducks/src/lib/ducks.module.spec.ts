@@ -15,12 +15,12 @@ export class Counter {
 }
 
 describe('NgrxDucksModule', () => {
-  let wiredActions: WiredActions<Counter>;
+  let wiredActions: () => WiredActions<Counter>;
 
   beforeAll(() => initTestEnvironment());
 
   beforeEach(() => {
-    wiredActions = wireUpActions(Counter, {
+    wiredActions = () => wireUpActions(Counter, {
       set: 'Sync Action'
     });
 

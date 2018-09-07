@@ -46,7 +46,7 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
   beforeAll(() => initTestEnvironment());
 
   describe('and ducks are provided', () => {
-    let wiredActions: WiredActions<Counter>;
+    let wiredActions: () => WiredActions<Counter>;
     let initialState: State;
     let counterReducer: (state: State, action: Action) => State;
     let reducers: ActionReducerMap<RootState>;
@@ -55,14 +55,14 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
     let ducks: Ducks<Counter>;
 
     beforeEach(() => {
-      wiredActions = wireUpActions(Counter, {
+      wiredActions = () => wireUpActions(Counter, {
         set: '[Counter] Set',
         add: '[Counter] Add'
       });
 
       initialState = { count: 0 };
       counterReducer = (state = initialState, action: Action) =>
-        createReducerFrom(wiredActions)(state, action);
+        createReducerFrom(wiredActions())(state, action);
 
       reducers = { counter: counterReducer };
 

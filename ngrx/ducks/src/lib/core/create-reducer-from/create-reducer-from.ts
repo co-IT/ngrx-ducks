@@ -1,21 +1,18 @@
 import { WiredActions } from '../types';
 
 export function createReducerFrom<T>(wiredActions: WiredActions<T>) {
-  console.log('before build red', wiredActions);
-
   const reducerFns: { [key: string]: Function } = Object.values(wiredActions)
     .filter((action: any) => typeof action.caseReducer === 'function')
-    .reduce((fns: { [key: string]: Function }, wiredAction: any) => {
-      return {
+    .reduce<{ [key: string]: Function }>(
+      (fns, wiredAction: any) => ({
         ...fns,
         [wiredAction.type]: wiredAction.caseReducer
-      };
-    }, {});
+      }),
+      {}
+    );
 
-  return (slice: any, action: any) => {
-    console.log(reducerFns, slice, action);
-    return !!reducerFns[action.type]
+  return (slice: any, action: any) =>
+    !!reducerFns[action.type]
       ? reducerFns[action.type](slice, action.payload)
       : slice;
-  };
 }

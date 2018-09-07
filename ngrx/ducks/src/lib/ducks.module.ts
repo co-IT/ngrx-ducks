@@ -6,12 +6,12 @@ import { WiredActions } from './core/types';
 
 export type DucksRegistration = {
   duck: any;
-  use: WiredActions<any>;
-}[];
+  use: () => WiredActions<any>;
+};
 
 @NgModule()
 export class DucksModule {
-  static register(ducksRegistration: DucksRegistration): ModuleWithProviders {
+  static register(ducksRegistration: DucksRegistration[]): ModuleWithProviders {
     return {
       ngModule: DucksModule,
       providers: DucksModule.buildDuckProviders(ducksRegistration)
@@ -19,14 +19,18 @@ export class DucksModule {
   }
 
   private static buildDuckProviders(
-    ducksRegistration: DucksRegistration
+    ducksRegistration: DucksRegistration[]
   ): Provider[] {
-    return ducksRegistration.map(candidate => ({
+    return ducksRegistration.map(DucksModule.buildSingleDucksProvider);
+  }
+
+  private static buildSingleDucksProvider(candidate: DucksRegistration) {
+    return {
       provide: candidate.duck,
       useFactory(store: Store<any>) {
-        return createSelfDispatchingActions(candidate.use, store);
+        return createSelfDispatchingActions(candidate.use(), store);
       },
       deps: [Store]
-    }));
+    };
   }
 }
