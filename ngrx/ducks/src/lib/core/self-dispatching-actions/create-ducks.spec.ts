@@ -1,4 +1,4 @@
-import { createSelfDispatchingActions } from './create-self-dispatching-actions';
+import { createDucks } from './create-ducks';
 import { wireUpActions } from '../wired-actions/wire-up-actions';
 import { ActionDispatcher } from '../types/__internal__/';
 
@@ -40,7 +40,7 @@ describe('create-ducks', () => {
         set: '[Counter] Set'
       });
 
-      ducks = createSelfDispatchingActions(wiredActions, store);
+      ducks = createDucks(wiredActions, store);
     });
 
     it('should make the type available through an additional property', () => {

@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { createSelfDispatchingActions } from './core/self-dispatching-actions/create-self-dispatching-actions';
+import { createDucks } from './core/self-dispatching-actions/create-ducks';
 import { WiredActions } from './core/types';
 
 export type DucksRegistration = {
@@ -28,7 +28,7 @@ export class DucksModule {
     return {
       provide: candidate.duck,
       useFactory(store: Store<any>) {
-        return createSelfDispatchingActions(candidate.use(), store);
+        return createDucks(candidate.use(), store);
       },
       deps: [Store]
     };

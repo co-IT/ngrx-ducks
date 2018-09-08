@@ -1,8 +1,8 @@
 import { Ducks, WiredActions } from '../types';
-import { ActionDispatcher } from '../types/__internal__/';
+import { ActionDispatcher } from '../types/__internal__';
 import { createSelfDispatchingAction } from './create-self-dispatching-action';
 
-export function createSelfDispatchingActions<T, TA extends WiredActions<T>>(
+export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
   store: ActionDispatcher
 ): Ducks<T> {
