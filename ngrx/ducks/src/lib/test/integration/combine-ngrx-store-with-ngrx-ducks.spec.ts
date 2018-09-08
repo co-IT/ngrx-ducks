@@ -87,7 +87,7 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
 
     it('should preserve asynchronous action types', () => {
       const counter = new Counter();
-      expect(ducks.forEffect).toBe(counter.forEffect);
+      expect(ducks.forEffect.type).toBe(counter.forEffect);
     });
 
     it('should handle multiple action calls', done => {

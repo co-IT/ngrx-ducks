@@ -15,5 +15,21 @@ export function createSelfDispatchingActions<T, TA extends WiredActions<T>>(
       };
     }, {});
 
-  return Object.assign({ ...(wiredActions as Object) }, ducks);
+  const asyncDucks = Object.entries(wiredActions)
+    .filter(([_key, type]) => typeof type === 'string')
+    .reduce((effectDispatchers, [key, type]) => {
+      return {
+        ...effectDispatchers,
+        [key]: createEffectDispatcher(type as string, store)
+      };
+    }, {});
+
+  return Object.assign({ ...(wiredActions as Object) }, ducks, asyncDucks);
+}
+
+function createEffectDispatcher(type: string, store: ActionDispatcher) {
+  return {
+    type,
+    dispatch: () => store.dispatch({ type })
+  };
 }

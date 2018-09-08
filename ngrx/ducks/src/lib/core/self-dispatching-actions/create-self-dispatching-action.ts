@@ -10,9 +10,7 @@ export function createSelfDispatchingAction<T>(
   store: ActionDispatcher
 ): Duck<ExtractTypeFromWiredAction<T>> {
   const duck: any = (payload: any) =>
-    {
-      console.log('Dispatching', payload)
-      store.dispatch((wiredAction as any)(payload));}
+    store.dispatch((wiredAction as any)(payload));
 
   duck.plain = wiredAction;
 
