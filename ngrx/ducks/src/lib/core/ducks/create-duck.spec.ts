@@ -1,5 +1,5 @@
 import { createWiredAction } from '../wired-actions/create-wired-action';
-import { createSelfDispatchingAction } from './create-self-dispatching-action';
+import { createDuck } from './create-duck';
 
 describe('SelfDispatchingAction', () => {
   describe('When a self dispatching action is created', () => {
@@ -10,7 +10,7 @@ describe('SelfDispatchingAction', () => {
       const store = { dispatch: dispatchMock};
 
       const wa = createWiredAction(type, caseReducer);
-      const sda = createSelfDispatchingAction(wa, store);
+      const sda = createDuck(wa, store);
 
       sda('Hi');
 

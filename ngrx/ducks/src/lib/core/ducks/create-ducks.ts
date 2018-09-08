@@ -1,6 +1,6 @@
 import { Ducks, WiredActions } from '../types';
 import { ActionDispatcher } from '../types/__internal__';
-import { createSelfDispatchingAction } from './create-self-dispatching-action';
+import { createDuck } from './create-duck';
 
 export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
@@ -11,7 +11,7 @@ export function createDucks<T, TA extends WiredActions<T>>(
     .reduce((dispatchers: Ducks<T>, [key, duck]) => {
       return {
         ...(dispatchers as any),
-        [key]: createSelfDispatchingAction(duck, store)
+        [key]: createDuck(duck, store)
       };
     }, {});
 

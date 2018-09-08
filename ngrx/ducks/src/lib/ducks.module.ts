@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule, Provider } from '@angular/core';
 import { Store } from '@ngrx/store';
-
-import { createDucks } from './core/self-dispatching-actions/create-ducks';
+import { createDucks } from './core/ducks/create-ducks';
 import { WiredActions } from './core/types';
 
 export type DucksRegistration = {

@@ -6,8 +6,6 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import { skip } from 'rxjs/operators';
-
 import {
   createReducerFrom,
   DucksModule,
@@ -55,10 +53,11 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
     let ducks: Ducks<Counter>;
 
     beforeEach(() => {
-      wiredActions = () => wireUpActions(Counter, {
-        set: '[Counter] Set',
-        add: '[Counter] Add'
-      });
+      wiredActions = () =>
+        wireUpActions(Counter, {
+          set: '[Counter] Set',
+          add: '[Counter] Add'
+        });
 
       initialState = { count: 0 };
       counterReducer = (state = initialState, action: Action) =>
