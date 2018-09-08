@@ -1,5 +1,7 @@
 import { createSelfDispatchingActions } from './create-self-dispatching-actions';
 import { wireUpActions } from '../wired-actions/wire-up-actions';
+import { ActionDispatcher } from '../types/__internal__/';
+
 import { Ducks } from '../types';
 
 interface State {
@@ -23,15 +25,32 @@ class Counter {
 
 describe('create-ducks', () => {
   describe('When a type provides action types to trigger asynchronous operations', () => {
-    it('should make the type available through an additional property', () => {
-      const counter = new Counter();
+    let counter: Counter;
+    let dispatchMock: jest.Mock;
+    let store: ActionDispatcher;
+    let ducks: Ducks<Counter>;
+
+    beforeEach(() => {
+      counter = new Counter();
+
+      dispatchMock = jest.fn();
+      store = { dispatch: dispatchMock };
+
       const wiredActions = wireUpActions(Counter, {
         set: '[Counter] Set'
       });
-      const store = { dispatch: () => {} };
-      const ducks: Ducks<Counter> = createSelfDispatchingActions(wiredActions, store);
 
-      expect(ducks.forEffect.type).toBe(counter.forEffect)
+      ducks = createSelfDispatchingActions(wiredActions, store);
+    });
+
+    it('should make the type available through an additional property', () => {
+      expect(ducks.forEffect.type).toBe(counter.forEffect);
+    });
+
+    it('should dispatch that action type', () => {
+      ducks.forEffect.dispatch();
+
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
     });
   });
 });
