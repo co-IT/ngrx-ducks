@@ -52,9 +52,9 @@
     "zone.js": "^0.8.26"
   },
   "peerDependencies": {
-    "@angular/common": "^6.1.6",
-    "@angular/core": "^6.1.6",
-    "@ngrx/store": "^6.1.0"
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "@ngrx/store": "^6.0.0"
   },
   "dependencies": {
     "@types/jest": "^23.3.1"
