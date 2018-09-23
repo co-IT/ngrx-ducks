@@ -46,6 +46,7 @@
     "@angular/platform-browser": "^6.1.6",
     "@angular/platform-browser-dynamic": "^6.1.6",
     "@ngrx/store": "^6.1.0",
+    "@types/jest": "^23.3.1",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "jest": "^23.5.0",
@@ -61,8 +62,5 @@
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "@ngrx/store": "^6.0.0"
-  },
-  "dependencies": {
-    "@types/jest": "^23.3.1"
   }
 }
