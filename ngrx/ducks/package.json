@@ -7,6 +7,9 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
+  "files": [
+    "dist"
+  ],
   "ngPackage": {
     "lib": {
       "entryFile": "src/public_api.ts"
