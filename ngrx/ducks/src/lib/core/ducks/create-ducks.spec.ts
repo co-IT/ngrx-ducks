@@ -1,9 +1,8 @@
-import { createDucks } from './create-ducks';
-import { wireUpActions } from '../wired-actions/wire-up-actions';
-import { ActionDispatcher } from '../types/__internal__/';
-
 import { Ducks } from '../types';
-import { effect } from '../../test/integration/create-actions-for-effects.spec';
+import { ActionDispatcher } from '../types/__internal__/';
+import { wireUpActions } from '../wired-actions/wire-up-actions';
+import { createDucks } from './create-ducks';
+import { effect } from './effect';
 
 interface State {
   count: number;

@@ -1,18 +1,4 @@
-import { createDucks } from '../../core/ducks/create-ducks';
-import { ActionCreatorForEffect, Ducks } from '../../core/types';
-import { wireUpActions } from '../../core/wired-actions/wire-up-actions';
-
-export function effect<T = void>(type: string): ActionCreatorForEffect<T> {
-  const action = (payload: T) => ({
-    type,
-    payload
-  });
-
-  return {
-    type,
-    action
-  } as any;
-}
+import { createDucks, Ducks, effect, wireUpActions } from '../../../public_api';
 
 class Some {
   readonly loadAll = effect('Some All');

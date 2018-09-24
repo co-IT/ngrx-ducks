@@ -10,11 +10,11 @@ import {
   createDucks,
   createReducerFrom,
   Ducks,
+  effect,
   wireUpActions
 } from '../../../public_api';
 import { WiredActions } from '../../core/types';
 import { initTestEnvironment } from '../angular-test.environnement';
-import { effect } from './create-actions-for-effects.spec';
 
 interface State {
   count: number;
