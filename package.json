@@ -4,6 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
+    "version-bump": "lerna version --conventional-commits",
     "release": "lerna publish"
   },
   "devDependencies": {
