@@ -1,8 +1,18 @@
+import { ActionCreatorForEffect } from '../types';
 import { ActionDispatcher } from '../types/__internal__';
 
-export function createEffectDispatcher(type: string, store: ActionDispatcher) {
+export function createEffectDispatcher<T>(
+  actionCreator: ActionCreatorForEffect<T>,
+  store: ActionDispatcher
+) {
   return {
-    type,
-    dispatch: () => store.dispatch({ type })
+    type: actionCreator.type,
+    dispatch: (payload: any) => {
+      if (payload) {
+        store.dispatch((actionCreator.action as any)(payload));
+      } else {
+        store.dispatch((actionCreator.action as any)());
+      }
+    }
   };
 }

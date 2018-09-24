@@ -3,17 +3,14 @@ import { wireUpActions } from '../wired-actions/wire-up-actions';
 import { ActionDispatcher } from '../types/__internal__/';
 
 import { Ducks } from '../types';
+import { effect } from '../../test/integration/create-actions-for-effects.spec';
 
 interface State {
   count: number;
 }
 
-interface RootState {
-  counter: State;
-}
-
 class Counter {
-  forEffect = '[Counter] Load Counter from API';
+  forEffect = effect('[Counter] Load Counter from API');
 
   set(state: State, payload: number): State {
     return {
@@ -44,7 +41,7 @@ describe('create-ducks', () => {
     });
 
     it('should make the type available through an additional property', () => {
-      expect(ducks.forEffect.type).toBe(counter.forEffect);
+      expect(ducks.forEffect.type).toBe(counter.forEffect.type);
     });
 
     it('should dispatch that action type', () => {

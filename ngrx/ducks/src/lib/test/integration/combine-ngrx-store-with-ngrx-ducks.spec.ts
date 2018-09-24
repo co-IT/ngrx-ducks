@@ -14,6 +14,7 @@ import {
 } from '../../../public_api';
 import { WiredActions } from '../../core/types';
 import { initTestEnvironment } from '../angular-test.environnement';
+import { effect } from './create-actions-for-effects.spec';
 
 interface State {
   count: number;
@@ -24,7 +25,7 @@ interface RootState {
 }
 
 class Counter {
-  forEffect = '[Counter] Load Counter from API';
+  forEffect = effect('[Counter] Load Counter from API');
 
   set(state: State, payload: number): State {
     return {
@@ -92,7 +93,7 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
 
     it('should preserve asynchronous action types', () => {
       const counter = new Counter();
-      expect(ducks.forEffect.type).toBe(counter.forEffect);
+      expect(ducks.forEffect.type).toBe(counter.forEffect.type);
     });
 
     it('should handle multiple action calls', done => {

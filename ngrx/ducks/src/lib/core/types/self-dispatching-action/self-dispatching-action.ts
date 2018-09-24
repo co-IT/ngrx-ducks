@@ -4,10 +4,12 @@ import { DuckForEffect } from './duck-for-effect';
 import { DuckWithPayload } from './self-dispatching-action-with-payload';
 import { DuckWithoutPayload } from './self-dispatching-action-without-payload';
 
-export type Duck<T> = T extends string
-  ? DuckForEffect
+export type Duck<T> = T extends ActionForEffect
+  ? DuckForEffect<T>
   : T extends CaseReducerWithPayload<infer TSlice, infer TPayload>
     ? DuckWithPayload<TPayload>
     : T extends CaseReducerWithoutPayload<infer TSlice>
       ? DuckWithoutPayload
       : never;
+
+export type ActionForEffect = { type: string; };

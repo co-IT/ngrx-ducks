@@ -17,11 +17,11 @@ export function createDucks<T, TA extends WiredActions<T>>(
     }, {});
 
   const asyncDucks = Object.entries(wiredActions)
-    .filter(([_key, type]) => typeof type === 'string')
+    .filter(([_key, type]) => typeof type === 'object')
     .reduce(
-      (effectDispatchers, [key, type]) => ({
+      (effectDispatchers, [key, actionCreatorForEffect]) => ({
         ...effectDispatchers,
-        [key]: createEffectDispatcher(type as string, store)
+        [key]: createEffectDispatcher(actionCreatorForEffect as any, store)
       }),
       {}
     );
