@@ -8,11 +8,12 @@ These packages is not meant to be used now.
 
 ## NgRx
 
-|              |                 | Description                                                                             |
-| ------------ | --------------- | --------------------------------------------------------------------------------------- |
-| [ngrx-ducks] | [npm-version]() | Easy but explicit handling for Redux actions embracing [OCP].                           |
-| [ngrx-immer] | [npm-version]() | Mutation helpers having the same API as [ngrx/entity] but using [immer] under the hood. |
+|              |                 | Description                                                   |
+| ------------ | --------------- | ------------------------------------------------------------- |
+| [ngrx-ducks] | [![npm-version][1]][2] | Easy but explicit handling for Redux actions embracing [OCP]. |
 
+[1]: https://badge.fury.io/js/%40co-it%2Fngrx-ducks.svg
+[2]: https://www.npmjs.com/package/@co-it/ngrx-ducks
 [ngrx-ducks]: ./ngrx/ducks/
 [ngrx-immer]: ./roadmap/ngrx-immer.md
 [ocp]: https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
