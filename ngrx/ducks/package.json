@@ -2,6 +2,10 @@
   "name": "@co-it/ngrx-ducks",
   "version": "0.3.2",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/@co-it/co-it.git"
+  },
   "scripts": {
     "build": "ng-packagr",
     "test": "jest",
