@@ -1,3 +1,8 @@
+ [![npm-version][1]][2]
+
+[1]: https://badge.fury.io/js/%40co-it%2Fngrx-ducks.svg
+[2]: https://www.npmjs.com/package/@co-it/ngrx-ducks
+
 # ngrx-ducks
 
 > A plugin for [ngrx] automating creation and dispatch of actions.
