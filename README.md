@@ -2,10 +2,6 @@
   <a href="https://co-IT.eu" target="blank"><img src="./assets/logo.png" alt="www.co-IT.eu" width="300"></a>
 </p>
 
-# Under Construction
-
-These packages is not meant to be used now.
-
 ## NgRx
 
 |              |                 | Description                                                   |
