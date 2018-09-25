@@ -157,6 +157,8 @@ export class CounterComponent implements OnInit {
   ngOnInit() {
     this.counter.set(5000);
     //               ^ only type number is allowed 🎉
+    //               - dispatches action: type: '[Counter] Set initial value'
+    //                                    payload: 5000
   }
 }
 ```
@@ -183,7 +185,7 @@ Each dispatching method provides an Action Creator.
 
 You see each dispatching method has a further property called `plain`
 which is a method as well. 🤯
-This addition is very useful if you need to produce actions being return by an
+This addition is very useful if you need to produce actions being returned by an
 Effect.
 
 ### Effects
