@@ -4,5 +4,10 @@
   "useWorkspaces": true,
   "packages": [
     "ngrx/*"
-  ]
+  ],
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
