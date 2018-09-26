@@ -4,8 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "version-bump": "lerna version",
-    "release": "lerna run publish"
+    "release": "lerna version && lerna run publish"
   },
   "devDependencies": {
     "lerna": "^3.2.1"
