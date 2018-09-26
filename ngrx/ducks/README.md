@@ -213,6 +213,9 @@ I call them effect properties.
 export class Counter {
   readonly load = effect('[Counter] Load Counter Value');
   readonly delayedCounterSet = effect<number>('[Counter] Set counter after a while');
+
+  /* ... */
+}
 ```
 
 #### Triggering an Effect
