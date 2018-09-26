@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "release": "lerna version && lerna run publish"
+    "release": "lerna version && yarn build && lerna run publish"
   },
   "devDependencies": {
     "lerna": "^3.2.1"
