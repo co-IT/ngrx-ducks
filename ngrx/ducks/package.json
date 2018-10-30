@@ -36,7 +36,7 @@
       "js",
       "ts"
     ],
-    "setupTestFrameworkScriptFile": "./src/lib/test/setup.ts"
+    "setupTestFrameworkScriptFile": "./test/setup.ts"
   },
   "publishConfig": {
     "access": "public"

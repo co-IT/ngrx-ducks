@@ -1,4 +1,9 @@
-import { createDucks, Ducks, effect, wireUpActions } from '../../../public_api';
+import {
+  createDucks,
+  Ducks,
+  effect,
+  wireUpActions
+} from '../../../src/public_api';
 
 class Some {
   readonly loadAll = effect('Some All');
@@ -10,7 +15,7 @@ describe('Create action dispatcher for @Effects', () => {
     const dispatchMock = jest.fn();
     const store = { dispatch: dispatchMock };
     const wiredActions = wireUpActions(Some, {});
-    const ducks: Ducks<Some> = createDucks(wiredActions, store);
+    const ducks: Ducks<Some> = createDucks(wiredActions, store as any);
 
     ducks.loadAll.dispatch();
 
@@ -23,7 +28,7 @@ describe('Create action dispatcher for @Effects', () => {
     const dispatchMock = jest.fn();
     const store = { dispatch: dispatchMock };
     const wiredActions = wireUpActions(Some, {});
-    const ducks: Ducks<Some> = createDucks(wiredActions, store);
+    const ducks: Ducks<Some> = createDucks(wiredActions, store as any);
 
     ducks.loadSpecific.dispatch('Some Payload');
 
