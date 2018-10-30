@@ -41,28 +41,28 @@
     "access": "public"
   },
   "devDependencies": {
-    "@angular/common": "^6.1.6",
-    "@angular/compiler": "^6.1.6",
-    "@angular/compiler-cli": "^6.1.6",
-    "@angular/core": "^6.1.6",
-    "@angular/platform-browser": "^6.1.6",
-    "@angular/platform-browser-dynamic": "^6.1.6",
+    "@angular/common": "^7.0.1",
+    "@angular/compiler": "^7.0.1",
+    "@angular/compiler-cli": "^7.0.1",
+    "@angular/core": "^7.0.1",
+    "@angular/platform-browser": "^7.0.1",
+    "@angular/platform-browser-dynamic": "^7.0.1",
     "@ngrx/store": "^6.1.0",
-    "@types/jest": "^23.3.1",
+    "@types/jest": "^23.3.8",
     "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
-    "jest": "^23.5.0",
-    "ng-packagr": "^4.1.1",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "ng-packagr": "^4.4.0",
     "rxjs": "^6.3.1",
     "ts-jest": "^23.1.4",
-    "tsickle": "^0.32.1",
+    "tsickle": "^0.33.1",
     "tslib": "^1.9.3",
-    "typescript": "~2.9.1",
+    "typescript": "~3.1.4",
     "zone.js": "^0.8.26"
   },
   "peerDependencies": {
-    "@angular/common": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "@ngrx/store": "^6.0.0"
+    "@angular/common": "^7.0.1",
+    "@angular/core": "^7.0.1",
+    "@ngrx/store": "^6.1.0"
   }
 }
