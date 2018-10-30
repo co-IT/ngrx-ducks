@@ -72,6 +72,8 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
           {
             provide: Counter,
             useFactory: function(store: Store<State>) {
+              console.log('STORE', store);
+
               return createDucks(wiredActions, store);
             },
             deps: [Store]
