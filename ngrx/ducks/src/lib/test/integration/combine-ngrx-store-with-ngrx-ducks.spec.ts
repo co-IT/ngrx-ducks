@@ -14,7 +14,6 @@ import {
   wireUpActions
 } from '../../../public_api';
 import { WiredActions } from '../../core/types';
-import { initTestEnvironment } from '../angular-test.environnement';
 
 interface State {
   count: number;
@@ -43,8 +42,6 @@ class Counter {
 }
 
 describe('When NgRxStore and NgRxDucks meet each other', () => {
-  beforeAll(() => initTestEnvironment());
-
   describe('and ducks are provided', () => {
     let wiredActions: WiredActions<Counter>;
     let initialState: State;
@@ -72,8 +69,6 @@ describe('When NgRxStore and NgRxDucks meet each other', () => {
           {
             provide: Counter,
             useFactory: function(store: Store<State>) {
-              console.log('STORE', store);
-
               return createDucks(wiredActions, store);
             },
             deps: [Store]

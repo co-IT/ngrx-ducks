@@ -35,7 +35,8 @@
     "moduleFileExtensions": [
       "js",
       "ts"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "./src/lib/test/setup.ts"
   },
   "publishConfig": {
     "access": "public"
@@ -52,6 +53,7 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
+    "jest-preset-angular": "^6.0.1",
     "ng-packagr": "^4.4.0",
     "rxjs": "^6.3.1",
     "ts-jest": "^23.1.4",
