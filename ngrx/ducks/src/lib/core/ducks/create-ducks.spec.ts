@@ -1,5 +1,5 @@
+import { Store } from '@ngrx/store';
 import { Ducks } from '../types';
-import { ActionDispatcher } from '../types/__internal__/';
 import { wireUpActions } from '../wired-actions/wire-up-actions';
 import { createDucks } from './create-ducks';
 import { effect } from './effect';
@@ -23,14 +23,14 @@ describe('create-ducks', () => {
   describe('When a type provides action types to trigger asynchronous operations', () => {
     let counter: Counter;
     let dispatchMock: jest.Mock;
-    let store: ActionDispatcher;
+    let store: Store<unknown>;
     let ducks: Ducks<Counter>;
 
     beforeEach(() => {
       counter = new Counter();
 
       dispatchMock = jest.fn();
-      store = { dispatch: dispatchMock };
+      store = { dispatch: dispatchMock } as any;
 
       const wiredActions = wireUpActions(Counter, {
         set: '[Counter] Set'

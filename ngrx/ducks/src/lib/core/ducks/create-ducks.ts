@@ -1,7 +1,8 @@
-import { Ducks, WiredActions, PickSelector } from '../types';
+import { Ducks, WiredActions } from '../types';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
-import { MemoizedSelector, Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { pickFactory } from './pick-factory';
 
 export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
@@ -34,10 +35,4 @@ export function createDucks<T, TA extends WiredActions<T>>(
   );
 }
 
-function pickFactory(store: Store<any>): PickSelector {
-  return {
-    pick<TState, TResult>(selector: MemoizedSelector<TState, TResult>) {
-      return store.pipe(select(selector));
-    }
-  };
-}
+
