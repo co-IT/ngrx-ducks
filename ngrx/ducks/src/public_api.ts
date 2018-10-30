@@ -1,4 +1,4 @@
-export * from './lib/core/types/ducks/self-dispatching-actions';
+export * from './lib/core/types/ducks/ducks';
 export * from './lib/core/create-reducer-from/create-reducer-from';
 export * from './lib/core/ducks/create-ducks';
 export * from './lib/core/ducks/effect';
