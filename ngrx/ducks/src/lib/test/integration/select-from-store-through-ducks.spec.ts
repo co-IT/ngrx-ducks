@@ -28,7 +28,7 @@ describe('Select data from a store', () => {
     const selectCount = createSelector(featureSelector, s => s.count);
     const store = new StoreMock(state);
     const wiredActions = wireUpActions(Some, {});
-    const ducks: Ducks<Some> = createDucks(wiredActions, store);
+    const ducks: Ducks<Some> = createDucks(wiredActions, store as any);
 
     ducks.pick(selectCount).subscribe(count => {
       expect(count).toBe(10);
@@ -36,4 +36,3 @@ describe('Select data from a store', () => {
     });
   });
 });
-

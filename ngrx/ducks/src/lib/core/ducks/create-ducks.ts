@@ -1,12 +1,11 @@
 import { Ducks, WiredActions, PickSelector } from '../types';
-import { ActionDispatcher } from '../types/__internal__';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
 import { MemoizedSelector, Store, select } from '@ngrx/store';
 
 export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
-  store: ActionDispatcher
+  store: Store<unknown>
 ): Ducks<T> {
   const ducks = Object.entries(wiredActions)
     .filter(([_key, duck]) => typeof (duck as any).caseReducer === 'function')
