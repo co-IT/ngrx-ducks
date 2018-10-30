@@ -2,7 +2,7 @@ import { CaseReducerWithPayload } from '../case-reducer/case-reducer-with-payloa
 import { CaseReducerWithoutPayload } from '../case-reducer/case-reducer-without-payload';
 import { DuckForEffect } from './duck-for-effect';
 import { DuckWithPayload } from './duck-with-payload';
-import { DuckWithoutPayload } from './self-dispatching-action-without-payload';
+import { DuckWithoutPayload } from './duck-without-payload';
 
 export type Duck<T> = T extends ActionForEffect
   ? DuckForEffect<T>
