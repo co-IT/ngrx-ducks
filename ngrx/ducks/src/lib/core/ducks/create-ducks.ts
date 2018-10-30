@@ -1,4 +1,4 @@
-import { Ducks, WiredActions, Selector } from '../types';
+import { Ducks, WiredActions, PickSelector } from '../types';
 import { ActionDispatcher } from '../types/__internal__';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
@@ -35,7 +35,7 @@ export function createDucks<T, TA extends WiredActions<T>>(
   );
 }
 
-function pickFactory(store: Store<any>): Selector {
+function pickFactory(store: Store<any>): PickSelector {
   return {
     pick<TState, TResult>(selector: MemoizedSelector<TState, TResult>) {
       return store.pipe(select(selector));
