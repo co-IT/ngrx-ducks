@@ -6,9 +6,9 @@ import { DuckWithoutPayload } from './self-dispatching-action-without-payload';
 
 export type Duck<T> = T extends ActionForEffect
   ? DuckForEffect<T>
-  : T extends CaseReducerWithPayload<infer TSlice, infer TPayload>
+  : T extends CaseReducerWithPayload<infer _TSlice, infer TPayload>
     ? DuckWithPayload<TPayload>
-    : T extends CaseReducerWithoutPayload<infer TSlice>
+    : T extends CaseReducerWithoutPayload<infer _TSlice>
       ? DuckWithoutPayload
       : never;
 

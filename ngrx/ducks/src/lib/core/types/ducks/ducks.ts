@@ -1,4 +1,4 @@
-import { Duck } from './self-dispatching-action';
+import { Duck } from './duck';
 import { Observable } from 'rxjs';
 import { MemoizedSelector } from '@ngrx/store';
 
