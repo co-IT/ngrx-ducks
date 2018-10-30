@@ -1,9 +1,9 @@
 import { ActionCreatorForEffect } from '../types';
-import { ActionDispatcher } from '../types/__internal__';
+import { Store } from '@ngrx/store';
 
 export function createEffectDispatcher<T>(
   actionCreator: ActionCreatorForEffect<T>,
-  store: ActionDispatcher
+  store: Store<unknown>
 ) {
   return {
     type: actionCreator.type,
