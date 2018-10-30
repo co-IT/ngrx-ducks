@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="7.0.1-alpha.0"></a>
+## [7.0.1-alpha.0](https://github.com/co-IT/co-it/compare/v0.4.1...v7.0.1-alpha.0) (2018-10-30)
+
+
+### Bug Fixes
+
+* **effect-dispatcher:** use store type provided by ngrx ([4838afb](https://github.com/co-IT/co-it/commit/4838afb))
+* **specs:** replace type ActionDispatcher with Store ([a0c9c0d](https://github.com/co-IT/co-it/commit/a0c9c0d))
+* **specs:** use jeset-preset-angular :pray: making tests work again ([047ec74](https://github.com/co-IT/co-it/commit/047ec74))
+* **types:** remove exports of deleted files ([989963a](https://github.com/co-IT/co-it/commit/989963a))
+
+
+### Features
+
+* **selectors:** allow use of memoized selector with ducks ([a3f54a8](https://github.com/co-IT/co-it/commit/a3f54a8))
+* align version number to Angular ([97d2343](https://github.com/co-IT/co-it/commit/97d2343))
+
+
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/co-IT/co-it/compare/v0.4.0...v0.4.1) (2018-09-26)
 
