@@ -36,23 +36,23 @@ function _isDuckForReducer(duck: {}) {
 }
 
 function createSingleEffectDispatcher(
-  effectDispatchers: DuckCandidates<unknown>,
+  candidates: DuckCandidates<unknown>,
   [key, actionCreatorForEffect]: [string, {}],
   store: Store<unknown>
 ) {
   return {
-    ...effectDispatchers,
+    ...candidates,
     [key]: createEffectDispatcher(actionCreatorForEffect as any, store)
   };
 }
 
 function createSingleDuck(
-  dispatchers: DuckCandidates<unknown>,
+  candidates: DuckCandidates<unknown>,
   [key, duck]: [string, {}],
   store: Store<unknown>
 ) {
   return {
-    ...dispatchers,
+    ...candidates,
     [key]: createDuck(duck, store)
   };
 }
