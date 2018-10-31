@@ -1,4 +1,4 @@
-import { Ducks, WiredActions } from '../types';
+import { Ducks, WiredActions, DuckCandidates } from '../types';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
 import { Store } from '@ngrx/store';
@@ -6,49 +6,53 @@ import { pickFactory } from './pick-factory';
 
 export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
-  store: Store<unknown>
+  store: Store<any>
 ): Ducks<T> {
-  const ducks = Object.entries(wiredActions)
-    .filter(([_key, duck]) => typeof (duck as any).caseReducer === 'function')
-    .reduce(
-      (dispatchers: Ducks<T>, wiredAction) =>
-        createSingleDuck<T>(dispatchers, wiredAction, store),
-      {}
-    );
-
-  const asyncDucks = Object.entries(wiredActions)
-    .filter(([_key, type]) => typeof type === 'object')
-    .reduce(createSingleEffectDispatcher(store), {});
+  const ducks = Object.entries(wiredActions).reduce(
+    (dispatchers, [_key, duck]) => {
+      if (_isDuckForReducer(duck)) {
+        return createSingleDuck(dispatchers, [_key, duck], store);
+      } else if (_isEffectDispatcher(duck)) {
+        return createSingleEffectDispatcher(dispatchers, [_key, duck], store);
+      }
+      return dispatchers;
+    },
+    {}
+  );
 
   return Object.assign(
     { ...(wiredActions as Object) },
     ducks,
-    asyncDucks,
-    pickFactory(store as any)
-  );
+    pickFactory(store)
+  ) as Ducks<T>;
+}
+
+function _isEffectDispatcher(duck: {}) {
+  return typeof duck === 'object';
+}
+
+function _isDuckForReducer(duck: {}) {
+  return typeof (duck as any).caseReducer === 'function';
 }
 
 function createSingleEffectDispatcher(
+  effectDispatchers: DuckCandidates<unknown>,
+  [key, actionCreatorForEffect]: [string, {}],
   store: Store<unknown>
-): (
-  previousValue: {},
-  currentValue: [string, {}],
-  currentIndex: number,
-  array: [string, {}][]
-) => {} {
-  return (effectDispatchers, [key, actionCreatorForEffect]) => ({
+) {
+  return {
     ...effectDispatchers,
     [key]: createEffectDispatcher(actionCreatorForEffect as any, store)
-  });
+  };
 }
 
-function createSingleDuck<T>(
-  dispatchers: Ducks<T>,
+function createSingleDuck(
+  dispatchers: DuckCandidates<unknown>,
   [key, duck]: [string, {}],
   store: Store<unknown>
 ) {
   return {
-    ...(dispatchers as any),
+    ...dispatchers,
     [key]: createDuck(duck, store)
   };
 }
