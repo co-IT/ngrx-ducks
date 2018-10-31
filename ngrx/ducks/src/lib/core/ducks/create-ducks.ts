@@ -10,7 +10,11 @@ export function createDucks<T, TA extends WiredActions<T>>(
 ): Ducks<T> {
   const ducks = Object.entries(wiredActions)
     .filter(([_key, duck]) => typeof (duck as any).caseReducer === 'function')
-    .reduce(createSingleDuck<T>(store), {});
+    .reduce(
+      (dispatchers: Ducks<T>, wiredAction) =>
+        createSingleDuck<T>(dispatchers, wiredAction, store),
+      {}
+    );
 
   const asyncDucks = Object.entries(wiredActions)
     .filter(([_key, type]) => typeof type === 'object')
@@ -39,17 +43,12 @@ function createSingleEffectDispatcher(
 }
 
 function createSingleDuck<T>(
+  dispatchers: Ducks<T>,
+  [key, duck]: [string, {}],
   store: Store<unknown>
-): (
-  previousValue: any,
-  currentValue: [string, {}],
-  currentIndex: number,
-  array: [string, {}][]
-) => any {
-  return (dispatchers: Ducks<T>, [key, duck]) => {
-    return {
-      ...(dispatchers as any),
-      [key]: createDuck(duck, store)
-    };
+) {
+  return {
+    ...(dispatchers as any),
+    [key]: createDuck(duck, store)
   };
 }
