@@ -7,7 +7,7 @@
     "release": "lerna version && yarn build && lerna run publish"
   },
   "devDependencies": {
-    "lerna": "^3.2.1"
+    "lerna": "^3.10.5"
   },
   "workspaces": [
     "ngrx/*"
