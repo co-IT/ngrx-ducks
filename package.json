@@ -10,6 +10,7 @@
     "lerna": "^3.10.5"
   },
   "workspaces": [
-    "ngrx/*"
+    "ngrx/*",
+    "rxjs/*"
   ]
 }

@@ -3,7 +3,8 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
-    "ngrx/*"
+    "ngrx/*",
+    "rxjs/*"
   ],
   "command": {
     "publish": {
