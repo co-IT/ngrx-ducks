@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/co-it/co-it/compare/@co-it/rxjs-operators@0.2.0...@co-it/rxjs-operators@0.2.1) (2019-01-15)
+
+### Bug Fixes
+
+- **operators:** make publishConfig public ([f18e2b9](https://github.com/co-it/co-it/commit/f18e2b9))
+- **rxjs-operators:** refine npm install command in README ([f406356](https://github.com/co-it/co-it/commit/f406356))
+
 # 0.2.0 (2019-01-15)
 
 ### Bug Fixes

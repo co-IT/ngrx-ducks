@@ -1,6 +1,6 @@
 {
   "name": "@co-it/rxjs-operators",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Helpful operators for RxJS",
   "keywords": [
     "rxjs",
