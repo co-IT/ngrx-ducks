@@ -6,7 +6,7 @@ that we at [co-IT](https://co-IT.eu) believe help in certain use cases.
 ## Setup
 
 ```bash
-npm install @co-IT/rxjs-operators
+npm install @co-it/rxjs-operators
 ```
 
 ## Customized buffer behavior
