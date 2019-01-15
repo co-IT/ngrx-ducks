@@ -6,9 +6,9 @@
     "rxjs",
     "typescript"
   ],
-  "main": "rxjs-operators.umd.js",
-  "module": "rxjs-operators.es5.js",
-  "typings": "types/rxjs-operators.d.ts",
+  "main": "dist/rxjs-operators.umd.js",
+  "module": "dist/rxjs-operators.es5.js",
+  "typings": "dist/types/rxjs-operators.d.ts",
   "author": "Gregor Woiwode <gw@co-IT.eu>",
   "repository": {
     "type": "git",
