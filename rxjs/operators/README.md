@@ -15,7 +15,8 @@ You will find `bufferMatch` & `bufferObserve` allowing you to filter values
 of the buffer.
 This gives you more control when a buffer should be emitted.
 
-Check out our blog post [Filterable Buffer](https://medium.com/@gregor.woiwode/rxjs-filterable-buffer-dd1d739f60ec) to learn more.
+- 📖 Check out our blog post [Filterable Buffer](https://medium.com/@gregor.woiwode/rxjs-filterable-buffer-dd1d739f60ec) to learn more.
+- ⚡️ You can see those operators in action at [Stackblitz](https://stackblitz.com/edit/rxjs-hotkey-co-it)
 
 ## Want to help?
 
