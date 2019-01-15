@@ -4,7 +4,9 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "release": "lerna version && yarn build && lerna run publish"
+    "version": "lerna version",
+    "publish-to-npm": "lerna run publish",
+    "release": "yarn version && yarn build && yarn publish-to-npm"
   },
   "devDependencies": {
     "husky": "^1.3.1",
