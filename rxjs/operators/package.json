@@ -15,7 +15,7 @@
   "author": "Gregor Woiwode <gw@co-IT.eu>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/co-it/co-it.git"
   },
   "license": "MIT",
   "engines": {
@@ -25,7 +25,7 @@
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
-    "postbuild": "cp ./README.md ./dist",
+    "postbuild": "cp ./README.md ./package.json ./dist",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
