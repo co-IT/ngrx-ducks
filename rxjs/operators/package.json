@@ -23,7 +23,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
     "postbuild": "cp ./README.md ./package.json ./dist",
-    "start": "rollup -c rollup.config.ts -w",
+    "publish-to-npm": "npm publish ./dist",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache"
