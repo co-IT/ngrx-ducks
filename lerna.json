@@ -1,11 +1,8 @@
 {
-  "version": "7.0.1-alpha.1",
+  "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": [
-    "ngrx/*",
-    "rxjs/*"
-  ],
+  "packages": ["ngrx/*", "rxjs/*"],
   "command": {
     "publish": {
       "conventionalCommits": true
