@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "ng-packagr",
-    "publish": "npm publish ./dist",
+    "publish-to-npm": "npm publish ./dist",
     "test": "jest",
     "test:watch": "jest --watch"
   },
