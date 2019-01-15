@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "version": "lerna version",
+    "semver": "lerna version",
     "publish-to-npm": "lerna run publish-to-npm",
     "release": "yarn version && yarn build && yarn publish-to-npm"
   },
