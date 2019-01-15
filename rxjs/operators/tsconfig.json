@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist/lib",
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "dist/types",
+    "lib": ["es2018", "dom"]
+  },
+  "include": ["src"]
+}

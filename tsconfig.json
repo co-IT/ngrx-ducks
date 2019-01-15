@@ -3,7 +3,11 @@
     "baseUrl": ".",
     "strict": true,
     "sourceMap": true,
+    "declaration": true,
     "noUnusedParameters": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": ["node_modules/@types"]
   }
 }
