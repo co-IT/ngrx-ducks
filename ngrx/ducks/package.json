@@ -54,7 +54,7 @@
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.2",
-    "ng-packagr": "^4.4.5",
+    "ng-packagr": "^4.6.0",
     "rxjs": "^6.3.3",
     "ts-jest": "^23.1.4",
     "tsickle": "^0.34.0",
