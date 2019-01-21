@@ -6,6 +6,8 @@
     "target": "es5",
     "module": "es2015",
     "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "inlineSources": true,
     "importHelpers": true,
     "lib": ["es2017", "dom"]
