@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/co-it/co-it/compare/@co-it/rxjs-operators@0.2.1...@co-it/rxjs-operators@0.2.2) (2019-01-21)
+
+### Bug Fixes
+
+- **jest:** update config for preprocessor ([51b22de](https://github.com/co-it/co-it/commit/51b22de))
+
 ## [0.2.1](https://github.com/co-it/co-it/compare/@co-it/rxjs-operators@0.2.0...@co-it/rxjs-operators@0.2.1) (2019-01-15)
 
 ### Bug Fixes
