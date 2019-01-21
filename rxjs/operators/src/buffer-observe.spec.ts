@@ -1,28 +1,23 @@
 import { from, Subject } from 'rxjs';
-import { bufferMatch } from './rxjs-operators';
-import { MatchFn } from './types';
-
-function noop() {
-  /* intentionally left blank */
-}
+import { bufferObserve } from './rxjs-operators';
 
 describe('bufferMatch', () => {
+  let buffer: number[];
   let sequence: string;
-  let callback: Function;
-  let callBackOnMatch: MatchFn<number>;
+  let bufferOnMatch: (buffer: number[]) => boolean;
 
   beforeEach(() => {
-    sequence = '123';
-    callback = noop;
-    callBackOnMatch = b => (b.join('') === sequence ? callback : null);
+    buffer = [1, 2, 3];
+    sequence = buffer.join('');
+    bufferOnMatch = b => b.join('') === sequence;
   });
 
   describe('When the sequence matches', () => {
     it('should emit the configured callback', done => {
       const stream$ = from([1, 2, 3]);
 
-      stream$.pipe(bufferMatch(callBackOnMatch)).subscribe(cb => {
-        expect(cb).toBe(callback);
+      stream$.pipe(bufferObserve(bufferOnMatch)).subscribe(b => {
+        expect(b.join()).toBe(buffer.join());
         done();
       });
     });
@@ -33,7 +28,7 @@ describe('bufferMatch', () => {
       const stream$ = from([0, 0, 0]);
       const observer = jest.fn();
 
-      stream$.pipe(bufferMatch(callBackOnMatch)).subscribe(observer);
+      stream$.pipe(bufferObserve(bufferOnMatch)).subscribe(observer);
 
       expect(observer).not.toBeCalled();
     });
@@ -45,17 +40,16 @@ describe('bufferMatch', () => {
 
       const stream$ = from([0, 1, 2, 3]);
       const resetNotifier$$ = new Subject<void>();
-      const callback = noop;
 
       stream$
         .pipe(
-          bufferMatch(b => {
+          bufferObserve(b => {
             isFirstCall = resetOnFirstCall(isFirstCall, resetNotifier$$);
-            return callBackOnMatch(b);
+            return bufferOnMatch(b);
           }, resetNotifier$$)
         )
-        .subscribe(cb => {
-          expect(cb).toBe(callback);
+        .subscribe(b => {
+          expect(b.join()).toBe(buffer.join());
           done();
         });
     });
