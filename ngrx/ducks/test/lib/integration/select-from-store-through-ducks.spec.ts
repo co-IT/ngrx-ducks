@@ -8,7 +8,9 @@ class StoreMock<T> extends ReplaySubject<T> {
     this.next(initialState);
   }
 
-  dispatch() {}
+  dispatch() {
+    /** Intentionally left blank */
+  }
 }
 
 class CounterState {
@@ -25,7 +27,10 @@ describe('Select data from a store', () => {
   it("should pass through the store's select method", done => {
     const state = new State();
     const featureSelector = createFeatureSelector<CounterState>('counter');
-    const selectCount = createSelector(featureSelector, s => s.count);
+    const selectCount = createSelector(
+      featureSelector,
+      s => s.count
+    );
     const store = new StoreMock(state);
     const wiredActions = wireUpActions(Some, {});
     const ducks: Ducks<Some> = createDucks(wiredActions, store as any);
