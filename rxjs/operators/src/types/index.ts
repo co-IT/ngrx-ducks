@@ -1,1 +1,1 @@
-export type MatchFn<T> = (buffer: T[]) => Function;
+export type MatchFn<T> = (buffer: T[]) => Function | null;
