@@ -2742,6 +2742,11 @@ fast-deep-equal@^1.0.0:
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
   integrity sha1-wFNHeBfIa1HaqFPIHgWbcz0CNhQ=
 
+fast-equals@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/fast-equals/-/fast-equals-1.6.1.tgz#66cc5a0922ea747599f41aedf44a76ec2908adc0"
+  integrity sha512-xlmDRa03F8QpqTpfeH1l/exTKMg5zhyDh34bfc3pBR/JLQkaIzayXC7hvsXsyv/Och1At//+ubJp+Jy1nfmMvA==
+
 fast-glob@^2.0.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.2.tgz#71723338ac9b4e0e2fff1d6748a2a13d5ed352bf"
@@ -4213,11 +4218,6 @@ jest-leak-detector@^23.6.0:
   integrity sha512-f/8zA04rsl1Nzj10HIyEsXvYlMpMPcy0QkQilVZDFOaPbv2ur71X5u2+C4ZQJGyV/xvVXtCCZ3wQ99IgQxftCg==
   dependencies:
     pretty-format "^23.6.0"
-
-jest-marbles@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/jest-marbles/-/jest-marbles-2.2.0.tgz#ba94ad38ab81d73374f2ac07c04c94ed9ec39d32"
-  integrity sha512-vl7Cd1XP6+LbnqOwNhEzXgtoi+n8xeLxjwTIDMQcTjYZ/FeTU8MmZ2C6G9XW/H83R9vsF9LjIRMcSLaYu8OLow==
 
 jest-matcher-utils@^23.6.0:
   version "23.6.0"
@@ -6908,6 +6908,13 @@ rx@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
+
+rxjs-marbles@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-5.0.0.tgz#b46b4d6ed8ff62da9b5da6df1bcb423df56c72f4"
+  integrity sha512-Twr69tKSxC4ObE/afKJtSPuw+hVE5Paul8KlHhVsnOpqnSHiOd9Ff94RUx+fsCXYsnEILrf4qLsXpHlYzG4a9Q==
+  dependencies:
+    fast-equals "^1.6.1"
 
 rxjs@^6.0.0:
   version "6.3.0"
