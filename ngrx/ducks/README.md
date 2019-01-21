@@ -1,4 +1,4 @@
- [![npm-version][1]][2]
+[![npm-version][1]][2]
 
 [1]: https://badge.fury.io/js/%40co-it%2Fngrx-ducks.svg
 [2]: https://www.npmjs.com/package/@co-it/ngrx-ducks
@@ -168,6 +168,31 @@ export class CounterComponent implements OnInit {
 }
 ```
 
+### Use ngrx selectors
+
+The Ducks service allows you to select state information from the store.
+Notice, you do not need to inject the Store anymore. You have one API the Ducks-API. 🐤
+
+```ts
+// reducer/index.ts
+const visitCounter = createFeatureSelector('counter');
+export const currentCount = createSelector(
+  visitCounter,
+  c => c.count
+);
+
+// counter.component.ts
+import { currentCounter } from '../reducer';
+
+export class CounterComponent {
+  counter$: Observable<number>;
+
+  constructor(@Inject(Counter) private counter: Ducks<Counter>) {
+    this.count$ = this.counter.pick(currentCount);
+  }
+}
+```
+
 #### What if I don't want to dispatch the action directly
 
 No worries, `ngrx-ducks` gets you covered in this question.
@@ -212,7 +237,9 @@ I call them effect properties.
 
 export class Counter {
   readonly load = effect('[Counter] Load Counter Value');
-  readonly delayedCounterSet = effect<number>('[Counter] Set counter after a while');
+  readonly delayedCounterSet = effect<number>(
+    '[Counter] Set counter after a while'
+  );
 
   /* ... */
 }
