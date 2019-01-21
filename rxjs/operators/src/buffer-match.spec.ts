@@ -39,8 +39,8 @@ describe('bufferMatch', () => {
     });
   });
 
-  describe('When the sequence does not match', () => {
-    it('should not emit', done => {
+  describe('When the buffer is reset', () => {
+    it('should continue matching the following stream values', done => {
       let isFirstCall = true;
 
       const stream$ = from([0, 1, 2, 3]);
