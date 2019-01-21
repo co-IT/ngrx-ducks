@@ -21,7 +21,6 @@ export function bufferObserve<T>(
             buffer.reset();
           }
         },
-        error: () => resetNotifierSubscription.unsubscribe(),
         complete: () => resetNotifierSubscription.unsubscribe()
       });
     });

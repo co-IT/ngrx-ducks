@@ -31,7 +31,6 @@ function bufferMatchObservable<T>(
           buffer.reset();
         }
       },
-      error: () => subscription.unsubscribe(),
       complete: () => subscription.unsubscribe()
     });
   });

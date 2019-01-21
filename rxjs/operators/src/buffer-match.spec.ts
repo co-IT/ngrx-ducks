@@ -65,7 +65,7 @@ describe('bufferMatch', () => {
 /**
  *
  * @param isFirstCall indicates if operator is executed the very first time
- * @param resetNotifier$$ emits an event on the stream to reset the buffer inside buferMatch
+ * @param resetNotifier$$ emits an event on the stream to reset the buffer inside bufferMatch
  */
 function resetOnFirstCall(
   isFirstCall: boolean,
