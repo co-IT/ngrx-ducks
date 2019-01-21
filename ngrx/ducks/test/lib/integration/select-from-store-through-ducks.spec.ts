@@ -1,17 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ReplaySubject } from 'rxjs';
 import { createDucks, Ducks, wireUpActions } from '../../../src/public_api';
-
-class StoreMock<T> extends ReplaySubject<T> {
-  constructor(initialState: T) {
-    super();
-    this.next(initialState);
-  }
-
-  dispatch() {
-    /** Intentionally left blank */
-  }
-}
+import { StoreMock } from '../../mocks';
 
 class CounterState {
   count = 10;

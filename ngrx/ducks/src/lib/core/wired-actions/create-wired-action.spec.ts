@@ -1,5 +1,5 @@
-import { createWiredAction } from './create-wired-action';
 import { WiredAction } from '../types';
+import { createWiredAction } from './create-wired-action';
 
 describe('WiredAction', () => {
   describe('When no action type is provided', () => {
