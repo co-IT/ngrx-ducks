@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.1.0...@co-it/ngrx-ducks@7.2.0) (2019-01-21)
+
+### Bug Fixes
+
+- **ngrx-ducks:** correct tslint code violation ([6e0aa89](https://github.com/co-it/co-it/commit/6e0aa89))
+
 # 7.1.0 (2019-01-15)
 
 ## 7.0.1-alpha.1 (2018-10-31)
