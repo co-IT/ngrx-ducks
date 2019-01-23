@@ -10,19 +10,6 @@ import {
   WithValidActionType
 } from './mocks/duck-candidates';
 
-export function createDuck<T extends new () => InstanceType<T>>(
-  classToken: T
-): WiredActions<InstanceType<T>> {
-  const origin = new classToken();
-  const target = { ...origin };
-
-  methodsFrom<T>(classToken).forEach(
-    method => (target[method] = wireUpAction(origin, method))
-  );
-
-  return target;
-}
-
 describe('@Action', () => {
   describe('When a single action type is provided', () => {
     it('should create a single wired action', () => {
@@ -67,6 +54,19 @@ describe('@Action', () => {
     });
   });
 });
+
+export function createDuck<T extends new () => InstanceType<T>>(
+  classToken: T
+): WiredActions<InstanceType<T>> {
+  const origin = new classToken();
+  const target = { ...origin };
+
+  methodsFrom<T>(classToken).forEach(
+    method => (target[method] = wireUpAction(origin, method))
+  );
+
+  return target;
+}
 
 function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
   return Object.getOwnPropertyNames(classToken.prototype).filter(

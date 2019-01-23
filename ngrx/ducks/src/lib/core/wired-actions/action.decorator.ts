@@ -1,7 +1,7 @@
 export function Action(actionType: string) {
   return function(
-    target: any,
-    name: string | symbol,
+    _target: any,
+    _name: string | symbol,
     descriptor: PropertyDescriptor
   ): any {
     const caseReducer = descriptor.value;
