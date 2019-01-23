@@ -1,5 +1,5 @@
 import { WiredActions } from '../types';
-import { throwIf } from '../validation';
+import { insufficientList, throwIf } from '../validation';
 import {
   validActionType,
   WithEmptyActionType,
@@ -95,7 +95,7 @@ function wireUpAction<T>(instance: T, method: string) {
   const type = instance[method].wiredAction.type;
 
   throwIf(
-    !type || invalidList(type),
+    !type || insufficientList(type),
     missingActionTypeError(instance.constructor.name)
   );
 
@@ -112,8 +112,4 @@ function wireUpAction<T>(instance: T, method: string) {
 
 function omitConstructor(member: string): boolean {
   return member !== 'constructor';
-}
-
-function invalidList(list: unknown[]) {
-  return Array.isArray(list) && list.filter(item => !!item).length === 0;
 }
