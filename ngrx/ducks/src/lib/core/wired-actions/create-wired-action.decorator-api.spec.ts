@@ -8,7 +8,7 @@ import {
   WithValidActionType
 } from './mocks/duck-candidates';
 
-export function meltDown<T extends new () => InstanceType<T>>(
+export function createDuck<T extends new () => InstanceType<T>>(
   classToken: T
 ): WiredActions<InstanceType<T>> {
   const origin = new classToken();
@@ -24,8 +24,8 @@ export function meltDown<T extends new () => InstanceType<T>>(
 describe('@Action', () => {
   describe('When a single action type is provided', () => {
     it('should create a single wired action', () => {
-      const wired = meltDown(WithValidActionType);
-      expect(wired.increase(1)).toEqual({
+      const duck = createDuck(WithValidActionType);
+      expect(duck.increase(1)).toEqual({
         type: validActionType,
         payload: 1
       });
@@ -38,7 +38,7 @@ describe('@Action', () => {
       [WithNullActionType],
       [WithEmptyActionType]
     ])('should raise an error', classToken => {
-      expect(() => meltDown(classToken)).toThrowError(
+      expect(() => createDuck(classToken)).toThrowError(
         `${
           classToken.name
         }: Passing null, undefined or '' to @Action is not allowed.`
