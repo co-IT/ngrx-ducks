@@ -1,21 +1,8 @@
 import { WiredActions } from '../types';
-
-export function Action(actionType: string) {
-  return function(
-    target: any,
-    name: string | symbol,
-    descriptor: PropertyDescriptor
-  ): any {
-    const caseReducer = descriptor.value;
-
-    Object.defineProperty(descriptor.value, 'wiredAction', {
-      value: { type: actionType, caseReducer },
-      writable: false
-    });
-
-    return descriptor;
-  };
-}
+import {
+  actionType as validActionType,
+  WithValidActionType
+} from './mocks/duck-candidates';
 
 export function meltDown<T extends new () => InstanceType<T>>(
   classToken: T
@@ -30,21 +17,12 @@ export function meltDown<T extends new () => InstanceType<T>>(
   return target;
 }
 
-const actionType = '[Counter] Set Number';
-
-class Counter {
-  @Action(actionType)
-  increase(state: number, payload: number) {
-    return state + payload;
-  }
-}
-
 describe('@Action', () => {
   describe('When a single action type is provided', () => {
     it('should create a single wired action', () => {
-      const wired = meltDown(Counter);
+      const wired = meltDown(WithValidActionType);
       expect(wired.increase(1)).toEqual({
-        type: actionType,
+        type: validActionType,
         payload: 1
       });
     });
