@@ -1,6 +1,10 @@
 import { WiredActions } from '../types';
+import { throwIf } from '../validation';
 import {
-  actionType as validActionType,
+  validActionType,
+  WithEmptyActionType,
+  WithNullActionType,
+  WithUndefinedActionType,
   WithValidActionType
 } from './mocks/duck-candidates';
 
@@ -27,6 +31,20 @@ describe('@Action', () => {
       });
     });
   });
+
+  describe('When no action type is given', () => {
+    it.each([
+      [WithUndefinedActionType],
+      [WithNullActionType],
+      [WithEmptyActionType]
+    ])('should raise an error', classToken => {
+      expect(() => meltDown(classToken)).toThrowError(
+        `${
+          classToken.name
+        }: Passing null, undefined or '' to @Action is not allowed.`
+      );
+    });
+  });
 });
 
 function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
@@ -35,13 +53,24 @@ function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
   );
 }
 
+function missingActionTypeError(className: string) {
+  return `${className}: Passing null, undefined or '' to @Action is not allowed.`;
+}
+
 function wireUpAction<T>(instance: T, method: string) {
+  throwIf(
+    !instance[method].wiredAction.type,
+    missingActionTypeError(instance.constructor.name)
+  );
+
   const wiredAction: any = (payload: any) => ({
     type: instance[method].wiredAction.type,
     payload
   });
+
   wiredAction.type = instance[method].wiredAction.type;
   wiredAction.caseReducer = instance[method].wiredAction.caseReducer;
+
   return wiredAction;
 }
 
