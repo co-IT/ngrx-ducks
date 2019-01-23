@@ -1,9 +1,9 @@
 import { Action } from '../../action.decorator';
 
-export const actionType = '[Counter] Set Number';
+export const validActionType = '[Counter] Set Number';
 
 export class WithValidActionType {
-  @Action(actionType)
+  @Action(validActionType)
   increase(state: number, payload: number) {
     return state + payload;
   }

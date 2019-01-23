@@ -7,8 +7,8 @@ import { ActionCreatorWithoutPayload } from './action-creator-without-payload';
  * Lesart:
  * - Wen Fn dem Typ MethodTakingOneParameter entspricht, dann wird der Typ StatMutator<ReturnType<Fn>> erzeugt
  */
-export type ActionCreator<Fn> = Fn extends MethodTakingOneParameter
+export type ActionCreator<TMember> = TMember extends MethodTakingOneParameter
   ? ActionCreatorWithoutPayload
-  : Fn extends MethodTakingTwoParameters<infer TSlice, infer TPayload>
-    ? ActionCreatorWithPayload<TPayload>
-    : never;
+  : TMember extends MethodTakingTwoParameters<infer TSlice, infer TPayload>
+  ? ActionCreatorWithPayload<TPayload>
+  : never;

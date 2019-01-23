@@ -4,6 +4,7 @@ import {
   validActionType,
   WithEmptyActionType,
   WithNullActionType,
+  WithProperty,
   WithUndefinedActionType,
   WithValidActionType
 } from './mocks/duck-candidates';
@@ -43,6 +44,15 @@ describe('@Action', () => {
           classToken.name
         }: Passing null, undefined or '' to @Action is not allowed.`
       );
+    });
+  });
+
+  describe('When the class contains properties', () => {
+    it('should ignore those', () => {
+      const withProperty = new WithProperty();
+      const duck = createDuck(WithProperty);
+
+      expect(duck.name).toBe(withProperty.name);
     });
   });
 });
