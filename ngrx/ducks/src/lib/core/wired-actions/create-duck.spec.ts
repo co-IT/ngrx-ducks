@@ -3,6 +3,8 @@ import { throwIf } from '../validation';
 import {
   validActionType,
   WithEmptyActionType,
+  WithEmptyActionTypeList,
+  WithInvalidActionTypeList,
   WithNullActionType,
   WithoutActionDecorator,
   WithProperty,
@@ -25,12 +27,14 @@ describe('@Action', () => {
     it.each([
       [WithUndefinedActionType],
       [WithNullActionType],
-      [WithEmptyActionType]
+      [WithEmptyActionType],
+      [WithInvalidActionTypeList],
+      [WithEmptyActionTypeList]
     ])('should raise an error', classToken => {
       expect(() => createDuck(classToken)).toThrowError(
         `${
           classToken.name
-        }: Passing null, undefined or '' to @Action is not allowed.`
+        }: Passing null, undefined, '' or [] to @Action is not allowed.`
       );
     });
   });
@@ -75,7 +79,7 @@ function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
 }
 
 function missingActionTypeError(className: string) {
-  return `${className}: Passing null, undefined or '' to @Action is not allowed.`;
+  return `${className}: Passing null, undefined, '' or [] to @Action is not allowed.`;
 }
 
 function missingActionDecoratorError(className: string, methodName: string) {
@@ -88,17 +92,19 @@ function wireUpAction<T>(instance: T, method: string) {
     missingActionDecoratorError(instance.constructor.name, method)
   );
 
+  const type = instance[method].wiredAction.type;
+
   throwIf(
-    !instance[method].wiredAction.type,
+    !type || invalidList(type),
     missingActionTypeError(instance.constructor.name)
   );
 
   const wiredAction: any = (payload: any) => ({
-    type: instance[method].wiredAction.type,
+    type,
     payload
   });
 
-  wiredAction.type = instance[method].wiredAction.type;
+  wiredAction.type = type;
   wiredAction.caseReducer = instance[method].wiredAction.caseReducer;
 
   return wiredAction;
@@ -106,4 +112,8 @@ function wireUpAction<T>(instance: T, method: string) {
 
 function omitConstructor(member: string): boolean {
   return member !== 'constructor';
+}
+
+function invalidList(list: unknown[]) {
+  return Array.isArray(list) && list.filter(item => !!item).length === 0;
 }
