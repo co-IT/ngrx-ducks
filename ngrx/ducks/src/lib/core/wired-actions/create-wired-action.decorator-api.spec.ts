@@ -4,6 +4,7 @@ import {
   validActionType,
   WithEmptyActionType,
   WithNullActionType,
+  WithoutActionDecorator,
   WithProperty,
   WithUndefinedActionType,
   WithValidActionType
@@ -47,6 +48,16 @@ describe('@Action', () => {
     });
   });
 
+  describe('When one method is not decorated with @Action', () => {
+    it('should raise an error', () => {
+      expect(() => createDuck(WithoutActionDecorator)).toThrowError(
+        `${
+          WithoutActionDecorator.name
+        } > increase needs to be decorated with @Action.`
+      );
+    });
+  });
+
   describe('When the class contains properties', () => {
     it('should ignore those', () => {
       const withProperty = new WithProperty();
@@ -67,7 +78,16 @@ function missingActionTypeError(className: string) {
   return `${className}: Passing null, undefined or '' to @Action is not allowed.`;
 }
 
+function missingActionDecoratorError(className: string, methodName: string) {
+  return `${className} > ${methodName} needs to be decorated with @Action.`;
+}
+
 function wireUpAction<T>(instance: T, method: string) {
+  throwIf(
+    !instance[method].wiredAction,
+    missingActionDecoratorError(instance.constructor.name, method)
+  );
+
   throwIf(
     !instance[method].wiredAction.type,
     missingActionTypeError(instance.constructor.name)
