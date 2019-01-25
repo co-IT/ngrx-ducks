@@ -1,5 +1,6 @@
 import { NgrxDucksError } from '../core/errors';
 import { throwIf } from '../core/validation';
+import { nullOrUndefined } from '../validators';
 
 class Plain {}
 
@@ -20,9 +21,10 @@ describe('reducerFrom', () => {
 
 function createFrom<T extends new () => InstanceType<T>>(Token: T) {
   const instance: { initialState?: unknown } = new Token();
+  const initialState = instance.initialState;
 
   throwIf(
-    instance.initialState === null || instance.initialState === undefined,
+    nullOrUndefined(initialState),
     `${createFrom.name}: ${
       Token.constructor.name
     } does not define initialValue. Make sure to annotate ${
