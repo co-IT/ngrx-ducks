@@ -18,4 +18,10 @@ describe('@InitialState<T>', () => {
       expect(() => InitialState(null)).toThrowError(error.message);
     });
   });
+
+  describe('When an empty string is given', () => {
+    it('should be allowed', () => {
+      expect(() => InitialState('')).not.toThrow();
+    });
+  });
 });
