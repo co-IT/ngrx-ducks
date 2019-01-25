@@ -11,6 +11,7 @@ import {
 } from '../../../test/mocks';
 import { WiredActions } from '../core/types';
 import { insufficientList, throwIf } from '../core/validation';
+import { missingActionDecoratorError, missingActionTypeError } from '../errors';
 
 describe('@Action', () => {
   describe('When a single action type is provided', () => {
@@ -76,14 +77,6 @@ function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
   return Object.getOwnPropertyNames(classToken.prototype).filter(
     omitConstructor
   );
-}
-
-function missingActionTypeError(className: string) {
-  return `${className}: Passing null, undefined, '' or [] to @Action is not allowed.`;
-}
-
-function missingActionDecoratorError(className: string, methodName: string) {
-  return `${className} > ${methodName} needs to be decorated with @Action.`;
 }
 
 function wireUpAction<T>(instance: T, method: string) {
