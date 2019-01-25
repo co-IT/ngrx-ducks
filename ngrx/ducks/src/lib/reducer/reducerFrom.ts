@@ -25,10 +25,17 @@ function createFrom<T extends new () => InstanceType<T>>(Token: T) {
 
   throwIf(
     nullOrUndefined(initialState),
-    `${createFrom.name}: ${
-      Token.constructor.name
-    } does not define initialValue. Make sure to annotate ${
-      Token.constructor.name
-    } with @InitialState.`
+    new NoInitialValueError(createFrom, Token).message
   );
+}
+class NoInitialValueError<T extends new () => InstanceType<T>> extends Error {
+  constructor(caller: Function, token: T) {
+    super(
+      `${caller.name}: ${
+        token.constructor.name
+      } does not define initialValue. Make sure to annotate ${
+        token.constructor.name
+      } with @InitialState.`
+    );
+  }
 }
