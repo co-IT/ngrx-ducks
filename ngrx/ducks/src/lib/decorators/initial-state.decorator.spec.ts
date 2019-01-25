@@ -6,6 +6,12 @@ function InitialState<T>(value: T) {
     value === null || value === undefined,
     `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
   );
+
+  return function(target) {
+    return class extends target {
+      initialState = value;
+    };
+  };
 }
 
 describe('@InitialState<T>', () => {
@@ -22,6 +28,17 @@ describe('@InitialState<T>', () => {
   describe('When an empty string is given', () => {
     it('should be allowed', () => {
       expect(() => InitialState('')).not.toThrow();
+    });
+  });
+
+  describe('When a class is annotated', () => {
+    it('should have the passed "initialState"', () => {
+      @InitialState(0)
+      class Some {}
+
+      const instance = new Some();
+
+      expect((instance as any).initialState).toBe(0);
     });
   });
 });
