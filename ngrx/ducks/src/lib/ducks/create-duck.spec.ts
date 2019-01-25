@@ -1,5 +1,3 @@
-import { WiredActions } from '../types';
-import { insufficientList, throwIf } from '../validation';
 import {
   validActionType,
   WithEmptyActionType,
@@ -10,7 +8,9 @@ import {
   WithProperty,
   WithUndefinedActionType,
   WithValidActionType
-} from './mocks/duck-candidates';
+} from '../../../test/mocks';
+import { WiredActions } from '../core/types';
+import { insufficientList, throwIf } from '../core/validation';
 
 describe('@Action', () => {
   describe('When a single action type is provided', () => {

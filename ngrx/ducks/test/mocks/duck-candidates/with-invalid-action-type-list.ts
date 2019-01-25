@@ -1,4 +1,4 @@
-import { Action } from '../../../../decorators/action.decorator';
+import { Action } from '../../../src/lib/decorators/action.decorator';
 
 export class WithInvalidActionTypeList {
   @Action([undefined, null, ''] as any)

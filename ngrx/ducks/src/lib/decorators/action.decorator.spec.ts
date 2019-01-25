@@ -1,4 +1,4 @@
-import { WithMultipleActionTypes } from '../core/wired-actions/mocks/duck-candidates';
+import { WithMultipleActionTypes } from '../../../test/mocks';
 
 describe('@Action', () => {
   describe('When multiple types are given', () => {

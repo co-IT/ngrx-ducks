@@ -36,6 +36,9 @@
       "js",
       "ts"
     ],
+    "moduleNameMapper": {
+      "@test/mocks": "<rootDir>/test/mocks/index"
+    },
     "setupTestFrameworkScriptFile": "./test/setup.ts"
   },
   "publishConfig": {
