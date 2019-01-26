@@ -11,8 +11,8 @@ describe('reducerFrom', () => {
     class Plain {}
 
     it('should raise an error', () => {
-      const error = new NoInitialValueError(createFrom.name, Plain.name);
-      expect(() => createFrom(Plain)).toThrowError(error);
+      const error = new NoInitialValueError(reducerFrom.name, Plain.name);
+      expect(() => reducerFrom(Plain)).toThrowError(error);
     });
   });
 
@@ -20,12 +20,12 @@ describe('reducerFrom', () => {
     const incrementActionType = 'increment count';
 
     it('should create the reducer function from it', () => {
-      const reducer = createFrom(WithInitialState);
+      const reducer = reducerFrom(WithInitialState);
       expect(reducer).toBeInstanceOf(Function);
     });
 
     it('should process an action', () => {
-      const reducer = createFrom(WithInitialState);
+      const reducer = reducerFrom(WithInitialState);
       const countState = reducer(undefined, { type: incrementActionType });
 
       expect(countState).toBe(1);
@@ -34,7 +34,7 @@ describe('reducerFrom', () => {
 
   describe('When a "Duck" redirects one action another other', () => {
     it('should work as expected', () => {
-      const reducer = createFrom(WithInternalMethodCallRedirect);
+      const reducer = reducerFrom(WithInternalMethodCallRedirect);
       const countState = reducer(undefined, { type: 'alias increment' });
 
       expect(countState).toBe(1);
@@ -51,7 +51,7 @@ export interface ReducerFunction<TState = unknown> {
   (state: TState, action: ActionThatMayHaveAPayload): TState;
 }
 
-function createFrom<T extends new () => InstanceType<T>>(
+function reducerFrom<T extends new () => InstanceType<T>>(
   Token: T
 ): ReducerFunction {
   const instance: { initialState?: unknown } = new Token();
@@ -69,7 +69,7 @@ function createFrom<T extends new () => InstanceType<T>>(
 
   throwIf(
     nullOrUndefined(initialState),
-    new NoInitialValueError(createFrom.name, Token.name)
+    new NoInitialValueError(reducerFrom.name, Token.name)
   );
 
   return function(state = initialState, action: ActionThatMayHaveAPayload) {
