@@ -1,4 +1,5 @@
 import { NgrxDucksError, throwIf } from '../errors';
+
 export function InitialState<T>(value: T) {
   throwIf(
     value === null || value === undefined,
@@ -7,8 +8,11 @@ export function InitialState<T>(value: T) {
     )
   );
   return function(target: new () => any) {
-    return class extends target {
+    const annotated = class extends target {
       initialState = value;
     };
+
+    annotated.prototype = target.prototype;
+    return annotated;
   };
 }

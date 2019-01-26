@@ -1,3 +1,4 @@
+import { methodsFrom } from '../class';
 import { NgrxDucksError } from '../errors';
 import { InitialState } from './initial-state.decorator';
 
@@ -26,6 +27,19 @@ describe('@InitialState<T>', () => {
       const instance = new Some();
 
       expect((instance as any).initialState).toBe(0);
+    });
+  });
+
+  describe('When a class contains a method', () => {
+    it('should preserve it', () => {
+      @InitialState(0)
+      class Some {
+        greet() {
+          /** */
+        }
+      }
+
+      expect(methodsFrom(Some)).toContain('greet');
     });
   });
 });
