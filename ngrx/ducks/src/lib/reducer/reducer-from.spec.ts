@@ -55,8 +55,13 @@ function reducerFrom<T extends new () => InstanceType<T>>(
   Token: T
 ): ReducerFunction {
   const instance: { initialState?: unknown } = new Token();
-
   const initialState = instance.initialState;
+
+  throwIf(
+    nullOrUndefined(initialState),
+    new NoInitialValueError(reducerFrom.name, Token.name)
+  );
+
   const actionReducerMap = methodsFrom(Token)
     .map(name => instance[name].wiredAction)
     .reduce(
@@ -66,11 +71,6 @@ function reducerFrom<T extends new () => InstanceType<T>>(
       }),
       {}
     );
-
-  throwIf(
-    nullOrUndefined(initialState),
-    new NoInitialValueError(reducerFrom.name, Token.name)
-  );
 
   return function(state = initialState, action: ActionThatMayHaveAPayload) {
     return actionReducerMap[action.type](state, action.payload);
