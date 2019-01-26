@@ -46,13 +46,11 @@ export function createDuck<T extends new () => InstanceType<T>>(
   classToken: T
 ): WiredActions<InstanceType<T>> {
   const origin = new classToken();
-  const target = { ...origin };
 
-  methodsFrom<T>(classToken).forEach(
-    method => (target[method] = wireUpAction(origin, method))
+  return methodsFrom(classToken).reduce(
+    (target, method) => ({ ...target, [method]: wireUpAction(origin, method) }),
+    { ...origin } as any
   );
-
-  return target;
 }
 
 function wireUpAction<T>(instance: T, method: string) {
