@@ -1,6 +1,5 @@
-import { NgrxDucksError } from '../../errors';
+import { NgrxDucksError, throwIf } from '../../errors';
 import { WiredAction, WiredActions } from '../types';
-import { throwIf } from '../validation';
 import { createWiredAction } from './create-wired-action';
 
 type FunctionPropertyNames<T> = {

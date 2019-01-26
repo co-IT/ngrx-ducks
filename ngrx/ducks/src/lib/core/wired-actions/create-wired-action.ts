@@ -1,6 +1,5 @@
-import { NgrxDucksError } from '../../errors';
+import { NgrxDucksError, throwIf } from '../../errors';
 import { CaseReducer, WiredAction } from '../types';
-import { throwIf } from '../validation';
 
 /**
  * Connect an action the corresponding case reducer.
