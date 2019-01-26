@@ -4,6 +4,7 @@ import {
   WithProperty,
   WithValidActionType
 } from '../../../test/mocks';
+import { methodsFrom } from '../class';
 import { WiredActions } from '../core/types';
 import { MissingActionDecoratorError, throwIf } from '../errors';
 
@@ -54,12 +55,6 @@ export function createDuck<T extends new () => InstanceType<T>>(
   return target;
 }
 
-function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
-  return Object.getOwnPropertyNames(classToken.prototype).filter(
-    omitConstructor
-  );
-}
-
 function wireUpAction<T>(instance: T, method: string) {
   throwIf(
     !instance[method].wiredAction,
@@ -77,8 +72,4 @@ function wireUpAction<T>(instance: T, method: string) {
   wiredAction.caseReducer = instance[method].wiredAction.caseReducer;
 
   return wiredAction;
-}
-
-function omitConstructor(member: string): boolean {
-  return member !== 'constructor';
 }
