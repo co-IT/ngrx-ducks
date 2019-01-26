@@ -3,7 +3,7 @@ import { InitialState } from './initial-state.decorator';
 
 describe('@InitialState<T>', () => {
   describe('When no value is provided', () => {
-    it('should emit an error', () => {
+    it('should raise an error', () => {
       const error = new NgrxDucksError(
         `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
       );

@@ -5,7 +5,7 @@ class Plain {}
 
 describe('reducerFrom', () => {
   describe('When the target has no initial value', () => {
-    it('should emit an error', () => {
+    it('should raise an error', () => {
       const error = new NoInitialValueError(createFrom.name, Plain.name);
       expect(() => createFrom(Plain)).toThrowError(error);
     });

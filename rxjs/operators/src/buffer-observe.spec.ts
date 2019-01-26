@@ -13,7 +13,7 @@ describe('bufferObserve', () => {
   });
 
   describe('When the sequence matches', () => {
-    it('should emit the buffer', done => {
+    it('should raise the buffer', done => {
       const stream$ = from([1, 2, 3]);
 
       stream$.pipe(bufferObserve(bufferOnMatch)).subscribe(b => {

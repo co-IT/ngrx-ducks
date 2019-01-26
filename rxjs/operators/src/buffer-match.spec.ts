@@ -18,7 +18,7 @@ describe('bufferMatch', () => {
   });
 
   describe('When the sequence matches', () => {
-    it('should emit the configured callback', done => {
+    it('should raise the configured callback', done => {
       const stream$ = from([1, 2, 3]);
 
       stream$.pipe(bufferMatch(callBackOnMatch)).subscribe(cb => {
