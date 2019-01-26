@@ -1,3 +1,9 @@
-export function missingActionTypeError(className: string) {
-  return `${className}: Passing null, undefined, '' or [] to @Action is not allowed.`;
+import { NgrxDucksError } from './ngrx-ducks-error';
+
+export class MissingActionTypeError extends NgrxDucksError {
+  constructor(className: string) {
+    super(
+      `${className}: Passing null, undefined, '' or [] to @Action is not allowed.`
+    );
+  }
 }

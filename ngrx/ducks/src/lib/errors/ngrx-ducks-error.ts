@@ -1,5 +1,5 @@
 export class NgrxDucksError extends Error {
   constructor(message: string) {
-    super(`ngrx-ducks: ${message}`);
+    super(`ngrx-ducks > ${message}`);
   }
 }

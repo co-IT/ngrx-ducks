@@ -1,11 +1,12 @@
+import { NgrxDucksError } from '../../errors';
 import { WiredAction } from '../types';
 import { createWiredAction } from './create-wired-action';
 
 describe('WiredAction', () => {
   describe('When no action type is provided', () => {
     it('should raise an error', () => {
-      expect(() => createWiredAction(undefined, undefined)).toThrow(
-        'ngrx-ducks: "undefined" is no valid action type.'
+      expect(() => createWiredAction(undefined, undefined)).toThrowError(
+        new NgrxDucksError('"undefined" is no valid action type.')
       );
     });
   });
@@ -13,9 +14,11 @@ describe('WiredAction', () => {
   describe('When no case reducer is defined', () => {
     it('should raise an error', () => {
       const type = '[Login] User entered login data';
-      expect(() => createWiredAction(type, undefined)).toThrow(
-        `ngrx-ducks: Please provide a case reducer for action "${type}". ` +
-          'Expected a function but found "undefined".'
+      expect(() => createWiredAction(type, undefined)).toThrowError(
+        new NgrxDucksError(
+          `Please provide a case reducer for action "${type}". ` +
+            'Expected a function but found "undefined".'
+        )
       );
     });
   });

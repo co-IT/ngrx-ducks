@@ -10,8 +10,12 @@ import {
   WithValidActionType
 } from '../../../test/mocks';
 import { WiredActions } from '../core/types';
-import { insufficientList, throwIf } from '../core/validation';
-import { missingActionDecoratorError, missingActionTypeError } from '../errors';
+import { insufficientList } from '../core/validation';
+import {
+  MissingActionDecoratorError,
+  MissingActionTypeError,
+  throwIf
+} from '../errors';
 
 describe('@Action', () => {
   describe('When a single action type is provided', () => {
@@ -32,21 +36,19 @@ describe('@Action', () => {
       [WithInvalidActionTypeList],
       [WithEmptyActionTypeList]
     ])('should raise an error', classToken => {
-      expect(() => createDuck(classToken)).toThrowError(
-        `${
-          classToken.name
-        }: Passing null, undefined, '' or [] to @Action is not allowed.`
-      );
+      const error = new MissingActionTypeError(classToken.name);
+      expect(() => createDuck(classToken)).toThrowError(error);
     });
   });
 
   describe('When one method is not decorated with @Action', () => {
     it('should raise an error', () => {
-      expect(() => createDuck(WithoutActionDecorator)).toThrowError(
-        `${
-          WithoutActionDecorator.name
-        } > increase needs to be decorated with @Action.`
+      const error = new MissingActionDecoratorError(
+        WithoutActionDecorator.name,
+        'increase'
       );
+
+      expect(() => createDuck(WithoutActionDecorator)).toThrowError(error);
     });
   });
 
@@ -82,14 +84,14 @@ function methodsFrom<T extends new () => InstanceType<T>>(classToken: T) {
 function wireUpAction<T>(instance: T, method: string) {
   throwIf(
     !instance[method].wiredAction,
-    missingActionDecoratorError(instance.constructor.name, method)
+    new MissingActionDecoratorError(instance.constructor.name, method)
   );
 
   const type = instance[method].wiredAction.type;
 
   throwIf(
     !type || insufficientList(type),
-    missingActionTypeError(instance.constructor.name)
+    new MissingActionTypeError(instance.constructor.name)
   );
 
   const wiredAction: any = (payload: any) => ({

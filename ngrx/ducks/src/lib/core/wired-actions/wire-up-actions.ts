@@ -1,3 +1,4 @@
+import { NgrxDucksError } from '../../errors';
 import { WiredAction, WiredActions } from '../types';
 import { throwIf } from '../validation';
 import { createWiredAction } from './create-wired-action';
@@ -28,10 +29,15 @@ function ensureValidParameters<T>(
   token: any,
   configure: WiredActionCandidates<T>
 ) {
-  throwIf(!token, 'Cannot create an instance of "undefined".');
+  throwIf(
+    !token,
+    new NgrxDucksError('Cannot create an instance of "undefined".')
+  );
   throwIf(
     !configure,
-    'Please configure at least one action having one case reducer.'
+    new NgrxDucksError(
+      'Please configure at least one action having one case reducer.'
+    )
   );
 }
 

@@ -1,6 +1,4 @@
-import { NgrxDucksError } from '../core/errors';
-import { throwIf } from '../core/validation';
-import { NoInitialValueError } from '../errors';
+import { NoInitialValueError, throwIf } from '../errors';
 import { nullOrUndefined } from '../validators';
 
 class Plain {}
@@ -8,14 +6,7 @@ class Plain {}
 describe('reducerFrom', () => {
   describe('When the target has no initial value', () => {
     it('should emit an error', () => {
-      const error = new NgrxDucksError(
-        `${createFrom.name}: ${
-          Plain.name
-        } does not define initialValue. Make sure to annotate ${
-          Plain.name
-        } with @InitialState.`
-      ).message;
-
+      const error = new NoInitialValueError(createFrom.name, Plain.name);
       expect(() => createFrom(Plain)).toThrowError(error);
     });
   });
@@ -27,6 +18,6 @@ function createFrom<T extends new () => InstanceType<T>>(Token: T) {
 
   throwIf(
     nullOrUndefined(initialState),
-    new NoInitialValueError(createFrom.name, Token.name).message
+    new NoInitialValueError(createFrom.name, Token.name)
   );
 }

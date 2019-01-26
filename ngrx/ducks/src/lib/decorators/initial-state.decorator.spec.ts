@@ -1,10 +1,11 @@
-import { NgrxDucksError } from '../core/errors';
-import { throwIf } from '../core/validation';
+import { NgrxDucksError, throwIf } from '../errors';
 
 function InitialState<T>(value: T) {
   throwIf(
     value === null || value === undefined,
-    `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
+    new NgrxDucksError(
+      `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
+    )
   );
 
   return function(target) {
@@ -21,7 +22,7 @@ describe('@InitialState<T>', () => {
         `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
       );
 
-      expect(() => InitialState(null)).toThrowError(error.message);
+      expect(() => InitialState(null)).toThrowError(error);
     });
   });
 

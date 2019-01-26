@@ -1,2 +1,2 @@
+export * from '../../errors/throw-if';
 export * from './insufficient-list';
-export * from './throw-if';

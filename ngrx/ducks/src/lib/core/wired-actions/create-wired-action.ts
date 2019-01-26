@@ -1,3 +1,4 @@
+import { NgrxDucksError } from '../../errors';
 import { CaseReducer, WiredAction } from '../types';
 import { throwIf } from '../validation';
 
@@ -25,10 +26,15 @@ export function createWiredAction<Fn extends CaseReducer<CR>, CR>(
 }
 
 function ensureValidParameters(actionType: string, caseReducer: any) {
-  throwIf(!actionType, `"${actionType}" is no valid action type.`);
+  throwIf(
+    !actionType,
+    new NgrxDucksError(`"${actionType}" is no valid action type.`)
+  );
   throwIf(
     !caseReducer,
-    `Please provide a case reducer for action "${actionType}". ` +
-      `Expected a function but found "${caseReducer}".`
+    new NgrxDucksError(
+      `Please provide a case reducer for action "${actionType}". ` +
+        `Expected a function but found "${caseReducer}".`
+    )
   );
 }
