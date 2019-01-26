@@ -1,25 +1,15 @@
-import { WithMultipleActionTypes } from '../../../test/mocks';
+import { MissingActionTypeError } from '../errors';
+import { Action } from './action.decorator';
 
 describe('@Action', () => {
-  describe('When multiple types are given', () => {
-    let decoratedMember: any;
+  describe('When no action type is given', () => {
+    it.each([[null], [undefined], [''], [[]]])(
+      'should raise an error',
+      invalidType => {
+        class Plain {}
+        const error = new MissingActionTypeError(Plain.name);
 
-    beforeEach(() => {
-      const instance = new WithMultipleActionTypes();
-      decoratedMember = instance.multiple;
-    });
-
-    it('should yield meta data for each type', () => {
-      expect(decoratedMember.wiredAction.length).toBe(2);
-    });
-
-    it.each([[0], [1]])(
-      'should yield meta data for action: %s',
-      (index: number) => {
-        expect(decoratedMember.wiredAction[index]).toEqual({
-          type: index.toString(),
-          caseReducer: decoratedMember
-        });
+        expect(() => Action(invalidType)(Plain, '', null)).toThrowError(error);
       }
     );
   });

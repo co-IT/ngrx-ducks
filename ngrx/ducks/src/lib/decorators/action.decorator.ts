@@ -1,43 +1,37 @@
+import { MissingActionTypeError, throwIf } from '../errors';
+
 /**
  * Annotates the target function with an action type.
  * This allows to generate a self dispatching action and the reducer function
  * later on.
- * @param typeCandidate The type of the action that is going to be dispatched
+ * @param type The type of the action that is going to be dispatched
  */
-export function Action(typeCandidate: string | string[]) {
+export function Action(type: string) {
   return function(
-    _target: any,
+    target: any,
     _name: string | symbol,
     descriptor: PropertyDescriptor
   ): any {
-    return Array.isArray(typeCandidate)
-      ? multipleActionMetadata(typeCandidate, descriptor)
-      : singleActionMetadata(typeCandidate, descriptor);
+    throwIf(
+      !type || Array.isArray(type),
+      new MissingActionTypeError(target.name)
+    );
+    return singleActionMetadata(type, descriptor);
   };
 }
 
-function singleActionMetadata(
-  actionType: string,
-  descriptor: PropertyDescriptor
-) {
+/**
+ * Enhances the method of the class with a property "wiredAction".
+ * It contains the type of the action as well as the case reducer function.
+ *
+ * @param type The unique type of an action
+ * @param descriptor The class method containing the case reducer function
+ */
+function singleActionMetadata(type: string, descriptor: PropertyDescriptor) {
   const caseReducer = descriptor.value;
 
   Object.defineProperty(descriptor.value, 'wiredAction', {
-    value: { type: actionType, caseReducer },
-    writable: false
-  });
-
-  return descriptor;
-}
-
-function multipleActionMetadata(
-  actionTypes: string[],
-  descriptor: PropertyDescriptor
-) {
-  const caseReducer = descriptor.value;
-
-  Object.defineProperty(descriptor.value, 'wiredAction', {
-    value: actionTypes.map(type => ({ type, caseReducer })),
+    value: { type: type, caseReducer },
     writable: false
   });
 
