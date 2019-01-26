@@ -6,7 +6,7 @@ export function InitialState<T>(value: T) {
       `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
     )
   );
-  return function(target) {
+  return function(target: new () => any) {
     return class extends target {
       initialState = value;
     };
