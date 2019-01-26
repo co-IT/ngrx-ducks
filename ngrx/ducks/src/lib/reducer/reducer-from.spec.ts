@@ -36,6 +36,28 @@ describe('reducerFrom', () => {
       expect(countState).toBe(1);
     });
   });
+
+  describe('When a "Duck" redirects one action another other', () => {
+    @InitialState(0)
+    class CounterWithAlias {
+      @Action('increment count')
+      increment(state: number) {
+        return ++state;
+      }
+
+      @Action('alias increment')
+      incrementAlias(state: number) {
+        return this.increment(state);
+      }
+    }
+
+    it('should work as expected', () => {
+      const reducer = createFrom(CounterWithAlias);
+      const countState = reducer(undefined, { type: 'alias increment' });
+
+      expect(countState).toBe(1);
+    });
+  });
 });
 
 export interface ActionThatMayHaveAPayload<TPayload = unknown> {
@@ -58,7 +80,7 @@ function createFrom<T extends new () => InstanceType<T>>(
     .reduce(
       (map, wiredAction) => ({
         ...map,
-        [wiredAction.type]: wiredAction.caseReducer
+        [wiredAction.type]: wiredAction.caseReducer.bind(instance)
       }),
       {}
     );
