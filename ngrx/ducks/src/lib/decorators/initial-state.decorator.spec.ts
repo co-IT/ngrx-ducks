@@ -1,19 +1,5 @@
-import { NgrxDucksError, throwIf } from '../errors';
-
-function InitialState<T>(value: T) {
-  throwIf(
-    value === null || value === undefined,
-    new NgrxDucksError(
-      `@${InitialState.name}: Passing "null" or "undefined" is not allowed.`
-    )
-  );
-
-  return function(target) {
-    return class extends target {
-      initialState = value;
-    };
-  };
-}
+import { NgrxDucksError } from '../errors';
+import { InitialState } from './initial-state.decorator';
 
 describe('@InitialState<T>', () => {
   describe('When no value is provided', () => {
