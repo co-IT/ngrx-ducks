@@ -1,5 +1,8 @@
+import {
+  WithInitialState,
+  WithInternalMethodCallRedirect
+} from '../../../test/mocks';
 import { methodsFrom } from '../class';
-import { Action, InitialState } from '../decorators';
 import { NoInitialValueError, throwIf } from '../errors';
 import { nullOrUndefined } from '../validators';
 
@@ -16,21 +19,13 @@ describe('reducerFrom', () => {
   describe('When a "Duck" provide an Action', () => {
     const incrementActionType = 'increment count';
 
-    @InitialState(0)
-    class Counter {
-      @Action(incrementActionType)
-      increment(state: number) {
-        return ++state;
-      }
-    }
-
     it('should create the reducer function from it', () => {
-      const reducer = createFrom(Counter);
+      const reducer = createFrom(WithInitialState);
       expect(reducer).toBeInstanceOf(Function);
     });
 
     it('should process an action', () => {
-      const reducer = createFrom(Counter);
+      const reducer = createFrom(WithInitialState);
       const countState = reducer(undefined, { type: incrementActionType });
 
       expect(countState).toBe(1);
@@ -38,21 +33,8 @@ describe('reducerFrom', () => {
   });
 
   describe('When a "Duck" redirects one action another other', () => {
-    @InitialState(0)
-    class CounterWithAlias {
-      @Action('increment count')
-      increment(state: number) {
-        return ++state;
-      }
-
-      @Action('alias increment')
-      incrementAlias(state: number) {
-        return this.increment(state);
-      }
-    }
-
     it('should work as expected', () => {
-      const reducer = createFrom(CounterWithAlias);
+      const reducer = createFrom(WithInternalMethodCallRedirect);
       const countState = reducer(undefined, { type: 'alias increment' });
 
       expect(countState).toBe(1);
