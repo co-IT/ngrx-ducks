@@ -31,7 +31,7 @@ describe('createDucks', () => {
     });
 
     describe('When the class contains properties', () => {
-      it('should ignore those', () => {
+      it('should preserve them', () => {
         const withProperty = new WithProperty();
         const duck = createDuck(WithProperty);
 
