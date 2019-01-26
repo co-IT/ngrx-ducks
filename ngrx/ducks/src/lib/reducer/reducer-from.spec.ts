@@ -27,6 +27,6 @@ function createFrom<T extends new () => InstanceType<T>>(Token: T) {
 
   throwIf(
     nullOrUndefined(initialState),
-    new NoInitialValueError(createFrom, Token).message
+    new NoInitialValueError(createFrom.name, Token.name).message
   );
 }

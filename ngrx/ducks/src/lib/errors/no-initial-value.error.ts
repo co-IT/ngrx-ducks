@@ -6,13 +6,10 @@
 export class NoInitialValueError<
   T extends new () => InstanceType<T>
 > extends Error {
-  constructor(caller: Function, token: T) {
+  constructor(callerName: string, className: string) {
     super(
-      `${caller.name}: ${
-        token.name
-      } does not define initialValue. Make sure to annotate ${
-        token.name
-      } with @InitialState.`
+      `${callerName}: ${className} does not define initialValue. ` +
+        `Make sure to annotate ${className} with @InitialState.`
     );
   }
 }
