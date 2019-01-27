@@ -4,9 +4,8 @@ import {
   WithProperty,
   WithValidActionType
 } from '../../../test/mocks';
-import { methodsFrom } from '../class';
-import { WiredActions } from '../core/types';
 import { MissingActionDecoratorError, throwIf } from '../errors';
+import { createDuck } from './create-duck';
 
 describe('createDucks', () => {
   describe('When a single action type is provided', () => {
@@ -42,18 +41,7 @@ describe('createDucks', () => {
   });
 });
 
-export function createDuck<T extends new () => InstanceType<T>>(
-  classToken: T
-): WiredActions<InstanceType<T>> {
-  const origin = new classToken();
-
-  return methodsFrom(classToken).reduce(
-    (target, method) => ({ ...target, [method]: wireUpAction(origin, method) }),
-    { ...origin } as any
-  );
-}
-
-function wireUpAction<T>(instance: T, method: string) {
+export function wireUpAction<T>(instance: T, method: string) {
   throwIf(
     !instance[method].wiredAction,
     new MissingActionDecoratorError(instance.constructor.name, method)
