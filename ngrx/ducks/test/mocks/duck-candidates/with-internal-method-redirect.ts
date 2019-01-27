@@ -1,3 +1,5 @@
+import { Action, InitialState } from '../../../src/lib/decorators';
+
 @InitialState(0)
 export class WithInternalMethodCallRedirect {
   @Action('increment count')

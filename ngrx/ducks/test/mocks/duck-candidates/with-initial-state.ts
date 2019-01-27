@@ -1,6 +1,8 @@
+import { Action, InitialState } from '../../../src/lib/decorators';
+
 @InitialState(0)
 export class WithInitialState {
-  @Action(incrementActionType)
+  @Action('increment counts')
   increment(state: number) {
     return ++state;
   }
