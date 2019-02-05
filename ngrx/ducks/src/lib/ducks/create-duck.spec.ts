@@ -41,7 +41,7 @@ describe('createDucks', () => {
   });
 });
 
-export function wireUpAction<T>(instance: T, method: string) {
+export function extractWiredAction<T>(instance: T, method: string) {
   throwIf(
     !instance[method].wiredAction,
     new MissingActionDecoratorError(instance.constructor.name, method)
