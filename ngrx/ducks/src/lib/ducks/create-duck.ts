@@ -1,6 +1,6 @@
 import { methodsFrom } from '../class';
 import { WiredActions } from '../core/types';
-import { extractWiredAction } from './create-duck.spec';
+import { extractWiredAction } from './extract-wired-action';
 
 export function createDuck<T extends new () => InstanceType<T>>(
   classToken: T

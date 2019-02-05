@@ -4,7 +4,7 @@ import {
   WithProperty,
   WithValidActionType
 } from '../../../test/mocks';
-import { MissingActionDecoratorError, throwIf } from '../errors';
+import { MissingActionDecoratorError } from '../errors';
 import { createDuck } from './create-duck';
 
 describe('createDucks', () => {
@@ -40,22 +40,3 @@ describe('createDucks', () => {
     });
   });
 });
-
-export function extractWiredAction<T>(instance: T, method: string) {
-  throwIf(
-    !instance[method].wiredAction,
-    new MissingActionDecoratorError(instance.constructor.name, method)
-  );
-
-  const type = instance[method].wiredAction.type;
-
-  const wiredAction: any = (payload: any) => ({
-    type,
-    payload
-  });
-
-  wiredAction.type = type;
-  wiredAction.caseReducer = instance[method].wiredAction.caseReducer;
-
-  return wiredAction;
-}
