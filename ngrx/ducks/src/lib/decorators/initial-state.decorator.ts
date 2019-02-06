@@ -8,7 +8,7 @@ export function InitialState<T>(value: T) {
     )
   );
   return function(target: new () => any) {
-    const annotated = class extends target {
+    const annotated: any = class extends target {
       initialState = value;
     };
 
