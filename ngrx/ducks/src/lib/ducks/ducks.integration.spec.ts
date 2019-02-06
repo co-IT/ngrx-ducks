@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { ActionReducerMap, Store, StoreModule } from '@ngrx/store';
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
-import { DuckService } from '../typings/DuckService';
+import { DuckService } from '../typings/duck-service';
 import { createDuckService } from './create-duck-service';
 
 @InitialState(0)

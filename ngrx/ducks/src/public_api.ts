@@ -4,3 +4,7 @@ export * from './lib/core/ducks/effect';
 export * from './lib/core/types/ducks/ducks';
 export * from './lib/core/wired-actions/create-wired-action';
 export * from './lib/core/wired-actions/wire-up-actions';
+export * from './lib/decorators/action.decorator';
+export * from './lib/decorators/initial-state.decorator';
+export * from './lib/ducks/create-duck-service';
+export * from './lib/reducer/reducer-from';

@@ -1,7 +1,7 @@
-import { ActionHandlerWithoutPayload } from './ActionHandlerWithoutPayload';
-import { ActionHandlerWithPayload } from './ActionHandlerWithPayload';
-import { LoadedAction } from './LoadedAction';
-import { PlainAction } from './PlainAction';
+import { ActionHandlerWithPayload } from './action-handler-with-payload';
+import { ActionHandlerWithoutPayload } from './action-handler-without-payload';
+import { LoadedAction } from './loaded-action';
+import { PlainAction } from './plain-action';
 export type DuckActionDispatcher<T> = T extends ActionHandlerWithoutPayload<
   infer _TSlice
 >
