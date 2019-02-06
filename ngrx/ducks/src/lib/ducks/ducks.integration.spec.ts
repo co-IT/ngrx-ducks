@@ -45,5 +45,14 @@ describe('@NgModule', () => {
       counter.increment();
       expect(dispatch).toHaveBeenCalledWith({ type: 'increment' });
     });
+
+    it('should update the state', done => {
+      counter.increment();
+
+      store.subscribe((state: any) => {
+        expect(state.counter).toBe(1);
+        done();
+      });
+    });
   });
 });
