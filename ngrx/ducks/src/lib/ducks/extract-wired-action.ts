@@ -1,5 +1,6 @@
 import { MissingActionDecoratorError, throwIf } from '../errors';
 import { ClassWithActionAnnotations } from '../typings';
+
 export function extractWiredAction<T>(
   instance: ClassWithActionAnnotations<T>,
   method: string

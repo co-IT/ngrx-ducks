@@ -1,8 +1,6 @@
-import { Store } from '@ngrx/store';
 import { StoreMock } from '../../../test/mocks';
-import { methodsFrom } from '../class';
 import { Action } from '../decorators';
-import { ClassWithActionAnnotations } from '../typings';
+import { createDuckService } from './create-duck-service';
 
 class MyDuck {
   some: string;
@@ -55,66 +53,3 @@ describe('factory: createDuckService', () => {
     });
   });
 });
-
-export function createDuckService<T extends new () => InstanceType<T>>(
-  Token: T,
-  store: Store<unknown>
-): DuckService<InstanceType<T>> {
-  const instance: ClassWithActionAnnotations<T> = new Token();
-  const methodNames = methodsFrom(Token);
-
-  return methodNames.reduce(
-    (service: any, method) => {
-      const type = instance[method].wiredAction.type;
-
-      service[method] = (payload: unknown) => store.dispatch({ type, payload });
-      service[method].action = actionCreatorFor(type);
-
-      return service;
-    },
-    { ...instance }
-  ) as any;
-}
-
-export type DuckService<T> = { [K in keyof T]: DuckActionDispatcher<T[K]> };
-
-export type DuckActionDispatcher<T> = T extends ActionHandlerWithoutPayload<
-  infer _TSlice
->
-  ? (() => void) & PlainAction
-  : T extends ActionHandlerWithPayload<infer _TSlice, infer TPayload>
-  ? ((payload: TPayload) => void) & LoadedAction<TPayload>
-  : never;
-
-export type ActionHandlerWithPayload<TSlice, TPayload> = (
-  state: TSlice,
-  payload: TPayload
-) => TSlice;
-
-export type ActionHandlerWithoutPayload<TSlice> = (state: TSlice) => TSlice;
-
-export interface PlainAction {
-  action(): { type: string };
-}
-
-export interface LoadedAction<TPayload> {
-  action(payload: TPayload): { type: string; payload: TPayload };
-}
-
-function actionCreatorFor(type: string) {
-  return (payload: unknown | undefined) =>
-    payload ? loadedAction(type, payload) : emptyAction(type);
-}
-
-function emptyAction<T extends new () => InstanceType<T>>(type: string) {
-  return {
-    type
-  };
-}
-
-function loadedAction(type: string, payload: unknown) {
-  return {
-    type,
-    payload
-  };
-}

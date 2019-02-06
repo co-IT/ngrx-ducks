@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { ActionReducerMap, Store, StoreModule } from '@ngrx/store';
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
-import { createDuckService, DuckService } from './create-duck-service.spec';
+import { DuckService } from '../typings/DuckService';
+import { createDuckService } from './create-duck-service';
 
 @InitialState(0)
 export class Counter {
