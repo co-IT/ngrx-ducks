@@ -29,6 +29,9 @@ export function reducerFrom<T extends new () => InstanceType<T>>(
     state = instance.initialState,
     action: ActionThatMayHaveAPayload
   ) {
-    return actionReducerMap[action.type](state, action.payload);
+    console.log(state, action);
+    return actionReducerMap[action.type]
+      ? actionReducerMap[action.type](state, action.payload)
+      : state;
   };
 }
