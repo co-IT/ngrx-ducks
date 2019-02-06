@@ -22,7 +22,7 @@ describe('createDucks', () => {
     describe('When one method is not decorated with @Action', () => {
       it('should raise an error', () => {
         const error = new MissingActionDecoratorError(
-          WithoutActionDecorator.name,
+          (WithoutActionDecorator as any).name,
           'increase'
         );
 
