@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0-alpha.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.2.0...@co-it/ngrx-ducks@7.3.0-alpha.0) (2019-02-06)
+
+### Bug Fixes
+
+- **ngrx-ducks:** add missing import statements ([e58dd05](https://github.com/co-it/co-it/commit/e58dd05))
+- **ngrx-ducks:** avoid implicit any error in extractWiredAction ([2ba356c](https://github.com/co-it/co-it/commit/2ba356c))
+- **ngrx-ducks:** preserve prototype of target class ([3937143](https://github.com/co-it/co-it/commit/3937143))
+- **ngrx-ducks:** return state if no action matches ([12b91ab](https://github.com/co-it/co-it/commit/12b91ab))
+- **typings:** allow access to .name on class token ([de980b4](https://github.com/co-it/co-it/commit/de980b4))
+
+### Features
+
+- **ngrx-ducks:** @Action accepts multiple action names ([721e220](https://github.com/co-it/co-it/commit/721e220))
+- **ngrx-ducks:** add new API to public API ([9cac954](https://github.com/co-it/co-it/commit/9cac954))
+- **ngrx-ducks:** preserve properties of a duck ([aabc10d](https://github.com/co-it/co-it/commit/aabc10d))
+- **ngrx-ducks:** secure from empty lists passed to @Action ([0b211ec](https://github.com/co-it/co-it/commit/0b211ec))
+- **ngrx-ducks:** throw an error if action type is missing ([05d0f68](https://github.com/co-it/co-it/commit/05d0f68))
+- **ngrx-ducks:** throw error if a @Action decorator is missing ([d9e6d21](https://github.com/co-it/co-it/commit/d9e6d21))
+
 # [7.2.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.1.0...@co-it/ngrx-ducks@7.2.0) (2019-01-21)
 
 ### Bug Fixes
