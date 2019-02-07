@@ -3,5 +3,5 @@
  * InitialState decorator.
  */
 export interface InitialStateAnnotated<T = unknown> {
-  initialState?: T;
+  __initialState__?: T;
 }
