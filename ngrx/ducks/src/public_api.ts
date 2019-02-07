@@ -1,6 +1,6 @@
 export * from './lib/decorators/action.decorator';
 export * from './lib/decorators/initial-state.decorator';
-export * from './lib/ducks/create-duck-service';
+export * from './lib/ducks/ducksify';
 export * from './lib/ducks/effect';
 export * from './lib/reducer/reducer-from';
 export * from './lib/typings/duck-service';

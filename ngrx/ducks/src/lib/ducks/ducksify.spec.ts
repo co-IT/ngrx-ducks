@@ -1,7 +1,7 @@
 import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
 import { Duck } from '../typings';
-import { createDuckService } from './create-duck-service';
+import { ducksify } from './ducksify';
 import { effect } from './effect';
 
 class MyDuck {
@@ -19,7 +19,7 @@ class MyDuck {
   }
 }
 
-describe('factory: createDuckService', () => {
+describe('factory: ducksify', () => {
   let store: StoreMock<unknown>;
   let dispatch: jest.SpyInstance;
   let sut: Duck<MyDuck>;
@@ -27,7 +27,7 @@ describe('factory: createDuckService', () => {
   beforeEach(() => {
     store = new StoreMock({});
     dispatch = jest.spyOn(store, 'dispatch');
-    sut = createDuckService(MyDuck, store as any);
+    sut = ducksify(MyDuck, store as any);
   });
 
   describe('When a class member is annotated with @Action', () => {

@@ -10,7 +10,7 @@ import { pickFactory } from './pick-factory';
  * @param Token Class Token having @Action annotations and effect() properties
  * @param store Redux store instance providing dispatch method
  */
-export function createDuckService<T extends new () => InstanceType<T>>(
+export function ducksify<T extends new () => InstanceType<T>>(
   Token: T,
   store: Store<unknown>
 ): Duck<InstanceType<T>> {
