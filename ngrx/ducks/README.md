@@ -63,7 +63,7 @@ should live.
 Add a class that implements the needed `Case Reducers`.
 
 ```ts
-// counter.ducks.ts
+// counter.duck.ts
 
 @InitialState<CounterState>({
   count: 0
@@ -102,7 +102,7 @@ You just use another helper here called `ducksify`.
 > :warning: Please note that we need the following two exported functions to support _AoT_ compilation.
 
 ```ts
-// counter.ducks.setup.ts
+// counter.duck.setup.ts
 
 /* export function reducer .... */
 
