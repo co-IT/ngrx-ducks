@@ -6,5 +6,5 @@ import { CaseReducerWithoutPayload } from './case-reducer-without-payload';
 export type CaseReducer<Fn> = Fn extends MethodTakingOneParameter
   ? CaseReducerWithoutPayload<ReturnType<Fn>>
   : Fn extends MethodTakingTwoParameters<infer TSlice, infer TPayload>
-    ? CaseReducerWithPayload<TSlice, TPayload>
-    : never;
+  ? CaseReducerWithPayload<TSlice, TPayload>
+  : never;

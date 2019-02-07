@@ -6,15 +6,14 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-
+import { WiredActions } from '../../../src/lib/__deprecated__/types';
 import {
-  effect,
-  Ducks,
-  wireUpActions,
+  createDucks,
   createReducerFrom,
-  createDucks
+  Ducks,
+  effect,
+  wireUpActions
 } from '../../../src/public_api';
-import { WiredActions } from '../../../src/lib/core/types';
 
 interface State {
   count: number;

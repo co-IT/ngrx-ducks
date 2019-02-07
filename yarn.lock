@@ -35,7 +35,7 @@
 
 "@angular/core@^7.2.0":
   version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-7.2.0.tgz#79573fe66be28a047ca4348e870566e32e4ff8e2"
+  resolved "https://registry.yarnpkg.com/@angular/__deprecated__/-/core-7.2.0.tgz#79573fe66be28a047ca4348e870566e32e4ff8e2"
   integrity sha512-tlCDDM9IknXvVLk1sg0lzCO4OREM54i1bFtTpl5kPtugK6l4kYCOH78UzDPHnOzzI3LGLj8Hb2NiObVa9c4fdg==
   dependencies:
     tslib "^1.9.0"

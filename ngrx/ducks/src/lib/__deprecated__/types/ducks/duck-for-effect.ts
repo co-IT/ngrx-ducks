@@ -10,8 +10,8 @@ export type DuckForEffect<T> = T extends {
       type: string;
       action: (payload: infer TPayload) => void;
     }
-    ? {
-        type: string;
-        dispatch: (payload: TPayload) => void;
-      }
-    : never;
+  ? {
+      type: string;
+      dispatch: (payload: TPayload) => void;
+    }
+  : never;

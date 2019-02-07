@@ -8,7 +8,7 @@ import {
 } from '@ngrx/store';
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
-import { DuckService } from '../typings/duck-service';
+import { Duck } from '../typings/duck-service';
 import { createDuckService } from './create-duck-service';
 
 @InitialState(0)
@@ -22,7 +22,7 @@ export class Counter {
 describe('@NgModule', () => {
   let store: Store<unknown>;
   let currentCount: any;
-  let counter: DuckService<Counter>;
+  let counter: Duck<Counter>;
   let dispatch: jest.SpyInstance;
   let reducers: ActionReducerMap<unknown>;
 

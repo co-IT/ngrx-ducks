@@ -7,9 +7,9 @@ import { DuckWithoutPayload } from './duck-without-payload';
 export type Duck<T> = T extends ActionForEffect
   ? DuckForEffect<T>
   : T extends CaseReducerWithPayload<infer _TSlice, infer TPayload>
-    ? DuckWithPayload<TPayload>
-    : T extends CaseReducerWithoutPayload<infer _TSlice>
-      ? DuckWithoutPayload
-      : never;
+  ? DuckWithPayload<TPayload>
+  : T extends CaseReducerWithoutPayload<infer _TSlice>
+  ? DuckWithoutPayload
+  : never;
 
-export type ActionForEffect = { type: string; };
+export type ActionForEffect = { type: string };
