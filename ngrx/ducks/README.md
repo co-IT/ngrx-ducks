@@ -202,7 +202,7 @@ Each dispatching method provides an Action Creator.
 ```ts
   ngOnInit() {
     // Yields Action
-    this.counter.set.plain(5000);
+    this.counter.set.action(5000);
     // {
     //   type: '[Counter] Set initial value',
     //   payload: 5000
@@ -214,7 +214,7 @@ Each dispatching method provides an Action Creator.
   }
 ```
 
-You see each dispatching method has a further property called `plain`
+You see each dispatching method has a further property called `action`
 which is a method as well. 🤯
 This addition is very useful if you need to produce actions being returned by an
 Effect.
@@ -285,7 +285,7 @@ export class CounterEffects {
   @Effect()
   load = this.actions$.pipe(
     ofType(this.counter.load.type),
-    map(() => this.counter.set.plain(100000))
+    map(() => this.counter.set.action(100000))
   );
 
   constructor(
