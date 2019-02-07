@@ -1,5 +1,7 @@
 import { ActionHandlerWithPayload } from './action-handler-with-payload';
 import { ActionHandlerWithoutPayload } from './action-handler-without-payload';
+import { DispatcherForEffect } from './dispatcher-for-effect';
+import { EffectDispatcher } from './effect-dispatcher';
 import { LoadedAction } from './loaded-action';
 import { PlainAction } from './plain-action';
 
@@ -9,24 +11,4 @@ export type DuckActionDispatcher<T> = T extends DispatcherForEffect
   ? (() => void) & PlainAction
   : T extends ActionHandlerWithPayload<infer _TSlice, infer TPayload>
   ? ((payload: TPayload) => void) & LoadedAction<TPayload>
-  : never;
-
-export type DispatcherForEffect = { type: string };
-
-export type EffectDispatcher<T> = T extends {
-  type: string;
-  action: () => void;
-}
-  ? {
-      type: string;
-      dispatch: () => void;
-    }
-  : T extends {
-      type: string;
-      action: (payload: infer TPayload) => void;
-    }
-  ? {
-      type: string;
-      dispatch: (payload: TPayload) => void;
-    }
   : never;
