@@ -53,29 +53,15 @@ Add a class that implements the needed `Case Reducers`.
 ```ts
 // counter.ducks.ts
 
+@InitialState<CounterState>({
+  count: 0
+})
 export class Counter {
-  set(state: State, payload: number) {
+  @Action('[Counter] Set initial value')
+  set(state: State, payload: number): CounterState {
     return { ...state, count: payload };
   }
 }
-```
-
-> _Please note_ that the type `State` just contains one property `count`.
-
-### Wire up Actions
-
-Now you need to bind your Logic to an action type.
-Therefore you need to use the factory `wireUpActions`.
-
-```ts
-// counter.ducks.ts
-import { wireUpActions } from '@co-it/ngrx-ducks';
-
-/* ... */
-
-export const counterActions = wireUpActions(Counter, {
-  set: '[Counter] Set initial value'
-});
 ```
 
 ### Create Reducer automatically
@@ -84,45 +70,55 @@ If you use Ducks there is no need to maintain switch-case statements.
 Now you can create the Reducer based on the `wiredActions`.
 
 ```ts
-// counter.reducer.ts
-import { createReducerFrom } from '@co-it/ngrx-ducks';
-
-import { counterActions } from './counter.ducks';
+// counter.duck.setup.ts
+import { reducerFrom } from '@co-it/ngrx-ducks';
+import { Counter } from './counter.duck';
 
 export function reducer(state = initialState, action: Action): CounterSlice {
-  return createReducerFrom(counterActions)(state, action);
+  return reducerFrom(Counter)(state, action);
 }
 ```
 
-### Provide the Ducks Service
+### Provide the Duck
 
 The last step is to generate the dispatchers for your actions.
 With `ngrx-ducks` you can provide those as a Service.
 
-As seen before you need to pass the `counterActions` to a factory.
-You just use another helper here called `createDucks`.
+As seen before you need to pass the token `Counter` to a factory.
+You just use another helper here called `ducksify`.
+
+> :warning: Please note that we need the following two exported functions to support _AoT_ compilation.
 
 ```ts
+// counter.ducks.setup.ts
+
+/* export function reducer .... */
+
+export function ducksifiedCounter() {
+  return {
+    provide: Counter,
+    useFactory: ducksifyCounter,
+    deps: [Store]
+  };
+}
+
+export function ducksifyCounter(store: Store<unknown>) {
+  return ducksify(Counter, store);
+}
+
+// some.module.ts
 @NgModule({
   imports: [
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([CounterEffects])
     /// ...
   ],
-  providers: [
-    {
-      provide: Counter,
-      useFactory: function(store) {
-        return createDucks(counterActions, store);
-      },
-      deps: [Store]
-    }
-  ]
+  providers: [ducksifiedCounter()]
 })
-export class AppModule {}
+export class SomeModule {}
 ```
 
-You see that `createDucks` transforms `counterActions` to be able to dispatch actions.
+You see that `ducksify` transforms `Counter` to be able to dispatch actions.
 
 🎉 Congratulations you have set up your wird Ducks service.
 From now on you only need to edit or enhance `counter.ducks.ts`.
@@ -139,12 +135,12 @@ To use your Ducks you need to inject them into you component.
   /* ... */
 })
 export class CounterComponent {
-  constructor(@Inject(Counter) private counter: Ducks<Counter>) {}
+  constructor(@Inject(Counter) private counter: Duck<Counter>) {}
 }
 ```
 
 Since `createDucks` adds Action Creators to `Counter` we receive an
-enhanced version of that class having the type `Ducks<Counter>`.
+enhanced version of that class having the type `Duck<Counter>`.
 
 You will see that you can call each method of the class taking the payload.
 
@@ -187,7 +183,7 @@ import { currentCounter } from '../reducer';
 export class CounterComponent {
   counter$: Observable<number>;
 
-  constructor(@Inject(Counter) private counter: Ducks<Counter>) {
+  constructor(@Inject(Counter) private counter: Duck<Counter>) {
     this.count$ = this.counter.pick(currentCount);
   }
 }
@@ -289,7 +285,7 @@ export class CounterEffects {
 
   constructor(
     private actions$: Actions,
-    @Inject(Counter) private counter: Ducks<Counter>
+    @Inject(Counter) private counter: Duck<Counter>
   ) {}
 }
 ```
