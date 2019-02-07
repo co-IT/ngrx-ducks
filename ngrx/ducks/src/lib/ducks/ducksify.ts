@@ -85,6 +85,10 @@ function extractReducerDispatchers<T extends new () => InstanceType<T>>(
       const type = instance[method].wiredAction.type;
       service[method] = (payload: unknown) => store.dispatch({ type, payload });
       service[method].action = actionCreatorFor(type);
+
+      // TODO: remove in next major release
+      service[method].plain = service[method].action;
+
       return service;
     }, {}) as any;
 }

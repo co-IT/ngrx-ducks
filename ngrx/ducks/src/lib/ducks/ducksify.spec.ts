@@ -41,6 +41,11 @@ describe('factory: ducksify', () => {
       expect(sut.greet.action()).toEqual({ type: 'greet' });
     });
 
+    /** @deprecated */
+    it('should provide an action creator', () => {
+      expect(sut.greet.plain()).toEqual({ type: 'greet' });
+    });
+
     it('should dispatch an action with payload when it is executed', () => {
       sut.add(1);
       expect(dispatch).toHaveBeenCalledWith({ type: 'add', payload: 1 });
@@ -48,6 +53,11 @@ describe('factory: ducksify', () => {
 
     it('should an action creator taking a payload', () => {
       expect(sut.add.action(1)).toEqual({ type: 'add', payload: 1 });
+    });
+
+    /** @deprecated */
+    it('should an action creator taking a payload', () => {
+      expect(sut.add.plain(1)).toEqual({ type: 'add', payload: 1 });
     });
   });
 
