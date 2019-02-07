@@ -2,6 +2,9 @@ import { NgrxDucksError, throwIf } from '../../errors';
 import { CaseReducer, WiredAction } from '../types';
 
 /**
+ * @deprecated
+ * This function will be removed in the next major release.
+ *
  * Connect an action the corresponding case reducer.
  *
  * @param actionType the name of the action

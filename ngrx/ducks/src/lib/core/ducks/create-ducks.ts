@@ -1,9 +1,14 @@
-import { Ducks, WiredActions, DuckCandidates } from '../types';
+import { Store } from '@ngrx/store';
+import { DuckCandidates, Ducks, WiredActions } from '../types';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
-import { Store } from '@ngrx/store';
 import { pickFactory } from './pick-factory';
 
+/**
+ * @deprecated
+ * This function will be removed in the next major release.
+ * Please use [ducksify]{@link ../../ducks/ducksify.ts} instead
+ */
 export function createDucks<T, TA extends WiredActions<T>>(
   wiredActions: TA,
   store: Store<any>

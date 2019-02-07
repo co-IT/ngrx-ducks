@@ -12,6 +12,12 @@ export type WiredActionCandidates<T> = {
 };
 export type Constructable = new (...args: any[]) => any;
 
+/**
+ * @deprecated
+ * This function will be removed in the next major release.
+ * Please use [@Action]{@link ../../decorators/action.decorator.ts} instead.
+ * Please use [@InitialState]{@link ../../decorators/initial-state.decorator.ts} as well.
+ */
 export function wireUpActions<T extends Constructable>(
   token: T,
   candidates: WiredActionCandidates<InstanceType<T>>
