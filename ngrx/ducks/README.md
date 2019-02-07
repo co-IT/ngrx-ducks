@@ -17,6 +17,11 @@
 - 💉 Use typed Services instead of dispatching Actions
 - 🙅‍ No code generation that needs ot be maintained manually
 
+## Which version of **ngrx** is supported?
+
+The version number of ngrx-ducks is aligned with ngrx/platform.
+The major versions of both projects are compatible with each other.
+
 ## What is a Duck?
 
 A Duck bundles the tasks of
