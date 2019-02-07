@@ -1,8 +1,10 @@
 import { Store } from '@ngrx/store';
 import { actionCreatorFor } from '../actions';
 import { methodsFrom } from '../class';
+import { MissingActionDecoratorError } from '../errors';
 import { ClassWithActionAnnotations, Duck } from '../typings';
 import { pickFactory } from './pick-factory';
+
 /**
  * Transforms methods of a class to self dispatching functions providing
  * a typed API.
@@ -68,10 +70,21 @@ function extractReducerDispatchers<T extends new () => InstanceType<T>>(
   instance: ClassWithActionAnnotations<T>,
   store: Store<unknown>
 ) {
-  return methodNames.reduce((service: any, method) => {
-    const type = instance[method].wiredAction.type;
-    service[method] = (payload: unknown) => store.dispatch({ type, payload });
-    service[method].action = actionCreatorFor(type);
-    return service;
-  }, {}) as any;
+  return methodNames
+    .map(method => {
+      if (!instance[method] || !instance[method].wiredAction) {
+        throw new MissingActionDecoratorError(
+          instance.constructor.name,
+          method
+        );
+      }
+
+      return method;
+    })
+    .reduce((service: any, method) => {
+      const type = instance[method].wiredAction.type;
+      service[method] = (payload: unknown) => store.dispatch({ type, payload });
+      service[method].action = actionCreatorFor(type);
+      return service;
+    }, {}) as any;
 }

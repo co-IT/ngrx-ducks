@@ -1,5 +1,6 @@
 import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
+import { MissingActionDecoratorError } from '../errors';
 import { Duck } from '../typings';
 import { ducksify } from './ducksify';
 import { effect } from './effect';
@@ -64,6 +65,19 @@ describe('factory: ducksify', () => {
         type: 'doAsyncWithPayload',
         payload: 0
       });
+    });
+  });
+
+  describe('When @Action is missing on a method', () => {
+    class Some {
+      greet() {
+        /* intentionally left blank */
+      }
+    }
+
+    it('should raise an error', () => {
+      const err = new MissingActionDecoratorError(Some.name, 'greet');
+      expect(() => ducksify(Some, store as any)).toThrowError(err);
     });
   });
 });
