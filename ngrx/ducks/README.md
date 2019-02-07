@@ -7,6 +7,13 @@
 
 > A plugin for [ngrx] automating creation and dispatch of actions.
 
+## 🚀 Deprecations due new API
+
+> ℹ️ **ngrx-ducks** offer a Decorator-API (described below) now.
+> If you want to migrate form an older version, please have a look at [migration article](./docs/migration.md).
+>
+> 🍀 The old API still works until the next major release.
+
 [ngrx]: https://github.com/ngrx/platform
 
 ## Benefits
