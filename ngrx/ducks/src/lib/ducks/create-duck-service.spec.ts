@@ -6,6 +6,7 @@ import { createDuckService } from './create-duck-service';
 
 class MyDuck {
   doAsync = effect('doAsync');
+  doAsyncWithPayload = effect<number>('doAsyncWithPayload');
 
   @Action('greet')
   greet(state: number) {
@@ -53,6 +54,16 @@ describe('factory: createDuckService', () => {
     it('should dispatch the configured action', () => {
       sut.doAsync.dispatch();
       expect(dispatch).toHaveBeenCalledWith({ type: 'doAsync' });
+    });
+  });
+
+  describe('When a effect trigger with payload is added', () => {
+    it('should dispatch the configured action with a payload', () => {
+      sut.doAsyncWithPayload.dispatch(0);
+      expect(dispatch).toHaveBeenCalledWith({
+        type: 'doAsyncWithPayload',
+        payload: 0
+      });
     });
   });
 });
