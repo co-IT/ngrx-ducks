@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
+import { effect } from '../../ducks';
 import { Ducks } from '../types';
 import { wireUpActions } from '../wired-actions/wire-up-actions';
 import { createDucks } from './create-ducks';
-import { effect } from './effect';
 
 interface State {
   count: number;

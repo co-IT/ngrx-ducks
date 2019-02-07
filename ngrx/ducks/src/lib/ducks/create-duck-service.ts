@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { actionCreatorFor } from '../actions';
 import { methodsFrom } from '../class';
-import { pickFactory } from '../core/ducks/pick-factory';
 import { ClassWithActionAnnotations, Duck } from '../typings';
+import { pickFactory } from './pick-factory';
 /**
  * Transforms methods of a class to self dispatching functions providing
  * a typed API.

@@ -1,8 +1,8 @@
 import { StoreMock } from '../../../test/mocks';
-import { effect } from '../core/ducks/effect';
 import { Action } from '../decorators';
 import { Duck } from '../typings';
 import { createDuckService } from './create-duck-service';
+import { effect } from './effect';
 
 class MyDuck {
   doAsync = effect('doAsync');

@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
+import { pickFactory } from '../../ducks/pick-factory';
 import { DuckCandidates, Ducks, WiredActions } from '../types';
 import { createDuck } from './create-duck';
 import { createEffectDispatcher } from './create-effect-dispatcher';
-import { pickFactory } from './pick-factory';
 
 /**
  * @deprecated

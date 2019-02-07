@@ -1,3 +1,4 @@
+export * from './action-creator-for-effects';
 export * from './action-handler-with-payload';
 export * from './action-handler-without-payload';
 export * from './action-that-may-have-a-payload';
