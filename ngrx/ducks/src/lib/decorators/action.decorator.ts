@@ -5,6 +5,7 @@ import { MissingActionTypeError, throwIf } from '../errors';
  * This allows to generate a self dispatching action and the reducer function
  * later on.
  * @param type The type of the action that is going to be dispatched
+ * @todo Remove any | There must be a better solution
  */
 export function Action(type: string) {
   return function(

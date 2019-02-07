@@ -9,7 +9,7 @@ import {
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
 import { Duck } from '../typings/duck-service';
-import { createDuckService } from './create-duck-service';
+import { ducksify } from './ducksify';
 
 @InitialState(0)
 export class Counter {
@@ -34,7 +34,7 @@ describe('@NgModule', () => {
         {
           provide: Counter,
           useFactory(store: Store<unknown>) {
-            return createDuckService(Counter, store);
+            return ducksify(Counter, store);
           },
           deps: [Store]
         }

@@ -20,13 +20,13 @@ describe('@InitialState<T>', () => {
   });
 
   describe('When a class is annotated', () => {
-    it('should have the passed "initialState"', () => {
+    it('should have the passed "__initialState__"', () => {
       @InitialState(0)
       class Some {}
 
       const instance = new Some();
 
-      expect((instance as any).initialState).toBe(0);
+      expect((instance as any).__initialState__).toBe(0);
     });
   });
 
