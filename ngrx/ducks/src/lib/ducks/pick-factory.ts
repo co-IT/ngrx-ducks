@@ -1,5 +1,5 @@
 import { MemoizedSelector, select, Store } from '@ngrx/store';
-import { PickSelector } from '../core/types';
+import { PickSelector } from '../typings';
 
 export function pickFactory(store: Store<any>): PickSelector {
   return {

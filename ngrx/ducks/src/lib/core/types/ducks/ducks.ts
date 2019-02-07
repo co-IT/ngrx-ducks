@@ -1,5 +1,5 @@
+import { PickSelector } from '../../../typings/pick-selector';
 import { Duck } from './duck';
-import { PickSelector } from './pick-selector';
 
 export type DuckCandidates<TDucks> = {
   [TDuck in keyof TDucks]: Duck<TDucks[TDuck]>

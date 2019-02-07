@@ -7,5 +7,6 @@ export * from './duck-action-dispatcher';
 export * from './duck-service';
 export * from './initial-state-annotated';
 export * from './loaded-action';
+export * from './pick-selector';
 export * from './plain-action';
 export * from './reducer-function';
