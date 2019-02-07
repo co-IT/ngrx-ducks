@@ -1,7 +1,7 @@
 import { StoreMock } from '../../../test/mocks';
 import { effect } from '../core/ducks/effect';
 import { Action } from '../decorators';
-import { DuckService } from '../typings';
+import { Duck } from '../typings';
 import { createDuckService } from './create-duck-service';
 
 class MyDuck {
@@ -22,7 +22,7 @@ class MyDuck {
 describe('factory: createDuckService', () => {
   let store: StoreMock<unknown>;
   let dispatch: jest.SpyInstance;
-  let sut: DuckService<MyDuck>;
+  let sut: Duck<MyDuck>;
 
   beforeEach(() => {
     store = new StoreMock({});
