@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1-alpha.4](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.3...@co-it/ngrx-ducks@7.3.1-alpha.4) (2019-02-07)
+
+### Features
+
+- **ngrx-ducks:** raise error if method lacks Action decorator ([2602c0e](https://github.com/co-it/co-it/commit/2602c0e))
+
 ## [7.3.1-alpha.3](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.2...@co-it/ngrx-ducks@7.3.1-alpha.3) (2019-02-07)
 
 ### Bug Fixes
