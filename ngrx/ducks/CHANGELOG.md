@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1-alpha.2](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.1...@co-it/ngrx-ducks@7.3.1-alpha.2) (2019-02-07)
+
+### Bug Fixes
+
+- **ngrx-ducks:** add DuckService to public API ([712fa4f](https://github.com/co-it/co-it/commit/712fa4f))
+
 ## [7.3.1-alpha.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.0-alpha...@co-it/ngrx-ducks@7.3.1-alpha.1) (2019-02-07)
 
 ### Bug Fixes
