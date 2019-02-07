@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1-alpha.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.0-alpha...@co-it/ngrx-ducks@7.3.1-alpha.1) (2019-02-07)
+
+### Bug Fixes
+
+- **ngrx-ducks:** accept loose of type safety to get InitialState to work ([5085abe](https://github.com/co-it/co-it/commit/5085abe))
+
+### Features
+
+- **ngrx-ducks:** add pick() to new Duck API ([ee2a1ef](https://github.com/co-it/co-it/commit/ee2a1ef))
+- **ngrx-ducks:** allow effect() in new API to be used ([6a56d13](https://github.com/co-it/co-it/commit/6a56d13))
+
 # [7.3.0-alpha.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.2.0...@co-it/ngrx-ducks@7.3.0-alpha.0) (2019-02-06)
 
 ### Bug Fixes
