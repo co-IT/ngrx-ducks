@@ -1,5 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { ActionReducerMap, Store, StoreModule } from '@ngrx/store';
+import {
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector,
+  Store,
+  StoreModule
+} from '@ngrx/store';
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
 import { DuckService } from '../typings/duck-service';
@@ -15,6 +21,7 @@ export class Counter {
 
 describe('@NgModule', () => {
   let store: Store<unknown>;
+  let currentCount: any;
   let counter: DuckService<Counter>;
   let dispatch: jest.SpyInstance;
   let reducers: ActionReducerMap<unknown>;
@@ -38,6 +45,11 @@ describe('@NgModule', () => {
     counter = TestBed.get(Counter);
 
     dispatch = jest.spyOn(store, 'dispatch');
+    const feature = createFeatureSelector('counter');
+    currentCount = createSelector(
+      feature,
+      count => count
+    );
   });
 
   describe('When the duck service is provided', () => {
@@ -51,6 +63,15 @@ describe('@NgModule', () => {
 
       store.subscribe((state: any) => {
         expect(state.counter).toBe(1);
+        done();
+      });
+    });
+  });
+
+  describe('When a selector is passed', () => {
+    it('should yield the result of the selector', done => {
+      counter.pick(currentCount).subscribe(count => {
+        expect(count).toBe(0);
         done();
       });
     });

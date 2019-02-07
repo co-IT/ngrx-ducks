@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { actionCreatorFor } from '../actions';
 import { methodsFrom } from '../class';
+import { pickFactory } from '../core/ducks/pick-factory';
 import { ClassWithActionAnnotations, DuckService } from '../typings';
-
 /**
  * Transforms methods of a class to self dispatching functions providing
  * a typed API.
@@ -25,7 +25,12 @@ export function createDuckService<T extends new () => InstanceType<T>>(
 
   const effectDispatchers = extractEffectDispatchers<T>(instance, store);
 
-  return { ...instance, ...reducerDispatchers, effectDispatchers };
+  return {
+    ...instance,
+    ...reducerDispatchers,
+    ...effectDispatchers,
+    ...pickFactory(store)
+  };
 }
 
 /**
