@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1-beta.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.4...@co-it/ngrx-ducks@7.3.1-beta.0) (2019-02-08)
+
+### Bug Fixes
+
+- **ngrx-ducks:** readd plain method to not break the API ([f448dcc](https://github.com/co-it/co-it/commit/f448dcc))
+- **ngrx-ducks:** refine file name in README ([282c6a7](https://github.com/co-it/co-it/commit/282c6a7))
+
 ## [7.3.1-alpha.4](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.3...@co-it/ngrx-ducks@7.3.1-alpha.4) (2019-02-07)
 
 ### Features
