@@ -2,6 +2,13 @@
   "name": "@co-it/ngrx-ducks",
   "version": "7.3.1-beta.0",
   "license": "MIT",
+  "keywords": [
+    "angular",
+    "ngrx",
+    "typescript",
+    "redux",
+    "rxjs"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/co-it/co-it.git"
