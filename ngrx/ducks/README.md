@@ -4,7 +4,7 @@
 [2]: https://www.npmjs.com/package/@co-it/ngrx-ducks
 
 <p align="center">
-  <img src="../../assets/ngrx-ducks.png" alt="yellow duck on a purple shield">
+  <img src="https://github.com/co-IT/co-it/blob/master/assets/ngrx-ducks.png?raw=true" alt="yellow duck on a purple shield">
 </p>
 
 # ngrx-ducks
@@ -17,11 +17,11 @@ selecting data from the Store.
 
 ## Upgrade Guide 7.1.x to 7.3.1
 
-[API Comparison | The new Decorator API](./migration.md)
+[API Comparison | The new Decorator API](./docs/migration.md)
 
 ## Quick Start
 
-[Getting started in 10 Minutes](./quick-start).
+[Getting started in 10 Minutes](./docs/quick-start.md).
 
 ## Want to help?
 
