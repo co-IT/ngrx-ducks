@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1-beta.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-beta.0...@co-it/ngrx-ducks@7.3.1-beta.1) (2019-02-09)
+
+### Features
+
+- **ngrx-ducks:** expose the action type for self-dispatching actions ([9f94fec](https://github.com/co-it/co-it/commit/9f94fec))
+
 ## [7.3.1-beta.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-alpha.4...@co-it/ngrx-ducks@7.3.1-beta.0) (2019-02-08)
 
 ### Bug Fixes
