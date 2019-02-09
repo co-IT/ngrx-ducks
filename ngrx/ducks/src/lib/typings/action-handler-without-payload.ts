@@ -1,1 +1,1 @@
-export type ActionHandlerWithoutPayload<TSlice> = (state: TSlice) => TSlice;
+export type ActionHandlerWithoutPayload<TSlice> = ((state: TSlice) => TSlice);

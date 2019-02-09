@@ -46,6 +46,10 @@ describe('factory: ducksify', () => {
       expect(sut.greet.plain()).toEqual({ type: 'greet' });
     });
 
+    it('should allow to directly access the action type', () => {
+      expect(sut.greet.type).toBe('greet');
+    });
+
     it('should dispatch an action with payload when it is executed', () => {
       sut.add(1);
       expect(dispatch).toHaveBeenCalledWith({ type: 'add', payload: 1 });

@@ -8,7 +8,7 @@ import { PlainAction } from './plain-action';
 export type DuckActionDispatcher<T> = T extends DispatcherForEffect
   ? EffectDispatcher<T>
   : T extends ActionHandlerWithoutPayload<infer _TSlice>
-  ? (() => void) & PlainAction
+  ? (() => void) & PlainAction & { type: string }
   : T extends ActionHandlerWithPayload<infer _TSlice, infer TPayload>
-  ? ((payload: TPayload) => void) & LoadedAction<TPayload>
+  ? ((payload: TPayload) => void) & LoadedAction<TPayload> & { type: string }
   : never;
