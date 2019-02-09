@@ -17,11 +17,11 @@ selecting data from the Store.
 
 ## Upgrade Guide 7.1.x to 7.3.1
 
-[API Comparison | The new Decorator API](./docs/migration.md)
+[API Comparison | The new Decorator API](https://github.com/co-IT/co-it/blob/master/ngrx/ducks/docs/migration.md)
 
 ## Quick Start
 
-[Getting started in 10 Minutes](./docs/quick-start.md).
+[Getting started in 10 Minutes](https://github.com/co-IT/co-it/blob/master/ngrx/ducks/docs/quick-start.md).
 
 ## Want to help?
 
