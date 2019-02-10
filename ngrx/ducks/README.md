@@ -25,7 +25,7 @@ selecting data from the Store.
 
 ## Demo
 
-Please checkout the demo hosted on [StackBlitz](https://stackblitz.com/edit/ngrx-ducks?embed=1&file=src/app/store/counter/counter.duck.ts).
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks?embed=1&file=src/app/store/counter/counter.duck.ts" target="_blank">StackBlitz</a>.
 It shows how ngrx and ngrx-ducks work together.
 
 ## Want to help?
