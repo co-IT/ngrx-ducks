@@ -1,11 +1,11 @@
 {
-  "name": "@co-it/ngrx-ducks-snippets",
+  "name": "ngrx-ducks",
   "icon": "./assets/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/co-it/co-it.git"
   },
-  "displayName": "ngrx-ducks",
+  "displayName": "NgRx Ducks Snippets",
   "description": "Snippets for ngrx-ducks accelerating development speed.",
   "version": "0.0.1",
   "publisher": "contributive-it",
