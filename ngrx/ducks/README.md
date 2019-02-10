@@ -23,6 +23,11 @@ selecting data from the Store.
 
 [Getting started in 10 Minutes](https://github.com/co-IT/co-it/blob/master/ngrx/ducks/docs/quick-start.md).
 
+## Demo
+
+Please checkout the demo hosted on [StackBlitz](https://stackblitz.com/edit/ngrx-ducks?embed=1&file=src/app/store/counter/counter.duck.ts).
+It shows how ngrx and ngrx-ducks work together.
+
 ## Want to help?
 
 Your feedback is always welcome!
