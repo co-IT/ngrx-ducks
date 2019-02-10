@@ -1,6 +1,6 @@
 {
   "name": "ngrx-ducks",
-  "icon": "./assets/logo.png",
+  "icon": "assets/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/co-it/co-it.git"
