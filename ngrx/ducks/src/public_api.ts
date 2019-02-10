@@ -3,6 +3,7 @@ export * from './lib/decorators/initial-state.decorator';
 export * from './lib/ducks/ducksify';
 export * from './lib/ducks/effect';
 export * from './lib/reducer/reducer-from';
+export * from './lib/typings/action-of';
 export * from './lib/typings/duck';
 export * from './lib/__deprecated__/create-reducer-from/create-reducer-from';
 export * from './lib/__deprecated__/ducks/create-ducks';
