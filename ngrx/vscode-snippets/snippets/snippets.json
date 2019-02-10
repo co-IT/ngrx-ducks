@@ -1,0 +1,27 @@
+{
+  "duck": {
+    "prefix": "d-duck",
+    "description": "Creates Duck class",
+    "body": [
+      "import { Action, InitialState } from '@co-it/ngrx-ducks';",
+      "",
+      "@InitialState<$4>($0)",
+      "export class ${1:duck} {",
+      "  @Action('${2:type}')",
+      "  ${3:method}(): ${4:state} {",
+      "",
+      "  }",
+      "}"
+    ]
+  },
+  "duck-action": {
+    "prefix": "d-action",
+    "description": "Inserts an Action inside of a Duck class",
+    "body": ["@Action('${2:type}')", "${3:method}(): ${4:state} {", "", "}"]
+  },
+  "duck-inject": {
+    "prefix": "d-inject",
+    "description": "Insert injection statement for a duck",
+    "body": ["@Inject(${1:duck}) private ${2:name}: Duck<$1>$0"]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@co-it/ngrx-ducks-snippets",
+  "icon": "./assets/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/co-it/co-it.git"
+  },
+  "displayName": "ngrx-ducks",
+  "description": "Snippets for ngrx-ducks accelerating development speed.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.31.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}
