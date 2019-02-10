@@ -1,7 +1,7 @@
 {
   "duck": {
     "prefix": "d-duck",
-    "description": "Creates Duck class",
+    "description": "Creates a Duck class",
     "body": [
       "import { Action, InitialState } from '@co-it/ngrx-ducks';",
       "",
@@ -17,11 +17,36 @@
   "duck-action": {
     "prefix": "d-action",
     "description": "Inserts an Action inside of a Duck class",
-    "body": ["@Action('${2:type}')", "${3:method}(): ${4:state} {", "", "}"]
+    "body": ["@Action('${2:type}')", "${3:method}(): ${4:state} {", "$0", "}"]
   },
   "duck-inject": {
     "prefix": "d-inject",
     "description": "Insert injection statement for a duck",
     "body": ["@Inject(${1:duck}) private ${2:name}: Duck<$1>$0"]
+  },
+  "duck-setup": {
+    "prefix": "d-setup",
+    "description": "Creates provider and reducer function",
+    "body": [
+      "import { ducksify, reducerFrom } from '@co-it/ngrx-ducks';",
+      "import { Action, Store } from '@ngrx/store';",
+      "",
+      "export const register$1 = {",
+      "  provide: ${1:duck},",
+      "  useFactory: create$1Service,",
+      "  deps: [Store]",
+      "};",
+      "",
+      "export function create$1Service(store: Store<unknown>) {",
+      "  return ducksify($1, store);",
+      "}",
+      "",
+      "export function reducer(",
+      "  state: ${2:state} | undefined,",
+      "  action: Action",
+      "): $2 {",
+      "  return reducerFrom($1)(state, action);",
+      "}"
+    ]
   }
 }
