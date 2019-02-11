@@ -1,4 +1,5 @@
 export * from './lib/decorators/action.decorator';
+export * from './lib/decorators/ducksify.decorator';
 export * from './lib/decorators/initial-state.decorator';
 export * from './lib/ducks/ducksify';
 export * from './lib/ducks/effect';
