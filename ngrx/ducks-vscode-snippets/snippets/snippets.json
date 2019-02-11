@@ -3,9 +3,11 @@
     "prefix": "d-duck",
     "description": "Creates a Duck class",
     "body": [
-      "import { Action, InitialState } from '@co-it/ngrx-ducks';",
+      "import { Action, Ducksify } from '@co-it/ngrx-ducks';",
       "",
-      "@InitialState<$4>($0)",
+      "@Ducksify<$4>({",
+      "  initialState: $0",
+      "})",
       "export class ${1:duck} {",
       "  @Action('${2:type}')",
       "  ${3:method}(): ${4:state} {",
