@@ -19,7 +19,9 @@ export const counterAction = wireUpActions(Counter, {
 **AFTER**
 
 ```ts
-@InitialState<number>(0)
+@Ducksify<number>({
+  initialState: 0
+})
 export class Counter {
   @Action('[Counter] Add value')
   add(state: number, payload: number): number {
@@ -52,20 +54,7 @@ export class SomeModule {}
 **AFTER**
 
 ```ts
-import { ducksify } from '@co-it/ngrx-ducks';
-
-@NgModule({
-  providers: [
-    {
-      provide: Counter,
-      useFactory: function(store) {
-        return ducksify(counterActions, store);
-      },
-      deps: [Store]
-    }
-  ]
-})
-export class SomeModule {}
+// Not needed anymore 🚀
 ```
 
 ### Generate Reducer
