@@ -59,9 +59,10 @@ Add a class that implements the needed `Case Reducers`.
 
 ```ts
 // counter.duck.ts
+import { Action, Ducksify } from '@co-it/ngrx-ducks';
 
-@InitialState<CounterState>({
-  count: 0
+@Ducksify<CounterState>({
+  initialState: { count: 0 }
 })
 export class Counter {
   @Action('[Counter] Set initial value')
@@ -71,65 +72,33 @@ export class Counter {
 }
 ```
 
+The decorator `Ducksify` automatically adds `Counter` as tree shakable provider to the root injector. 🚀
+Furthermore you pass the initial state of the state slice as part of the decorator configuration.
+This is used to build the reducer automatically for you.
+
 ### Create Reducer automatically
 
 If you use Ducks there is no need to maintain switch-case statements.
 Now you can create the Reducer based on the `wiredActions`.
 
 ```ts
-// counter.duck.setup.ts
-import { reducerFrom } from '@co-it/ngrx-ducks';
-import { Counter } from './counter.duck';
+// counter.duck.ts
+import { DucksifiedAction, reducerFrom } from '@co-it/ngrx-ducks';
 
-export function reducer(state = initialState, action: Action): CounterSlice {
+export class Counter {
+  /* ... */
+}
+
+export function reducer(
+  state: CounterState,
+  action: DucksifiedAction
+): CounterState {
   return reducerFrom(Counter)(state, action);
 }
 ```
 
-### Provide the Duck
-
-The last step is to generate the dispatchers for your actions.
-With `ngrx-ducks` you can provide those as a Service.
-
-As seen before you need to pass the token `Counter` to a factory.
-You just use another helper here called `ducksify`.
-
-> :warning: Please note that we need the following two exported functions to support _AoT_ compilation.
-
-```ts
-// counter.duck.setup.ts
-
-/* export function reducer .... */
-
-export function ducksifiedCounter() {
-  return {
-    provide: Counter,
-    useFactory: ducksifyCounter,
-    deps: [Store]
-  };
-}
-
-export function ducksifyCounter(store: Store<unknown>) {
-  return ducksify(Counter, store);
-}
-
-// some.module.ts
-@NgModule({
-  imports: [
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([CounterEffects])
-    /// ...
-  ],
-  providers: [ducksifiedCounter()]
-})
-export class SomeModule {}
-```
-
-You see that `ducksify` transforms `Counter` to be able to dispatch actions.
-
-🎉 Congratulations you have set up your wird Ducks service.
-From now on you only need to edit or enhance `counter.ducks.ts`.
-`ngrx-ducks` takes care to set up the infrastructure for you.
+The type `DucksifiedAction` is just to declare that the incoming action may have a payload.
+We do not need to care about the underlying action types since `ngrx-ducks` takes cafe of it and produces a strongly typed API for us.
 
 ### Inject the Ducks Service
 
