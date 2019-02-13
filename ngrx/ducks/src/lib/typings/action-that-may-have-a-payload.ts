@@ -1,4 +1,4 @@
-export interface ActionThatMayHaveAPayload<TPayload = unknown> {
+export interface DucksifiedAction<TPayload = unknown> {
   type: string;
   payload?: TPayload;
 }

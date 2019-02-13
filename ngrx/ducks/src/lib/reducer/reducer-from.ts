@@ -1,7 +1,7 @@
 import { methodsFrom } from '../class';
 import { NoInitialValueError, throwIf } from '../errors';
 import {
-  ActionThatMayHaveAPayload,
+  DucksifiedAction,
   InitialStateAnnotated,
   ReducerFunction
 } from '../typings';
@@ -29,10 +29,7 @@ export function reducerFrom<T extends new () => InstanceType<T>>(
   const methodNames = methodsFrom(Token);
   const actionReducerMap = createActionReducerMap<T>(methodNames, instance);
 
-  return function(
-    state = instance.__initialState__,
-    action: ActionThatMayHaveAPayload
-  ) {
+  return function(state = instance.__initialState__, action: DucksifiedAction) {
     return actionReducerMap[action.type]
       ? actionReducerMap[action.type](state, action.payload)
       : state;
