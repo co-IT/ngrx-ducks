@@ -3,7 +3,7 @@
     "prefix": "d-duck",
     "description": "Creates a Duck class",
     "body": [
-      "import { Action, Ducksify } from '@co-it/ngrx-ducks';",
+      "import { Action, Ducksify, reducerFrom } from '@co-it/ngrx-ducks';",
       "",
       "@Ducksify<$4>({",
       "  initialState: $0",
@@ -13,6 +13,13 @@
       "  ${3:method}(): ${4:state} {",
       "",
       "  }",
+      "}",
+      "",
+      "export function reducer(",
+      "  state: $4 | undefined,",
+      "  action: Action",
+      "): $2 {",
+      "  return reducerFrom($1)(state, action);",
       "}"
     ]
   },
@@ -25,20 +32,5 @@
     "prefix": "d-inject",
     "description": "Insert injection statement for a duck",
     "body": ["@Inject(${1:duck}) private ${2:name}: Duck<$1>$0"]
-  },
-  "duck-setup": {
-    "prefix": "d-reducer",
-    "description": "Creates reducer function",
-    "body": [
-      "import { reducerFrom } from '@co-it/ngrx-ducks';",
-      "import { Action, Store } from '@ngrx/store';",
-      "",
-      "export function reducer(",
-      "  state: ${2:state} | undefined,",
-      "  action: Action",
-      "): $2 {",
-      "  return reducerFrom($1)(state, action);",
-      "}"
-    ]
   }
 }
