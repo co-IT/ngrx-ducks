@@ -6,6 +6,7 @@ export * from './lib/ducks/effect';
 export * from './lib/reducer/reducer-from';
 export * from './lib/typings/action-of';
 export * from './lib/typings/duck';
+export * from './lib/typings/ducksified-action';
 export * from './lib/__deprecated__/create-reducer-from/create-reducer-from';
 export * from './lib/__deprecated__/ducks/create-ducks';
 export * from './lib/__deprecated__/types/ducks/ducks';

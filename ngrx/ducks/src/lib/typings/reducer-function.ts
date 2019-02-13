@@ -1,4 +1,4 @@
-import { DucksifiedAction } from './action-that-may-have-a-payload';
+import { DucksifiedAction } from './ducksified-action';
 
 /**
  * Represents signature of a reducer function.
