@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-beta.3...@co-it/ngrx-ducks@7.3.1) (2019-02-13)
+
+### Features
+
+- **ngrx-ducks:** expose DucksifiedAction via public_api ([62583e9](https://github.com/co-it/co-it/commit/62583e9))
+- **ngrx-ducks:** introduce Ducksify decorator ([02af6a4](https://github.com/co-it/co-it/commit/02af6a4))
+
 ## [7.3.1-beta.3](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-beta.2...@co-it/ngrx-ducks@7.3.1-beta.3) (2019-02-10)
 
 ### Bug Fixes
