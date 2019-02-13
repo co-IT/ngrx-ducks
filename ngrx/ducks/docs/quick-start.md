@@ -115,7 +115,7 @@ export class CounterComponent {
 }
 ```
 
-Since `createDucks` adds Action Creators to `Counter` we receive an
+Since `@Ducksify` adds Action Creators to `Counter` we receive an
 enhanced version of that class having the type `Duck<Counter>`.
 
 You will see that you can call each method of the class taking the payload.
