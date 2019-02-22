@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1...@co-it/ngrx-ducks@7.4.0) (2019-02-22)
+
+### Bug Fixes
+
+- **README:** replace mention of deprecated API ([411a9f7](https://github.com/co-it/co-it/commit/411a9f7))
+
+### Features
+
+- **ngrx-ducks:** allow direct usage of MemoizedSelector in Duck instance ([fda3369](https://github.com/co-it/co-it/commit/fda3369))
+- **ngrx-ducks:** pass through type for MemoizedSelector ([1a3fce0](https://github.com/co-it/co-it/commit/1a3fce0))
+
 ## [7.3.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1-beta.3...@co-it/ngrx-ducks@7.3.1) (2019-02-13)
 
 ### Features
