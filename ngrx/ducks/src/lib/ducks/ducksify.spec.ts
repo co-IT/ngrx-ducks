@@ -1,3 +1,4 @@
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
 import { MissingActionDecoratorError } from '../errors';
@@ -5,9 +6,17 @@ import { Duck } from '../typings';
 import { ducksify } from './ducksify';
 import { effect } from './effect';
 
+const counter = createFeatureSelector<number>('counter');
+const current = createSelector(
+  counter,
+  count => count
+);
+
 class MyDuck {
   doAsync = effect('doAsync');
   doAsyncWithPayload = effect<number>('doAsyncWithPayload');
+
+  current = current;
 
   @Action('greet')
   greet(state: number) {
@@ -92,6 +101,13 @@ describe('factory: ducksify', () => {
     it('should raise an error', () => {
       const err = new MissingActionDecoratorError(Some.name, 'greet');
       expect(() => ducksify(Some, store as any)).toThrowError(err);
+    });
+  });
+
+  describe('When a Duck contains a selector', () => {
+    /** smoke test, just want to ensure the right type inference */
+    it('should be possible to use the selector directly', () => {
+      expect(typeof sut.current).toBe('function');
     });
   });
 });
