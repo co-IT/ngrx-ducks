@@ -1,4 +1,4 @@
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { actionCreatorFor } from '../actions';
 import { methodsFrom } from '../class';
 import { MissingActionDecoratorError } from '../errors';
@@ -27,10 +27,13 @@ export function ducksify<T extends new () => InstanceType<T>>(
 
   const effectDispatchers = extractEffectDispatchers<T>(instance, store);
 
+  const memoizedSelectors = extractMemoizedSelectors(instance, store);
+
   return {
     ...instance,
     ...reducerDispatchers,
     ...effectDispatchers,
+    ...memoizedSelectors,
     ...pickFactory(store)
   };
 }
@@ -91,5 +94,20 @@ function extractReducerDispatchers<T extends new () => InstanceType<T>>(
       service[method].plain = service[method].action;
 
       return service;
-    }, {}) as any;
+    }, {});
+}
+
+function extractMemoizedSelectors(instance: any, store: Store<unknown>) {
+  return Object.getOwnPropertyNames(instance)
+    .filter(member => isMemoizedSelector(instance, member))
+    .reduce(
+      (selectors, member) => ({
+        ...selectors,
+        [member]: store.pipe(select(instance[member]))
+      }),
+      {}
+    );
+}
+function isMemoizedSelector(instance: any, member: string): any {
+  return instance[member].release && instance[member].projector;
 }

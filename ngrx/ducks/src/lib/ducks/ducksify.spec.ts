@@ -107,7 +107,7 @@ describe('factory: ducksify', () => {
   describe('When a Duck contains a selector', () => {
     /** smoke test, just want to ensure the right type inference */
     it('should be possible to use the selector directly', () => {
-      expect(typeof sut.current).toBe('function');
+      expect(typeof sut.current.subscribe).toBe('function');
     });
   });
 });

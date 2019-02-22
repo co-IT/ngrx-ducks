@@ -8,11 +8,19 @@ import {
 } from '@ngrx/store';
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
-import { Duck } from '../typings/duck-service';
+import { Duck } from '../typings';
 import { ducksify } from './ducksify';
+
+const feature = createFeatureSelector<number>('counter');
+const currentCount = createSelector(
+  feature,
+  count => count
+);
 
 @InitialState(0)
 export class Counter {
+  current$ = currentCount;
+
   @Action('increment')
   increment(state: number) {
     return ++state;
@@ -21,7 +29,6 @@ export class Counter {
 
 describe('@NgModule', () => {
   let store: Store<unknown>;
-  let currentCount: any;
   let counter: Duck<Counter>;
   let dispatch: jest.SpyInstance;
   let reducers: ActionReducerMap<unknown>;
@@ -45,11 +52,6 @@ describe('@NgModule', () => {
     counter = TestBed.get(Counter);
 
     dispatch = jest.spyOn(store, 'dispatch');
-    const feature = createFeatureSelector('counter');
-    currentCount = createSelector(
-      feature,
-      count => count
-    );
   });
 
   describe('When the duck service is provided', () => {
@@ -71,6 +73,15 @@ describe('@NgModule', () => {
   describe('When a selector is passed', () => {
     it('should yield the result of the selector', done => {
       counter.pick(currentCount).subscribe(count => {
+        expect(count).toBe(0);
+        done();
+      });
+    });
+  });
+
+  describe('When a selector is a member of the duck', () => {
+    it('should yield the selected value', done => {
+      counter.current$.subscribe(count => {
         expect(count).toBe(0);
         done();
       });
