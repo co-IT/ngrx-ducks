@@ -1,10 +1,10 @@
-import { ActionCreatorForEffect } from '.';
+import { RealEffectDispatcher } from '../operators/where-type';
 
-export type extractPayload<T> = T extends ActionCreatorForEffect<infer TPayload>
+export type extractPayload<T> = T extends RealEffectDispatcher<infer TPayload>
   ? TPayload
   : never;
 
-export interface ActionFromEffectDispatcher<T> {
+export interface ActionFromRealEffectDispatcher<T> {
   type: string;
   payload: extractPayload<T>;
 }
