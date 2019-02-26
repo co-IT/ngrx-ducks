@@ -1,14 +1,17 @@
-export type ActionFromEffectDispatcher<T> = T extends {
+export type EffectDispatcher<T> = T extends {
+  type: string;
   dispatch: () => void;
 }
   ? {
       type: string;
+      dispatch: () => void;
     }
   : T extends {
+      type: string;
       dispatch: (payload: infer TPayload) => void;
     }
   ? {
       type: string;
-      payload: TPayload;
+      dispatch: (payload: TPayload) => void;
     }
   : never;
