@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.4.0...@co-it/ngrx-ducks@7.5.0) (2019-02-26)
+
+### Features
+
+- **ngrx-ducks:effect:** infer payload of effect dispatchers automatically :rocket: ([ec92f3f](https://github.com/co-it/co-it/commit/ec92f3f))
+
 # [7.4.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.3.1...@co-it/ngrx-ducks@7.4.0) (2019-02-22)
 
 ### Bug Fixes
