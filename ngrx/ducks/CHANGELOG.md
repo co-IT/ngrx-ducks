@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.5.0...@co-it/ngrx-ducks@7.5.1) (2019-02-26)
+
+### Bug Fixes
+
+- **ngrx-ducks:** correct typing of effect dispatchers ([cb3125b](https://github.com/co-it/co-it/commit/cb3125b))
+
 # [7.5.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.4.0...@co-it/ngrx-ducks@7.5.0) (2019-02-26)
 
 ### Features
