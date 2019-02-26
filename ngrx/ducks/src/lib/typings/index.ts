@@ -8,7 +8,7 @@ export * from './duck';
 export * from './duck-action-dispatcher';
 export * from './ducksified-action';
 export * from './ducksify-config';
-export * from './effect-dispatcher';
+export * from './effect-action-creator';
 export * from './initial-state-annotated';
 export * from './loaded-action';
 export * from './pick-selector';

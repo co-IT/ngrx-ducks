@@ -1,4 +1,4 @@
-export type EffectDispatcher<T> = T extends {
+export type EffectActionCreator<T> = T extends {
   type: string;
   action: () => void;
 }

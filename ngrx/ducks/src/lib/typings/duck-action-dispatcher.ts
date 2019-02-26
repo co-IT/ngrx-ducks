@@ -3,12 +3,12 @@ import { Observable } from 'rxjs';
 import { ActionHandlerWithPayload } from './action-handler-with-payload';
 import { ActionHandlerWithoutPayload } from './action-handler-without-payload';
 import { DispatcherForEffect } from './dispatcher-for-effect';
-import { EffectDispatcher } from './effect-dispatcher';
+import { EffectActionCreator } from './effect-action-creator';
 import { LoadedAction } from './loaded-action';
 import { PlainAction } from './plain-action';
 
 export type DuckActionDispatcher<T> = T extends DispatcherForEffect
-  ? EffectDispatcher<T>
+  ? EffectActionCreator<T>
   : T extends MemoizedSelector<infer _TState, infer TResult>
   ? Observable<TResult>
   : T extends ActionHandlerWithoutPayload<infer _TSlice>
