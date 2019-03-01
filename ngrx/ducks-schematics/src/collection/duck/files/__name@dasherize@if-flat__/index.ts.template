@@ -1,0 +1,2 @@
+export * from './<%= dasherize(name) %>.duck';
+export * from './<%= dasherize(name) %>.state';

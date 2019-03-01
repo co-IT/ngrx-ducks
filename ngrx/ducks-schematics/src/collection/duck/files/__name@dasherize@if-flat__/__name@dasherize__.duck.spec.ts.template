@@ -1,0 +1,16 @@
+import { <%= classify(name) %> } from './<%= dasherize(name) %>.duck';
+import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
+
+describe('<%= classify(name) %>', () => {
+  let duck: <%= classify(name) %>;
+  let state: <%= classify(name) %>State;
+
+  beforeEach(() => {
+    duck = new <%= classify(name) %>();
+    state = { data: 0 };
+  });
+
+  it('should set count', () => {
+    expect(duck.setData(state, 1).data).toBe(1);
+  });
+});

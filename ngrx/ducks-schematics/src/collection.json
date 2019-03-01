@@ -1,9 +1,10 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "ducks-schematics": {
-      "description": "A blank schematic.",
-      "factory": "./ducks-schematics/index#ducksSchematics"
+    "duck": {
+      "description": "Create a Duck.",
+      "factory": "./collection/duck",
+      "schema": "./collection/duck/schema.json"
     }
   }
 }
