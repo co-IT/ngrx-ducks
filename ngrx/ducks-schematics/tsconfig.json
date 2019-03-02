@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "tsconfig",
+    "outDir": "./dist/src/",
     "lib": ["es2018", "dom"],
     "declaration": true,
     "module": "commonjs",
@@ -17,7 +18,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "types": ["jasmine", "node"]
+    "types": ["node"]
   },
   "include": ["src/**/*"],
   "exclude": ["src/*/files/**/*"]

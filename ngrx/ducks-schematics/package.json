@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "A blank schematics",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "ts-node -P ./build/tsconfig.json ./build",
+    "tsc:prod": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
@@ -16,5 +17,10 @@
     "@angular-devkit/core": "^7.3.1",
     "@angular-devkit/schematics": "^7.3.1",
     "typescript": "~3.2.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^7.0.1",
+    "@types/node": "^11.10.4",
+    "ts-node": "^8.0.2"
   }
 }
