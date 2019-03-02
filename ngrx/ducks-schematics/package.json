@@ -1,14 +1,17 @@
 {
-  "name": "ducks-schematics",
-  "version": "0.0.0",
-  "description": "A blank schematics",
+  "name": "@co-it/ngrx-ducks-schematics",
+  "version": "7.5.1",
+  "description": "Schematics for @co-it/ngrx-ducks",
   "scripts": {
     "build": "ts-node -P ./build/tsconfig.json ./build",
     "tsc:prod": "tsc -p tsconfig.json",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [
-    "schematics"
+    "schematics",
+    "angular",
+    "typescript",
+    "angular-cli"
   ],
   "author": "",
   "license": "MIT",
