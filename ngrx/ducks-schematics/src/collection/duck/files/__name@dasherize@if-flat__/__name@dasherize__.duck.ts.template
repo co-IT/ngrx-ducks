@@ -1,18 +1,18 @@
 import { Action, Ducksify, reducerFrom } from '@co-it/ngrx-ducks';
-import { <%= classify(name) %>State } from './<%= classify(name) %>.state';
+import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
 
 @Ducksify<<%= classify(name) %>State>({
-  initialState:
+  initialState: {
+    data: 0
+  }
 })
 export class <%= classify(name) %> {
-  static reducer = reducer;
-
   @Action('[<%= classify(name) %>] Sample action type')
   setData(stateSlice: <%= classify(name) %>State, data: number): <%= classify(name) %>State {
     return { ...stateSlice, data };
   }
 }
 
-export function reducer(state, action) {
+export function <%= camelize(name) %>Reducer(state, action) {
   return reducerFrom(<%= classify(name) %>)(state, action);
 }
