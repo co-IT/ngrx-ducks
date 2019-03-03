@@ -8,7 +8,7 @@ clean('./dist')
       ['./package.json', './dist'],
       ['./src/collection.json', './dist'],
       ['./src/**/schema.json', './dist'],
-      ['./src/**/templates/**/*.ts', './dist']
+      ['./src/**/files/**/*.ts.template', './dist']
     ])
   )
   .catch(err => {
