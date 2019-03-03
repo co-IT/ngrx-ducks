@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.5.1...@co-it/ngrx-ducks@7.6.0) (2019-03-03)
+
+### Features
+
+- **ngrx-ducks:** reference schematic in package.json ([0daf5bd](https://github.com/co-it/co-it/commit/0daf5bd))
+
 ## [7.5.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.5.0...@co-it/ngrx-ducks@7.5.1) (2019-02-26)
 
 ### Bug Fixes

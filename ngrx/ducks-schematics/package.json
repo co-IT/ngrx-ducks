@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks-schematics",
-  "version": "7.5.1",
+  "version": "7.6.0",
   "description": "Schematics for @co-it/ngrx-ducks",
   "scripts": {
     "build": "ts-node -P ./build/tsconfig.json ./build",
@@ -22,8 +22,8 @@
     "typescript": "~3.2.2"
   },
   "devDependencies": {
-    "fs-extra": "^7.0.1",
     "@types/node": "^11.10.4",
+    "fs-extra": "^7.0.1",
     "ts-node": "^8.0.2"
   }
 }
