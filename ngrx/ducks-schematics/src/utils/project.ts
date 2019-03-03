@@ -33,7 +33,7 @@ export function getProject(
     ? workspaceOrHost
     : getWorkspace(workspaceOrHost);
 
-  return workspace.projects[projectName] as WorkspaceProject;
+  return workspace.projects[projectName];
 }
 
 export function isWorkspaceSchema(
