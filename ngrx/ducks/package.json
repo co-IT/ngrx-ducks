@@ -51,6 +51,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "schematics": "../ngrx-ducks-schematics/src/collection.json",
+  "dependencies": {
+    "@co-it/ngrx-ducks-schematics": "~7.5.1"
+  },
   "devDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/compiler": "^7.2.0",
