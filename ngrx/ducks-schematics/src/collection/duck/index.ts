@@ -23,7 +23,7 @@ export default function(options: DuckOptions): Rule {
     }
     const project = getProject(host, options.project);
 
-    if (options.path === undefined) {
+    if (!options.path) {
       options.path = buildDefaultPath(project);
     }
 
