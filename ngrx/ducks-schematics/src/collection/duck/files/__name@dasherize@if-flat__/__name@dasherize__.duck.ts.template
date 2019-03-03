@@ -1,4 +1,9 @@
-import { Action, Ducksify, reducerFrom } from '@co-it/ngrx-ducks';
+import {
+  Action,
+  DucksifiedAction,
+  Ducksify,
+  reducerFrom
+} from '@co-it/ngrx-ducks';
 import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
 
 @Ducksify<<%= classify(name) %>State>({
@@ -13,6 +18,9 @@ export class <%= classify(name) %> {
   }
 }
 
-export function <%= camelize(name) %>Reducer(state, action) {
+export function <%= camelize(name) %>Reducer(
+  state: <%= classify(name) %>State | undefined,
+  action: DucksifiedAction
+): <%= classify(name) %>State {
   return reducerFrom(<%= classify(name) %>)(state, action);
 }
