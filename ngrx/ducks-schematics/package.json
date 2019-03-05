@@ -13,7 +13,9 @@
     "typescript",
     "angular-cli"
   ],
-  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
