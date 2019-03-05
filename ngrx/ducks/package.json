@@ -26,7 +26,8 @@
     "dest": "dist",
     "whitelistedNonPeerDependencies": [
       "angular",
-      "@types/jest"
+      "@types/jest",
+      "@co-it/ngrx-ducks-schematics"
     ]
   },
   "jest": {
