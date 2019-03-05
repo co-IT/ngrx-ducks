@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks-schematics",
-  "version": "7.6.0",
+  "version": "7.6.1",
   "description": "Schematics for @co-it/ngrx-ducks",
   "scripts": {
     "build": "ts-node -P ./build/tsconfig.json ./build",

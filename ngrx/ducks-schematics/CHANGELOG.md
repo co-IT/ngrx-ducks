@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.6.1](https://github.com/co-IT/co-it/compare/@co-it/ngrx-ducks-schematics@7.6.0...@co-it/ngrx-ducks-schematics@7.6.1) (2019-03-05)
+
+**Note:** Version bump only for package @co-it/ngrx-ducks-schematics
+
 # 7.6.0 (2019-03-03)
 
 ### Bug Fixes
