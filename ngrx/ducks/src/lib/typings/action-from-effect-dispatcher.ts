@@ -1,3 +1,5 @@
+import { Action } from '@ngrx/store';
+
 export type ActionFromEffectDispatcher<T> = T extends {
   dispatch: () => void;
 }
@@ -11,11 +13,11 @@ export type ActionFromEffectDispatcher<T> = T extends {
       type: string;
       payload: TPayload;
     }
-  : T extends { action: () => void }
+  : T extends { action: () => Action }
   ? {
       type: string;
     }
-  : T extends { action: (payload: infer TPayload) => void }
+  : T extends { action: (payload: infer TPayload) => Action }
   ? {
       type: string;
       payload: TPayload;

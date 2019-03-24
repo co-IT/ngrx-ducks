@@ -3,6 +3,7 @@ import { from, Observable, of } from 'rxjs';
 import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
 import { ducksify } from '../ducks';
+import { Duck } from '../typings';
 import { whereType } from './where-type';
 
 describe('operators: whereType', () => {
@@ -83,18 +84,34 @@ describe('operators: whereType', () => {
   });
 
   describe('self dispatching action', () => {
-    describe('When a type of the emitted action matches', () => {
-      class Duck {
-        @Action('[Counter] Pick')
-        eat(state: any, payload: boolean) {
-          return state;
-        }
+    let storeMock: StoreMock<unknown>;
+    let duck: Duck<CuteDuck>;
+
+    class CuteDuck {
+      @Action('[Duck] Eat')
+      eat(state: any, payload: boolean) {
+        return state;
       }
 
+      @Action('[Duck] Drink')
+      drink(state: any, payload: number) {
+        return state;
+      }
+
+      @Action('[Duck] Swim')
+      swim(state: any, payload: string) {
+        return state;
+      }
+    }
+
+    beforeEach(() => {
+      storeMock = new StoreMock({});
+      duck = ducksify(CuteDuck, storeMock as any);
+    });
+
+    describe('When a type of the emitted action matches', () => {
       it('should pass the stream', done => {
-        const storeMock = new StoreMock({});
-        const action = { type: '[Counter] Pick', payload: true };
-        const duck = ducksify(Duck, storeMock as any);
+        const action = { type: '[Duck] Eat', payload: true };
 
         const actions$: Observable<NgRxAction> = of(action);
 
@@ -104,6 +121,40 @@ describe('operators: whereType', () => {
             done();
           }
         });
+      });
+    });
+
+    describe('When a type of a emitted action does not match', () => {
+      it('should not pass the stream', () => {
+        const action = { type: '[Duck]', payload: true };
+        const actions$: Observable<NgRxAction> = of(action);
+
+        const observer = { next: () => ({}) };
+        const observerSpy = jest.spyOn(observer, 'next');
+
+        actions$.pipe(whereType(duck.eat)).subscribe(observer);
+        expect(observerSpy).not.toBeCalled();
+      });
+    });
+
+    describe('When multiple types are triggering an effect', () => {
+      it('should pass the stream', () => {
+        const actions = [
+          { type: '[Duck] Eat', payload: true },
+          { type: '[Duck] Drink', payload: 0 },
+          { type: '[Duck] Swim', payload: 'nak, nak' }
+        ];
+
+        const actions$: Observable<NgRxAction> = from(actions);
+
+        const observer = { next: () => ({}) };
+        const observerSpy = jest.spyOn(observer, 'next');
+
+        actions$
+          .pipe(whereType([duck.eat, duck.drink, duck.swim]))
+          .subscribe(observer);
+
+        expect(observerSpy).toBeCalledTimes(3);
       });
     });
   });
