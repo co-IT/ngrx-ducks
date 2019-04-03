@@ -5,6 +5,7 @@ export type EffectActionCreator<T> = T extends {
   ? {
       type: string;
       dispatch: () => void;
+      action: () => { type: string };
     }
   : T extends {
       type: string;
@@ -13,5 +14,6 @@ export type EffectActionCreator<T> = T extends {
   ? {
       type: string;
       dispatch: (payload: TPayload) => void;
+      action: (payload: TPayload) => { type: string; payload: TPayload };
     }
   : never;

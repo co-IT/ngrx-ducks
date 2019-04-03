@@ -74,20 +74,30 @@ describe('factory: ducksify', () => {
     });
   });
 
-  describe('When a effect trigger is added', () => {
+  describe('When an effect trigger is added', () => {
     it('should dispatch the configured action', () => {
       sut.doAsync.dispatch();
       expect(dispatch).toHaveBeenCalledWith({ type: 'doAsync' });
     });
+
+    it('should provide an action creator', () => {
+      const action = sut.doAsync.action();
+      expect(action.type).toBe('doAsync');
+    });
   });
 
-  describe('When a effect trigger with payload is added', () => {
+  describe('When an effect trigger with payload is added', () => {
     it('should dispatch the configured action with a payload', () => {
       sut.doAsyncWithPayload.dispatch(0);
       expect(dispatch).toHaveBeenCalledWith({
         type: 'doAsyncWithPayload',
         payload: 0
       });
+    });
+
+    it('should provide an action creator', () => {
+      const action = sut.doAsyncWithPayload.action(1);
+      expect(action).toEqual({ type: 'doAsyncWithPayload', payload: 1 });
     });
   });
 
