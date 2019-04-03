@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.8.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.7.0...@co-it/ngrx-ducks@7.8.0) (2019-04-03)
+
+### Bug Fixes
+
+- provide UMD module id for ngrx/store ([d4976fb](https://github.com/co-it/co-it/commit/d4976fb))
+
+### Features
+
+- **ducks:** expose action creator for effect dispatchers ([a5acace](https://github.com/co-it/co-it/commit/a5acace))
+
 # [7.7.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.6.1...@co-it/ngrx-ducks@7.7.0) (2019-03-24)
 
 ### Features
