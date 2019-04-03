@@ -89,17 +89,17 @@ describe('operators: whereType', () => {
 
     class CuteDuck {
       @Action('[Duck] Eat')
-      eat(state: any, payload: boolean) {
+      eat(state: any, payload: boolean): any {
         return state;
       }
 
       @Action('[Duck] Drink')
-      drink(state: any, payload: number) {
+      drink(state: any, payload: number): any {
         return state;
       }
 
       @Action('[Duck] Swim')
-      swim(state: any, payload: string) {
+      swim(state: any, payload: string): any {
         return state;
       }
     }
