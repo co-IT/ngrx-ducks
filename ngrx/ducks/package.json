@@ -39,10 +39,10 @@
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.2",
-    "ng-packagr": "^4.6.0",
+    "ng-packagr": "^5.0.1",
     "rxjs": "^6.3.3",
     "ts-jest": "^23.1.4",
-    "tsickle": "^0.34.0",
+    "tsickle": "^0.34.3",
     "tslib": "^1.9.3",
     "typescript": "^3.2.2",
     "zone.js": "^0.8.26"
