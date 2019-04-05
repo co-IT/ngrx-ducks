@@ -1,17 +1,5 @@
 import { strings } from '@angular-devkit/core';
-import {
-  apply,
-  applyTemplates,
-  chain,
-  filter,
-  mergeWith,
-  move,
-  noop,
-  Rule,
-  SchematicsException,
-  Tree,
-  url
-} from '@angular-devkit/schematics';
+import { apply, applyTemplates, chain, filter, mergeWith, move, noop, Rule, SchematicsException, Tree, url } from '@angular-devkit/schematics';
 import { parseName } from '../../utils/parse-name';
 import { buildDefaultPath, getProject } from '../../utils/project';
 import { Schema as DuckOptions } from './schema';
@@ -37,6 +25,9 @@ export default function(options: DuckOptions): Rule {
         : noop(),
       !options.barrel || options.flat
         ? filter(path => !path.endsWith('index.ts.template'))
+        : noop(),
+      !options.effects
+        ? filter(path => !path.endsWith('effects.ts.template'))
         : noop(),
       applyTemplates({
         ...strings,

@@ -5,4 +5,5 @@ export interface Schema {
   barrel: boolean;
   flat: boolean;
   spec: boolean;
+  effects: boolean;
 }

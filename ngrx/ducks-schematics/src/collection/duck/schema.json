@@ -30,7 +30,8 @@
     "barrel": {
       "type": "boolean",
       "default": true,
-      "description": "When true (the default) and not flat, creates a index.ts barrel file."
+      "description": "When true (the default) and not flat, creates a index.ts barrel file.",
+      "x-prompt": "Do you want to create a barrel (index.ts) file?"
     },
     "flat": {
       "type": "boolean",
@@ -39,8 +40,14 @@
     },
     "spec": {
       "type": "boolean",
-      "description": "When true (the default), generates a  \"spec.ts\" test file for the new Duck.",
-      "default": true
+      "default": true,
+      "description": "When true (the default), generates a  \"spec.ts\" test file for the new Duck."
+    },
+    "effects": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true (the default), generates an  \"effects.ts\" test file for the effects of the new Duck.",
+      "x-prompt": "Do you want to create an effects file?"
     }
   },
   "required": ["name"]

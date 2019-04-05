@@ -1,0 +1,20 @@
+import { Inject, Injectable } from '@angular/core';
+import { Duck, whereType } from '@co-it/ngrx-ducks';
+import { Actions, Effect } from '@ngrx/effects';
+import { delay, map } from 'rxjs/operators';
+import { <%= classify(name) %> } from './<%= dasherize(name) %>.duck';
+
+@Injectable()
+export class <%= classify(name) %>Effects {
+  @Effect()
+  loadData = this.actions$.pipe(
+    whereType(this.<%= camelize(name) %>.loadData),
+    delay(2000),
+    map(({ payload }) => this.<%= camelize(name) %>.setData.action(payload))
+  );
+
+  constructor(
+    private actions$: Actions,
+    @Inject(<%= classify(name) %>) private <%= camelize(name) %>: Duck<<%= classify(name) %>>
+  ) {}
+}

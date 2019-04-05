@@ -1,2 +1,3 @@
-export * from './<%= dasherize(name) %>.duck';
+export * from './<%= dasherize(name) %>.duck';<% if (effects) { %>
+export * from './<%= dasherize(name) %>.effects';<% } %>
 export * from './<%= dasherize(name) %>.state';
