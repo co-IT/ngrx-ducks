@@ -29,6 +29,9 @@ export default function(options: DuckOptions): Rule {
       !options.effects
         ? filter(path => !path.endsWith('effects.ts.template'))
         : noop(),
+      !options.selectors
+        ? filter(path => !path.endsWith('selectors.ts.template'))
+        : noop(),
       applyTemplates({
         ...strings,
         'if-flat': (s: string) => (options.flat ? '' : s),

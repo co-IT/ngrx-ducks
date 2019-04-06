@@ -6,4 +6,5 @@ export interface Schema {
   flat: boolean;
   spec: boolean;
   effects: boolean;
+  selectors: boolean;
 }

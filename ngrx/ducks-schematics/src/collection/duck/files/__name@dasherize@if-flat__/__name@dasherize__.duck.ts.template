@@ -4,7 +4,8 @@ import {
   Ducksify,<% if (effects) { %>
   effect,<% } %>
   reducerFrom
-} from '@co-it/ngrx-ducks';
+} from '@co-it/ngrx-ducks';<% if (selectors) { %>
+import * as selectors from './<%= dasherize(name) %>.selectors';<% } %>
 import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
 
 @Ducksify<<%= classify(name) %>State>({
@@ -12,7 +13,9 @@ import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
     data: 0
   }
 })
-export class <%= classify(name) %> {<% if (effects) { %>
+export class <%= classify(name) %> {<% if (selectors) { %>
+  data$ = selectors.data;
+<% } %><% if (effects) { %>
   readonly loadData = effect<number>('[<%= classify(name) %>] Sample effect');
 <% } %>
   @Action('[<%= classify(name) %>] Sample action type')

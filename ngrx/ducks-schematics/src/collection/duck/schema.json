@@ -46,8 +46,14 @@
     "effects": {
       "type": "boolean",
       "default": true,
-      "description": "When true (the default), generates an  \"effects.ts\" test file for the effects of the new Duck.",
-      "x-prompt": "Do you want to create an effects file?"
+      "description": "When true (the default), generates an  \"effects.ts\" file for the new Duck.",
+      "x-prompt": "Do you want to create effects?"
+    },
+    "selectors": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true (the default), generates a  \"selectors.ts\" file for the new Duck.",
+      "x-prompt": "Do you want to create selectors?"
     }
   },
   "required": ["name"]

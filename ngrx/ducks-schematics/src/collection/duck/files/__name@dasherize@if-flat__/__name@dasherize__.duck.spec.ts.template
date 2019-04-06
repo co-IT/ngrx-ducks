@@ -10,7 +10,7 @@ describe('<%= classify(name) %>', () => {
     state = { data: 0 };
   });
 
-  it('should set count', () => {
+  it('should set data', () => {
     expect(duck.setData(state, 1).data).toBe(1);
   });
 });
