@@ -6,6 +6,11 @@ import { <%= classify(name) %> } from './<%= dasherize(name) %>.duck';
 
 @Injectable()
 export class <%= classify(name) %>Effects {
+  /**
+   * Generated example
+   *
+   * You may want to replace this Effect with your own implementation.
+   */
   @Effect()
   loadData = this.actions$.pipe(
     whereType(this.<%= camelize(name) %>.loadData),
