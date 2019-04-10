@@ -49,6 +49,16 @@
       "description": "When true (the default), generates an  \"effects.ts\" file for the new Duck.",
       "x-prompt": "Do you want to create effects?"
     },
+    "module":  {
+      "type": "string",
+      "description": "The declaring NgModule for the effect.",
+      "alias": "m"
+    },
+    "skipImport": {
+      "type": "boolean",
+      "description": "When true, does not import the effect into the owning NgModule.",
+      "default": false
+    },
     "selectors": {
       "type": "boolean",
       "default": true,

@@ -17,4 +17,6 @@ You get this package automatically if you install [@co-it/ngrx-ducks](https://ww
 | flat | When true, creates files at the top level of the project. |
 | spec | When true (the default), generates a \"spec.ts\" test file for the new Duck. |
 | effects | When true (the default), generates an \"effects.ts\" file for the new Duck. |
+| module | The declaring NgModule for the effect (or nearest NgModule if omitted). |
+| skipImport | When true, does not import the effect into the owning NgModule. |
 | selectors | When true (the default), generates a \"selectors.ts\" file for the new Duck. |
