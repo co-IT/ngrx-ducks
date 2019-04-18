@@ -412,7 +412,8 @@ export function addSymbolToNgModuleMetadata(
   metadataField: string,
   symbolName: string,
   importPath: string | null = null,
-  importText: string | null = null
+  importText: string | null = null,
+  importModuleToAddSymbolName: string | null = null
 ): Change[] {
   const nodes = getDecoratorMetadata(source, 'NgModule', '@angular/core');
   let node: any = nodes[0]; // tslint:disable-line:no-any
@@ -507,6 +508,48 @@ export function addSymbolToNgModuleMetadata(
     const symbolsArray = nodeArray.map(node => node.getText());
     if (symbolsArray.includes(symbolName)) {
       return [];
+    }
+    /**
+     * my code
+     */
+    if (importModuleToAddSymbolName !== null) {
+      const existingImportModule = nodeArray.find(node =>
+        node.getText().includes(importModuleToAddSymbolName)
+      );
+      if (existingImportModule) {
+        const existingImportModuleImports = existingImportModule
+          .getChildren()
+          .find(child => child.getFullText().startsWith('['));
+        if (existingImportModuleImports) {
+          node = existingImportModuleImports.getChildAt(0).getChildren()[
+            existingImportModuleImports.getChildAt(0).getChildren().length - 1
+          ];
+          let toInsert: string;
+          let position: number;
+          const text = node.getFullText(source);
+          if (text.match('^\r?\r?\n')) {
+            toInsert = `,${text.match(/^\r?\n\s+/)[0]}  ${symbolName}`;
+            const fullText = existingImportModuleImports.getFullText(source);
+            position =
+              node.getEnd() - fullText.length + fullText.lastIndexOf('\n');
+          } else {
+            position = node.getEnd() - 1;
+            toInsert = `, ${symbolName}`;
+          }
+          if (importPath !== null) {
+            return [
+              new InsertChange(ngModulePath, position, toInsert),
+              insertImport(
+                source,
+                ngModulePath,
+                symbolName.replace(/\..*$/, ''),
+                importPath
+              )
+            ];
+          }
+          return [new InsertChange(ngModulePath, position, toInsert)];
+        }
+      }
     }
 
     node = node[node.length - 1];

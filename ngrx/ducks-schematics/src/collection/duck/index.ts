@@ -68,7 +68,8 @@ function addDeclarationToNgModule(options: DuckOptions): Rule {
       relativeEffectImportPath,
       `EffectsModule.forFeature([${strings.classify(
         options.name + 'Effects'
-      )}])`
+      )}])`,
+      'EffectsModule'
     );
     /**
      * add import for the EffectsModule
