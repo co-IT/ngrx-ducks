@@ -31,7 +31,6 @@
     ]
   },
   "workspaces": [
-    "ngrx/*",
-    "rxjs/*"
+    "ngrx/*"
   ]
 }
