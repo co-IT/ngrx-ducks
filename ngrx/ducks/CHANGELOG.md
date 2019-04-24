@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.8.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.8.0...@co-it/ngrx-ducks@7.8.1) (2019-04-24)
+
+**Note:** Version bump only for package @co-it/ngrx-ducks
+
 # [7.8.0](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.7.0...@co-it/ngrx-ducks@7.8.0) (2019-04-03)
 
 ### Bug Fixes
