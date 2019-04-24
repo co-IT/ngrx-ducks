@@ -119,7 +119,7 @@ export function findNodes(
   kind: ts.SyntaxKind,
   max = Infinity
 ): ts.Node[] {
-  if (!node || max == 0) {
+  if (!node || max === 0) {
     return [];
   }
 
@@ -225,7 +225,7 @@ export function insertAfterLastOccurrence(
       .sort(nodesByPosition)
       .pop();
   }
-  if (!lastItem && fallbackPos == undefined) {
+  if (!lastItem && fallbackPos === undefined) {
     throw new Error(
       `tried to insert ${toInsert} as first occurence with no fallback position`
     );
@@ -239,9 +239,9 @@ export function getContentOfKeyLiteral(
   _source: ts.SourceFile,
   node: ts.Node
 ): string | null {
-  if (node.kind == ts.SyntaxKind.Identifier) {
+  if (node.kind === ts.SyntaxKind.Identifier) {
     return (node as ts.Identifier).text;
-  } else if (node.kind == ts.SyntaxKind.StringLiteral) {
+  } else if (node.kind === ts.SyntaxKind.StringLiteral) {
     return (node as ts.StringLiteral).text;
   } else {
     return null;
@@ -272,14 +272,14 @@ function _angularImportsFromNode(
       return {};
     } else if (node.importClause.namedBindings) {
       const nb = node.importClause.namedBindings;
-      if (nb.kind == ts.SyntaxKind.NamespaceImport) {
+      if (nb.kind === ts.SyntaxKind.NamespaceImport) {
         // This is of the form `import * as name from 'path'`. Return `name.`.
         return {
-          [(nb as ts.NamespaceImport).name.text + '.']: modulePath
+          [nb.name.text + '.']: modulePath
         };
       } else {
         // This is of the form `import {a,b,c} from 'path'`
-        const namedImports = nb as ts.NamedImports;
+        const namedImports = nb;
 
         return namedImports.elements
           .map((is: ts.ImportSpecifier) =>
@@ -327,21 +327,21 @@ export function getDecoratorMetadata(
   return getSourceNodes(source)
     .filter(node => {
       return (
-        node.kind == ts.SyntaxKind.Decorator &&
-        (node as ts.Decorator).expression.kind == ts.SyntaxKind.CallExpression
+        node.kind === ts.SyntaxKind.Decorator &&
+        (node as ts.Decorator).expression.kind === ts.SyntaxKind.CallExpression
       );
     })
     .map(node => (node as ts.Decorator).expression as ts.CallExpression)
     .filter(expr => {
-      if (expr.expression.kind == ts.SyntaxKind.Identifier) {
+      if (expr.expression.kind === ts.SyntaxKind.Identifier) {
         const id = expr.expression as ts.Identifier;
 
         return (
-          id.getFullText(source) == identifier &&
+          id.getFullText(source) === identifier &&
           angularImports[id.getFullText(source)] === module
         );
       } else if (
-        expr.expression.kind == ts.SyntaxKind.PropertyAccessExpression
+        expr.expression.kind === ts.SyntaxKind.PropertyAccessExpression
       ) {
         // This covers foo.NgModule when importing * as foo.
         const paExpr = expr.expression as ts.PropertyAccessExpression;
@@ -361,7 +361,7 @@ export function getDecoratorMetadata(
     .filter(
       expr =>
         expr.arguments[0] &&
-        expr.arguments[0].kind == ts.SyntaxKind.ObjectLiteralExpression
+        expr.arguments[0].kind === ts.SyntaxKind.ObjectLiteralExpression
     )
     .map(expr => expr.arguments[0] as ts.ObjectLiteralExpression);
 }
@@ -427,16 +427,16 @@ export function addSymbolToNgModuleMetadata(
 
   // Get all the children property assignment of object literals.
   const matchingProperties: ts.ObjectLiteralElement[] = (node as ts.ObjectLiteralExpression).properties
-    .filter(prop => prop.kind == ts.SyntaxKind.PropertyAssignment)
+    .filter(prop => prop.kind === ts.SyntaxKind.PropertyAssignment)
     // Filter out every fields that's not "metadataField". Also handles string literals
     // (but not expressions).
     .filter((prop: ts.PropertyAssignment) => {
       const name = prop.name;
       switch (name.kind) {
         case ts.SyntaxKind.Identifier:
-          return (name as ts.Identifier).getText(source) == metadataField;
+          return (name as ts.Identifier).getText(source) === metadataField;
         case ts.SyntaxKind.StringLiteral:
-          return (name as ts.StringLiteral).text == metadataField;
+          return (name as ts.StringLiteral).text === metadataField;
       }
 
       return false;
@@ -446,12 +446,12 @@ export function addSymbolToNgModuleMetadata(
   if (!matchingProperties) {
     return [];
   }
-  if (matchingProperties.length == 0) {
+  if (matchingProperties.length === 0) {
     // We haven't found the field in the metadata declaration. Insert a new field.
     const expr = node as ts.ObjectLiteralExpression;
     let position: number;
     let toInsert: string;
-    if (expr.properties.length == 0) {
+    if (expr.properties.length === 0) {
       position = expr.getEnd() - 1;
       toInsert = `  ${metadataField}: [${symbolName}]\n`;
     } else {
@@ -488,7 +488,7 @@ export function addSymbolToNgModuleMetadata(
   }
 
   const arrLiteral = assignment.initializer as ts.ArrayLiteralExpression;
-  if (arrLiteral.elements.length == 0) {
+  if (arrLiteral.elements.length === 0) {
     // Forward the property.
     node = arrLiteral;
   } else {
@@ -557,11 +557,11 @@ export function addSymbolToNgModuleMetadata(
 
   let toInsert: string;
   let position = node.getEnd();
-  if (node.kind == ts.SyntaxKind.ObjectLiteralExpression) {
+  if (node.kind === ts.SyntaxKind.ObjectLiteralExpression) {
     // We haven't found the field in the metadata declaration. Insert a new
     // field.
     const expr = node as ts.ObjectLiteralExpression;
-    if (expr.properties.length == 0) {
+    if (expr.properties.length === 0) {
       position = expr.getEnd() - 1;
       toInsert = `  ${metadataField}: [${importText}]\n`;
     } else {
@@ -577,7 +577,7 @@ export function addSymbolToNgModuleMetadata(
         toInsert = `, ${metadataField}: [${importText}]`;
       }
     }
-  } else if (node.kind == ts.SyntaxKind.ArrayLiteralExpression) {
+  } else if (node.kind === ts.SyntaxKind.ArrayLiteralExpression) {
     // We found the field but it's empty. Insert it just before the `]`.
     position--;
     toInsert = `${importText}`;

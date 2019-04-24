@@ -49,7 +49,7 @@
       "description": "When true (the default), generates an  \"effects.ts\" file for the new Duck.",
       "x-prompt": "Do you want to create effects?"
     },
-    "module":  {
+    "module": {
       "type": "string",
       "description": "The declaring NgModule for the effect.",
       "alias": "m"
