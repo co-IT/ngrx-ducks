@@ -27,29 +27,29 @@
     "@co-it/ngrx-ducks-schematics": "^7.7.0"
   },
   "devDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/compiler": "^7.2.0",
-    "@angular/compiler-cli": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "@angular/platform-browser": "^7.2.0",
-    "@angular/platform-browser-dynamic": "^7.2.0",
-    "@ngrx/store": "^7.0.0",
+    "@angular/common": "8.0.0-rc.1",
+    "@angular/compiler": "8.0.0-rc.1",
+    "@angular/compiler-cli": "8.0.0-rc.1",
+    "@angular/core": "8.0.0-rc.1",
+    "@angular/platform-browser": "8.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "8.0.0-rc.1",
+    "@ngrx/store": "^8.0.0-beta.1",
     "@types/jest": "^23.3.8",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
     "jest-preset-angular": "^6.0.2",
     "ng-packagr": "^5.0.1",
-    "rxjs": "^6.3.3",
+    "rxjs": "^6.5.1",
     "ts-jest": "^23.1.4",
-    "tsickle": "^0.34.3",
+    "tsickle": "^0.35.0",
     "tslib": "^1.9.3",
-    "typescript": "^3.2.2",
-    "zone.js": "^0.8.26"
+    "typescript": "^3.4.5",
+    "zone.js": "^0.9.0"
   },
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "@ngrx/store": "^7.0.0"
+    "@angular/common": "8.0.0-rc.1",
+    "@angular/core": "8.0.0-rc.1",
+    "@ngrx/store": "^8.0.0-beta.1"
   }
 }
