@@ -9,7 +9,9 @@ describe('@Action', () => {
         class Plain {}
         const error = new MissingActionTypeError(Plain.name);
 
-        expect(() => Action(invalidType)(Plain, '', null)).toThrowError(error);
+        expect(() =>
+          Action(invalidType as any)(Plain, '', null as any)
+        ).toThrowError(error);
       }
     );
   });

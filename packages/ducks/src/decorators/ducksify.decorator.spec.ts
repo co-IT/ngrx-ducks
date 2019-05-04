@@ -10,7 +10,7 @@ describe('@Ducksify', () => {
   })
   class Counter {
     @Action('[Counter] set')
-    set(state: number, payload: number): number {
+    set(_state: number, payload: number): number {
       return payload;
     }
   }

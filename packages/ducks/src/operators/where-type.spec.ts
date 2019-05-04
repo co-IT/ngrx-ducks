@@ -84,22 +84,22 @@ describe('operators: whereType', () => {
   });
 
   describe('self dispatching action', () => {
-    let storeMock: StoreMock<unknown>;
+    let storeMock: StoreMock<{}>;
     let duck: Duck<CuteDuck>;
 
     class CuteDuck {
       @Action('[Duck] Eat')
-      eat(state: any, payload: boolean): any {
+      eat(state: any, _payload: boolean): any {
         return state;
       }
 
       @Action('[Duck] Drink')
-      drink(state: any, payload: number): any {
+      drink(state: any, _payload: number): any {
         return state;
       }
 
       @Action('[Duck] Swim')
-      swim(state: any, payload: string): any {
+      swim(state: any, _payload: string): any {
         return state;
       }
     }

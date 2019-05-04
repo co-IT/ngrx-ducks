@@ -30,7 +30,7 @@ class MyDuck {
 }
 
 describe('factory: ducksify', () => {
-  let store: StoreMock<unknown>;
+  let store: StoreMock<{}>;
   let dispatch: jest.SpyInstance;
   let sut: Duck<MyDuck>;
 
