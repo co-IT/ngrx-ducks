@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-beta.0](https://github.com/co-IT/ngrx-ducks/compare/v7.0.1-alpha.1...v8.0.0-beta.0) (2019-05-04)
+
+### Bug Fixes
+
+- **schematics:** refine path to [@types](https://github.com/types) ([d5029e7](https://github.com/co-IT/ngrx-ducks/commit/d5029e7))
+
 # [7.7.0](https://github.com/co-IT/co-it/compare/@co-it/ngrx-ducks-schematics@7.6.1...@co-it/ngrx-ducks-schematics@7.7.0) (2019-04-24)
 
 ### Bug Fixes

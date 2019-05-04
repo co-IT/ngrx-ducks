@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-beta.0](https://github.com/co-it/co-it/compare/v7.0.1-alpha.1...v8.0.0-beta.0) (2019-05-04)
+
+### Bug Fixes
+
+- remove already deleted action-of form public_api ([4635f6f](https://github.com/co-it/co-it/commit/4635f6f))
+
+### ref
+
+- remove deprecated api ([9be971b](https://github.com/co-it/co-it/commit/9be971b))
+
+### BREAKING CHANGES
+
+- The old API using `wiredActions` is not working anymore.
+  Please use the new Decorator-API
+
 ## [7.8.1](https://github.com/co-it/co-it/compare/@co-it/ngrx-ducks@7.8.0...@co-it/ngrx-ducks@7.8.1) (2019-04-24)
 
 **Note:** Version bump only for package @co-it/ngrx-ducks

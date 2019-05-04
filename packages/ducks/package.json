@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks",
-  "version": "7.8.1",
+  "version": "8.0.0-beta.0",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -24,7 +24,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
-    "@co-it/ngrx-ducks-schematics": "^7.7.0"
+    "@co-it/ngrx-ducks-schematics": "^8.0.0-beta.0"
   },
   "devDependencies": {
     "@angular/common": "^8.0.0-rc.1",
@@ -33,9 +33,9 @@
     "@angular/core": "^8.0.0-rc.1",
     "@angular/platform-browser": "^8.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^8.0.0-rc.1",
-    "core-js": "^3.0.1",
     "@ngrx/store": "^8.0.0-beta.1",
     "@types/jest": "^24.0.12",
+    "core-js": "^3.0.1",
     "jest": "^24.7.1",
     "jest-preset-angular": "^7.1.0",
     "ng-packagr": "^5.1.0",
