@@ -1,5 +1,5 @@
 {
-  "version": "independent",
+  "version": "7.8.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": ["ngrx/*", "rxjs/*"],
