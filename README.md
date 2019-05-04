@@ -22,4 +22,4 @@ Welcome to the mono-repository containing all packages related to the Ducks.
 
 Your feedback is always welcome!
 
-You can file [issues](https://github.com/co-it/co-it/issues) and create [pull requests](https://github.com/co-it/co-it/pulls) on the co-IT.eu Github repository.
+You can file [issues](https://github.com/co-it/ngrx-ducks/issues) and create [pull requests](https://github.com/co-it/ngrx-ducks/pulls) on the co-IT.eu Github repository.
