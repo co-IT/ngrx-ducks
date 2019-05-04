@@ -1,4 +1,4 @@
-import { Action, InitialState } from '../../../src/lib/decorators';
+import { Action, InitialState } from '../../../src/decorators';
 
 @InitialState(0)
 export class WithInitialState {

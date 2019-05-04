@@ -1,7 +1,7 @@
 import {
   WithInitialState,
   WithInternalMethodCallRedirect
-} from '../../../test/mocks';
+} from '../../test/mocks';
 import { NoInitialValueError } from '../errors';
 import { reducerFrom } from './reducer-from';
 
