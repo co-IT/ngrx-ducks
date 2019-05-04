@@ -10,10 +10,6 @@ Furthermore, you get a service that you can use in your components.
 This Service provides a strictly typed API allowing both dispatching actions and
 selecting data from the Store.
 
-## Upgrade Guide 7.1.x to 7.3.1
-
-[API Comparison | The new Decorator API](https://github.com/co-IT/ngrx-ducks/blob/master/packages/ducks/docs/migration.md)
-
 ## Quick Start
 
 [Getting started in 10 Minutes](https://github.com/co-IT/ngrx-ducks/blob/master/packages/ducks/docs/quick-start.md).
