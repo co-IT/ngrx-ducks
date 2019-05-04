@@ -2,7 +2,6 @@ export * from './action-creator-for-effects';
 export * from './action-from-effect-dispatcher';
 export * from './action-handler-with-payload';
 export * from './action-handler-without-payload';
-export * from './action-of';
 export * from './class-with-action-annotations';
 export * from './duck';
 export * from './duck-action-dispatcher';
