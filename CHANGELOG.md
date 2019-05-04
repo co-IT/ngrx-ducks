@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0-beta.1](https://github.com/co-IT/ngrx-ducks/compare/v8.0.0-beta.0...v8.0.0-beta.1) (2019-05-04)
+
+### Features
+
+- **schematics:** use createEffect instead of Effect-decorator ([d5bc6d0](https://github.com/co-IT/ngrx-ducks/commit/d5bc6d0))
+
 # [8.0.0-beta.0](https://github.com/co-IT/ngrx-ducks/compare/v7.0.1-alpha.1...v8.0.0-beta.0) (2019-05-04)
 
 ### Bug Fixes

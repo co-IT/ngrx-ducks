@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks",
-  "version": "8.0.0-beta.0",
+  "version": "8.0.0-beta.1",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -24,7 +24,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
-    "@co-it/ngrx-ducks-schematics": "^8.0.0-beta.0"
+    "@co-it/ngrx-ducks-schematics": "^8.0.0-beta.1"
   },
   "devDependencies": {
     "@angular/common": "^8.0.0-rc.1",
