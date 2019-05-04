@@ -4,26 +4,19 @@
 
 # NgRx Ducks
 
-This library acts as a thin layer on top of ngrx.
-It automatically creates action creators and reducer functions for you.
-Furthermore, you get a service that you can use in your components.
-This Service provides a strictly typed API allowing both dispatching actions and
-selecting data from the Store.
+Welcome to the mono-repository containing all packages related to the Ducks.
 
-## Quick Start
+| Package                 | Description                            |
+| ----------------------- | -------------------------------------- |
+| [ducks]                 | Improves coding experience for [ngrx]. |
+| [ducks-schematics]      | Scaffolds code quickly.                |
+| [ducks-vscode-snippets] | Increases writing Ducks in [vscode].   |
 
-[Getting started in 10 Minutes](https://github.com/co-IT/ngrx-ducks/blob/master/packages/ducks/docs/quick-start.md).
-
-## Demo
-
-Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks?embed=1&file=src/app/store/counter/counter.duck.ts" target="_blank">StackBlitz</a>.
-It shows how ngrx and ngrx-ducks work together.
-
-## Schematics
-
-The NgRx Ducks library provides [built-in schematics][1] to generate a Duck for you.
-
-[1]: ./packages/ducks-schematics
+[ducks]: ./packages/ducks
+[ducks-schematics]: ./packages/ducks-schematics
+[ducks-vscode-snippets]: ./packages/ducks-vscode-snippets
+[ngrx]: https://ngrx.io/
+[vscode]: https://code.visualstudio.com/
 
 ## Want to help?
 
