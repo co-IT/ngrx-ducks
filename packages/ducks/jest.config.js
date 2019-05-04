@@ -1,10 +1,10 @@
 module.exports = {
-  testURL: 'http://localhost',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['./test/setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.json'
+    }
   },
-  testRegex: '((\\.|/)(spec))\\.ts$',
-  coverageReporters: ['lcov', 'text'],
-  moduleFileExtensions: ['js', 'ts'],
-  setupTestFrameworkScriptFile: './test/setup.ts'
+  transformIgnorePatterns: ['node_modules/(?!@ngrx)']
 };
