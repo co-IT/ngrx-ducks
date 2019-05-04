@@ -24,9 +24,3 @@ It shows how ngrx and ngrx-ducks work together.
 The NgRx Ducks library provides [built-in schematics][1] to generate a Duck for you.
 
 [1]: ./packages/ducks-schematics
-
-## Want to help?
-
-Your feedback is always welcome!
-
-You can file [issues](https://github.com/co-it/co-it/issues) and create [pull requests](https://github.com/co-it/co-it/pulls) on the co-IT.eu Github repository.
