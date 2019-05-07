@@ -12,7 +12,7 @@ selecting data from the Store.
 
 ## Quick Start
 
-[Getting started in 10 Minutes](https://github.com/co-IT/co-it/blob/master/ngrx/ducks/docs/quick-start.md).
+[Getting started in 10 Minutes](https://github.com/co-IT/ngrx-ducks/blob/master/packages/ducks/docs/quick-start.md).
 
 ## Demo
 
