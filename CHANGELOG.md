@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1-beta.1](https://github.com/co-IT/ngrx-ducks/compare/v8.0.0-beta.1...v8.0.1-beta.1) (2019-05-08)
+
+**Note:** Version bump only for package co-it
+
 # [8.0.0-beta.1](https://github.com/co-IT/ngrx-ducks/compare/v8.0.0-beta.0...v8.0.0-beta.1) (2019-05-04)
 
 ### Features
