@@ -26,7 +26,7 @@ A Duck bundles the tasks of
 As user you only need to declare witch method needs to be executed when a certain
 action is dispatched.
 
-Multiple Ducks are used to generate the [Reducer](4) automatically.
+Multiple Ducks are used to generate the [Reducer][4] automatically.
 
 You end up writing a class containing pure functions.
 Leave the rest to `ngrx-ducks`.
