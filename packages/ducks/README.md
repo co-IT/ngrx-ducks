@@ -16,7 +16,7 @@ The API has been simplified in version 7.3.
 Decorators are now used to define a Duck.
 The previous API is deprecated since version 7.3 and will be removed in version Ngrx Ducks 8.
 
-Please refer to the migration guide to leanr what needs to be changed to update to the most recent version:
+Please refer to the migration guide to learn what needs to be changed to update to the most recent version:
 [Migration Guide](https://github.com/co-IT/ngrx-ducks/blob/a72b8caad39429bc44657715de9832919e886892/packages/ducks/docs/migration.md)
 
 ## Quick Start
