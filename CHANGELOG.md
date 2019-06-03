@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1-rc.0](https://github.com/co-IT/ngrx-ducks/compare/v8.0.1-beta.1...v8.0.1-rc.0) (2019-06-03)
+
+### Bug Fixes
+
+- **decorator:@InitialState:** stop overriding protoype of target class ([48ac949](https://github.com/co-IT/ngrx-ducks/commit/48ac949))
+- **docs:** fix typo ([eb2b6ca](https://github.com/co-IT/ngrx-ducks/commit/eb2b6ca))
+
 ## [8.0.1-beta.1](https://github.com/co-IT/ngrx-ducks/compare/v8.0.0-beta.1...v8.0.1-beta.1) (2019-05-08)
 
 **Note:** Version bump only for package co-it
