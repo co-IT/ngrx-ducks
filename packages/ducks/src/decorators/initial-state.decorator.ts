@@ -15,12 +15,7 @@ export function InitialState<T>(value: T) {
     )
   );
   return function(target: new () => any) {
-    const annotated: any = class extends target {
-      // tslint:disable-next-line:variable-name
-      __initialState__ = value;
-    };
-
-    annotated.prototype = target.prototype;
-    return annotated;
+    target.prototype.__initialState__ = value;
+    return target;
   };
 }

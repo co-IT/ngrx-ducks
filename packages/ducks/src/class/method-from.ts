@@ -7,6 +7,6 @@ export function methodsFrom<T extends new () => InstanceType<T>>(
   classToken: T
 ) {
   return Object.getOwnPropertyNames(classToken.prototype).filter(
-    member => member !== 'constructor'
+    member => member !== 'constructor' && member !== '__initialState__'
   );
 }
