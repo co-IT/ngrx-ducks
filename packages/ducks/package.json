@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -24,7 +24,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
-    "@co-it/ngrx-ducks-schematics": "^8.0.1"
+    "@co-it/ngrx-ducks-schematics": "^8.0.2"
   },
   "devDependencies": {
     "@angular/common": "^8.0.0",
@@ -48,7 +48,7 @@
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
-    "@ngrx/store": "^8.0.0",
-    "@ngrx/effects": "^8.0.0"
+    "@ngrx/effects": "^8.0.0",
+    "@ngrx/store": "^8.0.0"
   }
 }
