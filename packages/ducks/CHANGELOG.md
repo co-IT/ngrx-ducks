@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/co-it/co-it/compare/v8.0.2...v8.1.0) (2019-07-01)
+
+### Features
+
+- **duck:** allow selectors to be grouped in an object ([d10113c](https://github.com/co-it/co-it/commit/d10113c))
+- **ducks:** add typing information for bindSelectors ([a63b255](https://github.com/co-it/co-it/commit/a63b255))
+
 ## [8.0.2](https://github.com/co-it/co-it/compare/v8.0.1...v8.0.2) (2019-07-01)
 
 **Note:** Version bump only for package @co-it/ngrx-ducks
