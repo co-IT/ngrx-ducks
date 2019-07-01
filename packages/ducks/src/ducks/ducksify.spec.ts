@@ -1,15 +1,10 @@
-import {
-  createFeatureSelector,
-  createSelector,
-  MemoizedSelector
-} from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StoreMock } from '../../test/mocks';
 import { Action } from '../decorators';
 import { MissingActionDecoratorError } from '../errors';
 import { Duck } from '../typings';
 import { ducksify } from './ducksify';
 import { effect } from './effect';
-import { Observable } from 'rxjs';
 
 const counter = createFeatureSelector<number>('counter');
 const current = createSelector(
@@ -26,7 +21,7 @@ class MyDuck {
   doAsync = effect('doAsync');
   doAsyncWithPayload = effect<number>('doAsyncWithPayload');
 
-  select = bindSelectors({ current, current2 });
+  select = { current, current2 };
   current = current;
 
   @Action('greet')
@@ -139,27 +134,3 @@ describe('factory: ducksify', () => {
     });
   });
 });
-
-export type ObservableSelector<T> = T extends MemoizedSelector<
-  any,
-  infer TResult
->
-  ? Observable<TResult>
-  : never;
-
-//  { [K in keyof T]: DuckActionDispatcher<T[K]> }
-export type ObservableSelectors<T> = {
-  [M in keyof T]: ObservableSelector<T[M]>
-};
-
-function bindSelectors<
-  T extends {
-    [key: string]: MemoizedSelector<any, any>;
-  }
->(selectors: T): ObservableSelectors<T> {
-  return selectors as any;
-}
-
-// const select = bindSelectors({ current, current2 });
-// select.current.subscribe;
-// select.current2.subscribe;

@@ -1,12 +1,13 @@
 import { Store } from '@ngrx/store';
 import { methodsFrom } from '../class';
 import { ClassWithActionAnnotations, Duck } from '../typings';
-import { pickFactory } from './pick-factory';
 import {
   extractEffectDispatchers,
+  extractMemoizedSelectors,
   extractReducerDispatchers,
-  extractMemoizedSelectors
+  extractSelectorGroups
 } from './monkey-patches';
+import { pickFactory } from './pick-factory';
 
 /**
  * Transforms methods of a class to self dispatching functions providing
@@ -29,14 +30,15 @@ export function ducksify<T extends new () => InstanceType<T>>(
   );
 
   const effectDispatchers = extractEffectDispatchers<T>(instance, store);
-
   const memoizedSelectors = extractMemoizedSelectors(instance, store);
+  const selectorGroups = extractSelectorGroups(instance, store);
 
   return {
     ...instance,
     ...reducerDispatchers,
     ...effectDispatchers,
     ...memoizedSelectors,
+    ...selectorGroups,
     ...pickFactory(store)
   };
 }

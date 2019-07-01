@@ -11,6 +11,8 @@ export * from './effect-action-creator';
 export * from './effect-dispatcher';
 export * from './initial-state-annotated';
 export * from './loaded-action';
+export * from './observable-selector';
+export * from './observable-selectors';
 export * from './pick-selector';
 export * from './plain-action';
 export * from './reducer-function';
