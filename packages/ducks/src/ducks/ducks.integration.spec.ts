@@ -21,6 +21,8 @@ const currentCount = createSelector(
 export class Counter {
   current$ = currentCount;
 
+  select = { current: currentCount };
+
   @Action('increment')
   increment(state: number) {
     return ++state;
@@ -82,6 +84,15 @@ describe('@NgModule', () => {
   describe('When a selector is a member of the duck', () => {
     it('should yield the selected value', done => {
       counter.current$.subscribe(count => {
+        expect(count).toBe(0);
+        done();
+      });
+    });
+  });
+
+  describe('When a selector is provided in an object literal', () => {
+    it('should yield the object allowing to select the respective value', done => {
+      counter.select.current.subscribe(count => {
         expect(count).toBe(0);
         done();
       });
