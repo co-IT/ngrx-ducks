@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/co-IT/ngrx-ducks/compare/v8.1.0...v8.2.0) (2019-07-07)
+
+### Bug Fixes
+
+- **schematics:** rename data to payload ([6fecbc8](https://github.com/co-IT/ngrx-ducks/commit/6fecbc8))
+
+### Features
+
+- **schematics:** use bindSelectorGroup in duck template ([b8292a4](https://github.com/co-IT/ngrx-ducks/commit/b8292a4))
+
 ## [8.0.2](https://github.com/co-IT/ngrx-ducks/compare/v8.0.1...v8.0.2) (2019-07-01)
 
 **Note:** Version bump only for package @co-it/ngrx-ducks-schematics

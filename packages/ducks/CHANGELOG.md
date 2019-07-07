@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/co-it/co-it/compare/v8.1.0...v8.2.0) (2019-07-07)
+
+### Bug Fixes
+
+- **selector-group:** omit non memoized selector properties ([0777138](https://github.com/co-it/co-it/commit/0777138))
+
+### Features
+
+- **selector-groups:** introduce bindSelectorGroup for stricter type checking ([9ef123a](https://github.com/co-it/co-it/commit/9ef123a))
+
 # [8.1.0](https://github.com/co-it/co-it/compare/v8.0.2...v8.1.0) (2019-07-01)
 
 ### Features
