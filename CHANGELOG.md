@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.1](https://github.com/co-IT/ngrx-ducks/compare/v8.2.0...v8.2.1) (2019-07-07)
+
+### Bug Fixes
+
+- resolve issues with import statements ([cfffb62](https://github.com/co-IT/ngrx-ducks/commit/cfffb62))
+
 # [8.2.0](https://github.com/co-IT/ngrx-ducks/compare/v8.1.0...v8.2.0) (2019-07-07)
 
 ### Bug Fixes
