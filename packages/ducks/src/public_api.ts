@@ -1,6 +1,7 @@
 export * from './decorators/action.decorator';
 export * from './decorators/ducksify.decorator';
 export * from './decorators/initial-state.decorator';
+export * from './ducks/bind-selector-group';
 export * from './ducks/ducksify';
 export * from './ducks/effect';
 export * from './operators/where-type';
