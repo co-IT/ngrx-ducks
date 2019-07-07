@@ -968,15 +968,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ngrx/effects@^8.0.1":
+"@ngrx/store@^8.0.0":
   version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-8.0.1.tgz#2420e264d96f9fde7fbe594703827f4e44a0b146"
-  integrity sha512-f15SjzZ670HdHVpu3byOiP5R6MOxh/DMQgP8PynKtmadmkKkM69imGsp+8qDEQNABw5O8oJGAn8aLm76QGPnjQ==
-
-"@ngrx/store@^8.0.0-beta.1":
-  version "8.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.0.0-beta.1.tgz#7786ee889cb636ab37cdfd717b619280286f7e4a"
-  integrity sha512-1F4+dCfICqL5ejNGuC8o3DfyQO3hLjfHCEmwqei10WoO8Q663dY+4EnPaydTEPi/Bjrptan0WjYz021DnlDrAw==
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.0.1.tgz#5391498d50978ff1bfdbf4e5b04cb647677a5168"
+  integrity sha512-B6HY8TCFZ4+bUfJAJatF42+F33Qboo7zKc+gxTi6eEioKvNqWkb22K4De5HV2j/l/blXvMOPMSO1Rf/sGqID0w==
 
 "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
