@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.2](https://github.com/co-IT/ngrx-ducks/compare/v8.2.1...v8.2.2) (2019-07-07)
+
+### Bug Fixes
+
+- expose bindSelectorGroup as public API ([682a703](https://github.com/co-IT/ngrx-ducks/commit/682a703))
+
 ## [8.2.1](https://github.com/co-IT/ngrx-ducks/compare/v8.2.0...v8.2.1) (2019-07-07)
 
 ### Bug Fixes
