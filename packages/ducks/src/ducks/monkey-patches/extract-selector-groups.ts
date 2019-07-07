@@ -18,20 +18,26 @@ function createSelectorGroup(
   },
   store: Store<unknown>
 ) {
-  return Object.keys(selectors).reduce(
-    (group, selectorKey) => ({
-      ...group,
-      [selectorKey]: store.pipe(select(selectors[selectorKey]))
-    }),
-    {}
-  );
+  return Object.keys(selectors)
+    .filter(selectorKey => isMemoizedSelector(selectors[selectorKey]))
+    .reduce(
+      (group, selectorKey) => ({
+        ...group,
+        [selectorKey]: store.pipe(select(selectors[selectorKey]))
+      }),
+      {}
+    );
 }
 
 export function isSelectorGroup(instance: any, member: string): any {
   return (
     typeof instance[member] === 'object' &&
-    Object.values(instance[member]).every(
+    Object.values(instance[member]).some(
       (candidate: any) => candidate.release && candidate.projector
     )
   );
+}
+
+function isMemoizedSelector(candidate: any): boolean {
+  return !!candidate.release && !!candidate.projector;
 }

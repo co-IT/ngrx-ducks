@@ -21,7 +21,7 @@ const currentCount = createSelector(
 export class Counter {
   current$ = currentCount;
 
-  select = { current: currentCount };
+  select = { current: currentCount, other: 0 as any };
 
   @Action('increment')
   increment(state: number) {
@@ -96,6 +96,12 @@ describe('@NgModule', () => {
         expect(count).toBe(0);
         done();
       });
+    });
+  });
+
+  describe('When a selector group contains properties that are no selectors', () => {
+    it('should omit the invalid property', () => {
+      expect(counter.select.other).toBeUndefined();
     });
   });
 });
