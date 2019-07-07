@@ -1,4 +1,4 @@
-import { DucksifiedAction } from './ducksified-action';
+import { DucksifiedAction } from './duck/ducksified-action';
 
 /**
  * Represents signature of a reducer function.

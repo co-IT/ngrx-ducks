@@ -5,5 +5,5 @@ export * from './ducks/ducksify';
 export * from './ducks/effect';
 export * from './operators/where-type';
 export * from './reducer/reducer-from';
-export * from './typings/duck';
-export * from './typings/ducksified-action';
+export * from './typings/duck/duck';
+export * from './typings/duck/ducksified-action';
