@@ -1,4 +1,4 @@
-import { MemoizedSelector } from '@ngrx/store';
+import { MemoizedSelector, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ActionHandlerWithPayload } from './action-handler-with-payload';
 import { ActionHandlerWithoutPayload } from './action-handler-without-payload';
@@ -12,8 +12,10 @@ export type DuckActionDispatcher<TMember> = TMember extends DispatcherForEffect
   ? EffectActionCreator<TMember>
   : TMember extends MemoizedSelector<infer _TState, infer TResult>
   ? Observable<TResult>
-  : TMember extends { [key: string]: MemoizedSelector<any, any> }
-  ? ObservableSelectors<TMember>
+  : TMember extends (
+      store: Store<unknown>
+    ) => ObservableSelectors<infer TSelector>
+  ? ObservableSelectors<TSelector>
   : TMember extends ActionHandlerWithoutPayload<infer _TSlice>
   ? (() => void) & PlainAction & { type: string }
   : TMember extends ActionHandlerWithPayload<infer _TSlice, infer TPayload>

@@ -1,23 +1,20 @@
 import { Store, MemoizedSelector, select } from '@ngrx/store';
+import { ObservableSelectors } from '../../typings';
 
 export function extractSelectorGroups(instance: any, store: Store<unknown>) {
   return Object.getOwnPropertyNames(instance)
     .filter(member => isSelectorGroup(instance, member))
-    .reduce(
-      (selectorGroups, member) => ({
+    .reduce((selectorGroups, member: any) => {
+      return {
         ...selectorGroups,
-        [member]: createSelectorGroup(instance[member], store)
-      }),
-      {}
-    );
+        [member]: instance[member](store)
+      };
+    }, {});
 }
 
-function createSelectorGroup(
-  selectors: {
-    [key: string]: MemoizedSelector<any, any>;
-  },
-  store: Store<unknown>
-) {
+export function createSelectorGroup<
+  T extends { [key: string]: MemoizedSelector<any, any> }
+>(selectors: T, store: Store<unknown>): ObservableSelectors<T> {
   return Object.keys(selectors)
     .filter(selectorKey => isMemoizedSelector(selectors[selectorKey]))
     .reduce(
@@ -26,15 +23,13 @@ function createSelectorGroup(
         [selectorKey]: store.pipe(select(selectors[selectorKey]))
       }),
       {}
-    );
+    ) as any;
 }
 
-export function isSelectorGroup(instance: any, member: string): any {
+function isSelectorGroup(instance: any, member: string): boolean {
   return (
-    typeof instance[member] === 'object' &&
-    Object.values(instance[member]).some(
-      (candidate: any) => candidate.release && candidate.projector
-    )
+    !!instance[member].__ngrxDucks__isSelectorGroup &&
+    instance[member].__ngrxDucks__isSelectorGroup === true
   );
 }
 

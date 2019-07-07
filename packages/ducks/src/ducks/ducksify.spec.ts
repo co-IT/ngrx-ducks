@@ -5,6 +5,7 @@ import { MissingActionDecoratorError } from '../errors';
 import { Duck } from '../typings';
 import { ducksify } from './ducksify';
 import { effect } from './effect';
+import { bindSelectorGroup } from './bind-selector-group';
 
 const counter = createFeatureSelector<number>('counter');
 const current = createSelector(
@@ -21,7 +22,7 @@ class MyDuck {
   doAsync = effect('doAsync');
   doAsyncWithPayload = effect<number>('doAsyncWithPayload');
 
-  select = { current, current2 };
+  select = bindSelectorGroup({ current, current2 });
   current = current;
 
   @Action('greet')

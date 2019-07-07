@@ -10,6 +10,7 @@ import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
 import { Duck } from '../typings';
 import { ducksify } from './ducksify';
+import { bindSelectorGroup } from './bind-selector-group';
 
 const feature = createFeatureSelector<number>('counter');
 const currentCount = createSelector(
@@ -20,8 +21,7 @@ const currentCount = createSelector(
 @InitialState(0)
 export class Counter {
   current$ = currentCount;
-
-  select = { current: currentCount, other: 0 as any };
+  select = bindSelectorGroup({ current: currentCount, other: 0 as any });
 
   @Action('increment')
   increment(state: number) {
