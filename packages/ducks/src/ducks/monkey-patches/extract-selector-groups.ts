@@ -1,10 +1,10 @@
-import { Store, MemoizedSelector, select } from '@ngrx/store';
-import { ObservableSelectors } from '../../typings';
+import { select, Store } from '@ngrx/store';
+import { MemoizedSelectorDictionary, ObservableSelectors } from '../../typings';
 import { isSelector, isSelectorGroup } from './helpers';
 
 export function extractSelectorGroups(instance: any, store: Store<unknown>) {
   return Object.getOwnPropertyNames(instance)
-    .filter(member => isSelectorGroup(instance, member))
+    .filter(member => isSelectorGroup(instance[member]))
     .reduce((selectorGroups, member: any) => {
       return {
         ...selectorGroups,
@@ -13,9 +13,10 @@ export function extractSelectorGroups(instance: any, store: Store<unknown>) {
     }, {});
 }
 
-export function createSelectorGroup<
-  T extends { [key: string]: MemoizedSelector<any, any> }
->(selectors: T, store: Store<unknown>): ObservableSelectors<T> {
+export function createSelectorGroup<T extends MemoizedSelectorDictionary>(
+  selectors: T,
+  store: Store<unknown>
+): ObservableSelectors<T> {
   return Object.keys(selectors)
     .filter(selectorKey => isSelector(selectors[selectorKey]))
     .reduce(

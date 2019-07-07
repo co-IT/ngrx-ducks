@@ -1,6 +1,10 @@
-export function isSelectorGroup(instance: any, member: string): boolean {
+import { ObservableSelectorFactory } from '../../../typings';
+
+export function isSelectorGroup(
+  candidate: ObservableSelectorFactory<unknown>
+): boolean {
   return (
-    !!instance[member].__ngrxDucks__isSelectorGroup &&
-    instance[member].__ngrxDucks__isSelectorGroup === true
+    !!candidate.__ngrxDucks__isSelectorGroup &&
+    candidate.__ngrxDucks__isSelectorGroup === true
   );
 }
