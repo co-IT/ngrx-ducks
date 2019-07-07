@@ -1,5 +1,6 @@
 import { Store, MemoizedSelector, select } from '@ngrx/store';
 import { ObservableSelectors } from '../../typings';
+import { isSelector, isSelectorGroup } from './helpers';
 
 export function extractSelectorGroups(instance: any, store: Store<unknown>) {
   return Object.getOwnPropertyNames(instance)
@@ -16,7 +17,7 @@ export function createSelectorGroup<
   T extends { [key: string]: MemoizedSelector<any, any> }
 >(selectors: T, store: Store<unknown>): ObservableSelectors<T> {
   return Object.keys(selectors)
-    .filter(selectorKey => isMemoizedSelector(selectors[selectorKey]))
+    .filter(selectorKey => isSelector(selectors[selectorKey]))
     .reduce(
       (group, selectorKey) => ({
         ...group,
@@ -24,15 +25,4 @@ export function createSelectorGroup<
       }),
       {}
     ) as any;
-}
-
-function isSelectorGroup(instance: any, member: string): boolean {
-  return (
-    !!instance[member].__ngrxDucks__isSelectorGroup &&
-    instance[member].__ngrxDucks__isSelectorGroup === true
-  );
-}
-
-function isMemoizedSelector(candidate: any): boolean {
-  return !!candidate.release && !!candidate.projector;
 }

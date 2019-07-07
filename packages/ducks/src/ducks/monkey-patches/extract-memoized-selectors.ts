@@ -1,8 +1,9 @@
 import { select, Store } from '@ngrx/store';
+import { isSelector } from './helpers';
 
 export function extractMemoizedSelectors(instance: any, store: Store<unknown>) {
   return Object.getOwnPropertyNames(instance)
-    .filter(member => isMemoizedSelector(instance, member))
+    .filter(member => isSelector(instance[member]))
     .reduce(
       (selectors, member) => ({
         ...selectors,
@@ -10,8 +11,4 @@ export function extractMemoizedSelectors(instance: any, store: Store<unknown>) {
       }),
       {}
     );
-}
-
-export function isMemoizedSelector(instance: any, member: string): any {
-  return instance[member].release && instance[member].projector;
 }
