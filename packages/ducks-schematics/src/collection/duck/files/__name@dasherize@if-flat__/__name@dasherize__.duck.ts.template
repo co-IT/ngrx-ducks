@@ -19,8 +19,8 @@ export class <%= classify(name) %> {<% if (selectors) { %>
   readonly loadData = effect<number>('[<%= classify(name) %>] Sample effect');
 <% } %>
   @Action('[<%= classify(name) %>] Sample action type')
-  setData(state: <%= classify(name) %>State, data: number): <%= classify(name) %>State {
-    return { ...state, data };
+  setData(state: <%= classify(name) %>State, payload: number): <%= classify(name) %>State {
+    return { ...state, payload };
   }
 }
 
