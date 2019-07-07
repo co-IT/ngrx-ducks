@@ -14,7 +14,7 @@ import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
   }
 })
 export class <%= classify(name) %> {<% if (selectors) { %>
-  data$ = selectors.data;
+  select = bindSelectorGroup(selectors);
 <% } %><% if (effects) { %>
   readonly loadData = effect<number>('[<%= classify(name) %>] Sample effect');
 <% } %>
