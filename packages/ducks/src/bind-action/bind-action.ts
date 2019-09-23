@@ -2,11 +2,13 @@ import { ActionCreator, createAction, props } from '@ngrx/store';
 import { TypedAction } from '@ngrx/store/src/models';
 
 export type ActionCreatorWithCaseReducerOptional<
-  TPayload,
+  TDeclaredPayload,
   TCaseReducer
 > = TCaseReducer extends Function
-  ? ActionCreatorConditional<TPayload> & { runCaseReducer: TCaseReducer }
-  : ActionCreatorConditional<TPayload>;
+  ? ActionCreatorConditional<TDeclaredPayload> & {
+      runCaseReducer: TCaseReducer;
+    }
+  : ActionCreatorConditional<TDeclaredPayload>;
 
 export type ActionCreatorConditional<TPayload> = TPayload extends void
   ? ActionCreator<string, () => TypedAction<string>>
@@ -17,14 +19,14 @@ export type ActionCreatorConditional<TPayload> = TPayload extends void
       ) => { payload: TPayload } & TypedAction<string>
     >;
 
-export function bindAction<TPayload = void, TCaseReducer = unknown>(
+export function bindAction<TDeclaredPayload = void, TCaseReducer = unknown>(
   type: string,
   caseReducer?: TCaseReducer
-): ActionCreatorWithCaseReducerOptional<TPayload, TCaseReducer> {
+): ActionCreatorWithCaseReducerOptional<TDeclaredPayload, TCaseReducer> {
   const creator = createAction(
     type,
-    props<{ payload: TPayload }>()
-  ) as ActionCreatorConditional<TPayload>;
+    props<{ payload: TDeclaredPayload }>()
+  ) as ActionCreatorConditional<TDeclaredPayload>;
 
   if (!caseReducer) {
     // @ts-ignore
