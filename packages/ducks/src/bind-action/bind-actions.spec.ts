@@ -1,18 +1,14 @@
-import { Expect, expecter } from 'ts-snippet';
+import { expecter } from 'ts-snippet';
 import { bindAction } from './bind-action';
 
 describe('bindAction', () => {
   describe('vanilla action', () => {
-    let expectSnippet: (code: string) => Expect;
-
-    beforeEach(() => {
-      expectSnippet = expecter(
-        code => `
+    const expectSnippet = expecter(
+      code => `
         import { bindAction } from './src/bind-action/bind-action';
         ${code}
         `
-      );
-    });
+    );
 
     it('provides an action creator', () => {
       expectSnippet(`
@@ -56,9 +52,26 @@ describe('bindAction', () => {
   });
 
   describe('action with case reducer', () => {
-    it.todo('provides an action creator');
+    const expectSnippet = expecter(
+      code => `
+        import { bindAction } from './src/bind-action/bind-action';
+        ${code}
+        `
+    );
 
-    it.todo('contains a case reducer');
+    it('provides an action creator mutating state', () => {
+      expectSnippet(`
+        const creator = bindAction('Hello', slice => slice);
+      `).toSucceed();
+    });
+
+    it('contains a case reducer', () => {
+      const currentSlice = 0;
+      const creator = bindAction('Hello', (slice: number) => slice);
+      const nextSlice = creator.runCaseReducer(currentSlice);
+
+      expect(nextSlice).toBe(currentSlice);
+    });
 
     it.todo('infers the payload type from the case reducer');
   });
