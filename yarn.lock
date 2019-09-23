@@ -968,6 +968,11 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@ngrx/effects@^8.0.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-8.3.0.tgz#d99a777ab352d4efdf456a7dec307514187ba496"
+  integrity sha512-/DdBqCFpHOJZUAmIpefQ8EVwmJXXkcEdLhsV8aXncCNWkK61sy/MbZZfDAbee6Cd1is33bVXRUKD49Z+Upvw5A==
+
 "@ngrx/store@^8.0.0":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.0.1.tgz#5391498d50978ff1bfdbf4e5b04cb647677a5168"
@@ -7918,6 +7923,13 @@ ts-node@^8.0.2:
     make-error "^1.1.1"
     source-map-support "^0.5.6"
     yn "^3.0.0"
+
+ts-snippet@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/ts-snippet/-/ts-snippet-4.2.0.tgz#6678ced559afdf34009f7c98c34c384d0c5d5dc4"
+  integrity sha512-tyJROhE6hqvTPc/drhTVu2UfaxWjTtp49UZqMGMSIkgXXO5Stq+4PRwmIQOuiamue5Bu9E7ez9Q9b0walTyQ7w==
+  dependencies:
+    tsutils "^3.0.0"
 
 tsickle@^0.35.0:
   version "0.35.0"
