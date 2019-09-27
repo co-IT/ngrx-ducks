@@ -61,7 +61,7 @@ describe('bindAction', () => {
 
     it('provides an action creator mutating state', () => {
       expectSnippet(`
-        const creator = bindAction('Hello', slice => slice);
+        const creator = bindAction('Hello', (slice: number) => slice);
       `).toSucceed();
     });
 
@@ -73,7 +73,11 @@ describe('bindAction', () => {
       expect(nextSlice).toBe(currentSlice);
     });
 
-    it.todo('infers the payload type from the case reducer');
+    it('restrict the case reducer to two arguments', () => {
+      expectSnippet(`
+        const creator = bindAction('Hello', (slice: number, payload: number, other: number) => slice);
+      `).toFail();
+    });
   });
 
   describe('use with createEffect', () => {
