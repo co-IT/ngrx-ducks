@@ -34,13 +34,8 @@ export function bindAction<
     props<{ payload: TDeclaredPayload }>()
   ) as ActionCreatorConditional<TDeclaredPayload>;
 
-  if (!caseReducer) {
-    // @ts-ignore
-    return creator;
-  }
-
   // @ts-ignore
-  return Object.assign(creator, {
-    runCaseReducer: caseReducer
-  });
+  return !caseReducer
+    ? creator
+    : Object.assign(creator, { runCaseReducer: caseReducer });
 }
