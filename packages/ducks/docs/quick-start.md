@@ -145,7 +145,7 @@ export const currentCount = createSelector(
 );
 
 // counter.component.ts
-import { currentCounter } from '../reducer';
+import { currentCount } from '../reducer';
 
 export class CounterComponent {
   counter$: Observable<number>;
