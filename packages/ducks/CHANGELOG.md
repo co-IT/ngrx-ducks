@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/co-it/co-it/compare/v8.2.2...v8.3.0) (2019-12-22)
+
+### Features
+
+- **selectors:** allow selectors with properties ([abbe7e5](https://github.com/co-it/co-it/commit/abbe7e5))
+
 ## [8.2.2](https://github.com/co-it/co-it/compare/v8.2.1...v8.2.2) (2019-07-07)
 
 ### Bug Fixes
