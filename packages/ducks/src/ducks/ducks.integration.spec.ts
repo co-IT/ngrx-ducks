@@ -9,13 +9,18 @@ import {
 import { Action, InitialState } from '../decorators';
 import { reducerFrom } from '../reducer/reducer-from';
 import { Duck } from '../typings';
-import { ducksify } from './ducksify';
 import { bindSelectorGroup } from './bind-selector-group';
+import { ducksify } from './ducksify';
 
 const feature = createFeatureSelector<number>('counter');
 const currentCount = createSelector(
   feature,
   count => count
+);
+
+const currentCountWithOffset = createSelector(
+  feature,
+  (count: number, prop: { offset: number }) => count + prop.offset
 );
 
 @InitialState(0)
@@ -38,7 +43,14 @@ describe('@NgModule', () => {
   beforeEach(() => {
     reducers = { counter: reducerFrom(Counter) };
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot(reducers)],
+      imports: [
+        StoreModule.forRoot(reducers, {
+          runtimeChecks: {
+            strictStateImmutability: true,
+            strictActionImmutability: true
+          }
+        })
+      ],
       providers: [
         {
           provide: Counter,
@@ -76,6 +88,15 @@ describe('@NgModule', () => {
     it('should yield the result of the selector', done => {
       counter.pick(currentCount).subscribe(count => {
         expect(count).toBe(0);
+        done();
+      });
+    });
+  });
+
+  describe('When a selector with props is passed', () => {
+    it('should yield the result of the selector', done => {
+      counter.pick(currentCountWithOffset, { offset: 2 }).subscribe(count => {
+        expect(count).toBe(2);
         done();
       });
     });
