@@ -46,9 +46,9 @@
     "zone.js": "^0.9.1"
   },
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@ngrx/effects": "^8.0.0",
-    "@ngrx/store": "^8.0.0"
+    "@angular/common": ">= 8.0.0 < 10",
+    "@angular/core": ">= 8.0.0 < 10",
+    "@ngrx/effects": ">= 8.0.0 < 10",
+    "@ngrx/store": ">= 8.0.0 < 10"
   }
 }
