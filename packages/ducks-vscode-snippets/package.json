@@ -3,7 +3,7 @@
   "icon": "assets/logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/co-it/co-it.git"
+    "url": "https://github.com/co-IT/ngrx-ducks.git"
   },
   "displayName": "NgRx Ducks Snippets",
   "description": "Snippets for ngrx-ducks accelerating development speed.",
