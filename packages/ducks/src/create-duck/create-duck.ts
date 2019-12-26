@@ -22,7 +22,7 @@ export type ActionCreatorConditional<TPayload> = TPayload extends void
       ) => { payload: TPayload } & TypedAction<string>
     >;
 
-export function bindAction<
+export function createDuck<
   TDeclaredPayload = void,
   TCaseReducer extends CaseReducer | CaseReducerPayload | undefined = undefined
 >(
