@@ -6,33 +6,38 @@ export type CaseReducerPayload = (slice: any, payload: any) => any;
 
 export type ActionCreatorWithCaseReducerOptional<
   TDeclaredPayload,
+  TActionType extends string,
   TCaseReducer
 > = TCaseReducer extends undefined
-  ? ActionCreatorConditional<TDeclaredPayload>
-  : ActionCreatorConditional<TDeclaredPayload> & {
+  ? ActionCreatorConditional<TDeclaredPayload, TActionType>
+  : ActionCreatorConditional<TDeclaredPayload, TActionType> & {
       runCaseReducer: TCaseReducer;
     };
 
-export type ActionCreatorConditional<TPayload> = TPayload extends void
-  ? ActionCreator<string, () => TypedAction<string>>
+export type ActionCreatorConditional<
+  TPayload,
+  TActionType extends string
+> = TPayload extends void
+  ? ActionCreator<TActionType, () => TypedAction<TActionType>>
   : ActionCreator<
-      string,
+      TActionType,
       (
         props: { payload: TPayload }
-      ) => { payload: TPayload } & TypedAction<string>
+      ) => { payload: TPayload } & TypedAction<TActionType>
     >;
 
 export function createDuck<
-  TDeclaredPayload = void,
+  TPayload = void,
+  TActionType extends string = string,
   TCaseReducer extends CaseReducer | CaseReducerPayload | undefined = undefined
 >(
-  type: string,
+  type: TActionType,
   caseReducer?: TCaseReducer
-): ActionCreatorWithCaseReducerOptional<TDeclaredPayload, TCaseReducer> {
+): ActionCreatorWithCaseReducerOptional<TPayload, TActionType, TCaseReducer> {
   const creator = createAction(
     type,
-    props<{ payload: TDeclaredPayload }>()
-  ) as ActionCreatorConditional<TDeclaredPayload>;
+    props<{ payload: TPayload }>()
+  ) as ActionCreatorConditional<TPayload, TActionType>;
 
   // @ts-ignore
   return !caseReducer

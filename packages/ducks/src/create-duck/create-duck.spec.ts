@@ -13,7 +13,10 @@ describe('createDuck', () => {
     it('provides an action creator', () => {
       expectSnippet(`
         const creator = createDuck('Hello');
-      `).toInfer('creator', 'ActionCreator<string, () => TypedAction<string>>');
+      `).toInfer(
+        'creator',
+        'ActionCreator<"Hello", () => TypedAction<"Hello">>'
+      );
     });
 
     it('allows declaring a payload type', () => {
