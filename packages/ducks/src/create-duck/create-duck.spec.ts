@@ -100,9 +100,9 @@ describe('createDuck', () => {
         const outgoing = createDuck<number>('Bye');
         const actions$ = of(incoming) as Actions;
         const result$ =  actions$.pipe(
-            ofType(incoming),
-            map(({ payload }) => outgoing({ payload }))
-          );
+          ofType(incoming),
+          map(({ payload }) => outgoing({ payload }))
+        );
       `).toInfer(
         'result$',
         'Observable<{ payload: number; } & TypedAction<string>>'
