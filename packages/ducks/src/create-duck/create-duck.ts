@@ -26,9 +26,9 @@ type ReducerPayload<TSlice, TPayload> = (
   payload: TPayload
 ) => TSlice;
 
-type Reducer<TSlice, TPayload> =
-  | ReducerPlain<TSlice>
-  | ReducerPayload<TSlice, TPayload>;
+type Reducer<TSlice, TPayload> = TPayload extends undefined
+  ? ReducerPlain<TSlice>
+  : ReducerPayload<TSlice, TPayload>;
 
 // @ts-ignore
 const a = createAction('hello');
@@ -66,13 +66,17 @@ export function createDuck<TType extends string, TPayload = undefined>(
   type: TType,
   dispatch?: DispatchDefinition<TPayload>
 ): ActionConditional<TType, TPayload>;
-export function createDuck<TType extends string, TPayload, TSlice>(
+export function createDuck<
+  TType extends string,
+  TPayload = undefined,
+  TSlice = undefined
+>(
   type: TType,
   reducer: Reducer<TSlice, TPayload>
-): ActionCreator<TType>;
+): ActionLoaded<TType, TPayload> & { reducer: Reducer<TSlice, TPayload> };
 export function createDuck<TType extends string, TPayload>(
   type: TType,
-  _dispatchOrReducer: DispatchDefinition<TPayload> | Function = dispatch<void>()
+  reducer?: DispatchDefinition<TPayload> | Function
 ): ActionCreator<TType> {
   const action = (payload?: TPayload) =>
     !payload ? { type } : { type, payload };
@@ -80,6 +84,8 @@ export function createDuck<TType extends string, TPayload>(
   (action as any).dispatch = () => {
     /* ... */
   };
+
+  (action as any).reducer = reducer;
 
   return action as any;
 }
