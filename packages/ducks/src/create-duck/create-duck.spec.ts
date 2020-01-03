@@ -74,15 +74,15 @@ describe('createDuck', () => {
       `).toSucceed();
     });
 
-    // it('contains a case reducer', () => {
-    //   const currentSlice = 0;
-    //   const creator = createDuck('Hello', (slice: number) => slice);
-    //   const nextSlice = creator.runCaseReducer(currentSlice);
+    it('contains a reducer', () => {
+      const currentSlice = 0;
+      const creator = createDuck('Hello', (slice: number) => slice);
+      const nextSlice = creator.reducer(currentSlice);
 
-    //   expect(nextSlice).toBe(currentSlice);
-    // });
+      expect(nextSlice).toBe(currentSlice);
+    });
 
-    it('restrict the case reducer to two arguments', () => {
+    it('fails if reducer has more than two arguments', () => {
       expectSnippet(`
         const creator = createDuck('Hello', (slice: number, payload: number, other: number) => slice);
       `).toFail();
