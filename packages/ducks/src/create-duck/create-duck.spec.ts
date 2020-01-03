@@ -1,35 +1,32 @@
 import { expecter } from 'ts-snippet';
-import { createDuck } from './create-duck';
+import { createDuck, dispatch } from './create-duck';
 
 describe('createDuck', () => {
+  const expectSnippet = expecter(
+    code => `
+      import { of } from 'rxjs';
+      import { map } from 'rxjs/operators';
+      import { Actions, ofType } from '@ngrx/effects';
+      import { createDuck, dispatch } from './src/create-duck/create-duck';
+      ${code}
+      `
+  );
   describe('vanilla action', () => {
-    const expectSnippet = expecter(
-      code => `
-        import { createDuck } from './src/create-duck/create-duck';
-        ${code}
-        `
-    );
-
     it('provides an action creator', () => {
       expectSnippet(`
         const creator = createDuck('Hello');
       `).toInfer(
         'creator',
-        'ActionCreator<"Hello", () => TypedAction<"Hello">>'
+        '(() => TypedAction<"Hello">) & TypedAction<"Hello"> & DispatchPlain'
       );
     });
 
-    it('allows declaring a payload type', () => {
+    it('provides a dispatch method', () => {
       expectSnippet(`
-        const creator = createDuck<number>('Hello');
-      `).toInfer(
-        'creator',
-        'ActionCreator<string, (props: { payload: number; }) => { payload: number; } & TypedAction<string>>'
-      );
+        const { dispatch } = createDuck('Hello);
+      `).toInfer('dispatch', '() => void');
     });
-  });
 
-  describe('action without payload', () => {
     it('creates an action having a type', () => {
       const creator = createDuck('Hello');
       const action = creator();
@@ -46,9 +43,18 @@ describe('createDuck', () => {
   });
 
   describe('action with payload', () => {
+    it('allows declaring a payload type', () => {
+      expectSnippet(`
+        const creator = createDuck('Hello', dispatch<number>());
+      `).toInfer(
+        'creator',
+        'FunctionWithParametersType<[number], { payload: number; } & TypedAction<"Hello">> & TypedAction<"Hello"> & DispatchLoaded<number>'
+      );
+    });
+
     it('has payload', () => {
-      const creator = createDuck<number>('Hello');
-      const action = creator({ payload: 42 });
+      const creator = createDuck('Hello', dispatch<number>());
+      const action = creator(42);
 
       expect(action.payload).toBe(42);
     });
@@ -68,36 +74,44 @@ describe('createDuck', () => {
       `).toSucceed();
     });
 
-    it('contains a case reducer', () => {
-      const currentSlice = 0;
-      const creator = createDuck('Hello', (slice: number) => slice);
-      const nextSlice = creator.runCaseReducer(currentSlice);
+    // it('contains a case reducer', () => {
+    //   const currentSlice = 0;
+    //   const creator = createDuck('Hello', (slice: number) => slice);
+    //   const nextSlice = creator.runCaseReducer(currentSlice);
 
-      expect(nextSlice).toBe(currentSlice);
-    });
+    //   expect(nextSlice).toBe(currentSlice);
+    // });
 
     it('restrict the case reducer to two arguments', () => {
       expectSnippet(`
         const creator = createDuck('Hello', (slice: number, payload: number, other: number) => slice);
       `).toFail();
     });
+
+    it('fails if the return type is not equal to the first parameter', () => {
+      expectSnippet(`
+        const creator = createDuck('Hello', (slice: number, payload: number) => '');
+      `).toFail();
+    });
   });
 
   describe('use with createEffect', () => {
-    const expectSnippet = expecter(
-      code => `
-        import { of } from 'rxjs';
-        import { map } from 'rxjs/operators';
-        import { Actions, ofType } from '@ngrx/effects';
-        import { createDuck } from './src/create-duck/create-duck';
-        ${code}
-        `
-    );
-
-    it('is compatible with ofType operator', () => {
+    it('without payload => is compatible with ofType operator', () => {
       expectSnippet(`
-        const incoming = createDuck<number>('Hello');
-        const outgoing = createDuck<number>('Bye');
+        const incoming = createDuck('Hello');
+        const outgoing = createDuck('Bye');
+        const actions$ = of(incoming) as Actions;
+        const result$ =  actions$.pipe(
+          ofType(incoming),
+          map(() => outgoing())
+        );
+      `).toInfer('result$', 'Observable<TypedAction<"Bye">>');
+    });
+
+    it('with payload => is compatible with ofType operator', () => {
+      expectSnippet(`
+        const incoming = createDuck('Hello', dispatch<number>());
+        const outgoing = createDuck('Bye', dispatch<number>());
         const actions$ = of(incoming) as Actions;
         const result$ =  actions$.pipe(
           ofType(incoming),
@@ -105,7 +119,7 @@ describe('createDuck', () => {
         );
       `).toInfer(
         'result$',
-        'Observable<{ payload: number; } & TypedAction<string>>'
+        'Observable<{ payload: number; } & TypedAction<"Bye">>'
       );
     });
   });
