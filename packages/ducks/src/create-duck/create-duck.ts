@@ -85,14 +85,15 @@ export function createDuck<TType extends string, TPayload>(
   type: TType,
   reducer?: DispatchDefinition<TPayload> | Function
 ): ActionCreator<TType> {
-  const action = (payload?: TPayload) =>
+  const action: any = (payload?: TPayload) =>
     !payload ? { type } : { type, payload };
 
-  (action as any).__ngrx_ducks__id = DucksIdentifier.Duck;
-  (action as any).reducer = reducer;
-  (action as any).dispatch = () => {
+  action.__ngrx_ducks__id = DucksIdentifier.Duck;
+  action.type = type;
+  action.reducer = reducer;
+  action.dispatch = () => {
     throw new CreateDuckNotConnectedError(type);
   };
 
-  return action as any;
+  return action;
 }
