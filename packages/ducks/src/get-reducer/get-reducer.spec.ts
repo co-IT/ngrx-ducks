@@ -1,6 +1,5 @@
-import { Action, ActionReducer } from '@ngrx/store';
 import { createDuck } from '../create-duck/create-duck';
-import { Constructable } from '../get-actions';
+import { getReducer } from './get-reducer';
 
 describe('get-reducer', () => {
   describe('When a class contains ducks', () => {
@@ -43,27 +42,3 @@ describe('get-reducer', () => {
     });
   });
 });
-
-export function getReducer<TState>(
-  initialState: TState,
-  Token: Constructable
-): ActionReducer<TState, Action> {
-  const instance = new Token();
-
-  const caseReducers: { [key: string]: Function } = Object.keys(
-    instance
-  ).reduce((reducers, property) => {
-    return !instance[property].reducer
-      ? reducers
-      : {
-          ...reducers,
-          [instance[property].type]: instance[property].reducer
-        };
-  }, {});
-
-  return function(state: TState = initialState, action: Action) {
-    return caseReducers[action.type]
-      ? caseReducers[action.type](state, (action as any).payload)
-      : state;
-  };
-}
