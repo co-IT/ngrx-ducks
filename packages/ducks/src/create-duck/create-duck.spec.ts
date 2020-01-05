@@ -74,10 +74,10 @@ describe('createDuck', () => {
       `).toSucceed();
     });
 
-    it('contains a reducer', () => {
+    it('contains a hidden reducer', () => {
       const currentSlice = 0;
       const creator = createDuck('Hello', (slice: number) => slice);
-      const nextSlice = creator.reducer(currentSlice);
+      const nextSlice = (creator as any).reducer(currentSlice);
 
       expect(nextSlice).toBe(currentSlice);
     });
