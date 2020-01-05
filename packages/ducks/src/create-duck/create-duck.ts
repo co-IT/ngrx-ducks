@@ -3,6 +3,7 @@ import {
   FunctionWithParametersType,
   TypedAction
 } from '@ngrx/store/src/models';
+import { CreateDuckNotConnectedError } from './create-duck-not-connected.error';
 
 export enum DucksIdentifier {
   DispatcherPlain,
@@ -82,7 +83,7 @@ export function createDuck<TType extends string, TPayload>(
     !payload ? { type } : { type, payload };
 
   (action as any).dispatch = () => {
-    /* ... */
+    throw new CreateDuckNotConnectedError(type);
   };
 
   (action as any).reducer = reducer;
