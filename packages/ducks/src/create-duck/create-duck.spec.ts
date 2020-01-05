@@ -1,5 +1,6 @@
 import { expecter } from 'ts-snippet';
 import { createDuck, dispatch } from './create-duck';
+import { CreateDuckNotConnectedError } from './create-duck-not-connected.error';
 
 describe('createDuck', () => {
   const expectSnippet = expecter(
@@ -25,6 +26,15 @@ describe('createDuck', () => {
       expectSnippet(`
         const { dispatch } = createDuck('Hello);
       `).toInfer('dispatch', '() => void');
+    });
+
+    it('throws if dispatch method is called', () => {
+      /** dispatch only works after @StoreFacade connects it with the Store */
+      const creator = createDuck('Hello');
+
+      expect(() => creator.dispatch()).toThrowError(
+        new CreateDuckNotConnectedError('Hello')
+      );
     });
 
     it('creates an action having a type', () => {
