@@ -44,7 +44,7 @@ type Reducer<TSlice, TPayload> = TPayload extends undefined
   ? ReducerPlain<TSlice>
   : ReducerPayload<TSlice, TPayload>;
 
-declare type ActionPlain<TType extends string> = ActionCreator<
+export declare type ActionPlain<TType extends string> = ActionCreator<
   TType,
   () => TypedAction<TType>
 >;

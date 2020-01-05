@@ -1,9 +1,8 @@
 import { ActionCreator } from '@ngrx/store';
+import { TypedAction } from '@ngrx/store/src/models';
 import {
-  FunctionWithParametersType,
-  TypedAction
-} from '@ngrx/store/src/models';
-import {
+  ActionLoaded,
+  ActionPlain,
   DispatchLoaded,
   DispatchPlain,
   DucksIdentifier
@@ -14,16 +13,10 @@ export type Constructable = new (...args: any) => any;
 export type ActionCreatorCandidates<TClass> = {
   [TMember in keyof TClass]: TClass[TMember] extends TypedAction<infer TType> &
     DispatchPlain
-    ? ActionCreator<TType, () => TypedAction<TType>>
+    ? ActionPlain<TType>
     : TClass[TMember] extends DispatchLoaded<infer TPayload> &
         TypedAction<infer TType>
-    ? FunctionWithParametersType<
-        [TPayload],
-        {
-          payload: TPayload;
-        } & TypedAction<TType>
-      > &
-        TypedAction<TType>
+    ? ActionLoaded<TType, TPayload>
     : never
 };
 
