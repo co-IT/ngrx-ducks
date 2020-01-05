@@ -6,17 +6,18 @@ import {
 import { CreateDuckNotConnectedError } from './create-duck-not-connected.error';
 
 export enum DucksIdentifier {
-  DispatcherPlain,
-  DispatcherReducer
+  DispatcherByDeclaration
 }
 
 export declare type DispatchDefinition<TPayload> = TPayload extends undefined
-  ? () => void & { id: DucksIdentifier }
-  : (payload: TPayload) => void & { id: DucksIdentifier };
+  ? () => void & { __id: DucksIdentifier.DispatcherByDeclaration }
+  : (
+      payload: TPayload
+    ) => void & { __id: DucksIdentifier.DispatcherByDeclaration };
 
 export function dispatch<TPayload>(): DispatchDefinition<TPayload> {
   const dispatcherDefinition = (payload: TPayload) => payload;
-  dispatcherDefinition.id = DucksIdentifier.DispatcherPlain;
+  dispatcherDefinition.id = DucksIdentifier.DispatcherByDeclaration;
 
   return dispatcherDefinition as any;
 }
