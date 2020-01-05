@@ -88,7 +88,7 @@ describe('createDuck', () => {
       `).toFail();
     });
 
-    it('fails if the return type is not equal to the first parameter', () => {
+    it('fails if the return type is not equal to the slice parameter', () => {
       expectSnippet(`
         const creator = createDuck('Hello', (slice: number, payload: number) => '');
       `).toFail();
