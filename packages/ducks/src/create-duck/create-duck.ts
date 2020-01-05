@@ -1,4 +1,4 @@
-import { ActionCreator, createAction } from '@ngrx/store';
+import { ActionCreator } from '@ngrx/store';
 import {
   FunctionWithParametersType,
   TypedAction
@@ -43,9 +43,6 @@ type ReducerPayload<TSlice, TPayload> = (
 type Reducer<TSlice, TPayload> = TPayload extends undefined
   ? ReducerPlain<TSlice>
   : ReducerPayload<TSlice, TPayload>;
-
-// @ts-ignore
-const a = createAction('hello');
 
 declare type ActionPlain<TType extends string> = ActionCreator<
   TType,
