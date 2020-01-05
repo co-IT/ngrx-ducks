@@ -12,6 +12,7 @@ describe('createDuck', () => {
       ${code}
       `
   );
+
   describe('vanilla action', () => {
     it('provides an action creator', () => {
       expectSnippet(`
