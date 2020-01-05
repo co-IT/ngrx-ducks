@@ -7,28 +7,29 @@ import { CreateDuckNotConnectedError } from './create-duck-not-connected.error';
 
 export enum DucksIdentifier {
   Duck,
-  DuckDispatcherByDeclaration
+  DuckDispatcherPlain,
+  DuckDispatcherPayload
 }
 
 export declare type DispatchDefinition<TPayload> = TPayload extends boolean
   ? (
       payload: boolean
     ) => void & {
-      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherByDeclaration;
+      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherPayload;
     }
   : TPayload extends undefined
   ? () => void & {
-      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherByDeclaration;
+      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherPlain;
     }
   : (
       payload: TPayload
     ) => void & {
-      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherByDeclaration;
+      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherPayload;
     };
 
 export function dispatch<TPayload>(): DispatchDefinition<TPayload> {
   const dispatcherDefinition = (payload: TPayload) => payload;
-  dispatcherDefinition.id = DucksIdentifier.DuckDispatcherByDeclaration;
+  dispatcherDefinition.id = DucksIdentifier.DuckDispatcherPlain;
 
   return dispatcherDefinition as any;
 }
@@ -51,7 +52,7 @@ declare type ActionPlain<TType extends string> = ActionCreator<
   () => TypedAction<TType>
 >;
 
-declare type ActionLoaded<
+export declare type ActionLoaded<
   TType extends string,
   TPayload
 > = FunctionWithParametersType<
@@ -63,8 +64,8 @@ declare type ActionLoaded<
   TypedAction<TType>;
 
 // @ts-ignore
-declare type DispatchPlain = { dispatch(): void };
-declare type DispatchLoaded<TPayload> = {
+export declare type DispatchPlain = { dispatch(): void };
+export declare type DispatchLoaded<TPayload> = {
   dispatch(payload: TPayload): void;
 };
 

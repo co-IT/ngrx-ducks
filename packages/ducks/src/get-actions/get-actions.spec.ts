@@ -1,37 +1,66 @@
 import { ActionCreator } from '@ngrx/store';
-import { TypedAction } from '@ngrx/store/src/models';
+import {
+  FunctionWithParametersType,
+  TypedAction
+} from '@ngrx/store/src/models';
 import {
   createDuck,
   dispatch,
+  DispatchLoaded,
+  DispatchPlain,
   DucksIdentifier
 } from '../create-duck/create-duck';
 
 describe('get-actions', () => {
   describe('When a class contains a duck', () => {
-    const type = 'Hello';
+    const typeHello = 'Hello';
+    const typeBye = 'Bye';
+
     class Facade {
-      hello = createDuck(type);
-      bye = createDuck('bye', dispatch<boolean>());
+      otherProperty = true;
+
+      hello = createDuck(typeHello);
+      bye = createDuck(typeBye, dispatch<boolean>());
     }
 
     it('extracts the action creator', () => {
       const actions = getActions(Facade);
-      expect(actions.hello.type).toBe(type);
+      expect(actions.hello.type).toBe(typeHello);
     });
 
-    it('provides a working action creator', () => {
+    it('provides a working action creator without payload', () => {
       const actions = getActions(Facade);
       const hello = actions.hello();
+      expect(hello.type).toBe(typeHello);
+    });
 
-      expect(hello.type).toBe(type);
+    it('provides a working action creator supporting payloads', () => {
+      const actions = getActions(Facade);
+      const bye = actions.bye(true);
+      expect(bye.type).toBe(typeBye);
+    });
+
+    it('ignores each property not being duck', () => {
+      const actions = getActions(Facade);
+      expect((actions as any).otherProperty).toBeUndefined();
     });
   });
 });
 export type Constructable = new (...args: any) => any;
 
 export type ActionCreatorCandidates<TClass> = {
-  [TMember in keyof TClass]: TClass[TMember] extends ActionCreator<infer TType>
+  [TMember in keyof TClass]: TClass[TMember] extends TypedAction<infer TType> &
+    DispatchPlain
     ? ActionCreator<TType, () => TypedAction<TType>>
+    : TClass[TMember] extends DispatchLoaded<infer TPayload> &
+        TypedAction<infer TType>
+    ? FunctionWithParametersType<
+        [TPayload],
+        {
+          payload: TPayload;
+        } & TypedAction<TType>
+      > &
+        TypedAction<TType>
     : never
 };
 
@@ -56,12 +85,3 @@ export function getActions<T extends Constructable>(
       : actions;
   }, {}) as any;
 }
-
-// class Obj {
-//   isTrue = true;
-
-//   obj = createDuck('huhu', dispatch<number>());
-//   obi = createDuck('haha', (slice: string) => slice);
-//   obu = createDuck('haha', (slice: string, payload: number) => slice);
-// }
-// const actions = getActions(Obj);
