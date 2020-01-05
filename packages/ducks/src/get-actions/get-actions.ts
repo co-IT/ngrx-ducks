@@ -33,11 +33,11 @@ export function getActions<T extends Constructable>(
   Token: T
 ): ActionCreators<T> {
   const instance = new Token();
-  const methodNames = Object.keys(instance);
+  const properties = Object.keys(instance);
 
-  return methodNames.reduce((actions, methodName) => {
-    return instance[methodName].__ngrx_ducks__id === DucksIdentifier.Duck
-      ? { ...actions, [methodName]: instance[methodName] }
+  return properties.reduce((actions, property) => {
+    return instance[property].__ngrx_ducks__id === DucksIdentifier.Duck
+      ? { ...actions, [property]: instance[property] }
       : actions;
   }, {}) as any;
 }
