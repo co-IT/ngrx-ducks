@@ -1,16 +1,29 @@
 import { ActionCreator } from '@ngrx/store';
 import { TypedAction } from '@ngrx/store/src/models';
-import { createDuck, DucksIdentifier } from '../create-duck/create-duck';
+import {
+  createDuck,
+  dispatch,
+  DucksIdentifier
+} from '../create-duck/create-duck';
 
 describe('get-actions', () => {
   describe('When a class contains a duck', () => {
-    it('extracts the duck', () => {
-      class Facade {
-        hello = createDuck('Hello');
-      }
+    const type = 'Hello';
+    class Facade {
+      hello = createDuck(type);
+      bye = createDuck('bye', dispatch<boolean>());
+    }
 
+    it('extracts the action creator', () => {
       const actions = getActions(Facade);
-      expect(actions.hello.type).toBe('Hello');
+      expect(actions.hello.type).toBe(type);
+    });
+
+    it('provides a working action creator', () => {
+      const actions = getActions(Facade);
+      const hello = actions.hello();
+
+      expect(hello.type).toBe(type);
     });
   });
 });

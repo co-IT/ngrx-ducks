@@ -10,7 +10,13 @@ export enum DucksIdentifier {
   DuckDispatcherByDeclaration
 }
 
-export declare type DispatchDefinition<TPayload> = TPayload extends undefined
+export declare type DispatchDefinition<TPayload> = TPayload extends boolean
+  ? (
+      payload: boolean
+    ) => void & {
+      __ngrx_ducks__id: DucksIdentifier.DuckDispatcherByDeclaration;
+    }
+  : TPayload extends undefined
   ? () => void & {
       __ngrx_ducks__id: DucksIdentifier.DuckDispatcherByDeclaration;
     }
