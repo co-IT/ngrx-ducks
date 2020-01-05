@@ -52,9 +52,9 @@ declare type ActionLoaded<
   TypedAction<TType>;
 
 // @ts-ignore
-declare type DispatchPlain = { dispatch: () => void };
+declare type DispatchPlain = { dispatch(): void };
 declare type DispatchLoaded<TPayload> = {
-  dispatch: (payload: TPayload) => void;
+  dispatch(payload: TPayload): void;
 };
 
 declare type ActionConditional<
