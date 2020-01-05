@@ -1,6 +1,6 @@
 import { ActionCreator } from '@ngrx/store';
 import { TypedAction } from '@ngrx/store/src/models';
-import { createDuck } from '../create-duck/create-duck';
+import { createDuck, DucksIdentifier } from '../create-duck/create-duck';
 
 describe('get-actions', () => {
   describe('When a class contains a duck', () => {
@@ -10,7 +10,6 @@ describe('get-actions', () => {
       }
 
       const actions = getActions(Facade);
-
       expect(actions.hello.type).toBe('Hello');
     });
   });
@@ -33,9 +32,16 @@ export type ActionCreators<T extends Constructable> = Pick<
 >;
 
 export function getActions<T extends Constructable>(
-  _token: T
+  Token: T
 ): ActionCreators<T> {
-  return {} as any;
+  const instance = new Token();
+  const methodNames = Object.keys(instance);
+
+  return methodNames.reduce((actions, methodName) => {
+    return instance[methodName].__ngrx_ducks__id === DucksIdentifier.Duck
+      ? { ...actions, [methodName]: instance[methodName] }
+      : actions;
+  }, {}) as any;
 }
 
 // class Obj {
