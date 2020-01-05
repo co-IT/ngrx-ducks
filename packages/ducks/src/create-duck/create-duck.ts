@@ -73,7 +73,7 @@ export function createDuck<
 >(
   type: TType,
   reducer: Reducer<TSlice, TPayload>
-): ActionLoaded<TType, TPayload> & { reducer: Reducer<TSlice, TPayload> };
+): ActionLoaded<TType, TPayload>;
 export function createDuck<TType extends string, TPayload>(
   type: TType,
   reducer?: DispatchDefinition<TPayload> | Function
