@@ -88,11 +88,11 @@ export function createDuck<TType extends string, TPayload>(
   const action = (payload?: TPayload) =>
     !payload ? { type } : { type, payload };
 
+  (action as any).__ngrx_ducks__id = DucksIdentifier.Duck;
+  (action as any).reducer = reducer;
   (action as any).dispatch = () => {
     throw new CreateDuckNotConnectedError(type);
   };
-
-  (action as any).reducer = reducer;
 
   return action as any;
 }

@@ -1,9 +1,18 @@
 import { ActionCreator } from '@ngrx/store';
 import { TypedAction } from '@ngrx/store/src/models';
+import { createDuck } from '../create-duck/create-duck';
 
 describe('get-actions', () => {
-  describe('When a class contains actions', () => {
-    it.todo('extracts all available actions');
+  describe('When a class contains a duck', () => {
+    it('extracts the duck', () => {
+      class Facade {
+        hello = createDuck('Hello');
+      }
+
+      const actions = getActions(Facade);
+
+      expect(actions.hello.type).toBe('Hello');
+    });
   });
 });
 export type Constructable = new (...args: any) => any;
