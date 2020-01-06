@@ -8,7 +8,8 @@ import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
 export enum DucksIdentifier {
   Duck,
   DuckDispatcherPlain,
-  DuckDispatcherPayload
+  DuckDispatcherPayload,
+  DuckPickFunction
 }
 
 export declare type DispatchDefinition<TPayload> = TPayload extends boolean
