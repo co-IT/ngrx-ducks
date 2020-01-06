@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0-alpha.1](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.0...v8.4.0-alpha.1) (2020-01-06)
+
+### Bug Fixes
+
+- use @Injectable in favor of @StoreFacade 😢 ([3c4280f](https://github.com/co-IT/ngrx-ducks/commit/3c4280f))
+
 # [8.4.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v8.3.0...v8.4.0-alpha.0) (2020-01-06)
 
 ### Bug Fixes
