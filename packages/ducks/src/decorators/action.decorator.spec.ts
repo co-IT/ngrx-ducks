@@ -3,7 +3,7 @@ import { Action } from './action.decorator';
 
 describe('@Action', () => {
   describe('When no action type is given', () => {
-    it.each([[null], [undefined], [''], [[]]])(
+    it.each([[null], [undefined], [''], [[]]] as any)(
       'should raise an error',
       invalidType => {
         class Plain {}
