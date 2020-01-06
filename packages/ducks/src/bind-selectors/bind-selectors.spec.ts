@@ -1,7 +1,15 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { TestBed } from '@angular/core/testing';
+import {
+  createFeatureSelector,
+  createSelector,
+  select,
+  Store
+} from '@ngrx/store';
+import { provideMockStore } from '@ngrx/store/testing';
 import { expecter } from 'ts-snippet';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { bindSelectors } from './bind-selectors';
+import { MemoizedSelectorDictionary } from '../typings';
+import { bindSelectors, Selectors } from './bind-selectors';
 
 describe('bind-selectors', () => {
   const expectSnippet = expecter(
@@ -52,4 +60,42 @@ describe('bind-selectors', () => {
       });
     });
   });
+
+  describe('When the Store is connected', () => {
+    it('provides data in a stream', done => {
+      TestBed.configureTestingModule({
+        providers: [
+          provideMockStore({ initialState: { counter: { count: 10 } } })
+        ]
+      });
+
+      const store: Store<unknown> = TestBed.get(Store);
+      const feature = createFeatureSelector<{ count: number }>('counter');
+      const selectorCount = createSelector(
+        feature,
+        counter => counter.count
+      );
+
+      const selectors = bindSelectors({ selectorCount });
+      connectSelectorsToStore(selectors, store);
+
+      selectors.selectorCount.subscribe(count => {
+        expect(count).toBe(10);
+        done();
+      });
+    });
+  });
 });
+
+function connectSelectorsToStore<T extends MemoizedSelectorDictionary>(
+  selectors: Selectors<T>,
+  store: Store<unknown>
+): void {
+  const selectorsOriginal: MemoizedSelectorDictionary = selectors.__ngrx_ducks__selectors_original as any;
+
+  Object.keys(selectorsOriginal).forEach(selector => {
+    (selectors as any)[selector] = store.pipe(
+      select(selectorsOriginal[selector])
+    );
+  });
+}
