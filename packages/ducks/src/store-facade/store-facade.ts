@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { connectSelectorsToStore } from '../bind-selectors';
 
 export function StoreFacade() {
   return function(Token: new () => InstanceType<any>) {
@@ -18,14 +19,35 @@ function connectFacadeToStore(
   const instance = new Token();
 
   Object.keys(instance).forEach(property => {
-    const { type, dispatch } = instance[property];
-    if (!dispatch) {
-      return;
-    }
-
-    instance[property].dispatch = (payload?: any) =>
-      !payload ? store.dispatch({ type }) : store.dispatch({ type, payload });
+    connectDispatchers(instance, property, store);
+    connectSelectors(instance, property, store);
   });
 
   return instance;
+}
+
+function connectDispatchers(
+  instance: any,
+  property: string,
+  store: Store<unknown>
+): void {
+  const { type, dispatch } = instance[property];
+  if (!dispatch) {
+    return;
+  }
+
+  instance[property].dispatch = (payload?: any) =>
+    !payload ? store.dispatch({ type }) : store.dispatch({ type, payload });
+}
+
+function connectSelectors(
+  instance: any,
+  property: string,
+  store: Store<unknown>
+): void {
+  if (!instance[property].__ngrx_ducks__selectors_original) {
+    return;
+  }
+
+  connectSelectorsToStore(instance[property], store);
 }
