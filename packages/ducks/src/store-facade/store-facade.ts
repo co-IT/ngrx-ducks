@@ -8,16 +8,17 @@ export function StoreFacade() {
   return function(Token: new () => InstanceType<any>) {
     return Injectable({
       providedIn: 'root',
-      useFactory: (store: Store<unknown>) => connectFacadeToStore(Token, store),
+      useFactory: (store: Store<unknown>) =>
+        connect(
+          Token,
+          store
+        ),
       deps: [Store]
     })(Token);
   };
 }
 
-function connectFacadeToStore(
-  Token: new () => InstanceType<any>,
-  store: Store<unknown>
-) {
+function connect(Token: new () => InstanceType<any>, store: Store<unknown>) {
   const instance = new Token();
 
   Object.keys(instance).forEach(property => {
