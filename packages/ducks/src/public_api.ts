@@ -5,6 +5,7 @@ export * from './ducks/bind-selector-group';
 export * from './ducks/ducksify';
 export * from './ducks/effect';
 export * from './operators/where-type';
+export * from './public_api_new';
 export * from './reducer/reducer-from';
 export * from './typings/duck/duck';
 export * from './typings/duck/ducksified-action';
