@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v8.3.0...v8.4.0-alpha.0) (2020-01-06)
+
+### Bug Fixes
+
+- **action.decorator:** workaround strange type error ([42fa00e](https://github.com/co-IT/ngrx-ducks/commit/42fa00e))
+- **build:** expose new API ([ab036f9](https://github.com/co-IT/ngrx-ducks/commit/ab036f9))
+- **dispatch:** allow boolean payload ([39914da](https://github.com/co-IT/ngrx-ducks/commit/39914da))
+- correct repository url ([85675e4](https://github.com/co-IT/ngrx-ducks/commit/85675e4))
+- make reducer funtion private ([327cf36](https://github.com/co-IT/ngrx-ducks/commit/327cf36))
+
+### Features
+
+- **api:** introduce createDuck ([820b48b](https://github.com/co-IT/ngrx-ducks/commit/820b48b))
+- **bind-action:** allow configuring a caseReducer ([25efd13](https://github.com/co-IT/ngrx-ducks/commit/25efd13))
+- **bind-action:** restrict parameter count ([901ccdd](https://github.com/co-IT/ngrx-ducks/commit/901ccdd))
+- **bindAction:** ensure compatibility with ofType ([f43040a](https://github.com/co-IT/ngrx-ducks/commit/f43040a))
+- **bindSelectors:** connect selectors to store 🚀 ([4abcd24](https://github.com/co-IT/ngrx-ducks/commit/4abcd24))
+- **bindSelectors:** provide error if used without @StoreFacade ([89e86c5](https://github.com/co-IT/ngrx-ducks/commit/89e86c5))
+- **create-duck:** make new API public 🚀 ([b8f4a5c](https://github.com/co-IT/ngrx-ducks/commit/b8f4a5c))
+- **get-actions:** provide helper extracting actions from facade ([de8f21b](https://github.com/co-IT/ngrx-ducks/commit/de8f21b))
+- **getActions:** extracts single action from facade ([a14862f](https://github.com/co-IT/ngrx-ducks/commit/a14862f))
+- **getReducer:** building reducer based on facade definition ([90a2270](https://github.com/co-IT/ngrx-ducks/commit/90a2270))
+- **store-facade:** connect store with facade 🚀 ([0d8e74e](https://github.com/co-IT/ngrx-ducks/commit/0d8e74e))
+- **storeFacade:** enable binding selectors ([25a5840](https://github.com/co-IT/ngrx-ducks/commit/25a5840))
+- **usePick:** connect pick to store 🚀 ([20c921b](https://github.com/co-IT/ngrx-ducks/commit/20c921b))
+- **usePick:** provide factory for usePick ([41d81b3](https://github.com/co-IT/ngrx-ducks/commit/41d81b3))
+
 # [8.3.0](https://github.com/co-it/co-it/compare/v8.2.2...v8.3.0) (2019-12-22)
 
 ### Features
