@@ -1,24 +1,12 @@
-import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { connectSelectorsToStore } from '../bind-selectors';
 import { DucksIdentifier } from '../create-duck/create-duck';
 import { connectPickToStore } from '../use-pick';
 
-export function StoreFacade() {
-  return function(Token: new () => InstanceType<any>) {
-    return Injectable({
-      providedIn: 'root',
-      useFactory: (store: Store<unknown>) =>
-        connect(
-          Token,
-          store
-        ),
-      deps: [Store]
-    })(Token);
-  };
-}
-
-function connect(Token: new () => InstanceType<any>, store: Store<unknown>) {
+export function connect(
+  Token: new () => InstanceType<any>,
+  store: Store<unknown>
+) {
   const instance = new Token();
 
   Object.keys(instance).forEach(property => {
