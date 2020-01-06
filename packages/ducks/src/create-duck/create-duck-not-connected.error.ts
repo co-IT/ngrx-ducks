@@ -1,8 +1,13 @@
-export class CreateDuckNotConnectedError extends Error {
-  constructor(type: string) {
+export class NgRxDucksNotConnectedError extends Error {
+  constructor(type?: string) {
     super(
-      '[create-duck] Please make sure using createDuck inside a class' +
-        `using the decorator @StoreFacade (affected action: "${type}").`
+      '[create-duck] Please make sure using createDuck & bindSelectors inside a class' +
+        `that is decorated with @StoreFacade.` +
+        !type
+        ? ''
+        : `(affected action: "${type}")`
     );
+
+    Object.setPrototypeOf(this, NgRxDucksNotConnectedError.prototype);
   }
 }

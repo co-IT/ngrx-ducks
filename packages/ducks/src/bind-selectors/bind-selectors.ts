@@ -1,5 +1,6 @@
 import { MemoizedSelector } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
 
 // const feature = createFeatureSelector<number>('counter');
 // const selectorPlain = createSelector(
@@ -26,5 +27,16 @@ export type Selectors<
 export function bindSelectors<
   T extends { [key: string]: MemoizedSelector<any, any> }
 >(selectors: T): Selectors<T> {
-  return { __ngrx_ducks__selectors_original: selectors } as any;
+  const selectorsFailing = Object.keys(selectors).reduce(
+    (fakes, selector) => ({
+      ...fakes,
+      [selector]: throwError(new NgRxDucksNotConnectedError())
+    }),
+    {}
+  );
+
+  return {
+    ...selectorsFailing,
+    __ngrx_ducks__selectors_original: selectors
+  } as any;
 }

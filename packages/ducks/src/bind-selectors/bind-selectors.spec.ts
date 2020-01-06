@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { expecter } from 'ts-snippet';
+import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
 import { bindSelectors } from './bind-selectors';
 
 describe('bind-selectors', () => {
@@ -31,25 +32,24 @@ describe('bind-selectors', () => {
         const { selectorProperty: s } = bindSelectors({ selectorProperty });
       `).toFail();
     });
+  });
 
-    it.skip('foo', () => {
+  describe('When a selector stream is used', () => {
+    it('throws an exception since @StoreFacade is needed to get it to work', done => {
       const feature = createFeatureSelector<number>('counter');
-      const selectorPlain = createSelector(
+      const selector = createSelector(
         feature,
         state => state
       );
-      const selectorProperty = createSelector(
-        selectorPlain,
-        (state: number, props: { value: number }) => state + props.value
-      );
 
-      const select = bindSelectors({ selectorPlain, selectorProperty });
-      console.log(
-        (select as any).__ngrx_ducks__selectors_original.selectorPlain.projector.toString()
-      );
+      const select = bindSelectors({ selector });
 
-      // selectorPlain: store.pipe(selectorProperty)
-      // selectorProperty: (props: TProps) => store.pipe(selectorProperty, props)
+      select.selector.subscribe({
+        error: err => {
+          expect(err).toBeInstanceOf(NgRxDucksNotConnectedError);
+          done();
+        }
+      });
     });
   });
 });
