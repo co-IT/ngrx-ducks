@@ -1,15 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  createFeatureSelector,
-  createSelector,
-  select,
-  Store
-} from '@ngrx/store';
+import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { expecter } from 'ts-snippet';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { MemoizedSelectorDictionary } from '../typings';
-import { bindSelectors, Selectors } from './bind-selectors';
+import { bindSelectors } from './bind-selectors';
+import { connectSelectorsToStore } from './connect-selectors-to-store';
 
 describe('bind-selectors', () => {
   const expectSnippet = expecter(
@@ -86,16 +81,3 @@ describe('bind-selectors', () => {
     });
   });
 });
-
-function connectSelectorsToStore<T extends MemoizedSelectorDictionary>(
-  selectors: Selectors<T>,
-  store: Store<unknown>
-): void {
-  const selectorsOriginal: MemoizedSelectorDictionary = selectors.__ngrx_ducks__selectors_original as any;
-
-  Object.keys(selectorsOriginal).forEach(selector => {
-    (selectors as any)[selector] = store.pipe(
-      select(selectorsOriginal[selector])
-    );
-  });
-}
