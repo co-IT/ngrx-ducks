@@ -1,1 +1,1 @@
-export * from './create-duck';
+export { createDuck, dispatch } from './create-duck';

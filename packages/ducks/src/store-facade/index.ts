@@ -1,1 +1,1 @@
-export * from './store-facade';
+export { StoreFacade } from './store-facade';

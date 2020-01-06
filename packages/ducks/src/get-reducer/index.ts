@@ -1,1 +1,1 @@
-export * from './get-reducer';
+export { getReducer } from './get-reducer';

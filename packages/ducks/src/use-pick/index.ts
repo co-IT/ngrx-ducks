@@ -1,2 +1,2 @@
-export * from './connect-pick-to-store';
-export * from './use-pick';
+export { connectPickToStore } from './connect-pick-to-store';
+export { usePick } from './use-pick';

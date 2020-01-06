@@ -1,1 +1,1 @@
-export * from './get-actions';
+export { getActions } from './get-actions';
