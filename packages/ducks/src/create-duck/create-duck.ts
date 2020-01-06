@@ -3,7 +3,7 @@ import {
   FunctionWithParametersType,
   TypedAction
 } from '@ngrx/store/src/models';
-import { CreateDuckNotConnectedError } from './create-duck-not-connected.error';
+import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
 
 export enum DucksIdentifier {
   Duck,
@@ -96,7 +96,7 @@ export function createDuck<TType extends string, TPayload>(
   action.type = type;
   action.reducer = reducer;
   action.dispatch = () => {
-    throw new CreateDuckNotConnectedError(type);
+    throw new NgRxDucksNotConnectedError(type);
   };
 
   return action;
