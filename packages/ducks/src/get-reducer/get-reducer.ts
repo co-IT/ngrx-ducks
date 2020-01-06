@@ -1,5 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { Constructable } from '../get-actions';
+import { Constructable } from '../get-actions/constructable';
 
 export function getReducer<TState>(
   initialState: TState,
