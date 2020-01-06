@@ -3,6 +3,7 @@ import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { bindSelectors } from '../bind-selectors';
 import { createDuck, dispatch } from '../create-duck/create-duck';
+import { usePick } from '../use-pick';
 import { StoreFacade } from './store-facade';
 
 describe('@StoreFacade', () => {
@@ -18,6 +19,7 @@ describe('@StoreFacade', () => {
 
     @StoreFacade()
     class Counter {
+      pick = usePick();
       select = bindSelectors({ selectorCount });
 
       increment = createDuck('Increment');
@@ -53,6 +55,13 @@ describe('@StoreFacade', () => {
 
     it('selects data from the store', done => {
       counter.select.selectorCount.subscribe(count => {
+        expect(count).toBe(10);
+        done();
+      });
+    });
+
+    it('selects data with pick from the store', done => {
+      counter.pick(selectorCount).subscribe(count => {
         expect(count).toBe(10);
         done();
       });
