@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { bindSelectors } from '../bind-selectors';
 import { createDuck, dispatch } from '../create-duck/create-duck';
 import { usePick } from '../use-pick';
-import { connect } from './store-facade';
+import { StoreFacade } from './store-facade';
 
-describe('connect', () => {
-  describe('When a class with ducks is connected with the Store', () => {
+describe('@StoreFacade', () => {
+  describe('When a class with ducks is annotated', () => {
     const feature = createFeatureSelector<{ count: number }>('counter');
     const selectorCount = createSelector(
       feature,
@@ -18,15 +17,7 @@ describe('connect', () => {
     let store: Store<unknown>;
     let counter: Counter;
 
-    @Injectable({
-      providedIn: 'root',
-      useFactory: (store: Store<unknown>) =>
-        connect(
-          Counter,
-          store
-        ),
-      deps: [Store]
-    })
+    @StoreFacade()
     class Counter {
       pick = usePick();
       select = bindSelectors({ selectorCount });
