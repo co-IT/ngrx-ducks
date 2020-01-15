@@ -27,12 +27,12 @@
     "@co-it/ngrx-ducks-schematics": "^8.2.0"
   },
   "devDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/compiler": "^8.0.0",
-    "@angular/compiler-cli": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/platform-browser": "^8.0.0",
-    "@angular/platform-browser-dynamic": "^8.0.0",
+    "@angular/common": "^9.0.0-rc.9",
+    "@angular/compiler": "^9.0.0-rc.9",
+    "@angular/compiler-cli": "^9.0.0-rc.9",
+    "@angular/core": "^9.0.0-rc.9",
+    "@angular/platform-browser": "^9.0.0-rc.9",
+    "@angular/platform-browser-dynamic": "^9.0.0-rc.9",
     "@ngrx/effects": "^8.0.0",
     "@ngrx/store": "^8.0.0",
     "@types/jest": "^24.0.25",
@@ -48,8 +48,8 @@
     "zone.js": "^0.9.1"
   },
   "peerDependencies": {
-    "@angular/common": ">= 8.0.0 < 10",
-    "@angular/core": ">= 8.0.0 < 10",
+    "@angular/common": ">= 9.0.0-rc.9 < 10",
+    "@angular/core": ">= 9.0.0-rc.9 < 10",
     "@ngrx/effects": ">= 8.0.0 < 10",
     "@ngrx/store": ">= 8.0.0 < 10"
   }
