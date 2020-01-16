@@ -2,21 +2,30 @@ import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { connect } from './connect';
 
+interface AnnotationTarget {
+  new (): InstanceType<any>;
+  ɵfac: Function;
+  ɵprov: any;
+}
+
 export function StoreFacade() {
-  return function(token: new () => InstanceType<any>) {
-    (token as any).ɵfac = function() {
-      throw new Error('cannot create directly');
-    };
-    (token as any).ɵprov = ɵɵdefineInjectable({
-      token,
+  return function(constructor: AnnotationTarget) {
+    constructor.ɵfac = notConstructableError;
+    constructor.ɵprov = ɵɵdefineInjectable({
+      token: constructor,
       providedIn: 'root',
-      factory: function() {
+      factory() {
         return connect(
-          token,
+          constructor,
           ɵɵinject(Store)
         );
       }
     });
-    return token;
+
+    return constructor;
   };
+}
+
+export function notConstructableError() {
+  throw new Error('ɵfac: Cannot create class directly.');
 }
