@@ -1,16 +1,24 @@
-import { Injectable } from '@angular/core';
+import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ducksify } from '../ducks';
-import { DucksifyConfig } from '../typings';
+import { notConstructableError } from '../store-facade/store-facade';
+import { AnnotationTarget, DucksifyConfig } from '../typings';
 import { InitialState } from './initial-state.decorator';
 
 export function Ducksify<T>(config: DucksifyConfig<T>) {
-  return function(target: any) {
-    const targetWithInitialState = InitialState(config.initialState)(target);
-    return Injectable({
+  return function(constructor: AnnotationTarget) {
+    constructor.ɵfac = notConstructableError;
+    constructor.ɵprov = ɵɵdefineInjectable({
+      token: constructor,
       providedIn: 'root',
-      useFactory: (store: Store<unknown>) => ducksify(target, store),
-      deps: [Store]
-    })(targetWithInitialState);
+      factory() {
+        return ducksify(
+          InitialState(config.initialState)(constructor),
+          ɵɵinject(Store)
+        );
+      }
+    });
+
+    return constructor;
   };
 }
