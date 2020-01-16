@@ -1,22 +1,8 @@
-import { Injectable, ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
+import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { connectSelectorsToStore } from '../bind-selectors';
 import { DucksIdentifier } from '../create-duck/create-duck';
 import { connectPickToStore } from '../use-pick';
-
-export function StoreFacadeOld() {
-  return function(Token: new () => InstanceType<any>) {
-    return Injectable({
-      providedIn: 'root',
-      useFactory: (store: Store<unknown>) =>
-        connect(
-          Token,
-          store
-        ),
-      deps: [Store]
-    })(Token);
-  };
-}
 
 export function StoreFacade() {
   return function(Token: new () => InstanceType<any>) {
@@ -27,11 +13,9 @@ export function StoreFacade() {
       token: Token,
       providedIn: 'root',
       factory: function() {
-        const store = ɵɵinject(Store);
-        // whatever connect/etc logic is needed to initialize the store here.
         return connect(
           Token,
-          store
+          ɵɵinject(Store)
         );
       }
     });
