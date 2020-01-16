@@ -1,12 +1,7 @@
 import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AnnotationTarget } from '../typings';
 import { connect } from './connect';
-
-interface AnnotationTarget {
-  new (): InstanceType<any>;
-  ɵfac: Function;
-  ɵprov: any;
-}
 
 export function StoreFacade() {
   return function(constructor: AnnotationTarget) {
