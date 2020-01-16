@@ -1,7 +1,7 @@
 import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ducksify } from '../ducks';
-import { notConstructableError } from '../store-facade/store-facade';
+import { notConstructableError } from '../../store-facade/store-facade';
 import { AnnotationTarget, DucksifyConfig } from '../typings';
 import { InitialState } from './initial-state.decorator';
 

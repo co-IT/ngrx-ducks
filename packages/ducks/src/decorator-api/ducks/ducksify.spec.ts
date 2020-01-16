@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { StoreMock } from '../../test/mocks';
+import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
 import { MissingActionDecoratorError } from '../errors';
 import { Duck } from '../typings';

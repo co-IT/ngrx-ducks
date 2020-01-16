@@ -1,5 +1,5 @@
 import { select, Store } from '@ngrx/store';
-import { MemoizedSelectorDictionary } from '../typings';
+import { MemoizedSelectorDictionary } from '../decorator-api/typings';
 import { Selectors } from './bind-selectors';
 
 export function connectSelectorsToStore<T extends MemoizedSelectorDictionary>(

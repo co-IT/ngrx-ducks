@@ -1,6 +1,6 @@
 import { Action as NgRxAction } from '@ngrx/store';
 import { from, Observable, of } from 'rxjs';
-import { StoreMock } from '../../test/mocks';
+import { StoreMock } from '../../../test/mocks';
 import { Action } from '../decorators';
 import { ducksify } from '../ducks';
 import { Duck } from '../typings';

@@ -1,6 +1,6 @@
 import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AnnotationTarget } from '../typings';
+import { AnnotationTarget } from '../decorator-api/typings';
 import { connect } from './connect';
 
 export function StoreFacade() {

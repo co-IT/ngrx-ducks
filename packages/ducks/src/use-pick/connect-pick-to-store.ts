@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
 import { DucksIdentifier } from '../create-duck/create-duck';
-import { pickFactory } from '../ducks/pick-factory';
-import { PickFunction } from '../typings';
+import { pickFactory } from '../decorator-api/ducks/pick-factory';
+import { PickFunction } from '../decorator-api/typings';
 
 export function connectPickToStore(
   pick: {

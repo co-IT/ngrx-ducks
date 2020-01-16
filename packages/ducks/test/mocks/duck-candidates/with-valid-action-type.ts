@@ -1,4 +1,4 @@
-import { Action } from '../../../src/decorators/action.decorator';
+import { Action } from '../../../src/decorator-api/decorators/action.decorator';
 
 export const validActionType = '[Counter] Set Number';
 

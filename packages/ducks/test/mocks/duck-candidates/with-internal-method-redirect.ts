@@ -1,4 +1,4 @@
-import { Action, InitialState } from '../../../src/decorators';
+import { Action, InitialState } from '../../../src/decorator-api/decorators';
 
 @InitialState(0)
 export class WithInternalMethodCallRedirect {
