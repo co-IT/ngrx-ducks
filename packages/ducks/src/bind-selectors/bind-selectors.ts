@@ -2,18 +2,6 @@ import { MemoizedSelector } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
 
-// const feature = createFeatureSelector<number>('counter');
-// const selectorPlain = createSelector(
-//   feature,
-//   state => state
-// );
-// const selectorProperty = createSelector(
-//   selectorPlain,
-//   (state: number, props: { value: number }) => state + props.value
-// );
-
-// const selectorProperty1 = createSelector(selectorPlain, (s, { s: number }) => 1);
-
 export type SelectorConditional<
   T extends MemoizedSelector<any, any>
 > = T extends MemoizedSelector<any, infer TResult>
