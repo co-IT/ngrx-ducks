@@ -18,7 +18,10 @@ export function StoreFacade() {
   };
 }
 
-function connect(Token: new () => InstanceType<any>, store: Store<unknown>) {
+export function connect(
+  Token: new () => InstanceType<any>,
+  store: Store<unknown>
+) {
   const instance = new Token();
 
   Object.keys(instance).forEach(property => {
