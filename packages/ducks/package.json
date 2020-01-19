@@ -1,6 +1,6 @@
 {
   "name": "@co-it/ngrx-ducks",
-  "version": "8.4.0-alpha.1",
+  "version": "9.0.0-rc.0",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -24,7 +24,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
-    "@co-it/ngrx-ducks-schematics": "^8.2.0"
+    "@co-it/ngrx-ducks-schematics": "^9.0.0-rc.0"
   },
   "devDependencies": {
     "@angular/common": "^9.0.0-rc.9",
@@ -42,9 +42,9 @@
     "ng-packagr": "^9.0.0-rc.7",
     "rxjs": "^6.5.1",
     "ts-snippet": "^4.2.0",
-    "tsutils": "^3.17.1",
     "tsickle": "^0.38.0",
     "tslib": "^1.9.3",
+    "tsutils": "^3.17.1",
     "typescript": "3.7.4",
     "zone.js": "^0.9.1"
   },

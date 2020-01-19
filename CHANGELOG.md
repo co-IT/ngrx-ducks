@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0-rc.0](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.1...v9.0.0-rc.0) (2020-01-19)
+
+### Bug Fixes
+
+- **@Action spec:** correct typings ([f3482df](https://github.com/co-IT/ngrx-ducks/commit/f3482df))
+- **gitignore:** alllow typings/ ([4547581](https://github.com/co-IT/ngrx-ducks/commit/4547581))
+- **yarn:** apply security patches manually ([42ede32](https://github.com/co-IT/ngrx-ducks/commit/42ede32))
+- make angular injectable annotations optional ([245ecb7](https://github.com/co-IT/ngrx-ducks/commit/245ecb7))
+- update ts-snippet deps to match and work together ([cc1625e](https://github.com/co-IT/ngrx-ducks/commit/cc1625e))
+
+### Features
+
+- **@Ducksify:** migrate decorator supporting ivy ([650cda7](https://github.com/co-IT/ngrx-ducks/commit/650cda7))
+- **decorator:** implement StoreFacade for ivy ([d3a7f60](https://github.com/co-IT/ngrx-ducks/commit/d3a7f60))
+- bring back @StoreFacade 💪 ([915e42b](https://github.com/co-IT/ngrx-ducks/commit/915e42b))
+
 # [8.4.0-alpha.1](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.0...v8.4.0-alpha.1) (2020-01-06)
 
 ### Bug Fixes
