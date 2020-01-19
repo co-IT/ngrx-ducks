@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.4.0](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.1...v8.4.0) (2020-01-19)
+
+### Features
+
+- expose connect to be able to fallback to @Injectable-notation if needed ([c10e3ad](https://github.com/co-IT/ngrx-ducks/commit/c10e3ad))
+
 # [8.4.0-alpha.1](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.0...v8.4.0-alpha.1) (2020-01-06)
 
 ### Bug Fixes
