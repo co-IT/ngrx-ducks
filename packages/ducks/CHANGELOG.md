@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0-rc.1](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.0...v9.0.0-rc.1) (2020-02-07)
+
+**Note:** Version bump only for package @co-it/ngrx-ducks
+
 # [9.0.0-rc.0](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.1...v9.0.0-rc.0) (2020-01-19)
 
 ### Bug Fixes
