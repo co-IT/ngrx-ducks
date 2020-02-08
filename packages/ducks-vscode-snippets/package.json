@@ -1,5 +1,5 @@
 {
-  "name": "ngrx-ducks",
+  "name": "@ngrx-ducks/snippets",
   "icon": "assets/logo.png",
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 {
-  "name": "@co-it/ngrx-ducks",
+  "name": "@ngrx-ducks/core",
   "version": "9.0.0-rc.1",
   "license": "MIT",
   "keywords": [
