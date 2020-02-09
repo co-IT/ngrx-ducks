@@ -1,4 +1,4 @@
-# NgRx Ducks Snippets
+## @ngrx-ducks/vscode-snippets
 
 Snippets for [ngrx-ducks](https://www.npmjs.com/package/@co-it/ngrx-ducks) accelerating your development speed even further.
 

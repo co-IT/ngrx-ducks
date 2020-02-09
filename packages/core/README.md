@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="https://github.com/co-it/ngrx-ducks/blob/master/assets/ngrx-ducks.png?raw=true" alt="yellow duck on a purple shield">
-</p>
-
-# NgRx Ducks
+## @ngrx-ducks/core
 
 This library acts as a thin layer on top of ngrx.
 It automatically creates action creators and reducer functions for you.
