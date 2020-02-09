@@ -1,4 +1,4 @@
-# NgRx Ducks Schematics
+## @ngrx-ducks/schematics
 
 You get this package automatically if you install [@co-it/ngrx-ducks](https://www.npmjs.com/package/@co-it/ngrx-ducks).
 
