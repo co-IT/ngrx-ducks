@@ -2,15 +2,15 @@
 
 Welcome to the mono-repository containing all packages related to the Ducks.
 
-| Package                 | Description                            |
-| ----------------------- | -------------------------------------- |
-| [ducks]                 | Improves coding experience for [ngrx]. |
-| [ducks-schematics]      | Scaffolds code quickly.                |
-| [ducks-vscode-snippets] | Increases writing Ducks in [vscode].   |
+| Package           | Description                            |
+| ----------------- | -------------------------------------- |
+| [core]            | Improves coding experience for [ngrx]. |
+| [schematics]      | Scaffolds code quickly.                |
+| [vscode-snippets] | Increases writing Ducks in [vscode].   |
 
-[ducks]: ./packages/ducks
-[ducks-schematics]: ./packages/ducks-schematics
-[ducks-vscode-snippets]: ./packages/ducks-vscode-snippets
+[core]: ./packages/core
+[schematics]: ./packages/schematics
+[vscode-snippets]: ./packages/vscode-snippets
 [ngrx]: https://ngrx.io/
 [vscode]: https://code.visualstudio.com/
 
