@@ -1,5 +1,5 @@
 import {
-  bindSelectors
+  bindSelectors,
   createDuck,
   getReducer,
   getActions,
@@ -18,5 +18,5 @@ export class <%= classify(name) %>Facade {<% if (selectors) { %>
   );
 }
 
-export const <%= name %>Actions = getActions(<%= classify(name) %>Facade);
-export const <%= name %>Reducer = getReducer(<%= classify(name) %>Facade);
+export const <%= camelize(name) %>Actions = getActions(<%= classify(name) %>Facade);
+export const <%= camelize(name) %>Reducer = getReducer(<%= classify(name) %>Facade);

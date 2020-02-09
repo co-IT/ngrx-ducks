@@ -24,9 +24,9 @@ import {
 } from '../../utils/find-modules';
 import { parseName } from '../../utils/parse-name';
 import { buildDefaultPath, getProject } from '../../utils/project';
-import { Schema as DuckOptions } from './schema';
+import { Schema as FacadeOptions } from './schema';
 
-function addDeclarationToNgModule(options: DuckOptions): Rule {
+function addDeclarationToNgModule(options: FacadeOptions): Rule {
   return (host: Tree) => {
     if (options.skipImport || !options.module || !options.effects) {
       return host;
@@ -90,7 +90,7 @@ function addDeclarationToNgModule(options: DuckOptions): Rule {
   };
 }
 
-export default function(options: DuckOptions): Rule {
+export default function(options: FacadeOptions): Rule {
   return (host: Tree) => {
     if (!options.project) {
       throw new SchematicsException('Option (project) is required.');

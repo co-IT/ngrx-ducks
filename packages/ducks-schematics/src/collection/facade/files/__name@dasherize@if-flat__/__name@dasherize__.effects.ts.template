@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { delay, map } from 'rxjs/operators';
-import { <%= classify(name) %>Actions } from './<%= dasherize(name) %>.facade';
+import { <%= camelize(name) %>Actions } from './<%= dasherize(name) %>.facade';
 
 @Injectable()
 export class <%= classify(name) %>Effects {
   loadData = createEffect(() => this.actions.pipe(
-    ofType(<%= classify(name) %>Actions.loadData),
+    ofType(<%= camelize(name) %>Actions.loadData),
     delay(2000),
-    map(({ payload }) => this.<%= camelize(name) %>.setData(payload))
+    map(({ payload }) => <%= camelize(name) %>Actions.setData(payload))
   ));
 
   constructor(private actions: Actions) {}
