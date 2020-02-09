@@ -1,0 +1,22 @@
+import {
+  bindSelectors
+  createDuck,
+  getReducer,
+  getActions,
+  StoreFacade,
+} from '@ngrx-ducks/core';<% if (selectors) { %>
+import * as selectors from './<%= dasherize(name) %>.selectors';<% } %>
+import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
+
+@StoreFacade()
+export class <%= classify(name) %>Facade {<% if (selectors) { %>
+  select = bindSelectors(selectors);
+<% } %>
+  createDuck(
+    '[<%= classify(name) %>] Sample action type',
+    (state: <%= classify(name) %>State, payload: number) => ({ ...state, payload })
+  );
+}
+
+export const <%= name %>Actions = getActions(<%= classify(name) %>Facade);
+export const <%= name %>Reducer = getReducer(<%= classify(name) %>Facade);
