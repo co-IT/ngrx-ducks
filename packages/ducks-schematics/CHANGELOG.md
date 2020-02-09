@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0-rc.2](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.1...v9.0.0-rc.2) (2020-02-09)
+
+### Bug Fixes
+
+- **schematics:** adjust templates ([41effd6](https://github.com/co-IT/ngrx-ducks/commit/41effd6))
+
+### Features
+
+- **schematics:** rewrite spec template ([2652ae8](https://github.com/co-IT/ngrx-ducks/commit/2652ae8))
+- **schematics:** update templates to match new API ([5788e20](https://github.com/co-IT/ngrx-ducks/commit/5788e20))
+
 # [9.0.0-rc.0](https://github.com/co-IT/ngrx-ducks/compare/v8.4.0-alpha.1...v9.0.0-rc.0) (2020-01-19)
 
 **Note:** Version bump only for package @co-it/ngrx-ducks-schematics
