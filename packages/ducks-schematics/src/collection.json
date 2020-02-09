@@ -1,10 +1,11 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "duck": {
-      "description": "Create a Duck.",
-      "factory": "./collection/duck",
-      "schema": "./collection/duck/schema.json"
+    "facade": {
+      "description": "Create a Facade.",
+      "factory": "./collection/facade",
+      "schema": "./collection/facade/schema.json",
+      "aliases": ["sf", "duck"]
     }
   }
 }

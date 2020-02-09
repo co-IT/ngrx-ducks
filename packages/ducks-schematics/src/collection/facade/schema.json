@@ -1,23 +1,23 @@
 {
   "$schema": "http://json-schema.org/schema",
   "id": "SchematicsDuckSchematic",
-  "title": "ngrx-ducks Duck Options Schema",
+  "title": "ngrx-ducks Facade Options Schema",
   "type": "object",
-  "description": "Creates a new Duck in the given or default project.",
+  "description": "Creates a new Facade in the given or default project.",
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the Duck.",
+      "description": "The name of the Facade.",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use for the Duck?"
+      "x-prompt": "What name would you like to use for the Facade?"
     },
     "path": {
       "type": "string",
       "format": "path",
-      "description": "The path at which to create the Duck, relative to the workspace root.",
+      "description": "The path at which to create the Facade, relative to the workspace root.",
       "visible": false
     },
     "project": {
@@ -41,12 +41,12 @@
     "spec": {
       "type": "boolean",
       "default": true,
-      "description": "When true (the default), generates a  \"spec.ts\" test file for the new Duck."
+      "description": "When true (the default), generates a  \"spec.ts\" test file for the new Facade."
     },
     "effects": {
       "type": "boolean",
       "default": true,
-      "description": "When true (the default), generates an  \"effects.ts\" file for the new Duck.",
+      "description": "When true (the default), generates an  \"effects.ts\" file for the new Facade.",
       "x-prompt": "Do you want to create effects?"
     },
     "module": {
@@ -62,7 +62,7 @@
     "selectors": {
       "type": "boolean",
       "default": true,
-      "description": "When true (the default), generates a  \"selectors.ts\" file for the new Duck.",
+      "description": "When true (the default), generates a  \"selectors.ts\" file for the new Facade.",
       "x-prompt": "Do you want to create selectors?"
     }
   },
