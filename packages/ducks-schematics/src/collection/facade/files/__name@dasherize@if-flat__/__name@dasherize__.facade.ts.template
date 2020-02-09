@@ -1,6 +1,7 @@
 import {
   bindSelectors,
   createDuck,
+  dispatch,
   getReducer,
   getActions,
   StoreFacade,
@@ -12,8 +13,11 @@ import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
 export class <%= classify(name) %>Facade {<% if (selectors) { %>
   select = bindSelectors(selectors);
 <% } %>
-  createDuck(
-    '[<%= classify(name) %>] Sample action type',
+
+  loadData = createDuck('[<%= classify(name) %>] Sample triggering action', dispatch<number>());
+
+  setData = createDuck(
+    '[<%= classify(name) %>] Sample mutating action',
     (state: <%= classify(name) %>State, payload: number) => ({ ...state, payload })
   );
 }

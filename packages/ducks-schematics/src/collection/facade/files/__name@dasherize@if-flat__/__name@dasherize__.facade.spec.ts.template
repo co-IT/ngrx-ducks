@@ -1,16 +1,37 @@
-import { <%= classify(name) %> } from './<%= dasherize(name) %>.duck';
-import { <%= classify(name) %>State } from './<%= dasherize(name) %>.state';
+import { TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
-describe('<%= classify(name) %>', () => {
-  let duck: <%= classify(name) %>;
-  let state: <%= classify(name) %>State;
+import { <%= classify(name) %>Facade } from './<%= dasherize(name) %>.facade';
+
+describe('StoreFacade: <%= classify(name) %>', () => {
+  const initialState = {};
+
+  let store: MockStore<{}>;
+  let facade: <%= classify(name) %>Facade;
 
   beforeEach(() => {
-    duck = new <%= classify(name) %>();
-    state = { data: 0 };
+    TestBed.configureTestingModule({
+      providers: [
+        provideMockStore({ initialState }),
+        <%= classify(name) %>Facade
+      ],
+    });
+
+    store = TestBed.inject(Store) as any;
+    facade = TestBed.inject(<%= classify(name) %>Facade);
   });
 
-  it('should set data', () => {
-    expect(duck.setData(state, 1).data).toBe(1);
+  it('dispatches the action', () => {
+    const spyDispatch = spyOn(store, 'dispatch');
+    facade.loadData.dispatch(1);
+    expect(spyDispatch).toHaveBeenCalled();
+  });
+
+  it('yields the action', () => {
+    expect(facade.loadData(1)).toEqual({
+      type: '[<%= classify(name) %>] Sample triggering action',
+      payload: 1
+    });
   });
 });

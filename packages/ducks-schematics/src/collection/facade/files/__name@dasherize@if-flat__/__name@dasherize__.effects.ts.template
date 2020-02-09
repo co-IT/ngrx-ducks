@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { delay, map } from 'rxjs/operators';
 import { <%= camelize(name) %>Actions } from './<%= dasherize(name) %>.facade';
