@@ -25,7 +25,7 @@ Please refer to the migration guide to learn what needs to be changed to update 
 
 ## Demo
 
-Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks?embed=1&file=src/app/store/counter/counter.duck.ts" target="_blank">StackBlitz</a>.
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-9?embed=1&file=src/app/counter/store/counter/counter.facade.ts" target="_blank">⚡️ StackBlitz</a>.
 It shows how ngrx and ngrx-ducks work together.
 
 ## Schematics
