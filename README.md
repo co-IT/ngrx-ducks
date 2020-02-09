@@ -14,6 +14,11 @@ Welcome to the mono-repository containing all packages related to the Ducks.
 [ngrx]: https://ngrx.io/
 [vscode]: https://code.visualstudio.com/
 
+## Demo
+
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-9?embed=1&file=src/app/counter/store/counter/counter.facade.ts" target="_blank">⚡️ StackBlitz</a>.
+It shows how ngrx and ngrx-ducks work together.
+
 ## Want to help?
 
 Your feedback is always welcome!
