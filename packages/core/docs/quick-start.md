@@ -4,7 +4,7 @@
 
 ## Benefits
 
-- ⚙️ Create Reducer Automatically
+- ⚙️ Create both Reducer and Action Automatically
 - 🤫 Get rid of verbose action declarations
 - ️️️⤵️ Reduce imports of Action Types and Action Creators
 - 💉 Use typed Services instead of dispatching Actions
@@ -31,41 +31,46 @@ Multiple Ducks are used to generate the [Reducer][4] automatically.
 You end up writing a class containing pure functions.
 Leave the rest to `ngrx-ducks`.
 
+Components are fully independent of Redux-Architecture
+
 [1]: https://redux.js.org/glossary#dispatching-function
 [2]: https://redux.js.org/glossary#action-creator
-[3]: https://redux.js.org/recipes/structuringreducers/refactoringreducersexample#extracting-case-reducers
+[3]: https://redux.js.org/recipes/structuring-reducers/refactoring-reducer-example
 [4]: https://redux.js.org/glossary#reducer
+[5]: https://youtu.be/NSNsxSFJM-8?t=2177
 
 ## Demo
 
-You find a demo using `ngrx-ducks` at [ngrx-ducks-demo](https://github.com/GregOnNet/ngrx-ducks-demo).
+You find a demo using `ngrx-ducks` at [ngrx-ducks-9](https://stackblitz.com/edit/ngrx-ducks-9).
+More explanations in another format here [Api Discussion][5]
 
 ## Start with Ducks
 
 ### Implement State Mutations
 
 First create a file where the mutation logic for a certain state slice
-should live.
-Add a class that implements the needed `Case Reducers`.
+should live. Put selectors logic here as well.
+
+Add a class that implements the needed `Case Reducers`, builds required selectors and triggers actions.
+
+`createDuck` supports to create both triggering actions (for Effects) and mutating actions. Second parameter of `createDuck` is a `Case Reducers`. It has a similar style of creating a reducer which actually makes state mutations.
 
 ```ts
-// counter.duck.ts
-import { Action, Ducksify } from '@co-it/ngrx-ducks';
+// counter.facade.ts
+import { createDuck } from '@ngrx-ducks/core';
 
-@Ducksify<CounterState>({
-  initialState: { count: 0 }
-})
-export class Counter {
-  @Action('[Counter] Set initial value')
-  set(state: State, payload: number): CounterState {
-    return { ...state, count: payload };
-  }
+@StoreFacade()
+export class CounterFacade {
+  counter = bindSelectors({ count: selectors.currentCount });
+  
+  loadCount = createDuck('[Counter] Set initial value',
+    (state: CounterState, payload: number) => {
+      return { ...state, count: payload };
+  });
 }
 ```
 
-The decorator `Ducksify` automatically adds `Counter` as tree shakable provider to the root injector. 🚀
-Furthermore you pass the initial state of the state slice as part of the decorator configuration.
-This is used to build the reducer automatically for you.
+The decorator `StoreFacade` introduces a new mechanism how the Facade is connected with the Store. 🚀 
 
 ### Create Reducer automatically
 
@@ -73,19 +78,17 @@ If you use Ducks there is no need to maintain switch-case statements.
 Now you can create the Reducer based on the `wiredActions`.
 
 ```ts
-// counter.duck.ts
-import { DucksifiedAction, reducerFrom } from '@co-it/ngrx-ducks';
+// counter.facade.ts
+import { getReducer } from '@ngrx-ducks/core';
 
-export class Counter {
+@StoreFacade()
+export class CounterFacade {
   /* ... */
 }
 
-export function reducer(
-  state: CounterState,
-  action: DucksifiedAction
-): CounterState {
-  return reducerFrom(Counter)(state, action);
-}
+// declare initial state and export counterReducer
+const initialState = { count: 0 };
+export const counterReducer = getReducer(initialState, CounterFacade);
 ```
 
 The type `DucksifiedAction` is just to declare that the incoming action may have a payload.
