@@ -38,6 +38,7 @@ Components are fully independent of Redux-Architecture
 [3]: https://redux.js.org/recipes/structuring-reducers/refactoring-reducer-example
 [4]: https://redux.js.org/glossary#reducer
 [5]: https://youtu.be/NSNsxSFJM-8?t=2177
+[6]: https://ngrx.io/api/store/combineReducers
 
 ## Demo
 
@@ -45,6 +46,11 @@ You find a demo using `ngrx-ducks` at [ngrx-ducks-9](https://stackblitz.com/edit
 More explanations in another format here [Api Discussion][5]
 
 ## Start with Ducks
+
+### Best way to start
+
+Follow this doc up with this great demo [ngrx-ducks-9](https://stackblitz.com/edit/ngrx-ducks-9). 
+Entire code and examples is used from demo. 💎
 
 ### Implement State Mutations
 
@@ -91,28 +97,44 @@ const initialState = { count: 0 };
 export const counterReducer = getReducer(initialState, CounterFacade);
 ```
 
-The type `DucksifiedAction` is just to declare that the incoming action may have a payload.
-We do not need to care about the underlying action types since `ngrx-ducks` takes cafe of it and produces a strongly typed API for us.
-
-### Inject the Ducks Service
-
-To use your Ducks you need to inject them into you component.
+Just created `counterReducer` is a variable which can be used in ngrx method `combineReducers` [doc][6]. From that point our implementation of a reducer is finished. Example below shows us basic implementation.
 
 ```ts
-/// counter.component.ts
+//index.ts
+import { Action, combineReducers, MetaReducer } from '@ngrx/store';
+import { CounterState, counterReducer } from './counter';
+
+export interface State {
+  simple: CounterState;
+}
+
+export function reducers(state: State, action: Action) {
+  return combineReducers<State>({
+    simple: counterReducer
+  })(state, action);
+}
+
+export const metaReducers: MetaReducer<State>[] = [];
+```
+
+### Inject the StoreFacade Service
+
+To use your Facade you need to inject it into you component.
+
+```ts
+// counter.component.ts
 
 @Component({
   /* ... */
 })
 export class CounterComponent {
-  constructor(@Inject(Counter) private counter: Duck<Counter>) {}
+  constructor(private counter: CounterFacade) {}
 }
 ```
 
-Since `@Ducksify` adds Action Creators to `Counter` we receive an
-enhanced version of that class having the type `Duck<Counter>`.
+Since the whole logic is implemented in a Facade (CounterFacade in our case) we only need to import that Facade.
 
-You will see that you can call each method of the class taking the payload.
+🎉 The API allows you to create dynamic facades and your components do not even know that Redux is working behind the scenes. We only rely on the contracts that we use messaging and streams.
 
 > 🙏 Thanks to TypeScript each method is strictly typed and the whole process of creating or dispatching Actions is transparent 👓.
 
@@ -126,7 +148,7 @@ export class CounterComponent implements OnInit {
   /* ... */
 
   ngOnInit() {
-    this.counter.set(5000);
+    this.counter.loadCount.dispatch(5000);
     //               ^ only type number is allowed 🎉
     //               - dispatches action: type: '[Counter] Set initial value'
     //                                    payload: 5000
@@ -136,25 +158,28 @@ export class CounterComponent implements OnInit {
 
 ### Use ngrx selectors
 
-The Ducks service allows you to select state information from the store.
-Notice, you do not need to inject the Store anymore. You have one API the Ducks-API. 🐤
+Creating selectors is the same way as it's in ngrx.
 
 ```ts
-// reducer/index.ts
-const visitCounter = createFeatureSelector('counter');
+// counter.selectors.ts
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { State } from '..';
+
+const visitCounter = createFeatureSelector<State>('counter');
+
 export const currentCount = createSelector(
   visitCounter,
-  c => c.count
+  counter => counter.simple.count
 );
 
 // counter.component.ts
-import { currentCount } from '../reducer';
+import { currentCount } from './counter.selectors';
 
 export class CounterComponent {
   counter$: Observable<number>;
 
-  constructor(@Inject(Counter) private counter: Duck<Counter>) {
-    this.count$ = this.counter.pick(currentCount);
+  constructor(private counter: CounterFacade) {
+    this.count$ = this.counter.select.currentCount;
   }
 }
 ```
@@ -167,22 +192,19 @@ Each dispatching method provides an Action Creator.
 ```ts
   ngOnInit() {
     // Yields Action
-    this.counter.set.action(5000);
+    this.counter.loadCount(5000);
     // {
     //   type: '[Counter] Set initial value',
     //   payload: 5000
     // }
 
     // Dispatches an action
-    this.counter.set(5000);
+    this.counter.loadCount.dispatch(5000);
 
   }
 ```
 
-You see each dispatching method has a further property called `action`
-which is a method as well. 🤯
-This addition is very useful if you need to produce actions being returned by an
-Effect.
+You see `.loadCount(5000);` is a method as well. 🤯 This addition is very useful if you need to produce actions being returned by an Effect.
 
 ### Effects
 
@@ -191,73 +213,73 @@ Short answer: **Yes, it can**.
 
 #### Setup
 
-Therefore you can enhance the existing class providing the type
-of the triggering action.
-That type is passed to a helper called `effect`.
-This allows you to declare actions with or without payload being
-processed by the `Effect`.
-I call them effect properties.
+Let's use `createDuck` again! `createDuck` is the only entry point you need to know to create and dispatch actions.
+It works with calling Effects as well.
+It works with Effects just like actions work with Effects in ngrx.
 
 ```ts
-// counter.ducks.ts
+// counter.facade.ts
+import { createDuck } from '@ngrx-ducks/core';
 
-export class Counter {
-  readonly load = effect('[Counter] Load Counter Value');
-  readonly delayedCounterSet = effect<number>(
-    '[Counter] Set counter after a while'
+@StoreFacade()
+export class CounterFacade {
+
+  readonly loadCount = createDuck('[Counter] Load Count', dispatch<number>());
+
+  // another action (called in Effect below)
+  override = createDuck('[Counter] Set value',
+    (state: CounterState, payload: number) => {
+      return { ...state, count: payload };
+    }
   );
-
-  /* ... */
 }
+
+export const counterActions = getActions(CounterFacade);
 ```
 
 #### Triggering an Effect
 
-Since the effect properties are members of `Counter` you can use them
-without any further setup in you component.
-You will see that each effect property now has a typed method called `dispatch`.
-
 ```ts
 // counter.component.ts
+import { currentCount } from './counter.selectors';
 
 @Component({
   /* ... */
 })
-export class CounterComponent implements OnInit {
-  /* ... */
+export class CounterComponent {
+  counter$: Observable<number>;
 
-  ngOnInit() {
-    this.counter.load.dispatch();
-    //                        ^ does not take a parameter
-
-    this.counter.delayedCounterSet.dispatch(5000);
-    //                                     ^ expects a number
+  constructor(private counter: CounterFacade) {
+    // let's dispatch an action which is handled by an Effect
+    this.counter.loadCount.dispatch(10);
   }
 }
+
 ```
 
 #### Inside Effects
 
 The last question is how an Effect itself handles actions with `ngrx-ducks`.
 An Effect filters the action type first.
-First you need to inject `Ducks<Counter>` as we did before.
-Luckily, the `effect property` provides the `type` directly.
+Let ngrx do it! 😁
 
 ```ts
-/// counter.effects.ts
+// counter.effects.ts
+
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { counterActions } from './counter.facade';
+
 @Injectable()
 export class CounterEffects {
-  @Effect()
-  load = this.actions$.pipe(
-    ofType(this.counter.load.type),
-    map(() => this.counter.set.action(100000))
-  );
+  setCounter = createEffect(() => this.actions$.pipe(
+    ofType(counterActions.loadCount),
+    delay(2000),
+    map(({ payload }) => counterActions.override(payload))
+  ));
 
-  constructor(
-    private actions$: Actions,
-    @Inject(Counter) private counter: Duck<Counter>
-  ) {}
+  constructor(private actions$: Actions) {}
 }
+
 ```
 
 As mentioned before you can make use of the generated, typed action creators to
