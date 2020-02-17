@@ -2,6 +2,7 @@
   "name": "@ngrx-ducks/schematics",
   "version": "9.0.0-rc.2",
   "description": "Schematics for @co-it/ngrx-ducks",
+  "homepage": "co-it.gitbook.io/ngrx-ducks",
   "scripts": {
     "build": "ts-node -P ./build/tsconfig.json ./build",
     "tsc:prod": "tsc -p tsconfig.json",
