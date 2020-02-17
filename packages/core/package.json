@@ -13,6 +13,7 @@
     "type": "git",
     "url": "https://github.com/co-IT/ngrx-ducks.git"
   },
+  "homepage": "co-it.gitbook.io/ngrx-ducks",
   "scripts": {
     "build": "ng-packagr",
     "publish-to-npm": "npm publish ./dist",
