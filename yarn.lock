@@ -200,6 +200,15 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@co-it/ngrx-ducks-schematics@^9.0.0-rc.0":
+  version "9.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@co-it/ngrx-ducks-schematics/-/ngrx-ducks-schematics-9.0.0-rc.0.tgz#356a202e149c7310e7fe024e6f27373b80e4e696"
+  integrity sha512-agvVzKUhzSi65Dviq0gHymjVEL2BEPNifMLmP4WxUzhftgQQ9F0ax5TgempdjdPVShito9vyPsMWO8qO9PXWPg==
+  dependencies:
+    "@angular-devkit/core" "^8.0.0"
+    "@angular-devkit/schematics" "^8.0.0"
+    typescript "^3.5.2"
+
 "@iamstarkov/listr-update-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@iamstarkov/listr-update-renderer/-/listr-update-renderer-0.4.1.tgz#d7c48092a2dcf90fd672b6c8b458649cb350c77e"

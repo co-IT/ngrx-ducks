@@ -1,9 +1,7 @@
-import {
-  WithInitialState,
-  WithInternalMethodCallRedirect
-} from '../../../test/mocks';
+import { WithInternalMethodCallRedirect } from '../../../test/mocks';
 import { NoInitialValueError } from '../errors';
 import { reducerFrom } from './reducer-from';
+import { WithDucksify } from '../../../test/mocks/duck-candidates/with-ducksify';
 
 describe('reducerFrom', () => {
   describe('When the target has no initial value', () => {
@@ -19,12 +17,12 @@ describe('reducerFrom', () => {
     const incrementActionType = 'increment count';
 
     it('should create the reducer function from it', () => {
-      const reducer = reducerFrom(WithInitialState);
+      const reducer = reducerFrom(WithDucksify);
       expect(reducer).toBeInstanceOf(Function);
     });
 
     it('should process an action', () => {
-      const reducer = reducerFrom(WithInitialState);
+      const reducer = reducerFrom(WithDucksify);
       const countState = reducer(undefined, { type: incrementActionType });
 
       expect(countState).toBe(1);
