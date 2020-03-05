@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0-rc.3](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.2...v9.0.0-rc.3) (2020-03-05)
+
+### Bug Fixes
+
+- **@ducksify:** set initial state ([170df9e](https://github.com/co-IT/ngrx-ducks/commit/170df9e))
+- **decorator-api:** reproduce error in unit test ([ce383f3](https://github.com/co-IT/ngrx-ducks/commit/ce383f3))
+- **docs:** update link to the new demo ([db1e2a4](https://github.com/co-IT/ngrx-ducks/commit/db1e2a4))
+- **README:** small adjustments ([44b0ebb](https://github.com/co-IT/ngrx-ducks/commit/44b0ebb))
+- **README:** update link to getting started guide ([b90eb45](https://github.com/co-IT/ngrx-ducks/commit/b90eb45))
+
 # [9.0.0-rc.2](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.1...v9.0.0-rc.2) (2020-02-09)
 
 ### Bug Fixes
