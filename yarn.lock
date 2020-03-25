@@ -1015,15 +1015,15 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ngrx/effects@9.0.0-beta.0":
-  version "9.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-9.0.0-beta.0.tgz#229a96dd7ffd5db0ced2c6d135cd371f9f609275"
-  integrity sha512-zGflLoEf+JcIGDFaCWDhsamdE7r5e9zvxnfmKfvnhZIlSeWbHPXzTsK8I7UfzsxoMgz0Qpp//aTvx6WenKLX9Q==
+"@ngrx/effects@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-9.0.0.tgz#fe9956911621183f7d1d75c606578cfa25750b73"
+  integrity sha512-6Rq7FsNZK26HqYlpOGCglKLenIkVOOKE0y6D/8KXjEJ1JlZWi00fdI7poclBGjm9pvMBGXfJA8a9MKuxb/t9cA==
 
-"@ngrx/store@9.0.0-beta.0":
-  version "9.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-9.0.0-beta.0.tgz#b352f0394b1b652ee2ae2039ba1757a704290846"
-  integrity sha512-yfw+Qwiu3fNjjRD1B2ZSGpjd3a70fLjFfqhu2H636giia5cTnqbzIqOH3EnZzapADzwL6M7yy7tixWpJ24lbpQ==
+"@ngrx/store@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-9.0.0.tgz#ef45e241ba9cf401d5280fa99b09f2fb3fc3278d"
+  integrity sha512-QnmfXJ4G2jp+vFaqT5Qfp6h0J9OHxfDKI2RbnMU93Tq1Xd/WVPzXnOQGjILBjwwWI6RFkSdIpUoQONr7VOW63g==
 
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.1"
