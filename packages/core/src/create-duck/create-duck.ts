@@ -61,7 +61,6 @@ export declare type ActionLoaded<
 > &
   TypedAction<TType>;
 
-// @ts-ignore
 export declare type DispatchPlain = { dispatch(): void };
 export declare type DispatchLoaded<TPayload> = {
   dispatch(payload: TPayload): void;
