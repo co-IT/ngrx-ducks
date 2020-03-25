@@ -1,6 +1,6 @@
 {
   "name": "@ngrx-ducks/core",
-  "version": "9.0.0-rc.3",
+  "version": "9.0.0",
   "license": "MIT",
   "keywords": [
     "angular",

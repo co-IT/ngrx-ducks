@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.3...v9.0.0) (2020-03-25)
+
+### Features
+
+- require ngrx version 9 ([fa81432](https://github.com/co-IT/ngrx-ducks/commit/fa81432))
+
 # [9.0.0-rc.3](https://github.com/co-IT/ngrx-ducks/compare/v9.0.0-rc.2...v9.0.0-rc.3) (2020-03-05)
 
 ### Bug Fixes
