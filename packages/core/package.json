@@ -1,6 +1,6 @@
 {
   "name": "@ngrx-ducks/core",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "license": "MIT",
   "keywords": [
     "angular",
@@ -49,8 +49,8 @@
   "peerDependencies": {
     "@angular/common": ">= 9.0.0 < 10",
     "@angular/core": ">= 9.0.0 < 10",
+    "@ngrx-ducks/schematics": "^9.0.0-rc.0",
     "@ngrx/effects": ">= 9.0.0 < 10",
-    "@ngrx/store": ">= 9.0.0 < 10",
-    "@ngrx-ducks/schematics": "^9.0.0-rc.0"
+    "@ngrx/store": ">= 9.0.0 < 10"
   }
 }
