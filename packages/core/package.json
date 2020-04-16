@@ -25,7 +25,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
-    "@co-it/ngrx-ducks-schematics": "^9.0.0-rc.0"
+    "@ngrx-ducks/schematics": "^9.0.0-rc.0"
   },
   "devDependencies": {
     "@angular/common": "9.0.0",
