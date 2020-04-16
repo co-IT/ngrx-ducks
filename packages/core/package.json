@@ -49,7 +49,7 @@
   "peerDependencies": {
     "@angular/common": ">= 9.0.0 < 10",
     "@angular/core": ">= 9.0.0 < 10",
-    "@ngrx-ducks/schematics": "^9.0.0-rc.0",
+    "@ngrx-ducks/schematics": ">= 9.0.0 < 10",
     "@ngrx/effects": ">= 9.0.0 < 10",
     "@ngrx/store": ">= 9.0.0 < 10"
   }
