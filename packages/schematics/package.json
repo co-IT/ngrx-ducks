@@ -30,6 +30,6 @@
     "ts-node": "^8.0.2"
   },
   "peerDependencies": {
-    "@ngrx/effects": "^8.0.1"
+    "@ngrx/effects": ">=9.0.0 < 10.0.0"
   }
 }
