@@ -66,10 +66,9 @@ export declare type DispatchLoaded<TPayload> = {
   dispatch(payload: TPayload): void;
 };
 
-declare type ActionConditional<
-  TType extends string,
+declare type ActionConditional<TType extends string, TPayload> = [
   TPayload
-> = TPayload extends undefined
+] extends [undefined]
   ? ActionPlain<TType> & DispatchPlain
   : ActionLoaded<TType, TPayload> & DispatchLoaded<TPayload>;
 
