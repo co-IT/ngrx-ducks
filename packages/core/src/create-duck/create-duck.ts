@@ -85,9 +85,9 @@ export function createDuck<
   type: TType,
   reducer: Reducer<TSlice, TPayload>
 ): ActionConditional<TType, TPayload>;
-export function createDuck<TType extends string, TPayload>(
+export function createDuck<TType extends string, TPayload, TSlice>(
   type: TType,
-  reducer?: DispatchDefinition<TPayload> | Function
+  reducer?: DispatchDefinition<TPayload> | Reducer<TSlice, TPayload>
 ): ActionCreator<TType> {
   const action: any = (payload?: TPayload) =>
     !payload ? { type } : { type, payload };
