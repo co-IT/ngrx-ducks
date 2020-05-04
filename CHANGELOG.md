@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/co-IT/ngrx-ducks/compare/v9.0.4...v9.1.0) (2020-05-04)
+
+### Features
+
+- **create-duck:** add support for payload having a union-type ([50aa0e1](https://github.com/co-IT/ngrx-ducks/commit/50aa0e12ff66b953df691a2dbe5e0eb89be6e730))
+
 ## [9.0.4](https://github.com/co-IT/ngrx-ducks/compare/v9.0.3...v9.0.4) (2020-04-16)
 
 **Note:** Version bump only for package co-it
