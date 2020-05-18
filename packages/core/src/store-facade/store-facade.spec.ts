@@ -9,10 +9,7 @@ import { StoreFacade } from './store-facade';
 describe('@StoreFacade', () => {
   describe('When a class with ducks is annotated', () => {
     const feature = createFeatureSelector<{ count: number }>('counter');
-    const selectorCount = createSelector(
-      feature,
-      counter => counter.count
-    );
+    const selectorCount = createSelector(feature, counter => counter.count);
 
     let store: Store<unknown>;
     let counter: Counter;
@@ -33,8 +30,8 @@ describe('@StoreFacade', () => {
         ]
       });
 
-      counter = TestBed.get(Counter);
-      store = TestBed.get(Store);
+      counter = TestBed.inject(Counter);
+      store = TestBed.inject(Store);
     });
 
     it('allows dispatching an action', () => {
@@ -65,6 +62,36 @@ describe('@StoreFacade', () => {
         expect(count).toBe(10);
         done();
       });
+    });
+  });
+
+  describe('When a facade contains nested ducks', () => {
+    let store: Store<unknown>;
+    let counter: Counter;
+
+    @StoreFacade()
+    class Counter {
+      math = {
+        increment: createDuck('Increment'),
+        add: createDuck('Add', dispatch<number>())
+      };
+    }
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        providers: [
+          provideMockStore({ initialState: { counter: { count: 10 } } })
+        ]
+      });
+
+      counter = TestBed.inject(Counter);
+      store = TestBed.inject(Store);
+    });
+
+    it('resolves the duck', () => {
+      const dispatchSpy = jest.spyOn(store, 'dispatch');
+      counter.math.add.dispatch(1);
+      expect(dispatchSpy).toHaveBeenCalledWith({ type: 'Add', payload: 1 });
     });
   });
 });
