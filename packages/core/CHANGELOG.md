@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/co-IT/ngrx-ducks/compare/v9.1.0...v9.2.0) (2020-05-18)
+
+### Features
+
+- **duck:** allow createDuck to be nested ([0e7474e](https://github.com/co-IT/ngrx-ducks/commit/0e7474e6d12d0b355aca2d59d96e4c76cb3cdaa7)), closes [#30](https://github.com/co-IT/ngrx-ducks/issues/30)
+
 # [9.1.0](https://github.com/co-IT/ngrx-ducks/compare/v9.0.4...v9.1.0) (2020-05-04)
 
 ### Features

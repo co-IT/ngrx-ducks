@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/co-IT/ngrx-ducks/compare/v9.1.0...v9.2.0) (2020-05-18)
+
+### Bug Fixes
+
+- **schematics:** specify initial state ([3735949](https://github.com/co-IT/ngrx-ducks/commit/37359494e44377a6c696d28d951b046f13c99f66))
+
 ## [9.0.3](https://github.com/co-IT/ngrx-ducks/compare/v9.0.2...v9.0.3) (2020-04-16)
 
 **Note:** Version bump only for package @ngrx-ducks/schematics
