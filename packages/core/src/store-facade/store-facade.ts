@@ -10,10 +10,7 @@ export function StoreFacade() {
       token: constructor,
       providedIn: 'root',
       factory() {
-        return connect(
-          constructor,
-          ɵɵinject(Store)
-        );
+        return connect(constructor, ɵɵinject(Store) as Store);
       }
     });
 
