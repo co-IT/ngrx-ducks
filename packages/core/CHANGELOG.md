@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.1](https://github.com/co-IT/ngrx-ducks/compare/v9.2.0...v9.2.1) (2020-05-18)
+
+### Bug Fixes
+
+- **core:** correct Store types ([fd41cb3](https://github.com/co-IT/ngrx-ducks/commit/fd41cb3a3cd64edee8acf4fdfcbb84bed0dae3a7))
+
 # [9.2.0](https://github.com/co-IT/ngrx-ducks/compare/v9.1.0...v9.2.0) (2020-05-18)
 
 ### Features
