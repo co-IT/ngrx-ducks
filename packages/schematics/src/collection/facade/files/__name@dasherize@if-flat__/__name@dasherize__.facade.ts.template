@@ -23,4 +23,4 @@ export class <%= classify(name) %>Facade {<% if (selectors) { %>
 }
 
 export const <%= camelize(name) %>Actions = getActions(<%= classify(name) %>Facade);
-export const <%= camelize(name) %>Reducer = getReducer(<%= classify(name) %>Facade);
+export const <%= camelize(name) %>Reducer = getReducer({ data: 0 }, <%= classify(name) %>Facade);
