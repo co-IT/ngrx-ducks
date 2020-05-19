@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.2](https://github.com/co-IT/ngrx-ducks/compare/v9.2.1...v9.2.2) (2020-05-19)
+
+### Bug Fixes
+
+- **core:** resolve reducer functions recursively ([1b9e426](https://github.com/co-IT/ngrx-ducks/commit/1b9e4260c41189fbd37390d7a48bb19ba038cc67)), closes [#30](https://github.com/co-IT/ngrx-ducks/issues/30)
+
 ## [9.2.1](https://github.com/co-IT/ngrx-ducks/compare/v9.2.0...v9.2.1) (2020-05-18)
 
 ### Bug Fixes
