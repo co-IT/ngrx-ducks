@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.3](https://github.com/co-IT/ngrx-ducks/compare/v9.2.2...v9.2.3) (2020-05-19)
+
+### Bug Fixes
+
+- **core:** ignore ngrx ducks internal members getting reducer functions ([2a509e9](https://github.com/co-IT/ngrx-ducks/commit/2a509e98b52980ece8cb68d09621c7aa7405e729))
+
 ## [9.2.2](https://github.com/co-IT/ngrx-ducks/compare/v9.2.1...v9.2.2) (2020-05-19)
 
 ### Bug Fixes
