@@ -1,5 +1,6 @@
 import { Store } from '@ngrx/store';
 import { DucksIdentifier } from '../../create-duck/create-duck';
+import { ignoreProperties } from './ignore-properties';
 
 export function connectDispatchers(
   instance: any,
@@ -33,15 +34,5 @@ function tryResolveDuckRecursively(
 
   duckCandidates.forEach(duckCandidate =>
     connectDispatchers(instance[property], duckCandidate, store)
-  );
-}
-
-function ignoreProperties(object: any, propertiesToIgnore: string[]): string[] {
-  if (!object || !propertiesToIgnore) {
-    return [];
-  }
-
-  return Object.keys(object).filter(property =>
-    propertiesToIgnore.every(propertyToIgnore => propertyToIgnore !== property)
   );
 }

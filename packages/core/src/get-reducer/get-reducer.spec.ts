@@ -41,4 +41,25 @@ describe('get-reducer', () => {
       expect(state).toBe(10);
     });
   });
+
+  describe('When a class contains grouped ducks', () => {
+    it('it adds them to the reducer', () => {
+      class Facade {
+        math = {
+          add: createDuck(
+            'add',
+            (slice: number, payload: number) => slice + payload
+          ),
+          increment: createDuck('increment', (slice: number) => ++slice),
+          decrement: createDuck('decrement', (slice: number) => --slice)
+        };
+      }
+
+      const reducer = getReducer(0, Facade);
+      const facade = new Facade();
+
+      const nextState = reducer(0, facade.math.increment());
+      expect(nextState).toBe(1);
+    });
+  });
 });
