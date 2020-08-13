@@ -1,6 +1,6 @@
 {
   "name": "@ngrx-ducks/schematics",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "Schematics for @co-it/ngrx-ducks",
   "homepage": "co-it.gitbook.io/ngrx-ducks",
   "scripts": {
