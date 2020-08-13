@@ -6,12 +6,17 @@ describe('get-actions', () => {
   describe('When a class contains a duck', () => {
     const typeHello = 'Hello';
     const typeBye = 'Bye';
+    const typeSurprise = 'Surprise';
 
     class Facade {
       otherProperty = true;
 
       hello = createDuck(typeHello);
       bye = createDuck(typeBye, dispatch<boolean>());
+
+      lookInside = {
+        surprise: createDuck(typeSurprise)
+      };
     }
 
     it('extracts the action creator', () => {
@@ -29,6 +34,12 @@ describe('get-actions', () => {
       const actions = getActions(Facade);
       const bye = actions.bye(true);
       expect(bye.type).toBe(typeBye);
+    });
+
+    it('provides a working action creator a nested duck', () => {
+      const actions = getActions(Facade);
+      const surprise = actions.lookInside.surprise();
+      expect(surprise.type).toBe(typeSurprise);
     });
 
     it('ignores each property not being duck', () => {

@@ -13,5 +13,7 @@ export type ActionCreatorCandidates<TClass> = {
     : TClass[TMember] extends DispatchLoaded<infer TPayload> &
         TypedAction<infer TType>
     ? ActionLoaded<TType, TPayload>
-    : never
+    : TClass[TMember] extends object
+    ? ActionCreatorCandidates<TClass[TMember]>
+    : never;
 };
