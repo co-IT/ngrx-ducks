@@ -7,7 +7,7 @@
   },
   "displayName": "NgRx Ducks Snippets",
   "description": "Snippets for ngrx-ducks accelerating development speed.",
-  "version": "9.0.0-rc.3",
+  "version": "10.0.0",
   "publisher": "contributive-it",
   "engines": {
     "vscode": "^1.31.0"
