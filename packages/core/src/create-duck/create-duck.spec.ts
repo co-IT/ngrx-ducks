@@ -49,7 +49,7 @@ describe('createDuck', () => {
       const creator = createDuck('Hello');
       const action = creator();
 
-      expect(Object.keys(action)).not.toContain('payload');
+      expect((Object.keys(action) as any).payload).toBeUndefined();
     });
   });
 

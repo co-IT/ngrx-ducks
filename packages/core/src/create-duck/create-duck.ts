@@ -88,8 +88,7 @@ export function createDuck<TType extends string, TPayload, TSlice>(
   type: TType,
   reducer?: DispatchDefinition<TPayload> | Reducer<TSlice, TPayload>
 ): ActionCreator<TType> {
-  const action: any = (payload?: TPayload) =>
-    !payload ? { type } : { type, payload };
+  const action: any = (payload?: TPayload) => ({ type, payload });
 
   action.__ngrx_ducks__id = DucksIdentifier.Duck;
   action.type = type;

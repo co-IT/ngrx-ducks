@@ -11,7 +11,7 @@ export function connectDispatchers(
     const { type } = instance[property];
 
     instance[property].dispatch = (payload?: any) =>
-      !payload ? store.dispatch({ type }) : store.dispatch({ type, payload });
+      store.dispatch({ type, payload });
   } else {
     tryResolveDuckRecursively(instance, property, store);
   }
