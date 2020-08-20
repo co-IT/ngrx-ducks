@@ -24,3 +24,4 @@ It shows how ngrx and ngrx-ducks work together.
 Your feedback is always welcome!
 
 You can file [issues](https://github.com/co-it/ngrx-ducks/issues) and create [pull requests](https://github.com/co-it/ngrx-ducks/pulls) on the co-IT.eu Github repository.
+You can also help Gregor focusing more on this project by [sponsoring him](https://github.com/sponsors/GregOnNet). 🙏
