@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.1](https://github.com/co-IT/ngrx-ducks/compare/v10.1.0...v10.1.1) (2020-08-20)
+
+### Bug Fixes
+
+- **#37:** allow payload to have falsy a value ([b99a6ba](https://github.com/co-IT/ngrx-ducks/commit/b99a6bad2b0456de4fd741248e5950f39e1fead9)), closes [#37](https://github.com/co-IT/ngrx-ducks/issues/37)
+
 # [10.1.0](https://github.com/co-IT/ngrx-ducks/compare/v10.0.1...v10.1.0) (2020-08-13)
 
 ### Features
