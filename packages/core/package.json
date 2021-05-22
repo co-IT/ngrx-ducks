@@ -47,10 +47,10 @@
     "zone.js": "0.10.3"
   },
   "peerDependencies": {
-    "@angular/common": ">= 9.0.0 < 11",
-    "@angular/core": ">= 9.0.0 < 11",
-    "@ngrx-ducks/schematics": ">= 9.0.0 < 11",
-    "@ngrx/effects": ">= 9.0.0 < 11",
-    "@ngrx/store": ">= 9.0.0 < 11"
+    "@angular/common": ">= 9.0.0",
+    "@angular/core": ">= 9.0.0",
+    "@ngrx-ducks/schematics": ">= 9.0.0",
+    "@ngrx/effects": ">= 9.0.0",
+    "@ngrx/store": ">= 9.0.0"
   }
 }
