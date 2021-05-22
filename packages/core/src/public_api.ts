@@ -1,16 +1,6 @@
-export * from './decorator-api/decorators/action.decorator';
-export * from './decorator-api/decorators/ducksify.decorator';
-export * from './decorator-api/decorators/initial-state.decorator';
-export * from './decorator-api/ducks/bind-selector-group';
-export * from './decorator-api/ducks/ducksify';
-export * from './decorator-api/ducks/effect';
-export * from './decorator-api/operators/where-type';
-export * from './decorator-api/reducer/reducer-from';
-export * from './decorator-api/typings/duck/duck';
-export * from './decorator-api/typings/duck/ducksified-action';
-export { StoreFacade } from './store-facade/store-facade';
 export { bindSelectors } from './bind-selectors/bind-selectors';
 export { createDuck, dispatch } from './create-duck/create-duck';
 export { getActions } from './get-actions/get-actions';
 export { getReducer } from './get-reducer/get-reducer';
+export { StoreFacade } from './store-facade/store-facade';
 export { usePick } from './use-pick/use-pick';
