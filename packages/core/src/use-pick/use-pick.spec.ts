@@ -3,13 +3,18 @@ import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-conne
 import { usePick } from './use-pick';
 
 describe('usePick', () => {
-  const expectSnippet = expecter();
+  const expectSnippet = expecter(
+    code => `
+      import { usePick } from './src/use-pick';
+      ${code}
+      `
+  );
 
   describe('When a property is initialized with usePick', () => {
     it('becomes a PickFunction', () => {
       expectSnippet(`
-        const a = "";
-      `).toInfer('a', 'PickFunction');
+        const pick = usePick();
+      `).toInfer('pick', 'PickFunction');
     });
 
     it('throws if it is used without @StoreFacade', () => {
