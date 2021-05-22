@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v10.1.1...v11.0.0-alpha.0) (2021-05-22)
+
+### Bug Fixes
+
+- remove version restrictions ([519d1a8](https://github.com/co-IT/ngrx-ducks/commit/519d1a8d7d1589e4f2a255d209b75bd03e070774))
+- reset unit tests ([400e229](https://github.com/co-IT/ngrx-ducks/commit/400e229755a9bea11c575144b395cd468a12e43b))
+
 ## [10.1.1](https://github.com/co-IT/ngrx-ducks/compare/v10.1.0...v10.1.1) (2020-08-20)
 
 ### Bug Fixes
