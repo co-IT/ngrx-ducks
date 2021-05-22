@@ -1,6 +1,6 @@
 import { DucksIdentifier } from '../create-duck/create-duck';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { PickFunction } from '../decorator-api/typings';
+import { PickFunction } from './pick-selector';
 
 export function usePick(): PickFunction {
   const pickFacade = () => {

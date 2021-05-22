@@ -25,8 +25,8 @@ describe('createDuck', () => {
 
     it('provides a dispatch method', () => {
       expectSnippet(`
-        const { dispatch } = createDuck('Hello);
-      `).toInfer('dispatch', '() => void');
+        const { dispatch:d } = createDuck('Hello');
+      `).toInfer('d', '() => void');
     });
 
     it('throws if dispatch method is called', () => {
@@ -126,7 +126,7 @@ describe('createDuck', () => {
         const actions$ = of(incoming) as Actions;
         const result$ =  actions$.pipe(
           ofType(incoming),
-          map(({ payload }) => outgoing({ payload }))
+          map(({ payload }) => outgoing(payload))
         );
       `).toInfer(
         'result$',

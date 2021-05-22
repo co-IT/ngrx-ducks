@@ -21,8 +21,8 @@ describe('bind-selectors', () => {
     it('yields a stream', () => {
       expectSnippet(`
         const selectorPlain = createSelector(feature, state => state);
-        const { selectorPlain } = bindSelectors({ selectorPlain });
-      `).toInfer('selectorPlain', 'Observable<number>');
+        const { selectorPlain:result } = bindSelectors({ selectorPlain });
+      `).toInfer('result', 'Observable<number>');
     });
   });
 
@@ -40,10 +40,7 @@ describe('bind-selectors', () => {
   describe('When a selector stream is used', () => {
     it('throws an exception since @StoreFacade is needed to get it to work', done => {
       const feature = createFeatureSelector<number>('counter');
-      const selector = createSelector(
-        feature,
-        state => state
-      );
+      const selector = createSelector(feature, state => state);
 
       const select = bindSelectors({ selector });
 
@@ -66,10 +63,7 @@ describe('bind-selectors', () => {
 
       const store: Store<unknown> = TestBed.get(Store);
       const feature = createFeatureSelector<{ count: number }>('counter');
-      const selectorCount = createSelector(
-        feature,
-        counter => counter.count
-      );
+      const selectorCount = createSelector(feature, counter => counter.count);
 
       const selectors = bindSelectors({ selectorCount });
       connectSelectorsToStore(selectors, store);

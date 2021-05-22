@@ -18,7 +18,7 @@ export function bindSelectors<
   const selectorsFailing = Object.keys(selectors).reduce(
     (fakes, selector) => ({
       ...fakes,
-      [selector]: throwError(new NgRxDucksNotConnectedError())
+      [selector]: throwError(() => new NgRxDucksNotConnectedError())
     }),
     {}
   );
