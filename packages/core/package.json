@@ -37,7 +37,7 @@
     "core-js": "^3.6.2",
     "jest": "^24.9.0",
     "jest-preset-angular": "8.0.0",
-    "ng-packagr": "10.0.3",
+    "ng-packagr": "10.1.1",
     "prettier": "^2.0.5",
     "rxjs": "6.6.2",
     "ts-snippet": "4.2.0",
