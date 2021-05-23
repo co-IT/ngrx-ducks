@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0-alpha.1](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0-alpha.0...v12.0.0-alpha.1) (2021-05-23)
+
+### Bug Fixes
+
+- whitelist schematics ([30b204f](https://github.com/co-IT/ngrx-ducks/commit/30b204ff120e391c7a832d52a5bdbc57e62ac6c6))
+
 # [12.0.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v11.0.0-alpha.0...v12.0.0-alpha.0) (2021-05-23)
 
 ### Bug Fixes
