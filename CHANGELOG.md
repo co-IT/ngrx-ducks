@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0-alpha.2](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0-alpha.1...v12.0.0-alpha.2) (2021-05-23)
+
+### Bug Fixes
+
+- replace deep import from ngrx with local copy of TypedAction<T> ([441d6bf](https://github.com/co-IT/ngrx-ducks/commit/441d6bf3e4495dd3f9bc6c317626c2d186d0e558))
+
 # [12.0.0-alpha.1](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0-alpha.0...v12.0.0-alpha.1) (2021-05-23)
 
 ### Bug Fixes
