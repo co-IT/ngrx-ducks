@@ -20,14 +20,14 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "^8.0.0",
-    "@angular-devkit/schematics": "^8.0.0",
-    "typescript": "^3.5.2"
+    "@angular-devkit/core": "8.0.0",
+    "@angular-devkit/schematics": "8.0.0",
+    "typescript": "3.5.2"
   },
   "devDependencies": {
-    "@types/node": "^11.10.4",
-    "fs-extra": "^7.0.1",
-    "ts-node": "^8.0.2"
+    "@types/node": "11.10.4",
+    "fs-extra": "7.0.1",
+    "ts-node": "8.0.2"
   },
   "peerDependencies": {
     "@ngrx/effects": ">=9.0.0"
