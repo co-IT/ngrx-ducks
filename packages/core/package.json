@@ -24,6 +24,9 @@
     "access": "public"
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
+  "dependencies": {
+    "@ngrx-ducks/schematics": ">= 9.0.0"
+  },
   "devDependencies": {
     "@angular/common": "12.0.1",
     "@angular/compiler": "12.0.1",
@@ -49,7 +52,6 @@
   "peerDependencies": {
     "@angular/common": ">= 9.0.0",
     "@angular/core": ">= 9.0.0",
-    "@ngrx-ducks/schematics": ">= 9.0.0",
     "@ngrx/effects": ">= 9.0.0",
     "@ngrx/store": ">= 9.0.0"
   }
