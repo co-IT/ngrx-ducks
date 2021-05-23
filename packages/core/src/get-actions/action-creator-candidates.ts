@@ -1,10 +1,10 @@
-import { TypedAction } from '@ngrx/store/src/models';
 import {
   ActionLoaded,
   ActionPlain,
   DispatchLoaded,
   DispatchPlain
 } from '../create-duck/create-duck';
+import { TypedAction } from '../create-duck/typed-action';
 
 export type ActionCreatorCandidates<TClass> = {
   [TMember in keyof TClass]: TClass[TMember] extends TypedAction<infer TType> &
