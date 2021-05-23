@@ -1,6 +1,6 @@
 import { ActionCreator, FunctionWithParametersType } from '@ngrx/store';
-import { TypedAction } from '@ngrx/store/src/models';
 import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
+import { TypedAction } from './typed-action';
 
 export enum DucksIdentifier {
   Duck,
