@@ -10,6 +10,6 @@
   "whitelistedNonPeerDependencies": [
     "angular",
     "@types/jest",
-    "@co-it/ngrx-ducks-schematics"
+    "@ngrx-ducks/schematics"
   ]
 }
