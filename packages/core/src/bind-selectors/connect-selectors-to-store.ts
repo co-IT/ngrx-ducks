@@ -1,6 +1,6 @@
 import { select, Store } from '@ngrx/store';
-import { MemoizedSelectorDictionary } from '../typings';
 import { Selectors } from './bind-selectors';
+import { MemoizedSelectorDictionary } from './memoized-selector-dictionary';
 
 export function connectSelectorsToStore<T extends MemoizedSelectorDictionary>(
   selectors: Selectors<T>,
