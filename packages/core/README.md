@@ -12,7 +12,7 @@ selecting data from the Store.
 
 ## Demo
 
-Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-9?embed=1&file=src/app/counter/store/counter/counter.facade.ts" target="_blank">⚡️ StackBlitz</a>.
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-12?embed=1&file=src/app/counter/store/counter/counter.facade.ts" target="_blank">⚡️ StackBlitz</a>.
 It shows how ngrx and ngrx-ducks work together.
 
 ## Schematics
