@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/co-IT/ngrx-ducks/compare/v12.1.0-alpha.0...v12.1.0) (2021-05-24)
+
+### Bug Fixes
+
+- allow selectorFactories in Angular production mode ([52e652b](https://github.com/co-IT/ngrx-ducks/commit/52e652be4a85ae2487075be8ea7eada9f56706b4))
+
 # [12.1.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0...v12.1.0-alpha.0) (2021-05-24)
 
 ### Features
