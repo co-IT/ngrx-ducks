@@ -1,6 +1,7 @@
 import { expecter } from 'ts-snippet';
-import { createDuck, dispatch } from './create-duck';
+import { createDuck } from './create-duck';
 import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
+import { dispatch } from './dispatch';
 
 describe('createDuck', () => {
   const expectSnippet = expecter(
@@ -8,7 +9,8 @@ describe('createDuck', () => {
       import { of } from 'rxjs';
       import { map } from 'rxjs/operators';
       import { Actions, ofType } from '@ngrx/effects';
-      import { createDuck, dispatch } from './src/create-duck/create-duck';
+      import { createDuck } from './src/create-duck/create-duck';
+      import { dispatch } from './src/create-duck/dispatch';
       ${code}
       `
   );

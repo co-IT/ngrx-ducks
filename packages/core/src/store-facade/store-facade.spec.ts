@@ -2,11 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { bindSelectors } from '../bind-selectors';
-import { createDuck, dispatch } from '../create-duck/create-duck';
+import { createDuck } from '../create-duck/create-duck';
+import { dispatch } from '../create-duck/dispatch';
 import { usePick } from '../use-pick';
 import { StoreFacade } from './store-facade';
 
-describe('@StoreFacade', () => {
+describe(StoreFacade.name, () => {
   describe('When a class with ducks is annotated', () => {
     const feature = createFeatureSelector<{ count: number }>('counter');
     const selectorCount = createSelector(feature, counter => counter.count);
@@ -16,6 +17,8 @@ describe('@StoreFacade', () => {
 
     @StoreFacade()
     class Counter {
+      static staticsShouldBeAllowed = 'I am static';
+
       pick = usePick();
       select = bindSelectors({ selectorCount });
 
@@ -62,6 +65,10 @@ describe('@StoreFacade', () => {
         expect(count).toBe(10);
         done();
       });
+    });
+
+    it('allows using statics', () => {
+      expect(Counter.staticsShouldBeAllowed).toBe('I am static');
     });
   });
 

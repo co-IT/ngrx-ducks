@@ -14,7 +14,7 @@ export function StoreFacade() {
       }
     });
 
-    return constructor;
+    return constructor as any;
   };
 }
 
