@@ -1,16 +1,7 @@
 import { MemoizedSelector } from '@ngrx/store';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-
-export type SelectorConditional<
-  T extends MemoizedSelector<any, any>
-> = T extends MemoizedSelector<any, infer TResult>
-  ? Observable<TResult>
-  : never;
-
-export type Selectors<
-  T extends { [key: string]: MemoizedSelector<any, any> }
-> = { [K in keyof T]: SelectorConditional<T[K]> };
+import { Selectors } from './types/selectors';
 
 export function bindSelectors<
   T extends { [key: string]: MemoizedSelector<any, any> }
