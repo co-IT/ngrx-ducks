@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0...v12.1.0-alpha.0) (2021-05-24)
+
+### Features
+
+- **selectors:** allow using selector factories ([54ae1bc](https://github.com/co-IT/ngrx-ducks/commit/54ae1bce43480131ed9ee7afbadf7f4fc6e98218))
+- **selectors:** transform selector factories into consumable streams ([bb9ea1f](https://github.com/co-IT/ngrx-ducks/commit/bb9ea1f6e1e1f7892b57100ddd96b73841f36693))
+
 # [12.0.0](https://github.com/co-IT/ngrx-ducks/compare/v12.0.0-alpha.2...v12.0.0) (2021-05-23)
 
 **Note:** Version bump only for package co-it
