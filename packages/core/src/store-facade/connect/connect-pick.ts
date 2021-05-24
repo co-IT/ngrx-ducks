@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { DucksIdentifier } from '../../create-duck/create-duck';
+import { DucksIdentifier } from '../../create-duck/ducks-identifier';
 import { connectPickToStore } from '../../use-pick';
 export function connectPick(
   instance: any,

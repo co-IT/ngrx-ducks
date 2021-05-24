@@ -1,1 +1,3 @@
-export { createDuck, dispatch } from './create-duck';
+export * from './create-duck';
+export * from './dispatch';
+export * from './ducks-identifier';

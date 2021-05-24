@@ -2,9 +2,9 @@ import {
   ActionLoaded,
   ActionPlain,
   DispatchLoaded,
-  DispatchPlain
-} from '../create-duck/create-duck';
-import { TypedAction } from '../create-duck/typed-action';
+  DispatchPlain,
+  TypedAction
+} from '../create-duck/types';
 
 export type ActionCreatorCandidates<TClass> = {
   [TMember in keyof TClass]: TClass[TMember] extends TypedAction<infer TType> &

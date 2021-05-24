@@ -1,4 +1,4 @@
-import { DucksIdentifier } from '../create-duck/create-duck';
+import { DucksIdentifier } from '../create-duck/ducks-identifier';
 import { ActionCreators } from './action-creators';
 import { Constructable } from './constructable';
 

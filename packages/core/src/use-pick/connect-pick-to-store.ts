@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { DucksIdentifier } from '../create-duck/create-duck';
+import { DucksIdentifier } from '../create-duck/ducks-identifier';
 import { pickFactory } from './pick-factory';
 import { PickFunction } from './pick-selector';
 

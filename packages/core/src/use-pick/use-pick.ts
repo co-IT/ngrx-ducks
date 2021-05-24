@@ -1,5 +1,5 @@
-import { DucksIdentifier } from '../create-duck/create-duck';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
+import { DucksIdentifier } from '../create-duck/ducks-identifier';
 import { PickFunction } from './pick-selector';
 
 export function usePick(): PickFunction {
