@@ -11,16 +11,16 @@ export function bindSelectors<
       | MemoizedSelectorFactory<any, any>;
   }
 >(selectors: T): Selectors<T> {
-  const selectorsFailing = Object.keys(selectors).reduce(
-    (fakes, selector) => ({
-      ...fakes,
+  const selectorFunctions = Object.keys(selectors).reduce(
+    (functions, selector) => ({
+      ...functions,
       [selector]: throwError(new NgRxDucksNotConnectedError())
     }),
     {}
   );
 
   return {
-    ...selectorsFailing,
+    ...selectorFunctions,
     __ngrx_ducks__selectors_original: selectors
   } as any;
 }

@@ -59,7 +59,7 @@ describe(bindSelectors.name, () => {
         const store = TestBed.inject(Store);
 
         const countWithOffset = (offset: number) => {
-          return createSelector(feature, state => state + offset);
+          return createSelector(feature, (state: any) => state.count + offset);
         };
 
         const selectors = bindSelectors({ countWithOffset });
