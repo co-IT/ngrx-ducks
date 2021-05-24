@@ -58,14 +58,14 @@ describe(bindSelectors.name, () => {
 
         const store = TestBed.inject(Store);
 
-        const countWithOffset = (offset: number) => {
+        const countWithOffset = (offset: number, _some: string) => {
           return createSelector(feature, (state: any) => state.count + offset);
         };
 
         const selectors = bindSelectors({ countWithOffset });
         connectSelectorsToStore(selectors, store);
 
-        selectors.countWithOffset(10).subscribe({
+        selectors.countWithOffset(10, '').subscribe({
           next: count => {
             expect(count).toBe(20);
             done();
