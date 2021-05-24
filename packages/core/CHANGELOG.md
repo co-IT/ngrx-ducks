@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.2.0](https://github.com/co-IT/ngrx-ducks/compare/v12.1.0...v12.2.0) (2021-05-24)
+
+### Bug Fixes
+
+- **@StoreFacade:** allow static memebers ([d0ccdf9](https://github.com/co-IT/ngrx-ducks/commit/d0ccdf958a92b84f3fb6b1a47410266f2fbba88c))
+
 # [12.1.0](https://github.com/co-IT/ngrx-ducks/compare/v12.1.0-alpha.0...v12.1.0) (2021-05-24)
 
 ### Bug Fixes
