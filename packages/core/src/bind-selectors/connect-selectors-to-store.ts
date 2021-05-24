@@ -41,7 +41,5 @@ function isSelector(candidate: unknown): boolean {
 }
 
 function isSelectorFactory(candidate: unknown): boolean {
-  if (typeof candidate !== 'function') return false;
-
-  return candidate.toString().includes('createSelector');
+  return typeof candidate === 'function';
 }
