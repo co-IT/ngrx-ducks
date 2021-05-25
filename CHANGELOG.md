@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.3.1](https://github.com/co-IT/ngrx-ducks/compare/v12.3.0...v12.3.1) (2021-05-25)
+
+### Bug Fixes
+
+- resolve circular dependencies ([b4878f9](https://github.com/co-IT/ngrx-ducks/commit/b4878f931beafe8968c8bb0d3aae45c73f97f283))
+
 # [12.3.0](https://github.com/co-IT/ngrx-ducks/compare/v12.2.0...v12.3.0) (2021-05-25)
 
 ### Bug Fixes
