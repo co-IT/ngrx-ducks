@@ -1,6 +1,5 @@
 import { ActionCreator } from '@ngrx/store';
-import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
-import { DucksIdentifier } from './ducks-identifier';
+import { createDucksifiedAction } from './create-ducksified-action';
 import { ActionConditional, DispatchDefinition, Reducer } from './types';
 
 export function createDuck<TType extends string, TPayload = undefined>(
@@ -19,14 +18,5 @@ export function createDuck<TType extends string, TPayload, TSlice>(
   type: TType,
   reducer?: DispatchDefinition<TPayload> | Reducer<TSlice, TPayload>
 ): ActionCreator<TType> {
-  const action: any = (payload?: TPayload) => ({ type, payload });
-
-  action.__ngrx_ducks__id = DucksIdentifier.Duck;
-  action.type = type;
-  action.reducer = reducer;
-  action.dispatch = () => {
-    throw new NgRxDucksNotConnectedError(type);
-  };
-
-  return action;
+  return createDucksifiedAction<TType, TPayload, TSlice>(type, reducer);
 }
