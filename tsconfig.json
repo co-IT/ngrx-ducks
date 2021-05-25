@@ -8,6 +8,9 @@
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@ngrx-ducks/core": ["./packages/core/src/public_api"]
+    }
   }
 }

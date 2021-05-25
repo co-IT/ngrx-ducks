@@ -1,0 +1,14 @@
+<h1>Counter</h1>
+
+<div class="counter">
+  <div class="count">{{ count$ | async }}</div>
+  <small>Plus 2: {{ countWithOffset$ | async }}</small>
+  <div class="counter-actions">
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+  </div>
+</div>
+
+<div class="progress" [hidden]="(isLoading$ | async) == false">
+  Initializing...
+</div>
