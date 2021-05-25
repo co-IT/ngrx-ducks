@@ -1,1 +1,1 @@
-export * from './mutable-reducer';
+export { MutableReducer } from './mutable-reducer';

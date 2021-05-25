@@ -3,7 +3,8 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
-      "@ngrx/store": "@ngrx/store"
+      "@ngrx/store": "@ngrx/store",
+      "immer": "immer"
     }
   },
   "dest": "dist",

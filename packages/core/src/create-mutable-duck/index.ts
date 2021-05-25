@@ -1,1 +1,1 @@
-export * from './create-mutable-duck';
+export { createMutableDuck } from './create-mutable-duck';

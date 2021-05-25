@@ -1,5 +1,5 @@
 import { ActionCreator } from '@ngrx/store';
-import { createDucksifiedAction } from '../create-duck';
+import { createDucksifiedAction } from '../create-duck/create-ducksified-action';
 import { ActionConditional, DispatchDefinition } from '../create-duck/types';
 import { MutableReducer } from './types';
 

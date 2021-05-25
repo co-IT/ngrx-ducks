@@ -1,4 +1,3 @@
-export * from './create-duck';
-export * from './create-ducksified-action';
-export * from './dispatch';
-export * from './ducks-identifier';
+export { createDuck } from './create-duck';
+export { dispatch } from './dispatch';
+export { DucksIdentifier } from './ducks-identifier';
