@@ -16,7 +16,7 @@ Welcome to the mono-repository containing all packages related to the Ducks.
 
 ## Documentation
 
-You can learn all about NgRx Ducks by studying the [Docs](co-it.gitbook.io/ngrx-ducks/).
+You can learn all about NgRx Ducks by studying the [Docs](//co-it.gitbook.io/ngrx-ducks/).
 
 ## Demo
 
