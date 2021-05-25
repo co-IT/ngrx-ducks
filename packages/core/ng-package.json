@@ -9,6 +9,7 @@
   "dest": "dist",
   "whitelistedNonPeerDependencies": [
     "angular",
+    "immer",
     "@types/jest",
     "@ngrx-ducks/schematics"
   ]

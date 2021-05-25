@@ -25,6 +25,7 @@
   },
   "schematics": "../ngrx-ducks-schematics/src/collection.json",
   "dependencies": {
+    "immer": "9.0.2",
     "@ngrx-ducks/schematics": ">= 9.0.0"
   },
   "devDependencies": {
