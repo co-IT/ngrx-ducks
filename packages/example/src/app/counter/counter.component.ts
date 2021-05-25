@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CounterFacade } from './store/counter';
+import { CounterMutableFacade } from './store/counter/counter.mutable-facade';
 
 @Component({
   selector: 'counter',
@@ -13,7 +13,7 @@ export class CounterComponent {
 
   isLoading$: Observable<boolean>;
 
-  constructor(private counter: CounterFacade) {
+  constructor(private counter: CounterMutableFacade) {
     this.counter.loadCount.dispatch(10);
 
     this.count$ = this.counter.select.currentCount;
