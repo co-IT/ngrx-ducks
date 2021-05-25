@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.3.0](https://github.com/co-IT/ngrx-ducks/compare/v12.2.0...v12.3.0) (2021-05-25)
+
+### Bug Fixes
+
+- **README:** updare link to example ([27e1493](https://github.com/co-IT/ngrx-ducks/commit/27e1493c79bef2a5c3932bf72cb7862f2d97981f))
+- update link to demo ([51db935](https://github.com/co-IT/ngrx-ducks/commit/51db93519be40a651fda10ec2dda6b90f16a8279))
+
+### Features
+
+- **createMutableDuck:** provide factory ([8e576a4](https://github.com/co-IT/ngrx-ducks/commit/8e576a4cd6767e3ffc80000ef63d7f7bd6a8f903))
+- **getMutableReducer:** provide factory ([deabaa7](https://github.com/co-IT/ngrx-ducks/commit/deabaa769b12daa55cbe7fe2f58a675d455891da))
+
 # [12.2.0](https://github.com/co-IT/ngrx-ducks/compare/v12.1.0...v12.2.0) (2021-05-24)
 
 ### Bug Fixes
