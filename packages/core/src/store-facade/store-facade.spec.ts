@@ -12,6 +12,7 @@ import { createDuck } from '../create-duck/create-duck';
 import { dispatch } from '../create-duck/dispatch';
 import { usePick } from '../use-pick';
 import { ReducerManagerOpened } from './reducer-manager-opened';
+import { StoreDuckModule } from './store-duck.module';
 import { StoreFacade } from './store-facade';
 
 describe(StoreFacade.name, () => {
@@ -174,7 +175,7 @@ describe(StoreFacade.name, () => {
 
       beforeEach(() => {
         TestBed.configureTestingModule({
-          imports: [StoreModule.forRoot({})],
+          imports: [StoreModule.forRoot({}), StoreDuckModule.forRoot()],
           providers: [
             { provide: ReducerManager, useClass: ReducerManagerOpened }
           ]
