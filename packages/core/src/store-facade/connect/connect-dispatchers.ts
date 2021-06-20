@@ -1,13 +1,13 @@
 import { Store } from '@ngrx/store';
-import { DucksIdentifier } from '../../create-duck/ducks-identifier';
 import { ignoreProperties } from './ignore-properties';
+import { isDuck } from './is-duck';
 
 export function connectDispatchers(
   instance: any,
   property: string,
   store: Store
 ): void {
-  if (instance[property]['__ngrx_ducks__id'] === DucksIdentifier.Duck) {
+  if (isDuck(instance, property)) {
     const { type } = instance[property];
 
     instance[property].dispatch = (payload?: any) =>

@@ -9,11 +9,12 @@ export function createDucksifiedAction<TType extends string, TPayload, TSlice>(
     | DispatchDefinition<TPayload>
     | Reducer<TSlice, TPayload>
     | MutableReducer<TSlice, TPayload>
-    | undefined
+    | undefined,
+  identifier: DucksIdentifier
 ) {
   const action: any = (payload?: TPayload) => ({ type, payload });
 
-  action.__ngrx_ducks__id = DucksIdentifier.Duck;
+  action.__ngrx_ducks__id = identifier;
   action.type = type;
   action.reducer = reducer;
   action.dispatch = () => {

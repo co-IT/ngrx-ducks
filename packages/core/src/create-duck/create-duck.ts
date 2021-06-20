@@ -1,5 +1,6 @@
 import { ActionCreator } from '@ngrx/store';
 import { createDucksifiedAction } from './create-ducksified-action';
+import { DucksIdentifier } from './ducks-identifier';
 import { ActionConditional, DispatchDefinition, Reducer } from './types';
 
 export function createDuck<TType extends string, TPayload = undefined>(
@@ -18,5 +19,9 @@ export function createDuck<TType extends string, TPayload, TSlice>(
   type: TType,
   reducer?: DispatchDefinition<TPayload> | Reducer<TSlice, TPayload>
 ): ActionCreator<TType> {
-  return createDucksifiedAction<TType, TPayload, TSlice>(type, reducer);
+  return createDucksifiedAction<TType, TPayload, TSlice>(
+    type,
+    reducer,
+    DucksIdentifier.Duck
+  );
 }
