@@ -7,7 +7,8 @@ import {
   StoreFacade,
   usePick
 } from '@ngrx-ducks/core';
-import * as selectors from './counter.selectors';
+import { counterFeatureName, State } from '../counter.feature';
+import * as selectors from './counter-mutable.selectors';
 import { CounterState } from './counter.state';
 
 const initialState = {
@@ -15,7 +16,9 @@ const initialState = {
   isLoading: true
 };
 
-@StoreFacade()
+@StoreFacade<State>({
+  registerInStore: [counterFeatureName, 'counterMutable', initialState]
+})
 export class CounterMutableFacade {
   static actions = getActions(CounterMutableFacade);
   static reducer = getMutableReducer(initialState, CounterMutableFacade);
