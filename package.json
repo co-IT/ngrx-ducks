@@ -1,5 +1,5 @@
 {
-  "name": "co-it",
+  "name": "ngrx-ducks",
   "private": true,
   "scripts": {
     "build": "lerna run build",
