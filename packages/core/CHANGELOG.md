@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.4.0-alpha.0](https://github.com/co-IT/ngrx-ducks/compare/v12.3.1...v12.4.0-alpha.0) (2021-06-20)
+
+### Features
+
+- allow register action reducer map in store ([ce6b5d7](https://github.com/co-IT/ngrx-ducks/commit/ce6b5d7bdb95ce7f51b7c27d844a7a00ac7a8c31))
+- allow registering reducer in store ([b9b899e](https://github.com/co-IT/ngrx-ducks/commit/b9b899e2ed2bdc9e92779aae723ec224b7c54f15))
+
 ## [12.3.1](https://github.com/co-IT/ngrx-ducks/compare/v12.3.0...v12.3.1) (2021-05-25)
 
 ### Bug Fixes
