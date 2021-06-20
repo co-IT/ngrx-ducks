@@ -51,10 +51,14 @@ function registerReducerInStore(
 
   // with ActionReducerMap
   if (configuration.registerInStore.length === 3) {
-    const [featureKey, initialState] = configuration.registerInStore;
+    const [
+      featureKey,
+      reducerKey,
+      initialState
+    ] = configuration.registerInStore;
     // TODO: check if duck is mutable or immutable to call the right reducerFactory
     const reducer = getReducer(initialState, constructor);
 
-    reducerRegistrator.register(featureKey, reducer);
+    reducerRegistrator.register(featureKey, { [reducerKey]: reducer });
   }
 }

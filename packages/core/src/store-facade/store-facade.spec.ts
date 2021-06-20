@@ -110,7 +110,7 @@ describe(StoreFacade.name, () => {
   });
 
   describe('Reducer registration', () => {
-    describe('When a facade is configured to register the reducer', () => {
+    describe('Reducer Function: When a facade is configured to register the reducer', () => {
       interface CounterState {
         count: number;
       }
@@ -145,6 +145,50 @@ describe(StoreFacade.name, () => {
 
         store
           .select((state: any) => state.counterSlice.count)
+          .subscribe(count => {
+            expect(count).toBe(1);
+            done();
+          });
+      });
+    });
+
+    describe('Reducer Map: When a facade is configured to register the reducer map', () => {
+      interface CounterState {
+        count: number;
+      }
+
+      @StoreFacade({
+        registerInStore: ['counterSlice', 'counter', { count: 0 }]
+      })
+      class Counter {
+        pick = usePick();
+
+        increment = createDuck('Increment', (state: CounterState) => ({
+          ...state,
+          count: state.count + 1
+        }));
+      }
+
+      let store: Store<unknown>;
+      let counter: Counter;
+
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          imports: [StoreModule.forRoot({})],
+          providers: [
+            { provide: ReducerManager, useClass: ReducerManagerOpened }
+          ]
+        });
+
+        counter = TestBed.inject(Counter);
+        store = TestBed.inject(Store);
+      });
+
+      it("registers the facade's reducer in the Store", done => {
+        counter.increment.dispatch();
+
+        store
+          .select((state: any) => state.counterSlice.counter.count)
           .subscribe(count => {
             expect(count).toBe(1);
             done();
