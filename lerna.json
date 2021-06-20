@@ -6,6 +6,9 @@
   "command": {
     "publish": {
       "conventionalCommits": true
+    },
+    "version": {
+      "allowBranch": "main"
     }
   },
   "ignoreChanges": ["**/__fixtures__/**", "**/__tests__/**", "**/*.md"]
