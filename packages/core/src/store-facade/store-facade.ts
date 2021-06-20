@@ -11,7 +11,9 @@ interface StoreFacadeConfiguration<TState = any> {
     | [string, TState[keyof TState]];
 }
 
-export function StoreFacade(config?: StoreFacadeConfiguration) {
+export function StoreFacade<TState = any>(
+  config?: StoreFacadeConfiguration<TState>
+) {
   return function(constructor: AnnotationTarget) {
     constructor.ɵfac = notConstructableError;
     constructor.ɵprov = ɵɵdefineInjectable({

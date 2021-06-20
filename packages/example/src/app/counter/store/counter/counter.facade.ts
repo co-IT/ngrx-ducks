@@ -7,6 +7,7 @@ import {
   StoreFacade,
   usePick
 } from '@ngrx-ducks/core';
+import { State } from '..';
 import * as selectors from './counter.selectors';
 import { CounterState } from './counter.state';
 
@@ -15,7 +16,7 @@ const initialState = {
   isLoading: true
 };
 
-@StoreFacade()
+@StoreFacade<State>({ registerInStore: ['counter', 'simple', initialState] })
 export class CounterFacade {
   static actions = getActions(CounterFacade);
   static reducer = getReducer(initialState, CounterFacade);

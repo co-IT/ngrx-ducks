@@ -22,6 +22,8 @@ export class ReducerManagerOpened extends ReducerManager {
     @Inject(REDUCER_FACTORY)
     reducerFactory: ActionReducerFactory<any, any>
   ) {
+    console.log('ASJDASDJA');
+
     super(dispatcher, initialState, initialReducers, reducerFactory);
   }
 }
