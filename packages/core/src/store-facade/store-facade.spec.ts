@@ -116,7 +116,7 @@ describe(StoreFacade.name, () => {
         count: number;
       }
 
-      @StoreFacade({ registerInStore: ['counterSlice', { count: 0 }] })
+      @StoreFacade({ feature: 'counterSlice', defaults: { count: 0 } })
       class Counter {
         pick = usePick();
 
@@ -159,7 +159,9 @@ describe(StoreFacade.name, () => {
       }
 
       @StoreFacade({
-        registerInStore: ['counterSlice', 'counter', { count: 0 }]
+        feature: 'counterFeature',
+        slice: 'counter',
+        defaults: { count: 0 }
       })
       class Counter {
         pick = usePick();
@@ -189,7 +191,7 @@ describe(StoreFacade.name, () => {
         counter.increment.dispatch();
 
         store
-          .select((state: any) => state.counterSlice.counter.count)
+          .select((state: any) => state.counterFeature.counter.count)
           .subscribe(count => {
             expect(count).toBe(1);
             done();

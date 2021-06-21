@@ -17,7 +17,9 @@ const initialState = {
 };
 
 @StoreFacade<State>({
-  registerInStore: [counterFeatureName, 'counterMutable', initialState]
+  feature: counterFeatureName,
+  slice: 'counterMutable',
+  defaults: initialState
 })
 export class CounterMutableFacade {
   static actions = getActions(CounterMutableFacade);

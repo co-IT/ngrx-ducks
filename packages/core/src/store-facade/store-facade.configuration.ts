@@ -1,5 +1,10 @@
 export interface StoreFacadeConfiguration<TState = any> {
-  registerInStore:
-    | [string, keyof TState, TState[keyof TState]]
-    | [string, TState[keyof TState]];
+  feature: string;
+  slice?: keyof TState;
+  defaults: TState[keyof TState];
+}
+
+export interface StoreFacadeConfigurationWithSlice<TState = any>
+  extends StoreFacadeConfiguration<TState> {
+  slice: keyof TState;
 }

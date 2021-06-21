@@ -5,7 +5,10 @@ import { getReducer } from '../get-reducer';
 import { AnnotationTarget } from './annotation-target';
 import { connect, isImmutableDuck, isMutableDuck } from './connect';
 import { ReducerRegistrator } from './reducer-registrator.service';
-import { StoreFacadeConfiguration } from './store-facade.configuration';
+import {
+  StoreFacadeConfiguration,
+  StoreFacadeConfigurationWithSlice
+} from './store-facade.configuration';
 
 export function StoreFacade<TState = any>(
   config?: StoreFacadeConfiguration<TState>
@@ -39,34 +42,30 @@ function registerReducerInStore(
   const reducerRegistrator: ReducerRegistrator = ɵɵinject(ReducerRegistrator);
 
   if (wantsToRegisterPlainReducer(configuration)) {
-    const [featureKey, initialState] = configuration.registerInStore;
-    const reducer = retrieveReducer(initialState, constructor);
+    const { feature, defaults } = configuration;
+    const reducer = retrieveReducer(defaults, constructor);
 
-    reducerRegistrator.register(featureKey, reducer);
+    reducerRegistrator.register(feature, reducer);
   }
 
   if (wantsToReducerReducerMap(configuration)) {
-    const [
-      featureKey,
-      reducerKey,
-      initialState
-    ] = configuration.registerInStore;
-    const reducer = retrieveReducer(initialState, constructor);
+    const { feature, slice, defaults } = configuration;
+    const reducer = retrieveReducer(defaults, constructor);
 
-    reducerRegistrator.register(featureKey, { [reducerKey]: reducer });
+    reducerRegistrator.register(feature, { [slice]: reducer });
   }
 }
 
 function wantsToRegisterPlainReducer(
   configuration: StoreFacadeConfiguration
 ): boolean {
-  return configuration.registerInStore.length === 2;
+  return !configuration.slice;
 }
 
 function wantsToReducerReducerMap(
   configuration: StoreFacadeConfiguration
-): boolean {
-  return configuration.registerInStore.length === 3;
+): configuration is StoreFacadeConfigurationWithSlice {
+  return !!configuration.slice;
 }
 
 function retrieveReducer(
