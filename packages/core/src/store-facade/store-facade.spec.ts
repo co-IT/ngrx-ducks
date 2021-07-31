@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import {
   createFeatureSelector,
   createSelector,
-  ReducerManager,
   Store,
   StoreModule
 } from '@ngrx/store';
@@ -11,7 +10,6 @@ import { bindSelectors } from '../bind-selectors';
 import { createDuck } from '../create-duck/create-duck';
 import { dispatch } from '../create-duck/dispatch';
 import { usePick } from '../use-pick';
-import { ReducerManagerOpened } from './reducer-manager-opened';
 import { StoreFacade } from './store-facade';
 
 describe(StoreFacade.name, () => {
@@ -129,12 +127,7 @@ describe(StoreFacade.name, () => {
       let counter: Counter;
 
       beforeEach(() => {
-        TestBed.configureTestingModule({
-          imports: [StoreModule.forRoot({})],
-          providers: [
-            { provide: ReducerManager, useClass: ReducerManagerOpened }
-          ]
-        });
+        TestBed.configureTestingModule({ imports: [StoreModule.forRoot({})] });
 
         counter = TestBed.inject(Counter);
         store = TestBed.inject(Store);
@@ -175,12 +168,7 @@ describe(StoreFacade.name, () => {
       let counter: Counter;
 
       beforeEach(() => {
-        TestBed.configureTestingModule({
-          imports: [StoreModule.forRoot({})],
-          providers: [
-            { provide: ReducerManager, useClass: ReducerManagerOpened }
-          ]
-        });
+        TestBed.configureTestingModule({ imports: [StoreModule.forRoot({})] });
 
         counter = TestBed.inject(Counter);
         store = TestBed.inject(Store);
