@@ -2271,24 +2271,24 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@ngrx/effects@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-12.0.0.tgz#87c0aeeb760f11205c9d7c3168169e753780c926"
-  integrity sha512-T2Xu5sfYXg5+88al8laYv6sSuQzIeIfPzuY2o+XOF1407qYtafTXDjWcPosIqH0HYNBjPMWZFZbdQOHVX38mrQ==
+"@ngrx/effects@12.3.0":
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-12.3.0.tgz#2d1ed8fba0fa9e4b6945efab8eacd7ffe83f0a96"
+  integrity sha512-Bt8AMnnAXZRWYTori5Xg6C8UH9yI/BtenJWJxbYS7fz2IEVpmn/9HnfcdDtjIfnbdIiBUojnUM82KqoZWomyJQ==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store-devtools@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-12.0.0.tgz#0f803028fa2bbb4d063017094284b6850dfe5dfb"
-  integrity sha512-juWT2HXoRzZ05R2kEn9BZNlpUwHTQN7OKxiUAVL4/TRdnnHmHKyJPiG3XXmsojEyjdrZc81xE2KxrYivUbL5EA==
+"@ngrx/store-devtools@12.3.0":
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-12.3.0.tgz#dbb7e89289ab50ef51f4e72d346bb3db9bc4f2b8"
+  integrity sha512-G0gBJRBHmDM74+gJ+poowNuZY/ki3J9L0uJqyImYVEV5WImAOEqKqbzgqqSUsPgM7OSdnFJshe6949WM47jYVA==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.0.0.tgz#398c703b14a7c78a9bc616d6a569be17a606f803"
-  integrity sha512-aH6Neu+J6kmvYU1ns+fmEn3MKm3p33xVdv8qkWgk77pngDHaRENdThV+KorACkaYEWV2X2yAoKzE7s9XQVxEgQ==
+"@ngrx/store@12.3.0":
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.3.0.tgz#e6361dafe2b06c4a5f968807e4c1b41a4dd5809e"
+  integrity sha512-iwfARCo2csTvhbY/6ed2gcAsvJcEY+tHoSsrKz6HTvpN81lSIhXMXORvisKsuQe8lDU2aUl/lGDoldZ8DYo4eg==
   dependencies:
     tslib "^2.0.0"
 

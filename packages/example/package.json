@@ -19,9 +19,9 @@
     "@angular/platform-browser": "12.0.1",
     "@angular/platform-browser-dynamic": "12.0.1",
     "@angular/router": "12.0.1",
-    "@ngrx/effects": "12.0.0",
-    "@ngrx/store": "12.0.0",
-    "@ngrx/store-devtools": "12.0.0",
+    "@ngrx/effects": "12.3.0",
+    "@ngrx/store": "12.3.0",
+    "@ngrx/store-devtools": "12.3.0",
     "rxjs": "6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

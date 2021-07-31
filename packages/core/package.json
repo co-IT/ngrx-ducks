@@ -35,8 +35,8 @@
     "@angular/core": "12.0.1",
     "@angular/platform-browser": "12.0.1",
     "@angular/platform-browser-dynamic": "12.0.1",
-    "@ngrx/effects": "12.0.0",
-    "@ngrx/store": "12.0.0",
+    "@ngrx/effects": "12.3.0",
+    "@ngrx/store": "12.3.0",
     "@types/jest": "^24.0.25",
     "core-js": "^3.6.2",
     "jest": "^24.9.0",
@@ -53,7 +53,7 @@
   "peerDependencies": {
     "@angular/common": ">= 9.0.0",
     "@angular/core": ">= 9.0.0",
-    "@ngrx/effects": ">= 9.0.0",
-    "@ngrx/store": ">= 9.0.0"
+    "@ngrx/effects": ">= 12.3.0",
+    "@ngrx/store": ">= 12.3.0"
   }
 }
