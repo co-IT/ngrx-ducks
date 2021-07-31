@@ -3,7 +3,6 @@ import {
   createMutableDuck,
   dispatch,
   getActions,
-  getMutableReducer,
   StoreFacade,
   usePick
 } from '@ngrx-ducks/core';
@@ -23,7 +22,6 @@ const initialState = {
 })
 export class CounterMutableFacade {
   static actions = getActions(CounterMutableFacade);
-  static reducer = getMutableReducer(initialState, CounterMutableFacade);
 
   pick = usePick();
   select = bindSelectors(selectors);

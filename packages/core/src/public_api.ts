@@ -5,6 +5,5 @@ export { createMutableDuck } from './create-mutable-duck/create-mutable-duck';
 export { getActions } from './get-actions/get-actions';
 export { getMutableReducer } from './get-mutable-reducer/get-mutable-reducer';
 export { getReducer } from './get-reducer/get-reducer';
-export { StoreDuckModule } from './store-facade/store-duck.module';
 export { StoreFacade } from './store-facade/store-facade';
 export { usePick } from './use-pick/use-pick';
