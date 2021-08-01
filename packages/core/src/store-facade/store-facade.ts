@@ -3,8 +3,10 @@ import { Store } from '@ngrx/store';
 import { AnnotationTarget } from './annotation-target';
 import { connect } from './connect';
 import { notConstructableError } from './not-constructable-error';
-import { registerReducerInStore } from './reducer-registration';
-import { StoreFacadeConfiguration } from './reducer-registration/store-facade.configuration';
+import {
+  registerReducerInStore,
+  StoreFacadeConfiguration
+} from './reducer-registration';
 
 export function StoreFacade<TState = any>(
   config?: StoreFacadeConfiguration<TState>
