@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.1](https://github.com/co-IT/ngrx-ducks/compare/v12.4.0...v12.4.1) (2021-08-01)
+
+### Bug Fixes
+
+- build lib in partial ivy mode ([8ed4406](https://github.com/co-IT/ngrx-ducks/commit/8ed440675ec3a8c1f5f95044124bf8ba50ece405))
+
 # [12.4.0](https://github.com/co-IT/ngrx-ducks/compare/v12.4.0-alpha.0...v12.4.0) (2021-08-01)
 
 ### Bug Fixes
