@@ -150,7 +150,7 @@ describe(StoreFacade.name, () => {
         count: number;
       }
 
-      @StoreFacade({
+      @StoreFacade<{ counter: CounterState }>({
         feature: 'counterFeature',
         slice: 'counter',
         defaults: { count: 0 }

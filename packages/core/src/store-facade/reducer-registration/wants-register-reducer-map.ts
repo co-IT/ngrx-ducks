@@ -6,5 +6,5 @@ import {
 export function wantsToRegisterReducerMap(
   configuration: StoreFacadeConfiguration
 ): configuration is StoreFacadeConfigurationWithSlice {
-  return !!configuration.slice;
+  return Object.keys(configuration).includes('slice');
 }
