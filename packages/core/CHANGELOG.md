@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.2](https://github.com/co-IT/ngrx-ducks/compare/v12.4.1...v12.4.2) (2021-08-02)
+
+### Bug Fixes
+
+- allow strict typing of plain reducer default values ([6684fb6](https://github.com/co-IT/ngrx-ducks/commit/6684fb6c2750c5767b8d62570f7737595ea8b539))
+- require Angular 12 ([34467bf](https://github.com/co-IT/ngrx-ducks/commit/34467bf13fea6df7e1c1e26c921bde9462d40f06))
+
 ## [12.4.1](https://github.com/co-IT/ngrx-ducks/compare/v12.4.0...v12.4.1) (2021-08-01)
 
 ### Bug Fixes
