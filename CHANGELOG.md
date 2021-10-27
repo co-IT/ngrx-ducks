@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.3](https://github.com/co-IT/ngrx-ducks/compare/v12.4.2...v12.4.3) (2021-10-27)
+
+### Bug Fixes
+
+- update immer to resolve high severity vulnerability ([15b9c01](https://github.com/co-IT/ngrx-ducks/commit/15b9c010b8e8be025f551e3fc424c77894eab3ce))
+- **tsconfig:** remove trailing whitespace ([d291ca0](https://github.com/co-IT/ngrx-ducks/commit/d291ca068a1fbd610a04a55536c49f0d868f63bf))
+
 ## [12.4.2](https://github.com/co-IT/ngrx-ducks/compare/v12.4.1...v12.4.2) (2021-08-02)
 
 ### Bug Fixes
