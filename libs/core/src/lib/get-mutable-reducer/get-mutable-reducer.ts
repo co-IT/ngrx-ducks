@@ -1,6 +1,6 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { Draft, produce } from 'immer';
-import { Constructable } from '../get-actions/constructable';
+import { Constructable } from '../use-actions/constructable';
 import { resolveReducers } from '../get-reducer';
 
 export function getMutableReducer<TState>(

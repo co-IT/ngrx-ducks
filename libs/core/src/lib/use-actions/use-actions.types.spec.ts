@@ -3,11 +3,11 @@ import { compilerOptions } from '../utils';
 
 describe('use with createEffect', () => {
   const expectSnippet = expecter(
-    (code) => `
+    code => `
       import { of } from 'rxjs';
       import { map } from 'rxjs/operators';
       import { Actions, ofType } from '@ngrx/effects';
-      import { createDuck, dispatch, getActions } from '@ngrx-ducks/core';
+      import { createDuck, dispatch, useActions } from '@ngrx-ducks/core';
       ${code}
       `,
     compilerOptions()
@@ -15,14 +15,14 @@ describe('use with createEffect', () => {
 
   it('without payload => is compatible with ofType operator', () => {
     expectSnippet(`
-      class Facade {
+      class Chunk {
         otherProperty = true;
 
         hello = createDuck('Hello');
         bye = createDuck('Bye', dispatch<boolean>());
       }
 
-      const actions = getActions(Facade);
+      const actions = useActions(Chunk);
 
       const actions$ = of(actions.hello) as Actions;
       const result$ =  actions$.pipe(
@@ -34,14 +34,14 @@ describe('use with createEffect', () => {
 
   it('with payload => is compatible with ofType operator', () => {
     expectSnippet(`
-    class Facade {
+    class Chunk {
       otherProperty = true;
 
       hello = createDuck('Hello');
       bye = createDuck('Bye', dispatch<boolean>());
     }
 
-    const actions = getActions(Facade);
+    const actions = useActions(Chunk);
 
     const actions$ = of(actions.hello) as Actions;
     const result$ =  actions$.pipe(

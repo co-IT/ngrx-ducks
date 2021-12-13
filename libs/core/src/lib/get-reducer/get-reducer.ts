@@ -1,5 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { Constructable } from '../get-actions/constructable';
+import { Constructable } from '../use-actions/constructable';
 import { resolveReducers } from './resolve-reducers';
 
 export function getReducer<TState>(
@@ -12,7 +12,7 @@ export function getReducer<TState>(
     [key: string]: Function;
   } = resolveReducers(instance);
 
-  return function(state: TState = initialState, action: Action) {
+  return function (state: TState = initialState, action: Action) {
     return caseReducers[action.type]
       ? caseReducers[action.type](state, (action as any).payload)
       : state;

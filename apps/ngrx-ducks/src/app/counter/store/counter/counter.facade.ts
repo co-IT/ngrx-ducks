@@ -2,7 +2,7 @@ import {
   bindSelectors,
   createDuck,
   dispatch,
-  getActions,
+  useActions,
   getReducer,
   StoreChunk,
   usePick
@@ -22,7 +22,7 @@ const initialState = {
   defaults: initialState
 })
 export class CounterFacade {
-  static actions = getActions(CounterFacade);
+  static actions = useActions(CounterFacade);
   static reducer = getReducer(initialState, CounterFacade);
 
   pick = usePick();

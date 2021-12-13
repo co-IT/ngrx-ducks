@@ -2,7 +2,7 @@ import {
   bindSelectors,
   createMutableDuck,
   dispatch,
-  getActions,
+  useActions,
   StoreChunk,
   usePick
 } from '@ngrx-ducks/core';
@@ -21,7 +21,7 @@ const initialState = {
   defaults: initialState
 })
 export class CounterMutableFacade {
-  static actions = getActions(CounterMutableFacade);
+  static actions = useActions(CounterMutableFacade);
 
   pick = usePick();
   select = bindSelectors(selectors);
