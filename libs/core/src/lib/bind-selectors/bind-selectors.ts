@@ -4,7 +4,12 @@ import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-conne
 import { MemoizedSelectorFactory } from './types/memoized-selector-factory';
 import { Selectors } from './types/selectors';
 
-export function bindSelectors<
+/**
+ * @deprecated since version 13. Use useSelectors instead.
+ */
+export const bindSelectors = useSelectors;
+
+export function useSelectors<
   T extends {
     [key: string]:
       | MemoizedSelector<any, any>

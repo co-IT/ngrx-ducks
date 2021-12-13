@@ -1,10 +1,10 @@
 import { expecter } from 'ts-snippet';
 import { compilerOptions } from '../utils';
-import { bindSelectors } from './bind-selectors';
+import { useSelectors } from './bind-selectors';
 
-describe(bindSelectors.name, () => {
+describe(useSelectors.name, () => {
   const expectSnippet = expecter(
-    (code) => `
+    code => `
       import { createFeatureSelector, createSelector } from '@ngrx/store';
       import { bindSelectors } from '@ngrx-ducks/core';
 

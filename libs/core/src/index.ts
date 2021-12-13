@@ -1,4 +1,4 @@
-export { bindSelectors } from './lib/bind-selectors/bind-selectors';
+export { useSelectors as bindSelectors } from './lib/bind-selectors/bind-selectors';
 export { createDuck } from './lib/create-duck/create-duck';
 export { dispatch } from './lib/create-duck/dispatch';
 export { createMutableDuck } from './lib/create-mutable-duck/create-mutable-duck';
