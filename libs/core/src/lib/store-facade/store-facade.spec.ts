@@ -3,24 +3,24 @@ import {
   createFeatureSelector,
   createSelector,
   Store,
-  StoreModule,
+  StoreModule
 } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { bindSelectors } from '../bind-selectors';
 import { createDuck } from '../create-duck/create-duck';
 import { dispatch } from '../create-duck/dispatch';
 import { usePick } from '../use-pick';
-import { StoreFacade } from './store-facade';
+import { StoreChunk } from './store-facade';
 
-describe(StoreFacade.name, () => {
+describe(StoreChunk.name, () => {
   describe('When a class with ducks is annotated', () => {
     const feature = createFeatureSelector<{ count: number }>('counter');
-    const selectorCount = createSelector(feature, (counter) => counter.count);
+    const selectorCount = createSelector(feature, counter => counter.count);
 
     let store: Store<unknown>;
     let counter: Counter;
 
-    @StoreFacade()
+    @StoreChunk()
     class Counter {
       static staticsShouldBeAllowed = 'I am static';
 
@@ -35,8 +35,8 @@ describe(StoreFacade.name, () => {
       TestBed.resetTestingModule();
       TestBed.configureTestingModule({
         providers: [
-          provideMockStore({ initialState: { counter: { count: 10 } } }),
-        ],
+          provideMockStore({ initialState: { counter: { count: 10 } } })
+        ]
       });
 
       counter = TestBed.inject(Counter);
@@ -55,19 +55,19 @@ describe(StoreFacade.name, () => {
 
       expect(spyDispatch).toHaveBeenCalledWith({
         type: counter.add.type,
-        payload: 23,
+        payload: 23
       });
     });
 
-    it('selects data from the store', (done) => {
-      counter.select.selectorCount.subscribe((count) => {
+    it('selects data from the store', done => {
+      counter.select.selectorCount.subscribe(count => {
         expect(count).toBe(10);
         done();
       });
     });
 
-    it('selects data with pick from the store', (done) => {
-      counter.pick(selectorCount).subscribe((count) => {
+    it('selects data with pick from the store', done => {
+      counter.pick(selectorCount).subscribe(count => {
         expect(count).toBe(10);
         done();
       });
@@ -82,11 +82,11 @@ describe(StoreFacade.name, () => {
     let store: Store<unknown>;
     let counter: Counter;
 
-    @StoreFacade()
+    @StoreChunk()
     class Counter {
       math = {
         increment: createDuck('Increment'),
-        add: createDuck('Add', dispatch<number>()),
+        add: createDuck('Add', dispatch<number>())
       };
     }
 
@@ -94,8 +94,8 @@ describe(StoreFacade.name, () => {
       TestBed.resetTestingModule();
       TestBed.configureTestingModule({
         providers: [
-          provideMockStore({ initialState: { counter: { count: 10 } } }),
-        ],
+          provideMockStore({ initialState: { counter: { count: 10 } } })
+        ]
       });
 
       counter = TestBed.inject(Counter);
@@ -115,13 +115,13 @@ describe(StoreFacade.name, () => {
         count: number;
       }
 
-      @StoreFacade({ feature: 'counterSlice', defaults: { count: 0 } })
+      @StoreChunk({ feature: 'counterSlice', defaults: { count: 0 } })
       class Counter {
         pick = usePick();
 
         increment = createDuck('Increment', (state: CounterState) => ({
           ...state,
-          count: state.count + 1,
+          count: state.count + 1
         }));
       }
 
@@ -136,12 +136,12 @@ describe(StoreFacade.name, () => {
         store = TestBed.inject(Store);
       });
 
-      it("registers the facade's reducer in the Store", (done) => {
+      it("registers the facade's reducer in the Store", done => {
         counter.increment.dispatch();
 
         store
           .select((state: any) => state.counterSlice.count)
-          .subscribe((count) => {
+          .subscribe(count => {
             expect(count).toBe(1);
             done();
           });
@@ -154,17 +154,17 @@ describe(StoreFacade.name, () => {
       count: number;
     }
 
-    @StoreFacade<{ counter: CounterState }>({
+    @StoreChunk<{ counter: CounterState }>({
       feature: 'counterFeature',
       slice: 'counter',
-      defaults: { count: 0 },
+      defaults: { count: 0 }
     })
     class Counter {
       pick = usePick();
 
       increment = createDuck('Increment', (state: CounterState) => ({
         ...state,
-        count: state.count + 1,
+        count: state.count + 1
       }));
     }
 
@@ -179,12 +179,12 @@ describe(StoreFacade.name, () => {
       store = TestBed.inject(Store);
     });
 
-    it("registers the facade's reducer in the Store", (done) => {
+    it("registers the facade's reducer in the Store", done => {
       counter.increment.dispatch();
 
       store
         .select((state: any) => state.counterFeature.counter.count)
-        .subscribe((count) => {
+        .subscribe(count => {
           expect(count).toBe(1);
           done();
         });

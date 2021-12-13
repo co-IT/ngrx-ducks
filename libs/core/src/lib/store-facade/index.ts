@@ -1,1 +1,1 @@
-export { StoreFacade } from './store-facade';
+export { StoreChunk as StoreFacade } from './store-facade';

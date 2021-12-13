@@ -8,10 +8,15 @@ import {
   StoreFacadeConfiguration
 } from './reducer-registration';
 
-export function StoreFacade<TState = any>(
+/**
+ * @deprecated since version 13. Use StoreChunk instead.
+ */
+export const StoreFacade = StoreChunk;
+
+export function StoreChunk<TState = any>(
   config?: StoreFacadeConfiguration<TState>
 ) {
-  return function(constructor: AnnotationTarget) {
+  return function (constructor: AnnotationTarget) {
     constructor.ɵfac = notConstructableError;
     constructor.ɵprov = ɵɵdefineInjectable({
       token: constructor,
