@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 import { DucksIdentifier } from '../../create-duck/ducks-identifier';
-import { connectPickToStore } from '../../use-pick';
+import { connectUseSelectToStore } from '../../use-select';
 export function connectPick(
   instance: any,
   property: string,
@@ -11,5 +11,5 @@ export function connectPick(
   ) {
     return;
   }
-  instance[property] = connectPickToStore(instance[property], store);
+  instance[property] = connectUseSelectToStore(instance[property], store);
 }

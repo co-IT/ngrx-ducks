@@ -1,10 +1,10 @@
 import { MemoizedSelectorWithProps, select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PickSelector } from './pick-selector';
+import { UseSelectContainer } from './use-select-container';
 
-export function pickFactory(store: Store<any>): PickSelector {
+export function useSelectorFactory(store: Store<any>): UseSelectContainer {
   return {
-    pick
+    select: pick
   };
 
   function pick<TState, TProps, TResult>(

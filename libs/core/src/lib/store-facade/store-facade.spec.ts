@@ -9,7 +9,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { bindSelectors } from '../bind-selectors';
 import { createDuck } from '../create-duck/create-duck';
 import { dispatch } from '../create-duck/dispatch';
-import { usePick } from '../use-pick';
+import { usePick } from '../use-select';
 import { StoreChunk } from './store-facade';
 
 describe(StoreChunk.name, () => {

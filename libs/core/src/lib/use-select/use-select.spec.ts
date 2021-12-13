@@ -1,27 +1,27 @@
 import { expecter } from 'ts-snippet';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
 import { compilerOptions } from '../utils';
-import { useSelect } from './use-pick';
+import { useSelect } from './use-select';
 
 describe('usePick', () => {
   const expectSnippet = expecter(
     code => `
-      import { usePick } from '@ngrx-ducks/core';
+      import { useSelect } from '@ngrx-ducks/core';
       ${code}
       `,
     compilerOptions()
   );
 
   describe('When a property is initialized with usePick', () => {
-    it('becomes a PickFunction', () => {
+    it('becomes a SelectFunction', () => {
       expectSnippet(`
-        const pick = usePick();
-      `).toInfer('pick', 'PickFunction');
+        const select = useSelect();
+      `).toInfer('select', 'SelectFunction');
     });
 
     it('throws if it is used without @StoreFacade', () => {
-      const pick = useSelect();
-      expect(() => pick({} as any)).toThrowError(
+      const select = useSelect();
+      expect(() => select({} as any)).toThrowError(
         new NgRxDucksNotConnectedError()
       );
     });
