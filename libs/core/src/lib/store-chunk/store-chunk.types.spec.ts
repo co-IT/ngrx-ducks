@@ -1,13 +1,13 @@
 import { expecter } from 'ts-snippet';
 import { compilerOptions } from '../utils';
-import { StoreChunk } from './store-facade';
+import { StoreChunk } from './store-chunk';
 
 describe(StoreChunk.name, () => {
   describe('When the decorator is used with generic type parameter specifies the defaults', () => {
     it('passes if the defaults are provided correctly', () => {
       const expectSnippet = expecter(
         code => `
-          import { StoreFacade } from '@ngrx-ducks/core';
+          import { StoreChunk } from '@ngrx-ducks/core';
           ${code}
         `,
         compilerOptions()
@@ -18,7 +18,7 @@ describe(StoreChunk.name, () => {
           count: number;
         }
 
-        @StoreFacade<CounterState>({ feature: 'counter', defaults: { count: 0 } })
+        @StoreChunk<CounterState>({ feature: 'counter', defaults: { count: 0 } })
         class Counter {}
       `).toSucceed();
     });

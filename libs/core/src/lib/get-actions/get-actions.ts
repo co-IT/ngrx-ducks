@@ -1,4 +1,4 @@
-import { isDuck } from '../store-facade/connect';
+import { isDuck } from '../store-chunk/connect';
 import { ActionCreators } from './action-creators';
 import { Constructable } from './constructable';
 

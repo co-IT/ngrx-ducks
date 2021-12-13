@@ -3,7 +3,7 @@ import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-conne
 import { compilerOptions } from '../utils';
 import { useSelect } from './use-select';
 
-describe('usePick', () => {
+describe(useSelect.name, () => {
   const expectSnippet = expecter(
     code => `
       import { useSelect } from '@ngrx-ducks/core';

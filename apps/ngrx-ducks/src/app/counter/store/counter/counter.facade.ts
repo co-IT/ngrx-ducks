@@ -4,7 +4,7 @@ import {
   dispatch,
   getActions,
   getReducer,
-  StoreFacade,
+  StoreChunk,
   usePick
 } from '@ngrx-ducks/core';
 import { counterFeatureName, State } from '../counter.feature';
@@ -16,7 +16,7 @@ const initialState = {
   isLoading: true
 };
 
-@StoreFacade<State>({
+@StoreChunk<State>({
   feature: counterFeatureName,
   slice: 'counterImmutable',
   defaults: initialState

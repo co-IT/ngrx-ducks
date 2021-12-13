@@ -5,7 +5,7 @@ import { connect } from './connect';
 import { notConstructableError } from './not-constructable-error';
 import {
   registerReducerInStore,
-  StoreFacadeConfiguration
+  StoreChunkConfiguration
 } from './reducer-registration';
 
 /**
@@ -14,7 +14,7 @@ import {
 export const StoreFacade = StoreChunk;
 
 export function StoreChunk<TState = any>(
-  config?: StoreFacadeConfiguration<TState>
+  config?: StoreChunkConfiguration<TState>
 ) {
   return function (constructor: AnnotationTarget) {
     constructor.ɵfac = notConstructableError;
