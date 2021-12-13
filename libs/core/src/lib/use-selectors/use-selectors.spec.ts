@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { useSelectors } from './bind-selectors';
+import { useSelectors } from './use-selectors';
 import { connectSelectorsToStore } from './connect-selectors-to-store';
 
 describe(useSelectors.name, () => {

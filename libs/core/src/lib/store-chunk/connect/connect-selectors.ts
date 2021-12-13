@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { connectSelectorsToStore } from '../../bind-selectors';
+import { connectSelectorsToStore } from '../../use-selectors';
 
 export function connectSelectors(
   instance: any,

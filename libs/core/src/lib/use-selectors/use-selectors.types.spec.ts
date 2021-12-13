@@ -1,12 +1,12 @@
 import { expecter } from 'ts-snippet';
 import { compilerOptions } from '../utils';
-import { useSelectors } from './bind-selectors';
+import { useSelectors } from './use-selectors';
 
 describe(useSelectors.name, () => {
   const expectSnippet = expecter(
     code => `
       import { createFeatureSelector, createSelector } from '@ngrx/store';
-      import { bindSelectors } from '@ngrx-ducks/core';
+      import { useSelectors } from '@ngrx-ducks/core';
 
       const feature = createFeatureSelector<number>('counter');
       ${code}
@@ -18,7 +18,7 @@ describe(useSelectors.name, () => {
     it('yields a stream', () => {
       expectSnippet(`
         const selectorPlain = createSelector(feature, state => state);
-        const { selectorPlain:result } = bindSelectors({ selectorPlain });
+        const { selectorPlain:result } = useSelectors({ selectorPlain });
       `).toInfer('result', 'Observable<number>');
     });
   });
@@ -29,7 +29,7 @@ describe(useSelectors.name, () => {
         const some = createSelector(feature, state => state);
         const selectorProperty = createSelector(some, (s, p: number) => 1);
 
-        const { selectorProperty: s } = bindSelectors({ selectorProperty });
+        const { selectorProperty: s } = useSelectors({ selectorProperty });
       `).toFail();
     });
   });

@@ -6,10 +6,10 @@ import {
   StoreModule
 } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
-import { bindSelectors } from '../bind-selectors';
 import { createDuck, dispatch } from '../create-duck';
-import { usePick } from '../use-select';
 import { StoreChunk } from './store-chunk';
+import { useSelect } from '../use-select';
+import { useSelectors } from '../use-selectors';
 
 describe(StoreChunk.name, () => {
   describe('When a class with ducks is annotated', () => {
@@ -23,8 +23,8 @@ describe(StoreChunk.name, () => {
     class Counter {
       static staticsShouldBeAllowed = 'I am static';
 
-      pick = usePick();
-      select = bindSelectors({ selectorCount });
+      pick = useSelect();
+      select = useSelectors({ selectorCount });
 
       increment = createDuck('Increment');
       add = createDuck('Add', dispatch<number>());
@@ -116,7 +116,7 @@ describe(StoreChunk.name, () => {
 
       @StoreChunk({ feature: 'counterSlice', defaults: { count: 0 } })
       class Counter {
-        pick = usePick();
+        pick = useSelect();
 
         increment = createDuck('Increment', (state: CounterState) => ({
           ...state,
@@ -124,7 +124,7 @@ describe(StoreChunk.name, () => {
         }));
       }
 
-      let store: Store<unknown>;
+      let store: Store;
       let counter: Counter;
 
       beforeEach(() => {
@@ -159,7 +159,7 @@ describe(StoreChunk.name, () => {
       defaults: { count: 0 }
     })
     class Counter {
-      pick = usePick();
+      pick = useSelect();
 
       increment = createDuck('Increment', (state: CounterState) => ({
         ...state,
@@ -167,7 +167,7 @@ describe(StoreChunk.name, () => {
       }));
     }
 
-    let store: Store<unknown>;
+    let store: Store;
     let counter: Counter;
 
     beforeEach(() => {
