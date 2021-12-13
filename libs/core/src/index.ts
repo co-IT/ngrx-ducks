@@ -6,4 +6,4 @@ export { useActions as getActions } from './lib/get-actions/get-actions';
 export { getMutableReducer } from './lib/get-mutable-reducer/get-mutable-reducer';
 export { getReducer } from './lib/get-reducer/get-reducer';
 export { StoreFacade } from './lib/store-facade/store-facade';
-export { usePick } from './lib/use-pick/use-pick';
+export { useSelect as usePick } from './lib/use-pick/use-pick';

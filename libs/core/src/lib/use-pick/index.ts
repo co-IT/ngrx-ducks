@@ -1,2 +1,2 @@
 export { connectPickToStore } from './connect-pick-to-store';
-export { usePick } from './use-pick';
+export { useSelect as usePick } from './use-pick';
