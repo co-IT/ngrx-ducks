@@ -14,10 +14,7 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#b52e3199",
     "titleBar.inactiveForeground": "#e7e7e799",
-    "editorGroup.border": "#d04649",
-    "panel.border": "#d04649",
     "sash.hoverBorder": "#d04649",
-    "sideBar.border": "#d04649",
     "statusBarItem.remoteBackground": "#b52e31",
     "statusBarItem.remoteForeground": "#e7e7e7"
   },
