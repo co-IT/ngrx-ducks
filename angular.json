@@ -207,6 +207,17 @@
         }
       },
       "tags": ["lib"]
+    },
+    "workspace": {
+      "root": ".",
+      "architect": {
+        "version": {
+          "builder": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": true
+          }
+        }
+      }
     }
   }
 }
