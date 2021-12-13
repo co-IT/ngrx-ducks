@@ -2,7 +2,12 @@ import { isDuck } from '../store-facade/connect';
 import { ActionCreators } from './action-creators';
 import { Constructable } from './constructable';
 
-export function getActions<T extends Constructable>(
+/**
+ * @deprecated since version 13. Use useActions instead.
+ */
+export const getActions = useActions;
+
+export function useActions<T extends Constructable>(
   Token: T
 ): ActionCreators<T> {
   const instance = new Token();
