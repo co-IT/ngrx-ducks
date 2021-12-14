@@ -1,1 +1,1 @@
-export { useActions as getActions } from './use-actions';
+export { useActions } from './use-actions';

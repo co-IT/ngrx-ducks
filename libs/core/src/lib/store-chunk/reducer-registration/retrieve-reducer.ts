@@ -4,19 +4,21 @@ import { getReducer } from '../../get-reducer';
 import { AnnotationTarget } from '../annotation-target';
 import { hasImmutableDuck } from './has-immutable-duck';
 import { hasMutableDuck } from './has-mutable-duck';
+import { StoreChunkConfiguration } from './store-chunk.configuration';
 
 export function retrieveReducer(
   initialState: unknown,
-  Token: AnnotationTarget
+  Token: AnnotationTarget,
+  configuration: StoreChunkConfiguration
 ): ActionReducer<any, any> {
   const instance = new Token();
 
   if (hasImmutableDuck(instance)) {
-    return getReducer(initialState, Token);
+    return getReducer(initialState, Token, configuration);
   }
 
   if (hasMutableDuck(instance)) {
-    return getMutableReducer(initialState, Token);
+    return getMutableReducer(initialState, Token, configuration);
   }
 
   throw new Error(

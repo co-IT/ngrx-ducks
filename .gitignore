@@ -5,6 +5,7 @@
 ### Angular ###
 ## Angular ##
 # compiled output
+.angular/
 dist/
 tmp/
 app/**/*.js

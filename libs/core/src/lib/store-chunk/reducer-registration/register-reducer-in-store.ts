@@ -14,14 +14,14 @@ export function registerReducerInStore(
 
   if (wantsToRegisterPlainReducer(configuration)) {
     const { feature, defaults } = configuration;
-    const reducer = retrieveReducer(defaults, constructor);
+    const reducer = retrieveReducer(defaults, constructor, configuration);
 
     reducerRegistrator.register(feature, reducer);
   }
 
   if (wantsToRegisterReducerMap(configuration)) {
     const { feature, slice, defaults } = configuration;
-    const reducer = retrieveReducer(defaults, constructor);
+    const reducer = retrieveReducer(defaults, constructor, configuration);
 
     if (slice) {
       reducerRegistrator.register(feature, { [slice]: reducer });

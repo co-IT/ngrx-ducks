@@ -10,6 +10,7 @@ import { createDuck, dispatch } from '../create-duck';
 import { StoreChunk } from './store-chunk';
 import { useSelect } from '../use-select';
 import { useSelectors } from '../use-selectors';
+import { useActions } from '../use-actions';
 
 describe(StoreChunk.name, () => {
   describe('When a class with ducks is annotated', () => {
@@ -149,16 +150,19 @@ describe(StoreChunk.name, () => {
   });
 
   describe('Reducer Map: When a facade is configured to register the reducer map', () => {
+    const counterFeatureKey = 'counterFeature';
+
     interface CounterState {
       count: number;
     }
 
     @StoreChunk<{ counter: CounterState }>({
-      feature: 'counterFeature',
+      feature: counterFeatureKey,
       slice: 'counter',
       defaults: { count: 0 }
     })
     class Counter {
+      static actions = useActions(Counter, { prefix: counterFeatureKey });
       pick = useSelect();
 
       increment = createDuck('Increment', (state: CounterState) => ({
@@ -187,6 +191,17 @@ describe(StoreChunk.name, () => {
           expect(count).toBe(1);
           done();
         });
+    });
+
+    it('uses the feature name as action type prefix for each duck', () => {
+      const action = counter.increment();
+      expect(action.type.includes('COUNTERFEATURE')).toBe(true);
+    });
+
+    it('uses the feature name as action type prefix for each extracted action', () => {
+      expect(Counter.actions.increment().type.includes('COUNTERFEATURE')).toBe(
+        true
+      );
     });
   });
 });

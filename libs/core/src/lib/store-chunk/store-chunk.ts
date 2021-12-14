@@ -14,7 +14,7 @@ import {
 export const StoreFacade = StoreChunk;
 
 export function StoreChunk<TState = any>(
-  config?: StoreChunkConfiguration<TState>
+  configuration?: StoreChunkConfiguration<TState>
 ) {
   return function (constructor: AnnotationTarget) {
     constructor.ɵfac = notConstructableError;
@@ -22,11 +22,11 @@ export function StoreChunk<TState = any>(
       token: constructor,
       providedIn: 'root',
       factory() {
-        if (config) {
-          registerReducerInStore(config, constructor);
+        if (configuration) {
+          registerReducerInStore(configuration, constructor);
         }
 
-        return connect(constructor, ɵɵinject(Store) as Store);
+        return connect(constructor, ɵɵinject(Store) as Store, configuration);
       }
     });
 

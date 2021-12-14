@@ -8,23 +8,25 @@ type CaseReducerByAction = {
  *
  * @param instance Facade class
  * @param collectedReducers properties that can contain case reducers
+ * @param typePrefix
  * @returns key-value pairs of action-type and case-reducer
  */
 export function resolveReducers(
   instance: any,
+  typePrefix: string,
   collectedReducers: { [key: string]: Function } = {}
 ): CaseReducerByAction {
   return Object.keys(instance).reduce((reducers, property) => {
     if (instance[property].reducer) {
       return {
         ...reducers,
-        [instance[property].type]: instance[property].reducer
+        [`${typePrefix}${instance[property].type}`]: instance[property].reducer
       };
     } else if (
       isNoNgRxDuckPatchInternal(instance[property]) &&
       Object.keys(instance[property]).length > 0
     ) {
-      return resolveReducers(instance[property], reducers);
+      return resolveReducers(instance[property], typePrefix, reducers);
     } else {
       return reducers;
     }

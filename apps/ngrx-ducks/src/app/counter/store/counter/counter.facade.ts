@@ -72,7 +72,6 @@ export class CounterFacade {
 
   math = {
     square: createDuck('[Counter] Square', (state: CounterState) => {
-      console.log('adasdsa');
       return state;
     })
   };

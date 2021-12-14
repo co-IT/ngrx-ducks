@@ -1,4 +1,4 @@
-import { createDuck } from '../create-duck/create-duck';
+import { createDuck } from '../create-duck';
 import { getReducer } from './get-reducer';
 
 describe('get-reducer', () => {
