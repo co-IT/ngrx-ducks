@@ -37,11 +37,15 @@ function buildActionCreator(actionCreator: any, prefix: string) {
   if (!prefix) return actionCreator;
 
   const action = actionCreator();
-
-  return (payload: any) => ({
-    type: `${prefix}${action.type}`,
+  const type = `${prefix}${action.type}`;
+  const actionCreatorPrefixed = (payload: any) => ({
+    type,
     payload
   });
+
+  actionCreatorPrefixed.type = type;
+
+  return actionCreatorPrefixed;
 }
 
 function aggregateActionCreators(
