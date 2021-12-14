@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [13.0.0-alpha.3](https://github.com/co-IT/ngrx-ducks/compare/v13.0.0-alpha.2...v13.0.0-alpha.3) (2021-12-14)
+
+
+### Bug Fixes
+
+* **use-actions:** add type to actionCreator ([6733305](https://github.com/co-IT/ngrx-ducks/commit/6733305571dd31928ce5fa6470abb214cf4bdf7c))
+
+
+
 # [13.0.0-alpha.2](https://github.com/co-IT/ngrx-ducks/compare/v13.0.0-alpha.1...v13.0.0-alpha.2) (2021-12-14)
 
 
