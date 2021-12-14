@@ -199,9 +199,29 @@ describe(StoreChunk.name, () => {
     });
 
     it('uses the feature name as action type prefix for each extracted action', () => {
-      expect(Counter.actions.increment().type.includes('COUNTERFEATURE')).toBe(
-        true
-      );
+      const action = Counter.actions.increment();
+
+      expect(action.type.includes('COUNTERFEATURE')).toBe(true);
+    });
+  });
+
+  describe('When action type prefixing is deactivated', () => {
+    @StoreChunk({
+      feature: 'counterSlice',
+      enableActionTypePrefixing: false,
+      defaults: { count: 0 }
+    })
+    class Counter {
+      increment = createDuck('Increment');
+    }
+
+    it('avoids prefixing action type if deactivated due to configuration', () => {
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({ imports: [StoreModule.forRoot({})] });
+
+      const counter = TestBed.inject(Counter);
+
+      expect(counter.increment().type).toBe('Increment');
     });
   });
 });

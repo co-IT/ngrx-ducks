@@ -1,9 +1,12 @@
 import { StoreChunkConfiguration } from '../reducer-registration';
 
 export function inferTypePrefixFromFeatureName(
-  configuration: Pick<StoreChunkConfiguration, 'feature'> | undefined
+  configuration:
+    | Pick<StoreChunkConfiguration, 'feature' | 'enableActionTypePrefixing'>
+    | undefined
 ) {
-  if (!configuration?.feature) return '';
+  if (!configuration?.feature || !configuration.enableActionTypePrefixing)
+    return '';
 
   return `[${configuration.feature.toUpperCase()}] `;
 }

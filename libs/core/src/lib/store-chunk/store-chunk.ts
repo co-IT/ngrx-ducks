@@ -14,8 +14,9 @@ import {
 export const StoreFacade = StoreChunk;
 
 export function StoreChunk<TState = any>(
-  configuration?: StoreChunkConfiguration<TState>
+  config?: StoreChunkConfiguration<TState>
 ) {
+  const configuration = mergeConfiguration(config);
   return function (constructor: AnnotationTarget) {
     constructor.ɵfac = notConstructableError;
     constructor.ɵprov = ɵɵdefineInjectable({
@@ -32,4 +33,10 @@ export function StoreChunk<TState = any>(
 
     return constructor as any;
   };
+}
+
+function mergeConfiguration(config: StoreChunkConfiguration | undefined) {
+  return config && config.enableActionTypePrefixing === undefined
+    ? { ...config, enableActionTypePrefixing: true }
+    : config;
 }

@@ -5,10 +5,12 @@ export type StoreChunkConfiguration<TState = any> =
 export interface StoreChunkConfigurationWithPlainReducer<TState = any> {
   feature: string;
   defaults: TState;
+  enableActionTypePrefixing?: boolean;
 }
 
 export interface StoreChunkConfigurationWithSlice<TState = any> {
   feature: string;
   slice: keyof TState;
   defaults: TState[keyof TState];
+  enableActionTypePrefixing?: boolean;
 }

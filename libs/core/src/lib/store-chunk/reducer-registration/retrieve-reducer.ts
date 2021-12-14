@@ -1,5 +1,5 @@
 import { ActionReducer } from '@ngrx/store';
-import { getMutableReducer } from '../../get-mutable-reducer/get-mutable-reducer';
+import { getMutableReducer } from '../../get-mutable-reducer';
 import { getReducer } from '../../get-reducer';
 import { AnnotationTarget } from '../annotation-target';
 import { hasImmutableDuck } from './has-immutable-duck';

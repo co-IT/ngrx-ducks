@@ -20,7 +20,8 @@ export function useActions<T extends Constructable>(
 ): ActionCreators<T> {
   const instance = new Token();
   const prefix = inferTypePrefixFromFeatureName({
-    feature: configuration?.prefix || ''
+    feature: configuration?.prefix || '',
+    enableActionTypePrefixing: !!configuration?.prefix
   });
 
   const properties = Object.keys(instance);
