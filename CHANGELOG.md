@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [13.0.2](https://github.com/co-IT/ngrx-ducks/compare/v13.0.1...v13.0.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* **has-immutable-duck:** consider nested ducks ([c00b243](https://github.com/co-IT/ngrx-ducks/commit/c00b243c180d6eae8597c0f318623c512561e4c1))
+
+
+
 ## [13.0.1](https://github.com/co-IT/ngrx-ducks/compare/v13.0.0...v13.0.1) (2021-12-14)
 
 
