@@ -1,12 +1,12 @@
 ## @ngrx-ducks/schematics
 
-You get this package automatically if you install [@co-it/ngrx-ducks](https://www.npmjs.com/package/@co-it/ngrx-ducks).
+You get this package automatically if you install [@ngrx-ducks/core](https://www.npmjs.com/package/@ngrx-ducks/core).
 
 ## Commands
 
-| Command                                            | Description                            |
-| -------------------------------------------------- | -------------------------------------- |
-| ng generate @co-it/ngrx-ducks:**duck** <path/duck> | Create a duck in the desired directory |
+| Command                                                     | Description                                  |
+| ----------------------------------------------------------- | -------------------------------------------- |
+| ng generate @ngrx-ducks/schematics:**facade** <path/facade> | Generates the initial setup for store facade |
 
 ## Parameter
 
