@@ -1,5 +1,5 @@
 export interface AnnotationTarget {
-  new (): InstanceType<any>;
+  new (...args: any[]): InstanceType<any>;
   ɵfac?: Function;
   ɵprov?: any;
 }
