@@ -29,4 +29,9 @@ export class CounterComponent {
   decrement() {
     this.counter.decrement.dispatch(1);
   }
+
+  // you can nest or group ducks in your store if you like
+  executeNestedDuck() {
+    this.counter.math.square.dispatch();
+  }
 }

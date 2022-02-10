@@ -6,9 +6,12 @@
   <div class="counter-actions">
     <button (click)="increment()">Increment</button>
     <button (click)="decrement()">Decrement</button>
+    <button (click)="executeNestedDuck()" class="outline">
+      Log to the console, demonstrating a nested Duck
+    </button>
   </div>
 </div>
 
-<div class="progress" [hidden]="(isLoading$ | async) == false">
+<div class="progress" [hidden]="(isLoading$ | async) === false">
   Initializing...
 </div>
