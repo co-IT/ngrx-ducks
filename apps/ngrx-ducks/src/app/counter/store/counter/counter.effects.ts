@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { delay, map } from 'rxjs/operators';
-import { CounterFacade } from './counter.facade';
+import { CounterStore } from './counter.store';
 
 @Injectable()
 export class CounterEffects {
   setCounter = createEffect(() =>
     this.actions$.pipe(
-      ofType(CounterFacade.actions.loadCount),
+      ofType(CounterStore.actions.loadCount),
       delay(2000),
-      map(({ payload }) => CounterFacade.actions.override(payload))
+      map(({ payload }) => CounterStore.actions.override(payload))
     )
   );
 

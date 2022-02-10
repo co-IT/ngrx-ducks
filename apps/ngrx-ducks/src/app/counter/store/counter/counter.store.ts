@@ -1,10 +1,10 @@
 import {
-  bindSelectors,
   createMutableDuck,
   dispatch,
-  useActions,
   StoreChunk,
-  usePick
+  useActions,
+  useSelect,
+  useSelectors
 } from '@ngrx-ducks/core';
 import { counterFeatureName, State } from '../counter.feature';
 import * as selectors from './counter-mutable.selectors';
@@ -20,11 +20,11 @@ const initialState = {
   slice: 'counterMutable',
   defaults: initialState
 })
-export class CounterMutableFacade {
-  static actions = useActions(CounterMutableFacade);
+export class CounterStore {
+  static actions = useActions(CounterStore, { prefix: counterFeatureName });
 
-  pick = usePick();
-  select = bindSelectors(selectors);
+  pick = useSelect();
+  select = useSelectors(selectors);
 
   /**
    *
@@ -35,23 +35,20 @@ export class CounterMutableFacade {
    *
    */
 
-  readonly loadCount = createMutableDuck(
-    '[Counter] Load Count',
-    dispatch<number>()
-  );
+  readonly loadCount = createMutableDuck('Load Count', dispatch<number>());
 
   increment = createMutableDuck(
-    '[Counter] Increment value',
+    'Increment value',
     (state: CounterState, payload: number) => (state.count += payload)
   );
 
   decrement = createMutableDuck(
-    '[Counter] Decrement value',
+    'Decrement value',
     (state: CounterState, payload: number) => (state.count -= payload)
   );
 
   override = createMutableDuck(
-    '[Counter] Set value',
+    'Set value',
     (state: CounterState, payload: number) => {
       state.count = payload;
       state.isLoading = false;
@@ -59,7 +56,7 @@ export class CounterMutableFacade {
   );
 
   math = {
-    square: createMutableDuck('[Counter] Square', () => {
+    square: createMutableDuck('Square', () => {
       console.log('adasdsa');
     })
   };

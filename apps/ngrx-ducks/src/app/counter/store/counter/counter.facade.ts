@@ -1,11 +1,11 @@
 import {
-  bindSelectors,
   createDuck,
   dispatch,
-  useActions,
   getReducer,
   StoreChunk,
-  usePick
+  useActions,
+  useSelect,
+  useSelectors
 } from '@ngrx-ducks/core';
 import { counterFeatureName, State } from '../counter.feature';
 import * as selectors from './counter-immutable.selectors';
@@ -25,8 +25,8 @@ export class CounterFacade {
   static actions = useActions(CounterFacade);
   static reducer = getReducer(initialState, CounterFacade);
 
-  pick = usePick();
-  select = bindSelectors(selectors);
+  pick = useSelect();
+  select = useSelectors(selectors);
 
   /**
    *
