@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "13.1.2",
     "@angular/router": "13.1.2",
     "@nrwl/angular": "13.4.4",
+    "@ngrx/store": "13.0.2",
+    "@ngrx/effects": "13.0.2",
+    "@ngrx/store-devtools": "13.0.2",
     "rxjs": "6.6.0",
     "tslib": "2.3.1",
     "zone.js": "0.11.4"
@@ -37,8 +40,6 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-angular": "^15.0.0",
     "@jscutlery/semver": "^2.15.0",
-    "@ngrx/effects": "13.0.1",
-    "@ngrx/store": "13.0.1",
     "@nrwl/cli": "13.4.4",
     "@nrwl/cypress": "13.4.4",
     "@nrwl/eslint-plugin-nx": "13.4.4",
