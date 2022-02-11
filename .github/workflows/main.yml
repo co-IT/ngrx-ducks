@@ -5,10 +5,15 @@ on:
     branches:
       - main
 
+
 jobs:
   verify:
     name: check pull request
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
 
     steps:
       - name: Check out code
@@ -24,4 +29,7 @@ jobs:
         run: |
           npm ci
           npm test -- core
+          npm run test:e2e
           npm run build -- core
+      - env:
+          CI: true
