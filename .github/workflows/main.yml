@@ -28,5 +28,5 @@ jobs:
           npm test -- core
           npm run test:e2e
           npm run build -- core
-      - env:
+        env:
           CI: true
