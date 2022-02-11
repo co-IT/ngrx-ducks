@@ -8,6 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "test:e2e": "nx e2e",
     "release:patch": "nx run workspace:version --releaseAS=patch",
     "prepare": "husky install"
   },
