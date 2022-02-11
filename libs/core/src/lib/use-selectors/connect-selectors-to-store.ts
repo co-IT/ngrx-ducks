@@ -1,4 +1,5 @@
 import { select, Store } from '@ngrx/store';
+import { selectorIdentifierPropertyKey } from './selector-identifier-property-key';
 import { MemoizedSelectorDictionary } from './types/memoized-selector-dictionary';
 import { Selectors } from './types/selectors';
 
@@ -6,7 +7,9 @@ export function connectSelectorsToStore<T extends MemoizedSelectorDictionary>(
   selectors: Selectors<T>,
   store: Store<unknown>
 ): void {
-  const selectorsOriginal: MemoizedSelectorDictionary = selectors.__ngrx_ducks__selectors_original as any;
+  const selectorsOriginal: MemoizedSelectorDictionary = selectors[
+    selectorIdentifierPropertyKey
+  ] as any;
 
   Object.keys(selectorsOriginal).forEach(key => {
     if (isSelector(selectorsOriginal[key])) {

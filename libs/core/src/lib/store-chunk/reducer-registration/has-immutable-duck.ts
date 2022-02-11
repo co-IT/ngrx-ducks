@@ -1,4 +1,5 @@
 import { duckIdentifierPropertyKey, DucksIdentifier } from '../../create-duck';
+import { selectorIdentifierPropertyKey } from '../../use-selectors/selector-identifier-property-key';
 import { isImmutableDuck, isMutableDuck } from '../connect';
 import { hasOwnProperty } from './has-own-property';
 
@@ -24,13 +25,10 @@ export function hasImmutableDuck(instance: any): boolean {
 function ignoreDispatcherAndSelector(property: unknown): boolean {
   if (!property) return false;
 
-  // A property representing a collection of bound selectors contains a
-  // property named "__ngrx_ducks__selectors_original".
-  if (hasOwnProperty(property, '__ngrx_ducks__selectors_original')) {
+  if (hasOwnProperty(property, selectorIdentifierPropertyKey)) {
     return false;
   }
 
-  // We also want to exclude other building blocks that are no duck.
   if (hasOwnProperty(property, duckIdentifierPropertyKey)) {
     return [
       DucksIdentifier.DuckDispatcherPlain,

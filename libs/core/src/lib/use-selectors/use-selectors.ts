@@ -1,6 +1,7 @@
 import { MemoizedSelector } from '@ngrx/store';
 import { throwError } from 'rxjs';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
+import { selectorIdentifierPropertyKey } from './selector-identifier-property-key';
 import { MemoizedSelectorFactory } from './types/memoized-selector-factory';
 import { Selectors } from './types/selectors';
 
@@ -26,6 +27,6 @@ export function useSelectors<
 
   return {
     ...selectorFunctions,
-    __ngrx_ducks__selectors_original: selectors
+    [selectorIdentifierPropertyKey]: selectors
   } as any;
 }
