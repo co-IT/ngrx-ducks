@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [13.1.1](https://github.com/co-IT/ngrx-ducks/compare/v13.1.0...v13.1.1) (2022-02-11)
+
+
+
 # [13.1.0](https://github.com/co-IT/ngrx-ducks/compare/v13.0.2...v13.1.0) (2022-02-11)
 
 
