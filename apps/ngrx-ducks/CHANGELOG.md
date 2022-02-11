@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [13.1.0](https://github.com/co-IT/ngrx-ducks/compare/v13.0.2...v13.1.0) (2022-02-11)
+
+
+### Bug Fixes
+
+* get example app to run ([32106db](https://github.com/co-IT/ngrx-ducks/commit/32106db190d1d4ef238a0d88da76e94ed1ba1210))
+
+
+### Features
+
+* add nested duck example ([e614b18](https://github.com/co-IT/ngrx-ducks/commit/e614b18bb7f5d4ab0489e1ade0074c8939c1601c))
+
+
+
 ## [13.0.2](https://github.com/co-IT/ngrx-ducks/compare/v13.0.1...v13.0.2) (2022-01-13)
 
 
