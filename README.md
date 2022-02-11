@@ -17,8 +17,8 @@ You can learn all about NgRx Ducks by studying the [Docs](https://co-it.gitbook.
 
 ## Demo
 
-Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-12?embed=1&file=src/app/counter/store/counter/counter.facade.ts" target="_blank">⚡️ StackBlitz</a>.
-It shows how ngrx and ngrx-ducks work together.
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-13?embed=1&file=src/app/counter/store/counter/counter.store.ts" target="_blank">⚡️ StackBlitz</a>.
+It shows how NgRx and NgRx Ducks work together.
 
 ## Want to help?
 

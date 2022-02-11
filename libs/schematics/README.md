@@ -1,5 +1,10 @@
 ## @ngrx-ducks/schematics
 
+> ⚠️ This package is not up-to-date.
+> Currently, I have no time to maintain schematics.
+> Every PR is welcome.
+> Cheers Gregor.
+
 You get this package automatically if you install [@ngrx-ducks/core](https://www.npmjs.com/package/@ngrx-ducks/core).
 
 ## Commands
