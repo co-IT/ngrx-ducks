@@ -1,15 +1,15 @@
 import { Store } from '@ngrx/store';
-import { DucksIdentifier } from '../create-duck';
-import { useSelectorFactory } from './use-selector-factory';
+import { duckIdentifierPropertyKey, DucksIdentifier } from '../create-duck';
 import { SelectFunction } from './use-select-container';
+import { useSelectorFactory } from './use-selector-factory';
 
 export function connectUseSelectToStore(
   pick: {
-    __ngrx_ducks__id?: DucksIdentifier.DuckPickFunction;
+    [duckIdentifierPropertyKey]?: DucksIdentifier.DuckPickFunction;
   },
   store: Store<unknown>
 ): SelectFunction {
-  if (pick.__ngrx_ducks__id !== DucksIdentifier.DuckPickFunction) {
+  if (pick[duckIdentifierPropertyKey] !== DucksIdentifier.DuckPickFunction) {
     throw new Error(
       'ngrx-ducks > usePick > Given candidate is not a pick function.'
     );

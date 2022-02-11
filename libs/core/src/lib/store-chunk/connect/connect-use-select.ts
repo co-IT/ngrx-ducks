@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { DucksIdentifier } from '../../create-duck';
+import { duckIdentifierPropertyKey, DucksIdentifier } from '../../create-duck';
 import { connectUseSelectToStore } from '../../use-select';
 
 export function connectUseSelect(
@@ -8,7 +8,8 @@ export function connectUseSelect(
   store: Store<unknown>
 ): void {
   if (
-    instance[property].__ngrx_ducks__id !== DucksIdentifier.DuckPickFunction
+    instance[property][duckIdentifierPropertyKey] !==
+    DucksIdentifier.DuckPickFunction
   ) {
     return;
   }

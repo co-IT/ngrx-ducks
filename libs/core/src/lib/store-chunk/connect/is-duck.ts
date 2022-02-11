@@ -1,3 +1,4 @@
+import { duckIdentifierPropertyKey } from '../../create-duck';
 import { DucksIdentifier } from '../../create-duck/ducks-identifier';
 
 export function isDuck(instance: any, property: string): boolean {
@@ -7,9 +8,12 @@ export function isDuck(instance: any, property: string): boolean {
 }
 
 export function isImmutableDuck(instance: any, property: string): boolean {
-  return instance[property]['__ngrx_ducks__id'] === DucksIdentifier.Duck;
+  return instance[property][duckIdentifierPropertyKey] === DucksIdentifier.Duck;
 }
 
 export function isMutableDuck(instance: any, property: string): boolean {
-  return instance[property]['__ngrx_ducks__id'] === DucksIdentifier.DuckMutable;
+  return (
+    instance[property][duckIdentifierPropertyKey] ===
+    DucksIdentifier.DuckMutable
+  );
 }

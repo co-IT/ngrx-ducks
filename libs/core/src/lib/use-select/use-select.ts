@@ -1,6 +1,11 @@
+import { duckIdentifierPropertyKey, DucksIdentifier } from '../create-duck';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { DucksIdentifier } from '../create-duck';
 import { SelectFunction } from './use-select-container';
+
+interface PickCoat {
+  (): never;
+  [duckIdentifierPropertyKey]?: DucksIdentifier;
+}
 
 /**
  * @deprecated since version 13. Use useSelect instead.
@@ -8,11 +13,11 @@ import { SelectFunction } from './use-select-container';
 export const usePick = useSelect;
 
 export function useSelect(): SelectFunction {
-  const pickFacade = () => {
+  const pickFacade: PickCoat = () => {
     throw new NgRxDucksNotConnectedError();
   };
 
-  pickFacade.__ngrx_ducks__id = DucksIdentifier.DuckPickFunction;
+  pickFacade[duckIdentifierPropertyKey] = DucksIdentifier.DuckPickFunction;
 
   return pickFacade;
 }
