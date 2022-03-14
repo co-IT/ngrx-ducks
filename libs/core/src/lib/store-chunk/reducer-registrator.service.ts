@@ -21,7 +21,7 @@ export class ReducerRegistrator {
     // TODO: refine if a feature has no reducers set there is no need to combineReducers
     const reducersOfFeatureNext =
       reducersOfFeature !== undefined
-        ? combineReducers({ reducersOfFeature, ...reducer })
+        ? combineReducers({ ...reducersOfFeature, ...reducer })
         : typeof reducer === 'function'
         ? reducer
         : combineReducers({ ...reducer });
