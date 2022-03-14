@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [13.1.2](https://github.com/co-IT/ngrx-ducks/compare/v13.1.1...v13.1.2) (2022-03-14)
+
+
+### Bug Fixes
+
+* **store-registration:** flatten existing reducers when combining them ([bfa8a92](https://github.com/co-IT/ngrx-ducks/commit/bfa8a9244d08a715516508a67a7f9a5756dedb6e))
+
+
+
 ## [13.1.1](https://github.com/co-IT/ngrx-ducks/compare/v13.1.0...v13.1.1) (2022-02-11)
 
 
