@@ -7,8 +7,10 @@
     "publish": {
       "conventionalCommits": true
     },
-    "version": {
-      "allowBranch": "main"
+    "command": {
+      "version": {
+        "allowBranch": ["main", "hotfix/*"]
+      }
     }
   },
   "ignoreChanges": ["**/__fixtures__/**", "**/__tests__/**", "**/*.md"]
