@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.4](https://github.com/co-IT/ngrx-ducks/compare/v12.4.3...v12.4.4) (2022-03-14)
+
+**Note:** Version bump only for package @ngrx-ducks/snippets
+
+
+
+
+
 ## [10.0.1](https://github.com/co-IT/ngrx-ducks/compare/v10.0.0...v10.0.1) (2020-08-13)
 
 **Note:** Version bump only for package @ngrx-ducks/snippets

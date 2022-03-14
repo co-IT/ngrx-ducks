@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.4](https://github.com/co-IT/ngrx-ducks/compare/v12.4.3...v12.4.4) (2022-03-14)
+
+
+### Bug Fixes
+
+* **store-registration:** flatten existing reducers when combining them ([c58cce9](https://github.com/co-IT/ngrx-ducks/commit/c58cce99f1cb52d56a925f0799a3ef0e3da3554c))
+
+
+
+
+
 ## [12.4.3](https://github.com/co-IT/ngrx-ducks/compare/v12.4.2...v12.4.3) (2021-10-27)
 
 ### Bug Fixes

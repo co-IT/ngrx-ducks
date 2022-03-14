@@ -1,17 +1,27 @@
 {
-  "version": "12.4.3",
+  "version": "12.4.4",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["ngrx/*", "rxjs/*"],
+  "packages": [
+    "ngrx/*",
+    "rxjs/*"
+  ],
   "command": {
     "publish": {
       "conventionalCommits": true
     },
     "command": {
       "version": {
-        "allowBranch": ["main", "hotfix/*"]
+        "allowBranch": [
+          "main",
+          "hotfix/*"
+        ]
       }
     }
   },
-  "ignoreChanges": ["**/__fixtures__/**", "**/__tests__/**", "**/*.md"]
+  "ignoreChanges": [
+    "**/__fixtures__/**",
+    "**/__tests__/**",
+    "**/*.md"
+  ]
 }
