@@ -1,4 +1,0 @@
-export * from './<%= dasherize(name) %>.facade';<% if (effects) { %>
-export * from './<%= dasherize(name) %>.effects';<% } %><% if (selectors) { %>
-export * from './<%= dasherize(name) %>.selectors';<% } %>
-export * from './<%= dasherize(name) %>.state';

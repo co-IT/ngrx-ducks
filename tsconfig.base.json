@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngrx-ducks/core": ["libs/core/src/index.ts"],
-      "@ngrx-ducks/schematics": ["libs/schematics/src/index.ts"]
+      "@ngrx-ducks/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
