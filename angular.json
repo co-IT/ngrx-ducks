@@ -1,7 +1,4 @@
 {
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "projects": {
     "core": {
@@ -12,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/core"
-          ],
+          "outputs": ["dist/libs/core"],
           "options": {
             "project": "libs/core/ng-package.json"
           },
@@ -30,11 +25,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/core"
-          ],
+          "outputs": ["coverage/libs/core"],
           "options": {
-            "jestConfig": "libs/core/jest.config.js",
+            "jestConfig": "libs/core/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -48,9 +41,7 @@
           }
         }
       },
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "ngrx-ducks": {
       "projectType": "application",
@@ -60,9 +51,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/ngrx-ducks",
             "index": "apps/ngrx-ducks/src/index.html",
@@ -74,9 +63,7 @@
               "apps/ngrx-ducks/src/favicon.ico",
               "apps/ngrx-ducks/src/assets"
             ],
-            "styles": [
-              "apps/ngrx-ducks/src/styles.scss"
-            ],
+            "styles": ["apps/ngrx-ducks/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -141,11 +128,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/ngrx-ducks"
-          ],
+          "outputs": ["coverage/apps/ngrx-ducks"],
           "options": {
-            "jestConfig": "apps/ngrx-ducks/jest.config.js",
+            "jestConfig": "apps/ngrx-ducks/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -172,68 +157,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/ngrx-ducks-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ngrx-ducks-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "ngrx-ducks"
-      ]
-    },
-    "schematics": {
-      "projectType": "library",
-      "root": "libs/schematics",
-      "sourceRoot": "libs/schematics/src",
-      "prefix": "ngrx-ducks",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/schematics"
-          ],
-          "options": {
-            "project": "libs/schematics/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/schematics/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/schematics/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/schematics"
-          ],
-          "options": {
-            "jestConfig": "libs/schematics/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/schematics/src/**/*.ts",
-              "libs/schematics/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": [
-        "lib"
-      ]
+      "implicitDependencies": ["ngrx-ducks"]
     },
     "workspace": {
       "root": ".",
