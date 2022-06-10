@@ -10,6 +10,7 @@ dist/
 tmp/
 app/**/*.js
 app/**/*.js.map
+migrations.json
 
 # dependencies
 node_modules/
