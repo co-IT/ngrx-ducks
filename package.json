@@ -56,7 +56,7 @@
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "2.10.3",
     "husky": "7.0.4",
-    "immer": "9.0.6",
+    "immer": "9.0.14",
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.2",
     "ng-packagr": "14.0.2",
