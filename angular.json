@@ -2,6 +2,7 @@
   "version": 1,
   "projects": {
     "core": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/core",
       "sourceRoot": "libs/core/src",
@@ -9,7 +10,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/core"],
+          "outputs": [
+            "dist/libs/core"
+          ],
           "options": {
             "project": "libs/core/ng-package.json"
           },
@@ -25,7 +28,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/core"],
+          "outputs": [
+            "coverage/libs/core"
+          ],
           "options": {
             "jestConfig": "libs/core/jest.config.ts",
             "passWithNoTests": true
@@ -41,9 +46,12 @@
           }
         }
       },
-      "tags": ["lib"]
+      "tags": [
+        "lib"
+      ]
     },
     "ngrx-ducks": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "root": "apps/ngrx-ducks",
       "sourceRoot": "apps/ngrx-ducks/src",
@@ -51,7 +59,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/ngrx-ducks",
             "index": "apps/ngrx-ducks/src/index.html",
@@ -63,7 +73,9 @@
               "apps/ngrx-ducks/src/favicon.ico",
               "apps/ngrx-ducks/src/assets"
             ],
-            "styles": ["apps/ngrx-ducks/src/styles.scss"],
+            "styles": [
+              "apps/ngrx-ducks/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -128,7 +140,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ngrx-ducks"],
+          "outputs": [
+            "coverage/apps/ngrx-ducks"
+          ],
           "options": {
             "jestConfig": "apps/ngrx-ducks/jest.config.ts",
             "passWithNoTests": true
@@ -138,6 +152,7 @@
       "tags": []
     },
     "ngrx-ducks-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/ngrx-ducks-e2e",
       "sourceRoot": "apps/ngrx-ducks-e2e/src",
       "projectType": "application",
@@ -157,16 +172,23 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/ngrx-ducks-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/ngrx-ducks-e2e/**/*.{js,ts}"
+            ]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": ["ngrx-ducks"]
+      "implicitDependencies": [
+        "ngrx-ducks"
+      ]
     },
     "workspace": {
+      "$schema": "node_modules/nx/schemas/project-schema.json",
       "root": ".",
       "architect": {
         "version": {

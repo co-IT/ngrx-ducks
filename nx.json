@@ -4,7 +4,6 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },
   "implicitDependencies": {
@@ -18,12 +17,7 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "parallel": 1
       }
     }
@@ -51,5 +45,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ngrx-ducks"
+  "defaultProject": "ngrx-ducks",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }
