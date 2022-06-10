@@ -1,4 +1,4 @@
-import { ɵɵdefineInjectable, ɵɵinject } from '@angular/core';
+import { inject, ɵɵdefineInjectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AnnotationTarget } from './annotation-target';
 import { connect } from './connect';
@@ -27,7 +27,7 @@ export function StoreChunk<TState = any>(
           registerReducerInStore(configuration, constructor);
         }
 
-        return connect(constructor, ɵɵinject(Store) as Store, configuration);
+        return connect(constructor, inject(Store) as Store, configuration);
       }
     });
 
