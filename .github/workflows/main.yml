@@ -1,32 +1,62 @@
 name: CI
-
 on:
-  pull_request:
+  push:
     branches:
       - main
+  pull_request:
 
+env:
+  NX_CLOUD_DISTRIBUTED_EXECUTION: true
 
 jobs:
-  verify:
-
+  main:
     runs-on: ubuntu-latest
-
+    if: ${{ github.event_name != 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout [main]
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npx nx-cloud start-ci-run
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: npx nx-cloud stop-all-agents
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - run: npm install
+      - run: npx nx-cloud start-ci-run
+      - run: npx nx affected --target=build --parallel --max-parallel=3
+      - run: npx nx affected --target=test --parallel --max-parallel=2
+      - run: npx nx-cloud stop-all-agents
+  agents:
+    runs-on: ubuntu-latest
+    name: Agent 1
+    timeout-minutes: 60
     strategy:
       matrix:
-        node-version: [16.x]
-
+        agent: [ 1, 2, 3 ]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: test & build
-        run: |
-          npm ci
-          npm test -- core
-          npm run test:e2e
-          npm run build -- core
-        env:
-          CI: true
+          node-version: '16'
+      - run: npm install
+      - name: Start Nx Agent ${{ matrix.agent }}
+        run: npx nx-cloud start-agent
