@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [14.0.0](https://github.com/co-IT/ngrx-ducks/compare/v13.1.3...v14.0.0) (2022-06-11)
+
+
+### Features
+
+* migrate to Angular 14 ([606b5b8](https://github.com/co-IT/ngrx-ducks/commit/606b5b8287ebc7140df4604a2ebf630f50ee1a87))
+* remove schematics library ([383566b](https://github.com/co-IT/ngrx-ducks/commit/383566bd3d4081a1ba491eef6cb727cc4212d5cf))
+
+
+
 ## [13.1.3](https://github.com/co-IT/ngrx-ducks/compare/v13.1.2...v13.1.3) (2022-03-14)
 
 
