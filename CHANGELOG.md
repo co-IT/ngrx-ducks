@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [14.0.1](https://github.com/co-IT/ngrx-ducks/compare/v14.0.0...v14.0.1) (2022-11-19)
+
+
+### Bug Fixes
+
+* add rxjs as peerDependency ([ecfae1b](https://github.com/co-IT/ngrx-ducks/commit/ecfae1b5d16be3496f4e29512b9c65322b423c08))
+* update link to StackBlitz ([c71fd82](https://github.com/co-IT/ngrx-ducks/commit/c71fd823602877202567f469d6b29e45e4f88c1a))
+
+
+
 # [14.0.0](https://github.com/co-IT/ngrx-ducks/compare/v13.1.3...v14.0.0) (2022-06-11)
 
 
