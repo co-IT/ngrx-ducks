@@ -11,7 +11,7 @@
         "build": {
           "builder": "@nrwl/angular:package",
           "outputs": [
-            "dist/libs/core"
+            "{workspaceRoot}/dist/libs/core"
           ],
           "options": {
             "project": "libs/core/ng-package.json"
@@ -29,7 +29,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/core"
+            "{workspaceRoot}/coverage/libs/core"
           ],
           "options": {
             "jestConfig": "libs/core/jest.config.ts",
@@ -141,7 +141,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/apps/ngrx-ducks"
+            "{workspaceRoot}/coverage/apps/ngrx-ducks"
           ],
           "options": {
             "jestConfig": "apps/ngrx-ducks/jest.config.ts",
