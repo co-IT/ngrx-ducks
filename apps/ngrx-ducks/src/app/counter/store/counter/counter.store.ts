@@ -21,9 +21,9 @@ const initialState = {
   defaults: initialState
 })
 export class CounterStore {
-  static actions = useActions(CounterStore, { prefix: counterFeatureName });
+  static
 
-  pick = useSelect();
+    pick = useSelect();
   select = useSelectors(selectors);
 
   /**
@@ -57,7 +57,10 @@ export class CounterStore {
 
   math = {
     square: createMutableDuck('Square', () => {
-      console.log('adasdsa');
+      console.log('Nested Ducks work, too.');
     })
   };
 }
+
+
+export const counterStoreChunkActions = useActions(CounterStore, { prefix: counterFeatureName });
