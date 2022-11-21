@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [14.0.2](https://github.com/co-IT/ngrx-ducks/compare/v14.0.1...v14.0.2) (2022-11-21)
+
+
+### Bug Fixes
+
+* correct peerDependency to Angular ([80e7acf](https://github.com/co-IT/ngrx-ducks/commit/80e7acf3020b9bb293698c25b40f968cd0b84d1f))
+
+
+
 ## [14.0.1](https://github.com/co-IT/ngrx-ducks/compare/v14.0.0...v14.0.1) (2022-11-19)
 
 
