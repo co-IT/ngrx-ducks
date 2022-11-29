@@ -2,15 +2,15 @@ import { TestBed } from '@angular/core/testing';
 import { createFeatureSelector, createSelector, Store } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
-import { useSelectors } from './use-selectors';
 import { connectSelectorsToStore } from './connect-selectors-to-store';
+import { useSelectors } from './use-selectors';
 
 describe(useSelectors.name, () => {
   const feature = createFeatureSelector<number>('counter');
 
   describe('Selector Plain', () => {
     describe('When a selector stream is used', () => {
-      it('throws an exception since @StoreFacade is needed to get it to work', done => {
+      it('throws an exception since @StoreChunk is needed to get it to work', done => {
         const selector = createSelector(feature, state => state);
 
         const select = useSelectors({ selector });

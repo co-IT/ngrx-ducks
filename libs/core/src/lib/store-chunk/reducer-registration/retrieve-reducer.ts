@@ -22,7 +22,7 @@ export function retrieveReducer(
   }
 
   throw new Error(
-    '[ngrx-ducks] StoreFacade: At least one Duck is required to build a reducer function. ' +
+    '[ngrx-ducks] StoreChunk: At least one Duck is required to build a reducer function. ' +
       'Please use either createDuck or createMutableDuck.'
   );
 }

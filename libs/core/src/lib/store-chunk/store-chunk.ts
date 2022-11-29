@@ -8,11 +8,6 @@ import {
   StoreChunkConfiguration
 } from './reducer-registration';
 
-/**
- * @deprecated since version 13. Use StoreChunk instead.
- */
-export const StoreFacade = StoreChunk;
-
 export function StoreChunk<TState = any>(
   config?: StoreChunkConfiguration<TState>
 ) {

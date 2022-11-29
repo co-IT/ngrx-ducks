@@ -6,7 +6,7 @@ import { dispatch } from './dispatch';
 
 describe('createDuck', () => {
   const expectSnippet = expecter(
-    (code) => `
+    code => `
       import { of } from 'rxjs';
       import { map } from 'rxjs/operators';
       import { Actions, ofType } from '@ngrx/effects';
@@ -33,7 +33,7 @@ describe('createDuck', () => {
     });
 
     it('throws if dispatch method is called', () => {
-      /** dispatch only works after @StoreFacade connects it with the Store */
+      /** dispatch only works after @StoreChunk connects it with the Store */
       const creator = createDuck('Hello');
 
       expect(() => creator.dispatch()).toThrowError(
@@ -76,7 +76,7 @@ describe('createDuck', () => {
 
   describe('action with case reducer', () => {
     const expectSnippet = expecter(
-      (code) => `
+      code => `
         import { createDuck } from '@ngrx-ducks/core';
         ${code}
         `,

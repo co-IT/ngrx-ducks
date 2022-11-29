@@ -19,7 +19,7 @@ describe(useSelect.name, () => {
       `).toInfer('select', 'SelectFunction');
     });
 
-    it('throws if it is used without @StoreFacade', () => {
+    it('throws if it is used without @StoreChunk', () => {
       const select = useSelect();
       expect(() => select({} as any)).toThrowError(
         new NgRxDucksNotConnectedError()
