@@ -2,6 +2,34 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [15.0.0](https://github.com/co-IT/ngrx-ducks/compare/v14.0.3...v15.0.0) (2022-11-29)
+
+
+### Bug Fixes
+
+* apply work around for useActions ([842a142](https://github.com/co-IT/ngrx-ducks/commit/842a14225895f479ba506f5ab470c62de7b20306))
+* remove schematics from README ([7c64b67](https://github.com/co-IT/ngrx-ducks/commit/7c64b67d317379c56685e8867da617826bca981a))
+* resolve security risks ([cd2d4f0](https://github.com/co-IT/ngrx-ducks/commit/cd2d4f038ffe47cbff72333dfdb5df8552c28a2b))
+
+
+### Features
+
+* **getActions:** remove deprecated helper getActions ([e1c40df](https://github.com/co-IT/ngrx-ducks/commit/e1c40dffd41933e5897bedfa5fa4db6f61096d33))
+* **getActions:** remove deprecated helper usePicks ([8225796](https://github.com/co-IT/ngrx-ducks/commit/8225796d98e7c5b4b2bacf430ae82e684870ce74))
+* **StoreChunk:** remove deprecated StoreFacade-Decorator ([1ceba3b](https://github.com/co-IT/ngrx-ducks/commit/1ceba3bf397707b8214c93065021b1fd9dfaadad))
+* **useActions:** provide a comprehensible Error if no contructor is provided ([6a72f24](https://github.com/co-IT/ngrx-ducks/commit/6a72f24897a83f032948e4f6773be12bf28814e0))
+* **useSelectors:** remove deprecated helper bindSelectors ([354cf9a](https://github.com/co-IT/ngrx-ducks/commit/354cf9a432e5b11a46142271cf17c4f893c53309))
+
+
+### BREAKING CHANGES
+
+* **useSelectors:** bindSelectors has to be replaced with useSelectors
+* **getActions:** usePick has to be replaced useSelect
+* **getActions:** getActions has to be replaced useActions
+* **StoreChunk:** @StoreFacade has to be replaced with @StoreChunk
+
+
+
 ## [14.0.3](https://github.com/co-IT/ngrx-ducks/compare/v14.0.2...v14.0.3) (2022-11-29)
 
 

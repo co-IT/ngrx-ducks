@@ -1,6 +1,6 @@
 {
   "name": "@ngrx-ducks/core",
-  "version": "14.0.3",
+  "version": "15.0.0",
   "peerDependencies": {
     "@angular/common": ">= 14.0.0",
     "@angular/core": ">= 14.0.0",

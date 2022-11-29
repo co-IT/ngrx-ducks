@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [15.0.0](https://github.com/co-IT/ngrx-ducks/compare/v14.0.3...v15.0.0) (2022-11-29)
+
+
+### Bug Fixes
+
+* apply work around for useActions ([842a142](https://github.com/co-IT/ngrx-ducks/commit/842a14225895f479ba506f5ab470c62de7b20306))
+
+
+### Features
+
+* **useActions:** provide a comprehensible Error if no contructor is provided ([6a72f24](https://github.com/co-IT/ngrx-ducks/commit/6a72f24897a83f032948e4f6773be12bf28814e0))
+
+
+
 ## [14.0.3](https://github.com/co-IT/ngrx-ducks/compare/v14.0.2...v14.0.3) (2022-11-29)
 
 

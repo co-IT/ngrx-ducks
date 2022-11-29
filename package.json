@@ -1,6 +1,6 @@
 {
   "name": "ngrx-ducks",
-  "version": "14.0.3",
+  "version": "15.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
