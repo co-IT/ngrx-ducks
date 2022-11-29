@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [14.0.3](https://github.com/co-IT/ngrx-ducks/compare/v14.0.2...v14.0.3) (2022-11-29)
+
+
+### Bug Fixes
+
+* **core:** correct version range of rxjs ([4737bbe](https://github.com/co-IT/ngrx-ducks/commit/4737bbe3b866004e471d97e6459bab32245de645))
+
+
+
 ## [14.0.2](https://github.com/co-IT/ngrx-ducks/compare/v14.0.1...v14.0.2) (2022-11-21)
 
 
