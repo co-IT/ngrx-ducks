@@ -7,11 +7,6 @@ interface PickCoat {
   [duckIdentifierPropertyKey]?: DucksIdentifier;
 }
 
-/**
- * @deprecated since version 13. Use useSelect instead.
- */
-export const usePick = useSelect;
-
 export function useSelect(): SelectFunction {
   const pickFacade: PickCoat = () => {
     throw new NgRxDucksNotConnectedError();
