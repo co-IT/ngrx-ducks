@@ -5,10 +5,8 @@ Welcome to the mono-repository containing all packages related to the Ducks.
 | Package      | Description                            |
 | ------------ | -------------------------------------- |
 | [core]       | Improves coding experience for [ngrx]. |
-| [schematics] | Scaffolds code quickly.                |
 
 [core]: ./libs/core
-[schematics]: ./libs/schematics
 [ngrx]: https://ngrx.io/
 
 ## Documentation

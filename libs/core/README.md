@@ -1,22 +1,27 @@
-## @ngrx-ducks/core
+# @ngrx-ducks
 
-This library acts as a thin layer on top of [NgRx](https://ngrx.io).
-It automatically creates action creators and reducer functions for you.
-Furthermore, you get a service that you can use in your components.
-This Service provides a strictly typed API allowing both dispatching actions and
-selecting data from the Store.
+Welcome to the mono-repository containing all packages related to the Ducks.
 
-## Quick Start
+| Package      | Description                            |
+| ------------ | -------------------------------------- |
+| [core]       | Improves coding experience for [ngrx]. |
 
-[Getting started in 10 Minutes](https://co-it.gitbook.io/ngrx-ducks/ngrx-ducks-core/guides/quick-start).
+[core]: ./libs/core
+[ngrx]: https://ngrx.io/
+
+## Documentation
+
+You can learn all about NgRx Ducks by studying the [Docs](https://co-it.gitbook.io/ngrx-ducks/).
 
 ## Demo
 
-Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-13?embed=1&file=src/app/counter/store/counter/counter.store.ts" target="_blank">⚡️ StackBlitz</a>.
+Please checkout the demo hosted on <a href="https://stackblitz.com/edit/ngrx-ducks-latest?file=src/app/counter/store/counter/counter.store.ts" target="_blank">⚡️ StackBlitz</a>.
 It shows how NgRx and NgRx Ducks work together.
 
-## Schematics
+## Want to help?
 
-The NgRx Ducks library provides [built-in schematics][1] to generate a Duck for you.
+Your feedback is always welcome!
 
-[1]: https://github.com/co-IT/ngrx-ducks/blob/main/libs/schematics
+You can file [issues](https://github.com/co-it/ngrx-ducks/issues) and create [pull requests](https://github.com/co-it/ngrx-ducks/pulls) on the co-IT.eu Github repository.
+
+ https://stackblitz.com/edit/ngrx-ducks-latest?file=src/app/counter/store/counter/counter.store.ts
