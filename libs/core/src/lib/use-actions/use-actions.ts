@@ -9,11 +9,6 @@ interface UseActionsConfiguration {
   prefix: string;
 }
 
-/**
- * @deprecated since version 13. Use useActions instead.
- */
-export const getActions = useActions;
-
 export function useActions<T extends Constructable>(
   Token: T,
   configuration?: UseActionsConfiguration
