@@ -1,5 +1,5 @@
 import { duckIdentifierPropertyKey, DucksIdentifier } from '../create-duck';
-import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
+import { NgRxDucksNotConnectedError } from '../create-duck/ngrx-ducks-not-connected.error';
 import { SelectFunction } from './use-select-container';
 
 interface PickCoat {

@@ -1,8 +1,8 @@
 import { expecter } from 'ts-snippet';
 import { compilerOptions } from '../utils';
 import { createDuck } from './create-duck';
-import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
 import { dispatch } from './dispatch';
+import { NgRxDucksNotConnectedError } from './ngrx-ducks-not-connected.error';
 
 describe('createDuck', () => {
   const expectSnippet = expecter(

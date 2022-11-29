@@ -1,7 +1,7 @@
 import { MutableReducer } from '../create-mutable-duck/types';
-import { NgRxDucksNotConnectedError } from './create-duck-not-connected.error';
 import { duckIdentifierPropertyKey } from './duck-identifier-property-key';
 import { DucksIdentifier } from './ducks-identifier';
+import { NgRxDucksNotConnectedError } from './ngrx-ducks-not-connected.error';
 import { DispatchDefinition, Reducer } from './types';
 
 export function createDucksifiedAction<TType extends string, TPayload, TSlice>(

@@ -7,10 +7,10 @@ import {
 } from '@ngrx/store';
 import { provideMockStore } from '@ngrx/store/testing';
 import { createDuck, dispatch } from '../create-duck';
-import { StoreChunk } from './store-chunk';
+import { useActions } from '../use-actions';
 import { useSelect } from '../use-select';
 import { useSelectors } from '../use-selectors';
-import { useActions } from '../use-actions';
+import { StoreChunk } from './store-chunk';
 
 describe(StoreChunk.name, () => {
   describe('When a class with ducks is annotated', () => {

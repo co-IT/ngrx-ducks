@@ -1,5 +1,5 @@
 import { expecter } from 'ts-snippet';
-import { NgRxDucksNotConnectedError } from '../create-duck/create-duck-not-connected.error';
+import { NgRxDucksNotConnectedError } from '../create-duck/ngrx-ducks-not-connected.error';
 import { compilerOptions } from '../utils';
 import { useSelect } from './use-select';
 

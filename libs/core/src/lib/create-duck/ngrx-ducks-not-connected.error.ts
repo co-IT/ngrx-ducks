@@ -1,7 +1,7 @@
 export class NgRxDucksNotConnectedError extends Error {
   constructor(type?: string) {
     super(
-      '[create-duck] Please make sure using createDuck & bindSelectors inside a class' +
+      '[NgRxDucks] Please make sure using createDuck & useSelectors inside a class' +
         `that is decorated with @StoreChunk().` +
         !type
         ? ''
