@@ -6,4 +6,4 @@ export { getReducer } from './lib/get-reducer/get-reducer';
 export { StoreChunk } from './lib/store-chunk/store-chunk';
 export { useActions } from './lib/use-actions/use-actions';
 export { useSelect } from './lib/use-select/use-select';
-export { bindSelectors, useSelectors } from './lib/use-selectors/use-selectors';
+export { useSelectors } from './lib/use-selectors/use-selectors';

@@ -5,11 +5,6 @@ import { selectorIdentifierPropertyKey } from './selector-identifier-property-ke
 import { MemoizedSelectorFactory } from './types/memoized-selector-factory';
 import { Selectors } from './types/selectors';
 
-/**
- * @deprecated since version 13. Use useSelectors instead.
- */
-export const bindSelectors = useSelectors;
-
 export function useSelectors<
   T extends {
     [key: string]:
