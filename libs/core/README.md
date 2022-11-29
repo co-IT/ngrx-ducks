@@ -1,17 +1,6 @@
-# @ngrx-ducks
+# @ngrx-ducks/core
 
-Welcome to the mono-repository containing all packages related to the Ducks.
-
-| Package      | Description                            |
-| ------------ | -------------------------------------- |
-| [core]       | Improves coding experience for [ngrx]. |
-
-[core]: ./libs/core
-[ngrx]: https://ngrx.io/
-
-## Documentation
-
-You can learn all about NgRx Ducks by studying the [Docs](https://co-it.gitbook.io/ngrx-ducks/).
+> You can learn all about NgRx Ducks by studying the [Docs](https://co-it.gitbook.io/ngrx-ducks/).
 
 ## Demo
 
