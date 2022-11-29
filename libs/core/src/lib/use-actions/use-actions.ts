@@ -1,6 +1,7 @@
 import { inferTypePrefixFromFeatureName, isDuck } from '../store-chunk/connect';
 import { ActionCreators } from './action-creators';
 import { Constructable } from './constructable';
+import { NgRxDucksUseActionsCannotInitializeStaticFieldsError } from './ngrx-ducks-use-actions-cannot-initialize-static-class-fields.error';
 
 interface UseActionsConfiguration {
   /**
@@ -13,6 +14,10 @@ export function useActions<T extends Constructable>(
   Token: T,
   configuration?: UseActionsConfiguration
 ): ActionCreators<T> {
+  if (!Token) {
+    throw new NgRxDucksUseActionsCannotInitializeStaticFieldsError();
+  }
+
   const instance = new Token();
   const prefix = inferTypePrefixFromFeatureName({
     feature: configuration?.prefix || '',

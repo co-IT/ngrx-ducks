@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { delay, map } from 'rxjs/operators';
-import { counterStoreChunkActions } from './counter.store';
+import { counterStoreChunkActions } from './counter.store-chunk';
 
 @Injectable()
 export class CounterEffects {
@@ -13,5 +13,5 @@ export class CounterEffects {
     )
   );
 
-  constructor(private actions$: Actions) { }
+  constructor(private actions$: Actions) {}
 }

@@ -1,4 +1,5 @@
 import { createDuck, dispatch } from '../create-duck';
+import { NgRxDucksUseActionsCannotInitializeStaticFieldsError } from './ngrx-ducks-use-actions-cannot-initialize-static-class-fields.error';
 import { useActions } from './use-actions';
 
 describe(useActions.name, () => {
@@ -44,6 +45,14 @@ describe(useActions.name, () => {
     it('ignores each property not being duck', () => {
       const actions = useActions(Chunk);
       expect((actions as any).otherProperty).toBeUndefined();
+    });
+  });
+
+  describe('When useActions initializes a static field inside a class annotated with @StoreChunk', () => {
+    it('throws an error, clarifying that there are issues in ES2022', () => {
+      expect(() => useActions(null as any)).toThrowError(
+        NgRxDucksUseActionsCannotInitializeStaticFieldsError
+      );
     });
   });
 });
