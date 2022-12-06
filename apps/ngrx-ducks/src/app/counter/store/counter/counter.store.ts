@@ -21,9 +21,7 @@ const initialState = {
   defaults: initialState
 })
 export class CounterStore {
-  static
-
-    pick = useSelect();
+  static pick = useSelect();
   select = useSelectors(selectors);
 
   /**
@@ -62,5 +60,8 @@ export class CounterStore {
   };
 }
 
-
-export const counterStoreChunkActions = useActions(CounterStore, { prefix: counterFeatureName });
+export namespace CounterStore {
+  export const actions = useActions(CounterStore, {
+    prefix: counterFeatureName
+  });
+}
