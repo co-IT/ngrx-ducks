@@ -7,7 +7,7 @@
     "@ngrx/effects": ">= 14.0.0",
     "@ngrx/store": ">= 14.0.0",
     "immer": ">= 9.0.6",
-    "rxjs": "^6.5.5 || ^7.4.0"
+    "rxjs": ">= 7.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
