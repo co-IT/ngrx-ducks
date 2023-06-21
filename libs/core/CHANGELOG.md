@@ -11,6 +11,15 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 
 
+# [16.0.0](https://github.com/co-IT/ngrx-ducks/compare/v15.0.0...v16.0.0) (2023-06-21)
+
+
+### Features
+
+* **core:** require rxjs 7 ([7e63f94](https://github.com/co-IT/ngrx-ducks/commit/7e63f9474c777c0b597ca38fe1d5857a49739583))
+
+
+
 # [15.0.0](https://github.com/co-IT/ngrx-ducks/compare/v14.0.3...v15.0.0) (2022-11-29)
 
 
