@@ -7,7 +7,7 @@
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/ngrx-ducks-e2e/cypress.json",
+        "cypressConfig": "apps/ngrx-ducks-e2e/cypress.config.ts",
         "devServerTarget": "ngrx-ducks:serve:development",
         "tsConfig": "apps/ngrx-ducks-e2e/tsconfig.json"
       },

@@ -40,7 +40,7 @@ dependencies:
     version: 16.0.1(@ngrx/store@16.0.1)(rxjs@7.8.1)
   '@nx/angular':
     specifier: 16.3.2
-    version: 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
+    version: 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
   rxjs:
     specifier: 7.8.1
     version: 7.8.1
@@ -86,11 +86,11 @@ devDependencies:
     specifier: 17.0.2
     version: 17.0.2
   '@jscutlery/semver':
-    specifier: 2.25.2
-    version: 2.25.2(@nrwl/devkit@14.8.8)
+    specifier: 3.0.0
+    version: 3.0.0(@nx/devkit@16.3.2)
   '@nx/cypress':
     specifier: 16.3.2
-    version: 16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
+    version: 16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
   '@nx/devkit':
     specifier: 16.3.2
     version: 16.3.2(nx@16.3.2)
@@ -122,8 +122,8 @@ devDependencies:
     specifier: 5.58.0
     version: 5.58.0(eslint@8.15.0)(typescript@5.0.4)
   cypress:
-    specifier: 9.0.0
-    version: 9.0.0
+    specifier: 12.15.0
+    version: 12.15.0
   eslint:
     specifier: 8.15.0
     version: 8.15.0
@@ -131,8 +131,8 @@ devDependencies:
     specifier: 8.1.0
     version: 8.1.0(eslint@8.15.0)
   eslint-plugin-cypress:
-    specifier: 2.10.3
-    version: 2.10.3(eslint@8.15.0)
+    specifier: 2.13.3
+    version: 2.13.3(eslint@8.15.0)
   husky:
     specifier: 7.0.4
     version: 7.0.4
@@ -3809,16 +3809,19 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jscutlery/semver@2.25.2(@nrwl/devkit@14.8.8):
-    resolution: {integrity: sha512-F5vpPHDN20e4kQxoalia+SnUk0xX/GZ798WAv6vxVFqV5Zw0RABUqnGQfDVSv9lbjm//eBeUvQmBd9f3A6y32g==}
+  /@jscutlery/semver@3.0.0(@nx/devkit@16.3.2):
+    resolution: {integrity: sha512-HihMZSDZRxXm9j9uKyV791Hm1BpIS55NrQx5H0yuc2/GHtWaKm86/Cpqp74q98f47XL7aZgRiYdS5+J1Vh1hww==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
-      '@nrwl/devkit': ^14.0.0
+      '@nx/devkit': ^16.0.0
     dependencies:
-      '@nrwl/devkit': 14.8.8(nx@16.3.2)(typescript@5.0.4)
-      inquirer: 8.2.4
-      rxjs: 7.5.5
-      standard-version: 9.5.0
+      '@nx/devkit': 16.3.2(nx@16.3.2)
+      chalk: 4.1.2
+      conventional-changelog: 3.1.25
+      conventional-recommended-bump: 6.1.0
+      detect-indent: 6.1.0
+      inquirer: 8.2.5
+      rxjs: 7.8.1
     dev: true
 
   /@leichtgewicht/ip-codec@2.0.4:
@@ -3945,10 +3948,10 @@ packages:
       - supports-color
     dev: true
 
-  /@nrwl/angular@16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4):
+  /@nrwl/angular@16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4):
     resolution: {integrity: sha512-OcGEBMY0jBT5NZxDMThK+aSFNr81LCicU2o+Yk6i5Kiv4+ClkEQziSzuV7Jy/jY5g4BNaWl2rLpheQ6V2J5acg==}
     dependencies:
-      '@nx/angular': 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
+      '@nx/angular': 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
       tslib: 2.3.1
     transitivePeerDependencies:
       - '@angular-devkit/build-angular'
@@ -3985,10 +3988,10 @@ packages:
       - webpack-cli
     dev: false
 
-  /@nrwl/cypress@16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4):
+  /@nrwl/cypress@16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4):
     resolution: {integrity: sha512-f1RWC4jFe0KNDKRs8FY8gn2ik0+DOGsw/HG2oz5Ck/sT1yPwexLZ/+I854UuKs2Gtw5/B/l/7hcis+/MsgXe2Q==}
     dependencies:
-      '@nx/cypress': 16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
+      '@nx/cypress': 16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -4000,20 +4003,6 @@ packages:
       - supports-color
       - typescript
       - verdaccio
-
-  /@nrwl/devkit@14.8.8(nx@16.3.2)(typescript@5.0.4):
-    resolution: {integrity: sha512-NLgLRfGyv9aMHxGi+rrVRPLYbuqYoGcRVVr0bo3PP1cVSry1THBoLivvPzqf/tniM1S4EzJdrOSau7dfPVGNFA==}
-    peerDependencies:
-      nx: '>= 13.10 <= 15'
-    dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1(typescript@5.0.4)
-      ejs: 3.1.9
-      ignore: 5.2.4
-      nx: 16.3.2
-      tslib: 2.3.1
-    transitivePeerDependencies:
-      - typescript
-    dev: true
 
   /@nrwl/devkit@16.3.2(nx@16.3.2):
     resolution: {integrity: sha512-EiDwVIvh6AcClXv22Q7auQh7Iy/ONISEFWzTswy/J6ZmVGCQesbiwg4cGV0MKiScr+awdVzqyNey+wD6IR5Lkw==}
@@ -4143,7 +4132,7 @@ packages:
       - '@swc/core'
       - debug
 
-  /@nx/angular@16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4):
+  /@nx/angular@16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4):
     resolution: {integrity: sha512-HICRym/OBtuNKPN/kQPaKgt61DskiR/6ha52M59nfIi3u6o9c4ty+Jm+/1Wz1DeLDCQdcE3rwB/NTtQLLmW69g==}
     peerDependencies:
       '@angular-devkit/build-angular': '>= 14.0.0 < 17.0.0'
@@ -4159,8 +4148,8 @@ packages:
       '@angular-devkit/build-angular': 16.0.6(@angular/compiler-cli@16.0.6)(@types/node@14.14.33)(jest-environment-jsdom@29.4.3)(jest@29.4.3)(ng-packagr@16.0.1)(stylus@0.55.0)(ts-node@10.9.1)(typescript@5.0.4)
       '@angular-devkit/core': 16.0.6(chokidar@3.5.3)
       '@angular-devkit/schematics': 16.0.6
-      '@nrwl/angular': 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
-      '@nx/cypress': 16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
+      '@nrwl/angular': 16.3.2(@angular-devkit/build-angular@16.0.6)(@angular-devkit/core@16.0.6)(@angular-devkit/schematics@16.0.6)(@schematics/angular@16.0.6)(@types/node@14.14.33)(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(rxjs@7.8.1)(typescript@5.0.4)
+      '@nx/cypress': 16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
       '@nx/devkit': 16.3.2(nx@16.3.2)
       '@nx/jest': 16.3.2(@types/node@14.14.33)(nx@16.3.2)(ts-node@10.9.1)(typescript@5.0.4)
       '@nx/js': 16.3.2(nx@16.3.2)(typescript@5.0.4)
@@ -4213,7 +4202,7 @@ packages:
       - webpack-cli
     dev: false
 
-  /@nx/cypress@16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4):
+  /@nx/cypress@16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4):
     resolution: {integrity: sha512-XB4CvhTv154GHp/2+lSoCigPKZK1YoRyIZWIHJdBmpQUocLJkSqp+H8KQaU/0gH3Xbz5NxGXbQMFDWzkKxIGPg==}
     peerDependencies:
       cypress: '>= 3 < 13'
@@ -4221,12 +4210,12 @@ packages:
       cypress:
         optional: true
     dependencies:
-      '@nrwl/cypress': 16.3.2(cypress@9.0.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
+      '@nrwl/cypress': 16.3.2(cypress@12.15.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
       '@nx/devkit': 16.3.2(nx@16.3.2)
       '@nx/js': 16.3.2(nx@16.3.2)(typescript@5.0.4)
       '@nx/linter': 16.3.2(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.0.4)
-      cypress: 9.0.0
+      cypress: 12.15.0
       detect-port: 1.5.1
       dotenv: 10.0.0
       semver: 7.3.4
@@ -4566,15 +4555,6 @@ packages:
       node-addon-api: 3.2.1
       node-gyp-build: 4.6.0
 
-  /@phenomnomnominal/tsquery@4.1.1(typescript@5.0.4):
-    resolution: {integrity: sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ==}
-    peerDependencies:
-      typescript: ^3 || ^4
-    dependencies:
-      esquery: 1.5.0
-      typescript: 5.0.4
-    dev: true
-
   /@phenomnomnominal/tsquery@5.0.1(typescript@5.0.4):
     resolution: {integrity: sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA==}
     peerDependencies:
@@ -4889,8 +4869,8 @@ packages:
       '@types/mime': 3.0.1
       '@types/node': 14.14.33
 
-  /@types/sinonjs__fake-timers@6.0.4:
-    resolution: {integrity: sha512-IFQTJARgMUBF+xVd2b+hIgXWrZEjND3vJtRCvIelcFB5SIXfjV4bOHbHJ0eXKh+0COrBRc8MqteKAz/j88rE0A==}
+  /@types/sinonjs__fake-timers@8.1.1:
+    resolution: {integrity: sha512-0kSuKjAS0TrGLJ0M/+8MaFkGsQhZpB6pxOmvS3K8FYI72K//YmdfoW9X2qPsAKh1mkwxGD5zib9s1FIFed6E8g==}
 
   /@types/sizzle@2.3.3:
     resolution: {integrity: sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==}
@@ -6300,8 +6280,8 @@ packages:
   /commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
-  /commander@5.1.0:
-    resolution: {integrity: sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==}
+  /commander@6.2.1:
+    resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
     engines: {node: '>= 6'}
 
   /commander@7.2.0:
@@ -6398,10 +6378,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       q: 1.5.1
-    dev: true
-
-  /conventional-changelog-config-spec@2.1.0:
-    resolution: {integrity: sha512-IpVePh16EbbB02V+UA+HQnnPIohgXvJRxHcS5+Uwk4AT5LjzCZJm5sp/yqs5C6KZJ1jMsV4paEV13BN1pvDuxQ==}
     dev: true
 
   /conventional-changelog-conventionalcommits@4.6.3:
@@ -6900,31 +6876,32 @@ packages:
   /cuint@0.2.2:
     resolution: {integrity: sha512-d4ZVpCW31eWwCMe1YT3ur7mUDnTXbgwyzaL320DrcRT45rfjYxkt5QWLrmOJ+/UEAI2+fQgKe/fCjR8l4TpRgw==}
 
-  /cypress@9.0.0:
-    resolution: {integrity: sha512-/93SWBZTw7BjFZ+I9S8SqkFYZx7VhedDjTtRBmXO0VzTeDbmxgK/snMJm/VFjrqk/caWbI+XY4Qr80myDMQvYg==}
-    engines: {node: '>=12.0.0'}
+  /cypress@12.15.0:
+    resolution: {integrity: sha512-FqGbxsH+QgjStuTO9onXMIeF44eOrgVwPvlcvuzLIaePQMkl72YgBvpuHlBGRcrw3Q4SvqKfajN8iV5XWShAiQ==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@cypress/request': 2.88.11
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
       '@types/node': 14.14.33
-      '@types/sinonjs__fake-timers': 6.0.4
+      '@types/sinonjs__fake-timers': 8.1.1
       '@types/sizzle': 2.3.3
       arch: 2.2.0
       blob-util: 2.0.2
       bluebird: 3.7.2
+      buffer: 5.7.1
       cachedir: 2.3.0
       chalk: 4.1.2
       check-more-types: 2.24.0
       cli-cursor: 3.1.0
       cli-table3: 0.6.3
-      commander: 5.1.0
+      commander: 6.2.1
       common-tags: 1.8.2
       dayjs: 1.11.8
       debug: 4.3.4(supports-color@8.1.1)
       enquirer: 2.3.6
-      eventemitter2: 6.4.9
+      eventemitter2: 6.4.7
       execa: 4.1.0
       executable: 4.1.1
       extract-zip: 2.0.1(supports-color@8.1.1)
@@ -6942,10 +6919,10 @@ packages:
       pretty-bytes: 5.6.0
       proxy-from-env: 1.0.0
       request-progress: 3.0.0
+      semver: 7.5.2
       supports-color: 8.1.1
       tmp: 0.2.1
       untildify: 4.0.0
-      url: 0.11.1
       yauzl: 2.10.0
 
   /dargs@7.0.0:
@@ -7207,14 +7184,6 @@ packages:
     resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
     engines: {node: '>=10'}
 
-  /dotgitignore@2.1.0:
-    resolution: {integrity: sha512-sCm11ak2oY6DglEPpCB8TixLjWAxd3kJTs6UIcSasNYxXdFPV+YKlye92c8H4kKFqV5qYMIh7d+cYecEg0dIkA==}
-    engines: {node: '>=6'}
-    dependencies:
-      find-up: 3.0.0
-      minimatch: 3.1.2
-    dev: true
-
   /duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
@@ -7440,8 +7409,8 @@ packages:
       eslint: 8.15.0
     dev: true
 
-  /eslint-plugin-cypress@2.10.3(eslint@8.15.0):
-    resolution: {integrity: sha512-CvFeoCquShfO8gHNIKA1VpUTz78WtknMebLemBd1lRbcmJNjwpqCqpQYUG/XVja8GjdX/e2TJXYa+EUBxehtUg==}
+  /eslint-plugin-cypress@2.13.3(eslint@8.15.0):
+    resolution: {integrity: sha512-nAPjZE5WopCsgJwl3vHm5iafpV+ZRO76Z9hMyRygWhmg5ODXDPd+9MaPl7kdJ2azj+sO87H3P1PRnggIrz848g==}
     peerDependencies:
       eslint: '>= 3.2.1'
     dependencies:
@@ -7570,8 +7539,8 @@ packages:
   /eventemitter-asyncresource@1.0.0:
     resolution: {integrity: sha512-39F7TBIV0G7gTelxwbEqnwhp90eqCPON1k0NwNfwhgKn4Co4ybUbj2pECcXT0B3ztRKZ7Pw1JujUUgmQJHcVAQ==}
 
-  /eventemitter2@6.4.9:
-    resolution: {integrity: sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg==}
+  /eventemitter2@6.4.7:
+    resolution: {integrity: sha512-tYUSVOGeQPKt/eC1ABfhHy5Xd96N3oIijJvN3O9+TsC28T5V9yX9oEfEK5faP0EFSNVOG97qtAS68GBrQB2hDg==}
 
   /eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
@@ -7809,13 +7778,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       locate-path: 2.0.0
-    dev: true
-
-  /find-up@3.0.0:
-    resolution: {integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==}
-    engines: {node: '>=6'}
-    dependencies:
-      locate-path: 3.0.0
     dev: true
 
   /find-up@4.1.0:
@@ -8588,6 +8550,27 @@ packages:
       strip-ansi: 6.0.1
       through: 2.3.8
       wrap-ansi: 7.0.0
+
+  /inquirer@8.2.5:
+    resolution: {integrity: sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-width: 3.0.0
+      external-editor: 3.1.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      mute-stream: 0.0.8
+      ora: 5.4.1
+      run-async: 2.4.1
+      rxjs: 7.8.1
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      through: 2.3.8
+      wrap-ansi: 7.0.0
+    dev: true
 
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
@@ -9670,14 +9653,6 @@ packages:
       path-exists: 3.0.0
     dev: true
 
-  /locate-path@3.0.0:
-    resolution: {integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==}
-    engines: {node: '>=6'}
-    dependencies:
-      p-locate: 3.0.0
-      path-exists: 3.0.0
-    dev: true
-
   /locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -10562,13 +10537,6 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       p-limit: 1.3.0
-    dev: true
-
-  /p-locate@3.0.0:
-    resolution: {integrity: sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==}
-    engines: {node: '>=6'}
-    dependencies:
-      p-limit: 2.3.0
     dev: true
 
   /p-locate@4.1.0:
@@ -11646,9 +11614,6 @@ packages:
       end-of-stream: 1.4.4
       once: 1.4.0
 
-  /punycode@1.4.1:
-    resolution: {integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==}
-
   /punycode@2.3.0:
     resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
     engines: {node: '>=6'}
@@ -11678,6 +11643,7 @@ packages:
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.4
+    dev: false
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
@@ -11963,12 +11929,6 @@ packages:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
       queue-microtask: 1.2.3
-
-  /rxjs@7.5.5:
-    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
-    dependencies:
-      tslib: 2.3.1
-    dev: true
 
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
@@ -12453,27 +12413,6 @@ packages:
     dependencies:
       escape-string-regexp: 2.0.0
 
-  /standard-version@9.5.0:
-    resolution: {integrity: sha512-3zWJ/mmZQsOaO+fOlsa0+QK90pwhNd042qEcw6hKFNoLFs7peGyvPffpEBbK/DSGPbyOvli0mUIFv5A4qTjh2Q==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      chalk: 2.4.2
-      conventional-changelog: 3.1.25
-      conventional-changelog-config-spec: 2.1.0
-      conventional-changelog-conventionalcommits: 4.6.3
-      conventional-recommended-bump: 6.1.0
-      detect-indent: 6.1.0
-      detect-newline: 3.1.0
-      dotgitignore: 2.1.0
-      figures: 3.2.0
-      find-up: 5.0.0
-      git-semver-tags: 4.1.1
-      semver: 7.5.2
-      stringify-package: 1.0.1
-      yargs: 16.2.0
-    dev: true
-
   /statuses@1.5.0:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
@@ -12521,11 +12460,6 @@ packages:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
     dependencies:
       safe-buffer: 5.2.1
-
-  /stringify-package@1.0.1:
-    resolution: {integrity: sha512-sa4DUQsYciMP1xhKWGuFM04fB0LG/9DlluZoSVywUMRNvzid6XucHK0/90xGxRoHrAaROrcHK1aPKaijCtSrhg==}
-    deprecated: This module is not used anymore, and has been replaced by @npmcli/package-json
-    dev: true
 
   /strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
@@ -13139,12 +13073,6 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
-
-  /url@0.11.1:
-    resolution: {integrity: sha512-rWS3H04/+mzzJkv0eZ7vEDGiQbgquI1fGfOad6zKvgYQi1SzMmhl7c/DdRGxhaWrVH6z0qWITo8rpnxK/RfEhA==}
-    dependencies:
-      punycode: 1.4.1
-      qs: 6.11.2
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}

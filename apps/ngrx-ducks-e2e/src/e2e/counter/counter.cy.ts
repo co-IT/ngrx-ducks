@@ -1,4 +1,4 @@
-import { Counter } from '../support';
+import { Counter } from '../../support';
 
 describe('Counter', () => {
   describe('When the counter starts', () => {
