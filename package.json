@@ -9,8 +9,8 @@
     "build": "nx build",
     "test": "nx test",
     "test:e2e": "nx e2e",
-    "release:patch": "nx run workspace:version --releaseAS=patch",
-    "release:major": "nx run workspace:version --releaseAS=major",
+    "release:patch": "nx run workspace:version --releaseAs=patch",
+    "release:major": "nx run workspace:version --releaseAs=major",
     "prepare": "husky install"
   },
   "private": true,
