@@ -1,5 +1,9 @@
 # @ngrx-ducks
 
+> ⚠️ Currently, the development of further features is not planned. We also think about freezing this project due to new features Angular received (e.g. Signals).
+> 🤗 Please reach out, you rely on this project, so we can take your needs into account.
+> 🙏🏻 Thank you!
+
 Welcome to the mono-repository containing all packages related to the Ducks.
 
 | Package      | Description                            |
